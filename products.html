@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Products | KadeKor - Premium Interior & Exterior Films</title>
+    <title>Our Products | KaDekor - Premium Interior & Exterior Films</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -18,7 +18,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <span class="fw-bold text-primary">Kade</span><span class="fw-bold text-dark">Kor</span>
+                <span class="fw-bold text-primary">Ka</span><span class="fw-bold text-dark">Dekor</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -50,7 +50,7 @@
                     <h1 class="fw-bold">Our Products</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Home</a></li>
+                            <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-primary">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Products</li>
                         </ol>
                     </nav>
@@ -63,389 +63,310 @@
     <section class="py-5">
         <div class="container">
             <div class="row">
-                <!-- Sidebar - Product Categories -->
+                <!-- Sidebar - Product Categories with Accordion -->
                 <div class="col-lg-3">
                     <div class="card border-0 shadow-sm mb-4">
                         <div class="card-body">
                             <h5 class="fw-bold mb-3">Product Categories</h5>
                             
-                            <!-- Interior Films Category -->
-                            <div class="mb-3">
-                                <div class="d-flex justify-content-between align-items-center category-header">
-                                    <h6 class="fw-bold mb-2">Interior Films</h6>
-                                    <button class="btn btn-sm btn-link p-0 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#interiorCollapse" aria-expanded="true" aria-controls="interiorCollapse">
-                                        <i class="fas fa-chevron-down"></i>
-                                    </button>
+                            <div class="accordion" id="productAccordion">
+                                <!-- PVC Films -->
+                                <div class="accordion-item border-0 shadow-sm mb-3">
+                                    <h2 class="accordion-header" id="headingPVC">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePVC" aria-expanded="true" aria-controls="collapsePVC">
+                                            PVC Films
+                                        </button>
+                                    </h2>
+                                    <div id="collapsePVC" class="accordion-collapse collapse show" aria-labelledby="headingPVC" data-bs-parent="#productAccordion">
+                                        <div class="accordion-body">
+                                            <h6 class="fw-bold">Interior</h6>
+                                            <ul class="list-unstyled ps-2 mb-3">
+                                                <li class="mb-2">
+                                                    <a href="#wooden-interior" class="text-decoration-none text-dark d-block">Wooden Colors</a>
+                                                </li>
+                                                <li class="mb-2">
+                                                    <a href="#solid-pastel" class="text-decoration-none text-dark d-block">Solid & Pastel Colors</a>
+                                                </li>
+                                                <li class="mb-2">
+                                                    <a href="#high-gloss" class="text-decoration-none text-dark d-block">High Gloss</a>
+                                                </li>
+                                                <li class="mb-2">
+                                                    <a href="#backside-lining" class="text-decoration-none text-dark d-block">Backside Lining</a>
+                                                </li>
+                                            </ul>
+                                            
+                                            <h6 class="fw-bold mt-3">Exterior</h6>
+                                            <ul class="list-unstyled ps-2">
+                                                <li class="mb-2">
+                                                    <a href="#wooden-exterior" class="text-decoration-none text-dark d-block">Wooden Colors</a>
+                                                </li>
+                                                <li class="mb-2">
+                                                    <a href="#solid-exterior" class="text-decoration-none text-dark d-block">Solid Colors</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="collapse show" id="interiorCollapse">
-                                    <ul class="list-group list-group-flush subcategories">
-                                        <li class="list-group-item border-0 ps-0 py-2">
-                                            <a href="#wooden-interior" class="text-decoration-none text-dark d-block">Wooden Colors</a>
-                                        </li>
-                                        <li class="list-group-item border-0 ps-0 py-2">
-                                            <a href="#solid-pastel" class="text-decoration-none text-dark d-block">Solid & Pastel Colors</a>
-                                        </li>
-                                        <li class="list-group-item border-0 ps-0 py-2">
-                                            <a href="#high-gloss" class="text-decoration-none text-dark d-block">High Gloss Collection</a>
-                                        </li>
-                                        <li class="list-group-item border-0 ps-0 py-2">
-                                            <a href="#backside-lining" class="text-decoration-none text-dark d-block">Backside Lining</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <!-- Exterior Films Category -->
-                            <div>
-                                <div class="d-flex justify-content-between align-items-center category-header">
-                                    <h6 class="fw-bold mb-2">Exterior Films</h6>
-                                    <button class="btn btn-sm btn-link p-0 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#exteriorCollapse" aria-expanded="false" aria-controls="exteriorCollapse">
-                                        <i class="fas fa-chevron-down"></i>
-                                    </button>
-                                </div>
-                                <div class="collapse show" id="exteriorCollapse">
-                                    <ul class="list-group list-group-flush subcategories">
-                                        <li class="list-group-item border-0 ps-0 py-2">
-                                            <a href="#wooden-exterior" class="text-decoration-none text-dark d-block">Wooden Colors</a>
-                                        </li>
-                                        <li class="list-group-item border-0 ps-0 py-2">
-                                            <a href="#solid-exterior" class="text-decoration-none text-dark d-block">Solid Colors</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Filter Section -->
-                    <div class="card border-0 shadow-sm mb-4">
-                        <div class="card-body">
-                            <h5 class="fw-bold mb-3">Filter By</h5>
-                            
-                            <!-- Finish Type Filter -->
-                            <div class="mb-4">
-                                <h6 class="fw-bold mb-2">Finish</h6>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="checkbox" value="" id="matte">
-                                    <label class="form-check-label" for="matte">
-                                        Matte
-                                    </label>
+                                <!-- Door -->
+                                <div class="accordion-item border-0 shadow-sm mb-3">
+                                    <h2 class="accordion-header" id="headingDoor">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDoor" aria-expanded="false" aria-controls="collapseDoor">
+                                            Door
+                                        </button>
+                                    </h2>
+                                    <div id="collapseDoor" class="accordion-collapse collapse" aria-labelledby="headingDoor" data-bs-parent="#productAccordion">
+                                        <div class="accordion-body">
+                                            <ul class="list-unstyled ps-2">
+                                                <li class="mb-2">
+                                                    <a href="#deodora" class="text-decoration-none text-dark d-block">Deodora Series</a>
+                                                </li>
+                                                <li class="mb-2">
+                                                    <a href="#fagus" class="text-decoration-none text-dark d-block">Fagus Series</a>
+                                                </li>
+                                                <li class="mb-2">
+                                                    <a href="#cedrus" class="text-decoration-none text-dark d-block">Cedrus Series</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="checkbox" value="" id="glossy">
-                                    <label class="form-check-label" for="glossy">
-                                        Glossy
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="textured">
-                                    <label class="form-check-label" for="textured">
-                                        Textured
-                                    </label>
-                                </div>
-                            </div>
-                            
-                            <!-- Width Filter -->
-                            <div>
-                                <h6 class="fw-bold mb-2">Width</h6>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="checkbox" value="" id="width-48">
-                                    <label class="form-check-label" for="width-48">
-                                        48 inches
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="width-60">
-                                    <label class="form-check-label" for="width-60">
-                                        60 inches
-                                    </label>
+
+                                <!-- Vinylbond -->
+                                <div class="accordion-item border-0 shadow-sm">
+                                    <h2 class="accordion-header" id="headingVinylbond">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVinylbond" aria-expanded="false" aria-controls="collapseVinylbond">
+                                            Vinylbond
+                                        </button>
+                                    </h2>
+                                    <div id="collapseVinylbond" class="accordion-collapse collapse" aria-labelledby="headingVinylbond" data-bs-parent="#productAccordion">
+                                        <div class="accordion-body">
+                                            <p class="text-muted mb-0">Vinylbond product information will be displayed here.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Main Content - Products -->
+                <!-- Dynamic Product Container -->
                 <div class="col-lg-9">
-                    <!-- Interior Films Section -->
-                    <section class="mb-5">
-                        <h2 class="fw-bold mb-4">Interior Films</h2>
-                        
-                        <!-- Wooden Colors Section -->
-                        <div id="wooden-interior" class="mb-5">
-                            <h3 class="h5 fw-bold mb-3 border-start border-primary border-4 ps-3">Wooden Colors</h3>
-                            <div class="row g-4">
-                                <div class="col-md-6 col-lg-4">
-                                    <div class="card product-card border-0 shadow-sm h-100">
-                                        <img src="./img/light_oakjpg.jpg" class="card-img-top" alt="Light Oak Interior Film">
-                                        <div class="card-body">
-                                            <h5 class="card-title fw-bold">Light Oak Film</h5>
-                                            <p class="card-text text-muted small mb-1">Matte Finish | 48" Width</p>
-                                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                                <span class="fw-bold">$24.99/sqft</span>
-                                                <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
-                                            </div>
+                    <!-- Search and Filter Bar -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-body p-3">
+                            <div class="row align-items-center">
+                                <div class="col-lg-8">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search products..." id="productSearchInput">
+                                        <button class="btn btn-primary" type="button">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 mt-3 mt-lg-0">
+                                    <select class="form-select" id="productSortSelect">
+                                        <option selected>Sort by</option>
+                                        <option value="name-asc">Name (A-Z)</option>
+                                        <option value="name-desc">Name (Z-A)</option>
+                                        <option value="new">Newest</option>
+                                        <option value="popular">Most Popular</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Products Grid -->
+                    <div class="mb-5">
+                        <!-- PVC Films: Interior -->
+                        <h2 id="pvc-ic-mekan" class="fw-bold mb-4 pt-2">PVC Films: Interior</h2>
+
+                        <!-- Wooden Colors -->
+                        <h3 id="wooden-interior" class="h5 fw-bold mb-3 border-start border-primary border-4 ps-3">Wooden Colors</h3>
+                        <div class="row g-4 mb-5 product-grid" data-category="wooden-interior">
+                            <!-- Cards will be added dynamically with JS -->
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card product-card border-0 shadow-sm h-100">
+                                    <img src="./img/light_oakjpg.jpg" class="card-img-top" alt="Light Oak Interior Film">
+                                    <div class="card-body">
+                                        <h5 class="card-title fw-bold">Light Oak</h5>
+                                        <p class="card-text text-muted small mb-2">PVC film with natural wood appearance for interior spaces</p>
+                                        <div class="d-flex justify-content-end mt-3">
+                                            <button class="btn btn-sm btn-outline-primary view-details" 
+                                                   data-product-id="1" 
+                                                   data-bs-toggle="modal" 
+                                                   data-bs-target="#productModal">View Details</button>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-lg-4">
-                                    <div class="card product-card border-0 shadow-sm h-100">
-                                        <div class="position-relative">
-                                            <img src="./img/wood_grain.jpg" class="card-img-top" alt="Dark Walnut Interior Film">
-                                            <span class="badge bg-primary position-absolute top-0 end-0 m-2">Bestseller</span>
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title fw-bold">Dark Walnut Film</h5>
-                                            <p class="card-text text-muted small mb-1">Textured | 48" Width</p>
-                                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                                <span class="fw-bold">$26.99/sqft</span>
-                                                <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-4">
-                                    <div class="card product-card border-0 shadow-sm h-100">
-                                        <img src="./img/luxury_vinyl.jpg" class="card-img-top" alt="Cherry Wood Interior Film">
-                                        <div class="card-body">
-                                            <h5 class="card-title fw-bold">Cherry Wood Film</h5>
-                                            <p class="card-text text-muted small mb-1">Matte Finish | 60" Width</p>
-                                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                                <span class="fw-bold">$28.99/sqft</span>
-                                                <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
-                                            </div>
+                            </div>
+                            
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card product-card border-0 shadow-sm h-100">
+                                    <img src="./img/akçaağaç.jpg" class="card-img-top" alt="Cherry Wood Interior Film">
+                                    <div class="card-body">
+                                        <h5 class="card-title fw-bold">Cherry Wood</h5>
+                                        <p class="card-text text-muted small mb-2">Warm-toned wood patterned PVC film for interiors</p>
+                                        <div class="d-flex justify-content-end mt-3">
+                                            <button class="btn btn-sm btn-outline-primary view-details" 
+                                                   data-product-id="3" 
+                                                   data-bs-toggle="modal" 
+                                                   data-bs-target="#productModal">View Details</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Solid & Pastel Colors -->
+                        <h3 id="solid-pastel" class="h5 fw-bold mb-3 border-start border-primary border-4 ps-3">Solid & Pastel Colors</h3>
+                        <div class="row g-4 mb-5 product-grid" data-category="solid-pastel">
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card product-card border-0 shadow-sm h-100">
+                                    <img src="./img/lacquer_white.jpg" class="card-img-top" alt="Pure White Interior Film">
+                                    <div class="card-body">
+                                        <h5 class="card-title fw-bold">Pure White</h5>
+                                        <p class="card-text text-muted small mb-2">Clean and minimalist-looking PVC film for interiors</p>
+                                        <div class="d-flex justify-content-end mt-3">
+                                            <button class="btn btn-sm btn-outline-primary view-details" 
+                                                   data-product-id="4" 
+                                                   data-bs-toggle="modal" 
+                                                   data-bs-target="#productModal">View Details</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Continue with other solid & pastel products -->
+                        </div>
+
+                        <!-- High Gloss -->
+                        <h3 id="high-gloss" class="h5 fw-bold mb-3 border-start border-primary border-4 ps-3">High Gloss</h3>
+                        <div class="row g-4 mb-5 product-grid" data-category="high-gloss">
+                            <!-- High gloss products -->
+                        </div>
                         
-                        <!-- Solid & Pastel Colors Section -->
-                        <div id="solid-pastel" class="mb-5">
-                            <h3 class="h5 fw-bold mb-3 border-start border-primary border-4 ps-3">Solid & Pastel Colors</h3>
-                            <div class="row g-4">
-                                <div class="col-md-6 col-lg-4">
-                                    <div class="card product-card border-0 shadow-sm h-100">
-                                        <img src="./img/lacquer_white.jpg" class="card-img-top" alt="Pure White Interior Film">
-                                        <div class="card-body">
-                                            <h5 class="card-title fw-bold">Pure White Film</h5>
-                                            <p class="card-text text-muted small mb-1">Matte Finish | 48" Width</p>
-                                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                                <span class="fw-bold">$22.99/sqft</span>
-                                                <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
-                                            </div>
+                        <!-- Backside Lining -->
+                        <h3 id="backside-lining" class="h5 fw-bold mb-3 border-start border-primary border-4 ps-3">Backside Lining</h3>
+                        <div class="row g-4 mb-5 product-grid" data-category="backside-lining">
+                            <!-- Backside lining products -->
+                        </div>
+                        
+                        <!-- PVC Films: Exterior -->
+                        <h2 id="pvc-dis-mekan" class="fw-bold mb-4 pt-4 mt-3">PVC Films: Exterior</h2>
+                        
+                        <!-- Wooden Colors (Exterior) -->
+                        <h3 id="wooden-exterior" class="h5 fw-bold mb-3 border-start border-success border-4 ps-3">Wooden Colors</h3>
+                        <div class="row g-4 mb-5 product-grid" data-category="wooden-exterior">
+                            <!-- Wooden exterior products -->
+                        </div>
+                        
+                        <!-- Solid Colors (Exterior) -->
+                        <h3 id="solid-exterior" class="h5 fw-bold mb-3 border-start border-success border-4 ps-3">Solid Colors</h3>
+                        <div class="row g-4 mb-5 product-grid" data-category="solid-exterior">
+                            <!-- Solid exterior products -->
+                        </div>
+                        
+                        <!-- Door -->
+                        <h2 id="kapi" class="fw-bold mb-4 pt-4 mt-3">Door</h2>
+                        
+                        <!-- Deodora Series -->
+                        <h3 id="deodora" class="h5 fw-bold mb-3 border-start border-danger border-4 ps-3">Deodora Series</h3>
+                        <div class="row g-4 mb-5 product-grid" data-category="deodora">
+                            <!-- Deodora series products -->
+                        </div>
+                        
+                        <!-- Fagus Series -->
+                        <h3 id="fagus" class="h5 fw-bold mb-3 border-start border-danger border-4 ps-3">Fagus Series</h3>
+                        <div class="row g-4 mb-5 product-grid" data-category="fagus">
+                            <!-- Fagus series products -->
+                        </div>
+                        
+                        <!-- Cedrus Series -->
+                        <h3 id="cedrus" class="h5 fw-bold mb-3 border-start border-danger border-4 ps-3">Cedrus Series</h3>
+                        <div class="row g-4 mb-5 product-grid" data-category="cedrus">
+                            <!-- Cedrus series products -->
+                        </div>
+                        
+                        <!-- Vinylbond -->
+                        <h2 id="vinylbond" class="fw-bold mb-4 pt-4 mt-3">Vinylbond</h2>
+                        <div class="row g-4 mb-5 product-grid" data-category="vinylbond">
+                            <!-- Vinylbond products -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Detail Modal -->
+                <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" style="max-width: 60%; width: 60%;">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title fw-bold" id="productModalLabel">Product Details</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <!-- Larger image column -->
+                                    <div class="col-md-8 mb-4 mb-md-0">
+                                        <!-- Single image display with larger size -->
+                                        <div class="product-image-container">
+                                            <img id="modal-product-image" src="" class="img-fluid rounded w-100 shadow-sm" alt="Product Image" style="max-height: 400px; object-fit: contain;">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6 col-lg-4">
-                                    <div class="card product-card border-0 shadow-sm h-100">
-                                        <div class="position-relative">
-                                            <img src="./img/textured_white.jpg" class="card-img-top" alt="Pastel Blue Interior Film">
-                                            <span class="badge bg-success position-absolute top-0 end-0 m-2">New</span>
+                                    <!-- Smaller features column -->
+                                    <div class="col-md-4">
+                                        <h3 id="modal-product-title" class="fw-bold mb-2">Product Name</h3>
+                                        <div class="mb-3">
+                                            <span class="badge bg-primary">Interior</span>
+                                            <span class="badge bg-secondary ms-1">Wooden Color</span>
                                         </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title fw-bold">Pastel Blue Film</h5>
-                                            <p class="card-text text-muted small mb-1">Matte Finish | 48" Width</p>
-                                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                                <span class="fw-bold">$23.99/sqft</span>
-                                                <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-4">
-                                    <div class="card product-card border-0 shadow-sm h-100">
-                                        <img src="./img/marble_look.jpg" class="card-img-top" alt="Sage Green Interior Film">
-                                        <div class="card-body">
-                                            <h5 class="card-title fw-bold">Sage Green Film</h5>
-                                            <p class="card-text text-muted small mb-1">Matte Finish | 60" Width</p>
-                                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                                <span class="fw-bold">$24.99/sqft</span>
-                                                <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
-                                            </div>
+                                        
+                                        <h5 class="fw-bold mb-3">Features</h5>
+                                        <ul id="modal-product-features" class="list-group list-group-flush mb-4">
+                                            <li class="list-group-item px-0 d-flex justify-content-between">
+                                                <span>Material</span>
+                                                <span class="fw-bold">Premium PVC</span>
+                                            </li>
+                                            <li class="list-group-item px-0 d-flex justify-content-between">
+                                                <span>Size</span>
+                                                <span class="fw-bold">122 cm x 50 m</span>
+                                            </li>
+                                            <li class="list-group-item px-0 d-flex justify-content-between">
+                                                <span>Thickness</span>
+                                                <span class="fw-bold">0.17 mm</span>
+                                            </li>
+                                            <li class="list-group-item px-0 d-flex justify-content-between">
+                                                <span>Surface</span>
+                                                <span class="fw-bold">Matte</span>
+                                            </li>
+                                        </ul>
+                                        
+                                        <div class="d-grid gap-2">
+                                            <a href="contact.html" class="btn btn-primary">
+                                                <i class="fas fa-envelope me-2"></i> Get in Touch
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
-                        <!-- High Gloss Collection Section -->
-                        <div id="high-gloss" class="mb-5">
-                            <h3 class="h5 fw-bold mb-3 border-start border-primary border-4 ps-3">High Gloss Collection</h3>
-                            <div class="row g-4">
-                                <div class="col-md-6 col-lg-4">
-                                    <div class="card product-card border-0 shadow-sm h-100">
-                                        <img src="./img/large_format.jpg" class="card-img-top" alt="Glossy White Film">
-                                        <div class="card-body">
-                                            <h5 class="card-title fw-bold">Glossy White Film</h5>
-                                            <p class="card-text text-muted small mb-1">High Gloss | 48" Width</p>
-                                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                                <span class="fw-bold">$29.99/sqft</span>
-                                                <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-4">
-                                    <div class="card product-card border-0 shadow-sm h-100">
-                                        <div class="position-relative">
-                                            <img src="./img/polished_concrete.jpg" class="card-img-top" alt="Glossy Black Film">
-                                            <span class="badge bg-danger position-absolute top-0 end-0 m-2">Sale</span>
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title fw-bold">Glossy Black Film</h5>
-                                            <p class="card-text text-muted small mb-1">High Gloss | 48" Width</p>
-                                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                                <div>
-                                                    <span class="fw-bold">$27.99/sqft</span>
-                                                    <span class="text-decoration-line-through text-muted ms-2">$32.99</span>
-                                                </div>
-                                                <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Backside Lining Section -->
-                        <div id="backside-lining" class="mb-5">
-                            <h3 class="h5 fw-bold mb-3 border-start border-primary border-4 ps-3">Backside Lining</h3>
-                            <div class="row g-4">
-                                <div class="col-md-6 col-lg-4">
-                                    <div class="card product-card border-0 shadow-sm h-100">
-                                        <img src="./img/subway_tile.jpg" class="card-img-top" alt="Standard Backside Lining">
-                                        <div class="card-body">
-                                            <h5 class="card-title fw-bold">Standard Backside Lining</h5>
-                                            <p class="card-text text-muted small mb-1">48" Width</p>
-                                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                                <span class="fw-bold">$19.99/sqft</span>
-                                                <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-4">
-                                    <div class="card product-card border-0 shadow-sm h-100">
-                                        <img src="./img/travertine.jpg" class="card-img-top" alt="Premium Backside Lining">
-                                        <div class="card-body">
-                                            <h5 class="card-title fw-bold">Premium Backside Lining</h5>
-                                            <p class="card-text text-muted small mb-1">60" Width</p>
-                                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                                <span class="fw-bold">$22.99/sqft</span>
-                                                <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    
-                    <!-- Exterior Films Section -->
-                    <section class="mb-5">
-                        <h2 class="fw-bold mb-4">Exterior Films</h2>
-                        
-                        <!-- Wooden Colors Section -->
-                        <div id="wooden-exterior" class="mb-5">
-                            <h3 class="h5 fw-bold mb-3 border-start border-primary border-4 ps-3">Wooden Colors</h3>
-                            <div class="row g-4">
-                                <div class="col-md-6 col-lg-4">
-                                    <div class="card product-card border-0 shadow-sm h-100">
-                                        <img src="./img/porcelain_exterior.jpg" class="card-img-top" alt="Exterior Oak Film">
-                                        <div class="card-body">
-                                            <h5 class="card-title fw-bold">Exterior Oak Film</h5>
-                                            <p class="card-text text-muted small mb-1">UV Resistant | 48" Width</p>
-                                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                                <span class="fw-bold">$34.99/sqft</span>
-                                                <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-4">
-                                    <div class="card product-card border-0 shadow-sm h-100">
-                                        <div class="position-relative">
-                                            <img src="./img/stone_patio.jpg" class="card-img-top" alt="Exterior Mahogany Film">
-                                            <span class="badge bg-primary position-absolute top-0 end-0 m-2">Bestseller</span>
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title fw-bold">Exterior Mahogany Film</h5>
-                                            <p class="card-text text-muted small mb-1">Weather-Resistant | 48" Width</p>
-                                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                                <span class="fw-bold">$36.99/sqft</span>
-                                                <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Solid Colors Section -->
-                        <div id="solid-exterior">
-                            <h3 class="h5 fw-bold mb-3 border-start border-primary border-4 ps-3">Solid Colors</h3>
-                            <div class="row g-4">
-                                <div class="col-md-6 col-lg-4">
-                                    <div class="card product-card border-0 shadow-sm h-100">
-                                        <img src="./img/brick_pavers.jpg" class="card-img-top" alt="Exterior White Film">
-                                        <div class="card-body">
-                                            <h5 class="card-title fw-bold">Exterior White Film</h5>
-                                            <p class="card-text text-muted small mb-1">UV Resistant | 48" Width</p>
-                                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                                <span class="fw-bold">$32.99/sqft</span>
-                                                <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-4">
-                                    <div class="card product-card border-0 shadow-sm h-100">
-                                        <img src="./img/concrete_pavers.jpg" class="card-img-top" alt="Exterior Gray Film">
-                                        <div class="card-body">
-                                            <h5 class="card-title fw-bold">Exterior Gray Film</h5>
-                                            <p class="card-text text-muted small mb-1">Weather-Resistant | 48" Width</p>
-                                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                                <span class="fw-bold">$32.99/sqft</span>
-                                                <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-4">
-                                    <div class="card product-card border-0 shadow-sm h-100">
-                                        <div class="position-relative">
-                                            <img src="./img/large_format.jpg" class="card-img-top" alt="Exterior Black Film">
-                                            <span class="badge bg-success position-absolute top-0 end-0 m-2">New</span>
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title fw-bold">Exterior Black Film</h5>
-                                            <p class="card-text text-muted small mb-1">Weather-Resistant | 60" Width</p>
-                                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                                <span class="fw-bold">$35.99/sqft</span>
-                                                <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- CTA Section -->
     <section class="py-5 bg-primary text-white">
         <div class="container py-4">
             <div class="row align-items-center">
                 <div class="col-lg-8 mb-4 mb-lg-0">
-                    <h2 class="fw-bold">Need Help With Your Project?</h2>
-                    <p class="lead mb-0">Our experts can help you choose the right film for your needs.</p>
+                    <h2 class="fw-bold">Ready to Transform Your Space?</h2>
+                    <p class="lead mb-0">Discover how our premium films can elevate your interior and exterior surfaces.</p>
                 </div>
                 <div class="col-lg-4 text-lg-end">
                     <a href="contact.html" class="btn btn-light btn-lg">Contact Us</a>
+                    <a href="products.html" class="btn btn-outline-light btn-lg ms-2">Our Products</a>
                 </div>
             </div>
         </div>
@@ -456,13 +377,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 mb-4">
-                    <h5 class="fw-bold mb-3">KadeKor</h5>
-                    <p>Premium decorative films for interior and exterior surfaces. Quality that lasts, designs that inspire.</p>
+                    <h5 class="fw-bold mb-3">KaDekor</h5>
+                    <p>Premium films for interior and exterior spaces. Quality that lasts, designs that inspire.</p>
                     <div class="d-flex gap-3 social-icons">
-                        <a href="#" class="text-light"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-light"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-light"><i class="fab fa-pinterest-p"></i></a>
-                        <a href="#" class="text-light"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/" class="text-light"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/kadekor_/" class="text-light"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/kadekor/?originalSubdomain=tr" class="text-light"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
@@ -477,10 +397,8 @@
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h5 class="fw-bold mb-3">Products</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#wooden-interior" class="text-light text-decoration-none">Interior Wooden Films</a></li>
-                        <li><a href="#solid-pastel" class="text-light text-decoration-none">Solid & Pastel Colors</a></li>
-                        <li><a href="#wooden-exterior" class="text-light text-decoration-none">Exterior Wooden Films</a></li>
-                        <li><a href="#solid-exterior" class="text-light text-decoration-none">Exterior Solid Colors</a></li>
+                        <li><a href="products.html#kitchen" class="text-light text-decoration-none">Interior Films</a></li>
+                        <li><a href="products.html#bathroom" class="text-light text-decoration-none">Exterior Films</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 mb-4">
@@ -488,15 +406,20 @@
                     <ul class="list-unstyled">
                         <li class="d-flex mb-2">
                             <i class="fas fa-map-marker-alt me-2 mt-1"></i>
-                            <span>123 Design Street, Creative City, 10001</span>
+                            <span>Ekşioğlu Mah. Saray Cad. No:3
+                                Çekmeköy / Istanbul</span>
                         </li>
                         <li class="d-flex mb-2">
                             <i class="fas fa-phone-alt me-2 mt-1"></i>
-                            <span>(123) 456-7890</span>
+                            <span>+90 216 313 28 48</span>
+                        </li>
+                        <li class="d-flex mb-2">
+                            <i class="fas fa-fax me-2 mt-1"></i>
+                            <span>+90 216 313 55 66</span>
                         </li>
                         <li class="d-flex">
                             <i class="fas fa-envelope me-2 mt-1"></i>
-                            <span>info@kadekor.com</span>
+                            <span>info@kadekor.com.tr</span>
                         </li>
                     </ul>
                 </div>
@@ -504,12 +427,12 @@
             <hr class="my-4 bg-light opacity-25">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start">
-                    <p class="small text-muted mb-0">&copy; 2025 KadeKor. All rights reserved.</p>
+                    <p class="small text-muted mb-0">&copy; 2025 KaDekor. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <p class="small text-muted mb-0">
-                        <a href="#" class="text-muted text-decoration-none">Privacy Policy</a> | 
-                        <a href="#" class="text-muted text-decoration-none">Terms of Service</a>
+                        <a href="#" class="text-primary text-decoration-none">Privacy Policy</a> | 
+                        <a href="#" class="text-primary text-decoration-none">Terms of Service</a>
                     </p>
                 </div>
             </div>
@@ -520,5 +443,132 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
     <script src="./js/main.js"></script>
+    <script>
+        // Product detail modal functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sample product data - in a real application this would come from a database
+            const products = {
+                1: {
+                    name: "Light Oak",
+                    category: "Interior",
+                    subcategory: "Wooden Color",
+                    description: "High-quality PVC film providing a natural light oak wood appearance for interior spaces. Add warmth and elegance to your living areas.",
+                    mainImage: "./img/light_oakjpg.jpg",
+                    features: {
+                        "Material": "Premium PVC",
+                        "Size": "122 cm x 50 m",
+                        "Thickness": "0.17 mm",
+                        "Surface": "Matte"
+                    }
+                },
+                2: {
+                    name: "Dark Walnut",
+                    category: "Interior",
+                    subcategory: "Wooden Color",
+                    description: "Premium PVC film that provides a luxurious look with rich and deep walnut tones for interiors. Complete coverage for furniture and surfaces.",
+                    mainImage: "./img/wood_grain.jpg",
+                    features: {
+                        "Material": "Premium PVC",
+                        "Size": "122 cm x 50 m",
+                        "Thickness": "0.18 mm",
+                        "Surface": "Semi-matte"
+                    }
+                },
+                3: {
+                    name: "Cherry Wood",
+                    category: "Interior",
+                    subcategory: "Wooden Color",
+                    description: "Warm-toned wood patterned PVC film perfect for creating a cozy and inviting atmosphere in interior spaces.",
+                    mainImage: "./img/akçaağaç.jpg",
+                    features: {
+                        "Material": "Premium PVC",
+                        "Size": "122 cm x 50 m",
+                        "Thickness": "0.18 mm",
+                        "Surface": "Satin"
+                    }
+                },
+                4: {
+                    name: "Pure White",
+                    category: "Interior",
+                    subcategory: "Solid Color",
+                    description: "Clean, brilliant white PVC film that creates a minimalist and modern look for interior surfaces and furniture.",
+                    mainImage: "./img/lacquer_white.jpg",
+                    features: {
+                        "Material": "Premium PVC",
+                        "Size": "122 cm x 50 m",
+                        "Thickness": "0.16 mm",
+                        "Surface": "Matte"
+                    }
+                }
+                // Add more products as needed
+            };
+            
+            // Handle the detail view buttons
+            const detailButtons = document.querySelectorAll('.view-details');
+            
+            detailButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-product-id');
+                    const product = products[productId];
+                    
+                    if (product) {
+                        // Update modal with product data
+                        document.getElementById('productModalLabel').textContent = product.name;
+                        document.getElementById('modal-product-title').textContent = product.name;
+                        
+                        // Update the single product image
+                        const modalImage = document.createElement('img');
+                        modalImage.src = product.mainImage;
+                        modalImage.alt = product.name;
+                        modalImage.className = "img-fluid rounded w-100 shadow-sm";
+                        modalImage.style = "max-height: 100% ; object-fit: contain;";
+                        
+                        // Clear previous image and add new one
+                        const imageContainer = document.querySelector('.product-image-container');
+                        imageContainer.innerHTML = ''; // Clear previous image
+                        imageContainer.appendChild(modalImage);
+                        
+                        // Update badges
+                        const badges = document.querySelector('.modal-body .mb-3');
+                        badges.innerHTML = `
+                            <span class="badge bg-primary">${product.category}</span>
+                            <span class="badge bg-secondary ms-1">${product.subcategory}</span>
+                        `;
+                        
+                        // Update features
+                        const featuresList = document.getElementById('modal-product-features');
+                        featuresList.innerHTML = '';
+                        
+                        for (const [key, value] of Object.entries(product.features)) {
+                            const li = document.createElement('li');
+                            li.className = 'list-group-item px-0 d-flex justify-content-between';
+                            li.innerHTML = `<span>${key}</span><span class="fw-bold">${value}</span>`;
+                            featuresList.appendChild(li);
+                        }
+                    }
+                });
+            });
+            
+            // Filter functionality for the search input
+            const searchInput = document.getElementById('productSearchInput');
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const searchText = this.value.toLowerCase().trim();
+                    const productCards = document.querySelectorAll('.product-card');
+                    
+                    productCards.forEach(card => {
+                        const title = card.querySelector('.card-title').textContent.toLowerCase();
+                        const description = card.querySelector('.card-text').textContent.toLowerCase();
+                        
+                        if (title.includes(searchText) || description.includes(searchText)) {
+                            card.closest('.col-md-6').style.display = '';
+                        } else {
+                            card.closest('.col-md-6').style.display = 'none';
+                        }
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
