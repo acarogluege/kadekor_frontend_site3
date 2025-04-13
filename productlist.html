@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KadeKor - Ürün Listesi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .product-card {
+            transition: transform 0.3s ease;
+            height: 100%;
+            margin-bottom: 20px;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .sub-card {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .card-container {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .card-container:hover .sub-card {
+            display: block;
+        }
+        .badge-corner {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+        .product-image {
+            height: 200px;
+            object-fit: cover;
+        }
+        .section-title {
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+        .sub-items {
+            list-style: none;
+            padding-left: 0;
+        }
+        .sub-items li {
+            padding: 5px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        .sub-items li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-5">Ürün Kataloğu</h1>
+        
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            Kategoriler
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+                            <li><a class="dropdown-item" href="#">Tüm Ürünler</a></li>
+                            <li><a class="dropdown-item" href="#pvc-ic-mekan">PVC Filmler - İç Mekan</a></li>
+                            <li><a class="dropdown-item" href="#pvc-dis-mekan">PVC Filmler - Dış Mekan</a></li>
+                            <li><a class="dropdown-item" href="#kapi">Kapı</a></li>
+                            <li><a class="dropdown-item" href="#vinylbond">Vinylbond</a></li>
+                        </ul>
+                    </div>
+                    <div class="d-flex">
+                        <input type="text" class="form-control me-2" placeholder="Ürün ara...">
+                        <button class="btn btn-primary">Ara</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PVC Filmler - İç Mekan -->
+        <h2 id="pvc-ic-mekan" class="section-title">PVC Filmler: İç Mekan</h2>
+        <div class="row">
+            <!-- Ahşap renkler -->
+            <div class="col-md-3 col-sm-6 card-container">
+                <div class="card product-card">
+                    <img src="./img/akçaağaç.jpg" class="card-img-top product-image" alt="Ahşap Renkler">
+                    <div class="card-body">
+                        <h5 class="card-title">Ahşap Renkler</h5>
+                        <p class="card-text">İç mekan için çeşitli ahşap desen ve renklerinde PVC filmler</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star-half-alt text-warning"></i>
+                            </div>
+                            <button class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-info-circle"></i> Detaylar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sub Card -->
+                <div class="card sub-card">
+                    <div class="card-body">
+                        <h6>Ahşap Renkler - İç Mekan</h6>
+                        <p class="small">İç mekan için dayanıklı ve doğal görünümlü ahşap desenli PVC kaplamalar.</p>
+                        <ul class="sub-items">
+                            <li>Ceviz</li>
+                            <li>Meşe</li>
+                            <li>Maun</li>
+                            <li>Akçaağaç</li>
+                        </ul>
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm btn-primary">Tüm Koleksiyonu Gör</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Düz & Pastel Renkler -->
+            <div class="col-md-3 col-sm-6 card-container">
+                <div class="card product-card">
+                    <img src="./img/hardal.jpg" class="card-img-top product-image" alt="Düz ve Pastel Renkler">
+                    <div class="card-body">
+                        <h5 class="card-title">Düz & Pastel Renkler</h5>
+                        <p class="card-text">İç mekan için düz ve pastel tonlarda PVC filmler</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="far fa-star text-warning"></i>
+                            </div>
+                            <button class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-info-circle"></i> Detaylar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sub Card -->
+                <div class="card sub-card">
+                    <div class="card-body">
+                        <h6>Düz & Pastel Renkler - İç Mekan</h6>
+                        <p class="small">Modern ve şık tasarımlar için ideal, geniş renk seçenekli PVC kaplamalar.</p>
+                        <ul class="sub-items">
+                            <li>Krem</li>
+                            <li>Bej</li>
+                            <li>Açık Gri</li>
+                            <li>Pastel Mavi</li>
+                            <li>Pudra Pembe</li>
+                        </ul>
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm btn-primary">Tüm Koleksiyonu Gör</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- High Gloss -->
+            <div class="col-md-3 col-sm-6 card-container">
+                <div class="card product-card">
+                    <div class="badge-corner">
+                        <span class="badge bg-primary">Yeni</span>
+                    </div>
+                    <img src="./img/menekşe.jpg" class="card-img-top product-image" alt="High Gloss">
+                    <div class="card-body">
+                        <h5 class="card-title">High Gloss</h5>
+                        <p class="card-text">İç mekan için parlak yüzeyli PVC filmler</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <button class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-info-circle"></i> Detaylar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sub Card -->
+                <div class="card sub-card">
+                    <div class="card-body">
+                        <h6>High Gloss - İç Mekan</h6>
+                        <p class="small">Yüksek parlaklıkta, etkileyici ve lüks görünüm sağlayan PVC kaplamalar.</p>
+                        <ul class="sub-items">
+                            <li>Parlak Beyaz</li>
+                            <li>Parlak Siyah</li>
+                            <li>Kırmızı Gloss</li>
+                            <li>Metalik Gri</li>
+                        </ul>
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm btn-primary">Tüm Koleksiyonu Gör</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Arka Cephe Astarı -->
+            <div class="col-md-3 col-sm-6 card-container">
+                <div class="card product-card">
+                    <img src="./img/beyaz_astar.jpg" class="card-img-top product-image" alt="Arka Cephe Astarı">
+                    <div class="card-body">
+                        <h5 class="card-title">Arka Cephe Astarı</h5>
+                        <p class="card-text">İç mekan uygulamaları için arka cephe astarı</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star-half-alt text-warning"></i>
+                                <i class="far fa-star text-warning"></i>
+                            </div>
+                            <button class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-info-circle"></i> Detaylar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sub Card -->
+                <div class="card sub-card">
+                    <div class="card-body">
+                        <h6>Arka Cephe Astarı - İç Mekan</h6>
+                        <p class="small">İç mekan uygulamalarında mükemmel yapışma sağlayan yüksek kaliteli astar.</p>
+                        <ul class="sub-items">
+                            <li>Standart Astar</li>
+                            <li>Yüksek Performanslı</li>
+                            <li>Hızlı Kuruyan</li>
+                            <li>Su Bazlı</li>
+                        </ul>
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm btn-primary">Tüm Koleksiyonu Gör</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PVC Filmler - Dış Mekan -->
+        <h2 id="pvc-dis-mekan" class="section-title">PVC Filmler: Dış Mekan</h2>
+        <div class="row">
+            <!-- Ahşap Renkler -->
+            <div class="col-md-3 col-sm-6 card-container">
+                <div class="card product-card">
+                    <img src="./img/heavy_metal.jpg" class="card-img-top product-image" alt="Dış Mekan Ahşap Renkler">
+                    <div class="card-body">
+                        <h5 class="card-title">Ahşap Renkler</h5>
+                        <p class="card-text">Dış mekan için dayanıklı ahşap desenli PVC filmler</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star-half-alt text-warning"></i>
+                            </div>
+                            <button class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-info-circle"></i> Detaylar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sub Card -->
+                <div class="card sub-card">
+                    <div class="card-body">
+                        <h6>Ahşap Renkler - Dış Mekan</h6>
+                        <p class="small">UV dirençli, suya dayanıklı, dış ortam şartlarına uygun ahşap desenli kaplamalar.</p>
+                        <ul class="sub-items">
+                            <li>Teak</li>
+                            <li>İroko</li>
+                            <li>Rustik Meşe</li>
+                            <li>Antik Çam</li>
+                        </ul>
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm btn-primary">Tüm Koleksiyonu Gör</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Düz Renkler -->
+            <div class="col-md-3 col-sm-6 card-container">
+                <div class="card product-card">
+                    <img src="./img/krom_mavi.jpg" class="card-img-top product-image" alt="Dış Mekan Düz Renkler">
+                    <div class="card-body">
+                        <h5 class="card-title">Düz Renkler</h5>
+                        <p class="card-text">Dış mekan için dayanıklı düz renkli PVC filmler</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="far fa-star text-warning"></i>
+                            </div>
+                            <button class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-info-circle"></i> Detaylar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sub Card -->
+                <div class="card sub-card">
+                    <div class="card-body">
+                        <h6>Düz Renkler - Dış Mekan</h6>
+                        <p class="small">Solmaya, aşınmaya ve çevresel etkenlere karşı yüksek dayanımlı düz renkli dış cephe kaplamaları.</p>
+                        <ul class="sub-items">
+                            <li>Antrasit</li>
+                            <li>Beyaz</li>
+                            <li>Gri</li>
+                            <li>Krem</li>
+                            <li>Koyu Kahve</li>
+                        </ul>
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm btn-primary">Tüm Koleksiyonu Gör</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kapı -->
+        <h2 id="kapi" class="section-title">Kapı</h2>
+        <div class="row">
+            <!-- Deodora Serisi -->
+            <div class="col-md-3 col-sm-6 card-container">
+                <div class="card product-card">
+                    <img src="./img/deodora_örnek.png" class="card-img-top product-image" alt="Deodora Serisi">
+                    <div class="card-body">
+                        <h5 class="card-title">Deodora Serisi</h5>
+                        <p class="card-text">Modern tasarımlı kapı koleksiyonu</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <button class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-info-circle"></i> Detaylar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sub Card -->
+                <div class="card sub-card">
+                    <div class="card-body">
+                        <h6>Deodora Serisi</h6>
+                        <p class="small">Modern ve şık tasarımlı, yüksek kaliteli kapı koleksiyonu.</p>
+                        <ul class="sub-items">
+                            <li>Deodora Classic</li>
+                            <li>Deodora Premium</li>
+                            <li>Deodora Lüks</li>
+                            <li>Deodora Elite</li>
+                        </ul>
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm btn-primary">Tüm Koleksiyonu Gör</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Fagus Serisi -->
+            <div class="col-md-3 col-sm-6 card-container">
+                <div class="card product-card">
+                    <img src="./img/fagus_örnek.png" class="card-img-top product-image" alt="Fagus Serisi">
+                    <div class="card-body">
+                        <h5 class="card-title">Fagus Serisi</h5>
+                        <p class="card-text">Klasik tasarımlı kapı koleksiyonu</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="far fa-star text-warning"></i>
+                            </div>
+                            <button class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-info-circle"></i> Detaylar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sub Card -->
+                <div class="card sub-card">
+                    <div class="card-body">
+                        <h6>Fagus Serisi</h6>
+                        <p class="small">Klasik ve zamansız tasarımlar sunan, dayanıklı kapı modelleri.</p>
+                        <ul class="sub-items">
+                            <li>Fagus Royal</li>
+                            <li>Fagus Traditional</li>
+                            <li>Fagus Antique</li>
+                            <li>Fagus Heritage</li>
+                        </ul>
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm btn-primary">Tüm Koleksiyonu Gör</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cedrus Serisi -->
+            <div class="col-md-3 col-sm-6 card-container">
+                <div class="card product-card">
+                    <div class="badge-corner">
+                        <span class="badge bg-primary">Yeni</span>
+                    </div>
+                    <img src="./img/cedrus_örnek.png" class="card-img-top product-image" alt="Cedrus Serisi">
+                    <div class="card-body">
+                        <h5 class="card-title">Cedrus Serisi</h5>
+                        <p class="card-text">Endüstriyel tasarımlı kapı koleksiyonu</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star-half-alt text-warning"></i>
+                            </div>
+                            <button class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-info-circle"></i> Detaylar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sub Card -->
+                <div class="card sub-card">
+                    <div class="card-body">
+                        <h6>Cedrus Serisi</h6>
+                        <p class="small">Endüstriyel ve modern tarzda, dayanıklı ve estetik kapı modelleri.</p>
+                        <ul class="sub-items">
+                            <li>Cedrus Urban</li>
+                            <li>Cedrus Loft</li>
+                            <li>Cedrus Industrial</li>
+                            <li>Cedrus Modern</li>
+                        </ul>
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm btn-primary">Tüm Koleksiyonu Gör</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vinylbond -->
+        <h2 id="vinylbond" class="section-title">Vinylbond</h2>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 card-container">
+                <div class="card product-card">
+                    <img src="https://placehold.co/300x200?text=Vinylbond" class="card-img-top product-image" alt="Vinylbond">
+                    <div class="card-body">
+                        <h5 class="card-title">Vinylbond</h5>
+                        <p class="card-text">Yüksek kaliteli vinil yapıştırıcı serisi</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="far fa-star text-warning"></i>
+                            </div>
+                            <button class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-info-circle"></i> Detaylar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sub Card -->
+                <div class="card sub-card">
+                    <div class="card-body">
+                        <h6>Vinylbond</h6>
+                        <p class="small">Her türlü yüzeye mükemmel yapışma sağlayan, uzun ömürlü vinil yapıştırıcıları.</p>
+                        <ul class="sub-items">
+                            <li>Vinylbond Standard</li>
+                            <li>Vinylbond Pro</li>
+                            <li>Vinylbond Extra</li>
+                            <li>Vinylbond Waterproof</li>
+                        </ul>
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-sm btn-primary">Tüm Koleksiyonu Gör</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
