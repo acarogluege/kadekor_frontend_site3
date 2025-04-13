@@ -6,6 +6,7 @@ body {
     color: #333;
     overflow-x: hidden;
     padding-top: 76px; /* For fixed navbar */
+    background-color: #F8F9FA; /* Light gray background */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -70,6 +71,35 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: center;
     margin: 0 auto;
+}
+
+/* Feature Cards Styling */
+.feature-card {
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.feature-icon-wrapper {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #259229;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-icon-wrapper {
+    transform: scale(1.1);
+    background-color: #1e7420;
 }
 
 /* Category Cards */
@@ -151,12 +181,14 @@ footer ul li a:hover {
 /* Page Header - Add some spacing to account for fixed navbar */
 .page-header {
     padding-top: 50px;
+    background-color: #F8F9FA; /* Match body background */
 }
 
-/* Product Cards */
+/* Product Cards with better contrast against light background */
 .product-card {
     transition: all 0.3s ease;
     overflow: hidden;
+    background-color: #ffffff; /* White cards against light gray background */
 }
 
 .product-card:hover {
@@ -171,6 +203,65 @@ footer ul li a:hover {
 
 .product-card:hover img {
     transform: scale(1.05);
+}
+
+/* Modal styling for product details */
+.modal-content {
+    background-color: #ffffff;
+    border: none;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* Section backgrounds for better separation */
+.py-5 {
+    background-color: #F8F9FA; /* Match body background */
+}
+
+/* Add more contrast to accordion items */
+#productAccordion .accordion-item {
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background-color: #ffffff; /* White accordion against light gray background */
+}
+
+#productAccordion .accordion-item:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+#productAccordion .accordion-button {
+    font-weight: 600;
+    padding: 1rem 1.25rem;
+}
+
+#productAccordion .accordion-button:not(.collapsed) {
+    background-color: rgba(37, 146, 41, 0.1);
+    color: #259229;
+    box-shadow: none;
+}
+
+#productAccordion .accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(37, 146, 41, 0.5);
+}
+
+#productAccordion .accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23259229'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    transition: all 0.3s ease;
+}
+
+#productAccordion .accordion-body {
+    padding: 1rem 1.25rem;
+}
+
+#productAccordion .list-unstyled a {
+    padding: 0.25rem 0;
+    transition: all 0.2s ease;
+}
+
+#productAccordion .list-unstyled a:hover {
+    color: #259229 !important;
+    padding-left: 0.25rem;
 }
 
 /* Category Headers in Sidebar */
@@ -217,4 +308,147 @@ footer ul li a:hover {
 .form-check-input:checked {
     background-color: #259229;
     border-color: #259229;
+}
+
+/* Product Category Accordion Styling */
+#productAccordion .accordion-item {
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+#productAccordion .accordion-item:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+#productAccordion .accordion-button {
+    font-weight: 600;
+    padding: 1rem 1.25rem;
+}
+
+#productAccordion .accordion-button:not(.collapsed) {
+    background-color: rgba(37, 146, 41, 0.1);
+    color: #259229;
+    box-shadow: none;
+}
+
+#productAccordion .accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(37, 146, 41, 0.5);
+}
+
+#productAccordion .accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23259229'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    transition: all 0.3s ease;
+}
+
+#productAccordion .accordion-body {
+    padding: 1rem 1.25rem;
+}
+
+#productAccordion .list-unstyled a {
+    padding: 0.25rem 0;
+    transition: all 0.2s ease;
+}
+
+#productAccordion .list-unstyled a:hover {
+    color: #259229 !important;
+    padding-left: 0.25rem;
+}
+
+/* Contact Page Styling */
+
+/* Page Header - Add padding to account for fixed navbar */
+.page-header {
+    padding-top: 60px;
+}
+
+/* Contact Info Cards */
+.contact-icon-wrapper {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: rgba(37, 146, 41, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.card:hover .contact-icon-wrapper {
+    transform: scale(1.1);
+    background-color: rgba(37, 146, 41, 0.2);
+}
+
+/* Map Container */
+.map-container {
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.map-container iframe {
+    display: block;
+}
+
+/* Form Focus States */
+.form-control:focus,
+.form-select:focus {
+    border-color: rgba(37, 146, 41, 0.5);
+    box-shadow: 0 0 0 0.25rem rgba(37, 146, 41, 0.25);
+}
+
+/* Custom Checkbox Styling */
+.form-check-input:checked {
+    background-color: #259229;
+    border-color: #259229;
+}
+
+.form-check-input:focus {
+    border-color: rgba(37, 146, 41, 0.5);
+    box-shadow: 0 0 0 0.25rem rgba(37, 146, 41, 0.25);
+}
+
+/* Accordion Styling */
+.accordion-button:not(.collapsed) {
+    background-color: rgba(37, 146, 41, 0.1);
+    color: #259229;
+    box-shadow: none;
+}
+
+.accordion-button:focus {
+    border-color: rgba(37, 146, 41, 0.5);
+    box-shadow: 0 0 0 0.25rem rgba(37, 146, 41, 0.25);
+}
+
+.accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23259229'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+/* Social Icons in Footer */
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: #259229;
+    transform: translateY(-3px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .map-container {
+        height: 300px;
+    }
+    
+    .map-container iframe {
+        height: 100% !important;
+    }
 }
