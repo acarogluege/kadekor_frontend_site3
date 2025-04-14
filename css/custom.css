@@ -1,3 +1,12 @@
+/* Add this at the top of your file before importing Bootstrap if you're using custom Bootstrap builds */
+:root {
+    --bs-primary: #259229;
+    --bs-primary-rgb: 37, 146, 41;
+    --bs-primary-text-emphasis: #0f3a10;
+    --bs-primary-bg-subtle: rgba(37, 146, 41, 0.1);
+    --bs-primary-border-subtle: rgba(37, 146, 41, 0.2);
+}
+
 /* Custom CSS for KadeKor Website */
 
 /* General Styles */
@@ -30,6 +39,106 @@ h1, h2, h3, h4, h5, h6 {
 .btn-primary:hover {
     background-color: #1e7a22;
     border-color: #1e7a22;
+}
+
+/* Secondary/Outline Button Color */
+.btn-outline-primary {
+    color: #259229;
+    border-color: #259229;
+}
+
+.btn-outline-primary:hover {
+    background-color: #259229;
+    border-color: #259229;
+    color: white;
+}
+
+/* Link Colors */
+a {
+    color: #259229;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #1e7a22;
+    text-decoration: underline;
+}
+
+/* Focus States */
+.form-control:focus, 
+.form-select:focus, 
+.form-check-input:focus {
+    border-color: rgba(37, 146, 41, 0.5);
+    box-shadow: 0 0 0 0.25rem rgba(37, 146, 41, 0.25);
+}
+
+/* Progress Bars */
+.progress-bar {
+    background-color: #259229;
+}
+
+/* List Groups */
+.list-group-item.active {
+    background-color: #259229;
+    border-color: #259229;
+}
+
+/* Pagination */
+.page-item.active .page-link {
+    background-color: #259229;
+    border-color: #259229;
+}
+
+.page-link {
+    color: #259229;
+}
+
+.page-link:hover {
+    color: #1e7a22;
+}
+
+/* Custom Card Border Color */
+.card-primary {
+    border-color: #259229;
+}
+
+.card-primary > .card-header {
+    background-color: #259229;
+    color: white;
+}
+
+/* Modal Headers */
+.modal-header-primary {
+    background-color: #259229;
+    color: white;
+}
+
+/* Nav Pills */
+.nav-pills .nav-link.active {
+    background-color: #259229;
+}
+
+/* Table Variants */
+.table-primary {
+    --bs-table-bg: rgba(37, 146, 41, 0.1);
+    --bs-table-striped-bg: rgba(37, 146, 41, 0.15);
+    --bs-table-active-bg: rgba(37, 146, 41, 0.2);
+    --bs-table-hover-bg: rgba(37, 146, 41, 0.15);
+    --bs-table-border-color: rgba(37, 146, 41, 0.2);
+    color: #000;
+}
+
+/* Dropdown Menu */
+.dropdown-item.active, 
+.dropdown-item:active {
+    background-color: #259229;
+}
+
+/* Alert Primary */
+.alert-primary {
+    color: #0f3a10;
+    background-color: rgba(37, 146, 41, 0.1);
+    border-color: rgba(37, 146, 41, 0.2);
 }
 
 /* Navbar Styles */
@@ -451,4 +560,16 @@ footer ul li a:hover {
     .map-container iframe {
         height: 100% !important;
     }
+}
+
+/* Dealer Login Button Styling */
+.nav-item .btn-outline-primary {
+    transition: all 0.3s ease;
+    border-radius: 20px;
+}
+
+.nav-item .btn-outline-primary:hover {
+    background-color: #259229;
+    color: white;
+    transform: translateY(-2px);
 }
