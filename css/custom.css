@@ -1,4 +1,3 @@
-/* Add this at the top of your file before importing Bootstrap if you're using custom Bootstrap builds */
 :root {
     --bs-primary: #259229;
     --bs-primary-rgb: 37, 146, 41;
@@ -6,8 +5,6 @@
     --bs-primary-bg-subtle: rgba(37, 146, 41, 0.1);
     --bs-primary-border-subtle: rgba(37, 146, 41, 0.2);
 }
-
-/* Custom CSS for KadeKor Website */
 
 /* General Styles */
 body {
@@ -64,6 +61,62 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
 }
 
+/* Add this specific selector to handle the dealer login button when it gets the active class */
+.nav-item .btn-outline-primary.active,
+.nav-item .btn-outline-primary:focus {
+    background-color: #259229 !important;
+    color: white !important;
+    border-color: #259229 !important;
+}
+
+/* Ensure dealer login button maintains proper styling with .active class */
+.navbar-nav .nav-link.btn.active {
+    color: white !important;
+    background-color: #259229 !important;
+    border-color: #259229 !important;
+}
+
+/* Fix Dealer Login Button Text Color to Match Other Navbar Items */
+.navbar-nav .nav-item .nav-link.btn.btn-outline-primary {
+    color: #333 !important; /* Match your navbar text color */
+    font-weight: 600 !important;
+    border-color: #259229;
+    border-width: 2px;
+    padding: 0.4rem 1rem !important;
+    margin-left: 10px;
+    font-size: 0.95rem !important;
+}
+
+/* Keep the hover state consistent */
+.navbar-nav .nav-item .nav-link.btn.btn-outline-primary:hover {
+    color: white !important;
+    background-color: #259229;
+    border-color: #259229;
+}
+
+/* Override active state */
+.navbar-nav .nav-item .nav-link.btn.btn-outline-primary.active {
+    color: white !important;
+    background-color: #259229;
+    border-color: #259229;
+}
+
+/* Override Bootstrap's default .btn:focus styling */
+.btn-outline-primary:focus,
+.btn-outline-primary.focus,
+.btn-outline-primary:active {
+    background-color: #259229 !important;
+    color: white !important;
+    border-color: #259229 !important;
+    box-shadow: 0 0 0 0.25rem rgba(37, 146, 41, 0.25) !important;
+}
+
+/* Ensure Bootstrap doesn't override with blue focus styles */
+.btn:focus,
+.btn.focus {
+    box-shadow: 0 0 0 0.25rem rgba(37, 146, 41, 0.25) !important;
+}
+
 /* Link Colors */
 a {
     color: #259229;
@@ -72,7 +125,8 @@ a {
 
 a:hover {
     color: #1e7a22;
-    text-decoration: underline;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
 }
 
 /* Focus States */
@@ -145,6 +199,16 @@ a:hover {
     background-color: #259229;
 }
 
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-item {
+    font-weight: 500;
+    padding: 0.5rem 1.5rem;
+}
+
 /* Alert Primary */
 .alert-primary {
     color: #0f3a10;
@@ -154,10 +218,10 @@ a:hover {
 
 /* Navbar Styles */
 .navbar {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
     transition: all 0.3s ease;
-    z-index: 1030; /* Ensure navbar stays above other content */
+    z-index: 1030; 
 }
 
 /* Navbar scroll behavior */
@@ -182,10 +246,13 @@ a:hover {
 }
 
 .navbar-nav .nav-link {
-    font-weight: 500;
-    padding-left: 15px !important;
-    padding-right: 15px !important;
+    font-weight: 600 !important; /* Increase font weight */
+    padding-left: 18px !important; /* Increase horizontal padding */
+    padding-right: 18px !important;
+    font-size: 1rem !important; /* Slightly larger font size */
+    letter-spacing: 0.02em; /* Add slight letter spacing */
     position: relative;
+    color: #333 !important; /* Ensure text color has good contrast */
 }
 
 .navbar-nav .nav-link.active:after {
@@ -194,20 +261,68 @@ a:hover {
     bottom: 0;
     left: 15px;
     right: 15px;
-    height: 2px;
+    height: 3px; /* Slightly thicker underline */
     background-color: #259229;
+}
+
+.navbar-nav .nav-link.active {
+    color: #259229 !important;
+    font-weight: 700 !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #259229 !important; 
+    transition: all 0.2s ease;
+}
+
+/* Increase spacing between nav items on larger screens */
+@media (min-width: 992px) {
+    .navbar-nav .nav-item {
+        margin-left: 2px;
+        margin-right: 2px;
+    }
 }
 
 /* Logo styling */
 .navbar-brand img.logo {
-    height: 40px;
+    height: 50px !important; /* Increase logo height from 40px */
     width: auto;
     transition: all 0.3s ease;
+    margin-right: 10px;
 }
 
-/* Optional: If you want the logo to shrink slightly when scrolling down */
 .navbar-scroll.scrolled .navbar-brand img.logo {
-    height: 35px;
+    height: 40px !important; /* Maintain proportional reduction when scrolled */
+}
+
+/* Enhanced logo styling */
+.navbar-brand {
+    padding: 8px 0;
+    margin-right: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 55px !important;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+/* Optional: Add a slight grow effect on hover */
+.navbar-brand:hover .logo {
+    transform: scale(1.05);
+}
+
+/* Ensure logo remains clearly visible on mobile */
+@media (max-width: 576px) {
+    .logo {
+        height: 45px !important;
+    }
+    
+    .navbar-brand {
+        padding: 8px 0;
+    }
 }
 
 /* Adjust mobile logo size if needed */
@@ -255,6 +370,11 @@ a:hover {
     background-color: #1e7420;
 }
 
+.feature-card:hover .card-title,
+.feature-card:hover .card-text {
+    color: inherit !important;
+}
+
 /* Category Cards */
 .category-card {
     transition: all 0.3s ease;
@@ -278,6 +398,10 @@ a:hover {
     transform: scale(1.05);
 }
 
+.bg-dark-overlay:hover .overlay-content {
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+}
+
 .overlay-content {
     position: absolute;
     bottom: 0;
@@ -289,8 +413,13 @@ a:hover {
     transition: all 0.3s ease;
 }
 
+.overlay-content h5, 
+.overlay-content p {
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
 .bg-dark-overlay:hover .overlay-content {
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
 }
 
 /* Social Icons */
@@ -306,8 +435,8 @@ a:hover {
 }
 
 .social-icons a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    text-decoration: none;
+    background-color: #1e7a22;
+    color: white !important;
 }
 
 /* Footer Links Animation */
@@ -317,8 +446,9 @@ footer ul li a {
 }
 
 footer ul li a:hover {
+    color: white !important;
+    opacity: 1;
     transform: translateX(5px);
-    opacity: 0.8;
 }
 
 /* Responsive Adjustments */
@@ -329,18 +459,22 @@ footer ul li a:hover {
     }
 }
 
-/* Products Page Styles */
+
 
 /* Page Header - Add some spacing to account for fixed navbar */
 .page-header {
     padding-top: 50px;
-    background-color: #F8F9FA; /* Match body background */
+    background-color: #F8F9FA; 
 }
 
 /* Page header with background image */
 .page-header {
     position: relative;
     padding: 6rem 0;
+}
+
+.page-header .text-white {
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .bg-overlay {
@@ -365,7 +499,7 @@ footer ul li a:hover {
 .product-card {
     transition: all 0.3s ease;
     overflow: hidden;
-    background-color: #ffffff; /* White cards against light gray background */
+    background-color: #ffffff; 
 }
 
 .product-card:hover {
@@ -391,7 +525,7 @@ footer ul li a:hover {
 
 /* Section backgrounds for better separation */
 .py-5 {
-    background-color: #F8F9FA; /* Match body background */
+    background-color: #F8F9FA; 
 }
 
 /* Add more contrast to accordion items */
@@ -399,7 +533,7 @@ footer ul li a:hover {
     border-radius: 8px;
     overflow: hidden;
     transition: all 0.3s ease;
-    background-color: #ffffff; /* White accordion against light gray background */
+    background-color: #ffffff;
 }
 
 #productAccordion .accordion-item:hover {
@@ -481,6 +615,11 @@ footer ul li a:hover {
     background-color: #dc3545 !important;
 }
 
+.badge {
+    font-weight: 600;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
 /* Filter options styling */
 .form-check-input:checked {
     background-color: #259229;
@@ -533,7 +672,6 @@ footer ul li a:hover {
     padding-left: 0.25rem;
 }
 
-/* Contact Page Styling */
 
 /* Page Header - Add padding to account for fixed navbar */
 .page-header {
@@ -658,6 +796,7 @@ footer ul li a:hover {
     margin-top: -76px; 
     padding-top: 76px; 
     position: relative;
+    min-height: 550px;
 }
 
 .swiper-slide-transform {
@@ -674,47 +813,66 @@ footer ul li a:hover {
     transition: all 1.5s ease;
 }
 
+.swiper-slide-transform::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    z-index: 1;
+}
+
 .swiper-slide {
     position: relative;
 }
 
 .swiper-slide:hover .swiper-slide-transform img {
     transform: scale(1.05);
-    filter: brightness(0.6);
+    filter: brightness(0.5);
 }
 
+/* Improve slider text positioning */
 .slider-text {
     position: absolute;
-    bottom: 15%;
+    bottom: 15%;  
     left: 10%;
-    z-index: 10;
-    max-width: 600px;
+    z-index: 2;
 }
 
+.slider-text h2,
 .slide-slogan {
-    color: #fff;
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    line-height: 1.2;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
+.slider-text h2.slide-slogan {
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    line-height: 1.2;
+}
+
+/* Improve the explorer button positioning and style */
 .sc-slider-btn {
     display: inline-block;
-    padding: 12px 30px;
-    background-color: #259229;
+    background: var(--bs-primary);
     color: white;
-    text-decoration: none;
-    font-weight: 600;
+    padding: 12px 30px;
     border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
     transition: all 0.3s ease;
+    margin-top: 0.5rem;
+    letter-spacing: 1px;
 }
 
 .sc-slider-btn:hover {
-    background-color: #1e7a22;
+    background: #1e7a22;
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     color: white;
 }
 
@@ -784,6 +942,10 @@ footer ul li a:hover {
     color: #259229;
 }
 
+.swiper-pagination-bullet:hover .bubble-icon {
+    background-color: rgba(37, 146, 41, 0.75);
+}
+
 .scroll-down {
     position: absolute;
     bottom: 30px;
@@ -839,6 +1001,7 @@ footer ul li a:hover {
     }
 }
 
+/* Responsive adjustments */
 @media (max-width: 992px) {
     .sc-slider-height {
         height: calc(80vh - 66px);
@@ -863,6 +1026,43 @@ footer ul li a:hover {
     }
     body {
         padding-top: 66px; /* Smaller padding for mobile */
+    }
+    .slider-text {
+        bottom: 10%;
+    }
+    .slider-text h2.slide-slogan {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .sc-slider-height {
+        height: 60vh;
+    }
+    .swiper-slide-transform {
+        height: 60vh;
+    }
+    .slide-slogan {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+    .slider-text {
+        bottom: 15%;
+        left: 5%;
+        right: 5%;
+        text-align: center;
+    }
+    .slider-text h2.slide-slogan {
+        font-size: 1.8rem;
+    }
+    .sc-slider-btn {
+        padding: 10px 24px;
+    }
+    .slider-text {
+        bottom: 15%;
+        left: 5%;
+        right: 5%;
+        text-align: center;
     }
 }
 
@@ -1033,7 +1233,8 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 
 /* Optional: Add a subtle hover effect without underlines */
 .navbar-nav .nav-link:hover {
-    color: #259229 !important;
+    color: #1e7a22 !important;
+    font-weight: 500;
     opacity: 0.9;
 }
 
@@ -1052,7 +1253,6 @@ a:visited {
     text-decoration: none !important;
 }
 
-/* Additional specific elements that might have underlines */
 .dropdown-item,
 .breadcrumb a,
 .nav-link,
@@ -1082,7 +1282,11 @@ bubble-label a:hover {
     text-decoration: none !important;
 }
 
-/* Ensure buttons also have no underline */
+.card a.btn-link:hover {
+    color: #1e7a22 !important;
+    font-weight: 500;
+}
+
 .btn,
 .btn:hover,
 .btn:focus,
@@ -1090,9 +1294,18 @@ bubble-label a:hover {
     text-decoration: none !important;
 }
 
-/* Ensure that text-decoration-none is applied properly */
-.text-decoration-none {
-    text-decoration: none !important;
+.btn-primary:hover,
+.btn-primary:active {
+    background-color: #1e7a22 !important;
+    border-color: #1e7a22 !important;
+    color: white !important;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:active {
+    background-color: #1e7a22 !important;
+    border-color: #1e7a22 !important;
+    color: white !important;
 }
 
 /* Integrated About Us Story Card and Vision-Mission Section Styling */
@@ -1100,7 +1313,7 @@ bubble-label a:hover {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -250px; /* Controls how much the story card overlaps the header */
+    bottom: -250px; 
     z-index: 10;
 }
 
@@ -1109,15 +1322,15 @@ bubble-label a:hover {
     background-color: white;
 }
 
-/* Vision & Mission section styling */
+
 .vision-mission-section {
     padding: 0;
-    margin-top: 300px; /* Position it below the story card */
+    margin-top: 300px; 
     background-color: transparent;
 }
 
 .mt-vision-mission {
-    margin-top: 30px; /* Space between story card and vision/mission cards */
+    margin-top: 30px; 
 }
 
 .icon-circle {
@@ -1132,6 +1345,38 @@ bubble-label a:hover {
 
 .bg-primary-light {
     background-color: rgba(37, 146, 41, 0.1);
+}
+
+
+.story-text {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.story-paragraph {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: #212529;
+    font-weight: 400;
+    letter-spacing: 0.01rem;
+}
+
+.story-paragraph:first-of-type {
+    font-size: 1.15rem;
+    font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .story-paragraph {
+        font-size: 1.05rem;
+        line-height: 1.7;
+    }
+    
+    .story-text {
+        max-width: 100%;
+    }
 }
 
 /* Responsive adjustments */
