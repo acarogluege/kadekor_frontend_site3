@@ -15,10 +15,10 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <span class="fw-bold text-primary">Ka</span><span class="fw-bold text-dark">Dekor</span>
+                <img src="./img/KaDekor_Logo.png" alt="KaDekor Logo" class="logo" height="40">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -47,189 +47,29 @@
         </div>
     </nav>
 
-    <!-- Dealer Login Modal -->
-    <div class="modal fade" id="dealerLoginModal" tabindex="-1" aria-labelledby="dealerLoginModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header bg-light">
-                    <h5 class="modal-title fw-bold" id="dealerLoginModalLabel">Dealer Login</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="dealerLoginForm">
-                        <div class="mb-3">
-                            <label for="loginIdentifier" class="form-label">TC Kimlik No / Tax ID</label>
-                            <input type="text" class="form-control" id="loginIdentifier" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="loginPassword" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="loginPassword" required>
-                        </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="rememberMe">
-                            <label class="form-check-label" for="rememberMe">Remember me</label>
-                        </div>
-                        <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-primary">Login</button>
-                        </div>
-                    </form>
-                    
-                    <hr>
-                    
-                    <div class="text-center">
-                        <p class="mb-2">Don't have a dealer account?</p>
-                        <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#dealerSignupModal" data-bs-dismiss="modal">
-                            Register as a Dealer
-                        </button>
-                    </div>
-                    
-                    <div class="mt-3 text-end">
-                        <a href="#" class="small text-decoration-none">Forgot password?</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Dealer Signup Modal -->
-    <div class="modal fade" id="dealerSignupModal" tabindex="-1" aria-labelledby="dealerSignupModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-header bg-light">
-                    <h5 class="modal-title fw-bold" id="dealerSignupModalLabel">Dealer Registration</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="dealerSignupForm" class="needs-validation" novalidate>
-                        <div class="row g-3">
-                            <!-- Personal Information -->
-                            <div class="col-md-6">
-                                <label for="signupFirstName" class="form-label">First Name*</label>
-                                <input type="text" class="form-control" id="signupFirstName" required>
-                                <div class="invalid-feedback">
-                                    Please enter your first name.
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="signupLastName" class="form-label">Last Name*</label>
-                                <input type="text" class="form-control" id="signupLastName" required>
-                                <div class="invalid-feedback">
-                                    Please enter your last name.
-                                </div>
-                            </div>
-                            
-                            <!-- Contact Information -->
-                            <div class="col-md-6">
-                                <label for="signupEmail" class="form-label">Email Address*</label>
-                                <input type="email" class="form-control" id="signupEmail" required>
-                                <div class="invalid-feedback">
-                                    Please enter a valid email address.
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="signupPhone" class="form-label">Phone Number*</label>
-                                <input type="tel" class="form-control" id="signupPhone" placeholder="+90 5XX XXX XX XX" required>
-                                <div class="invalid-feedback">
-                                    Please enter your phone number.
-                                </div>
-                            </div>
-                            
-                            <!-- Company Information -->
-                            <div class="col-md-12">
-                                <label for="signupCompany" class="form-label">Company Name*</label>
-                                <input type="text" class="form-control" id="signupCompany" required>
-                                <div class="invalid-feedback">
-                                    Please enter your company name.
-                                </div>
-                            </div>
-                            
-                            <!-- Tax Information -->
-                            <div class="col-md-4">
-                                <label for="signupTaxId" class="form-label">TC Kimlik No / Tax ID*</label>
-                                <input type="text" class="form-control" id="signupTaxId" required>
-                                <div class="invalid-feedback">
-                                    Please enter your TC Kimlik No or Tax ID.
-                                </div>
-                            </div>
-                            <div class="col-md-8">
-                                <label for="signupTaxOffice" class="form-label">Tax Office*</label>
-                                <input type="text" class="form-control" id="signupTaxOffice" required>
-                                <div class="invalid-feedback">
-                                    Please enter your tax office.
-                                </div>
-                            </div>
-                            
-                            <!-- Password -->
-                            <div class="col-md-6">
-                                <label for="signupPassword" class="form-label">Password*</label>
-                                <div class="input-group">
-                                    <input type="password" class="form-control" id="signupPassword" required 
-                                           pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
-                                    <button class="btn btn-outline-secondary toggle-password" type="button">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </div>
-                                <div class="form-text">
-                                    Password must be at least 8 characters long and include uppercase, lowercase, numbers, and special characters.
-                                </div>
-                                <div class="invalid-feedback">
-                                    Please enter a valid password.
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="signupPasswordConfirm" class="form-label">Confirm Password*</label>
-                                <div class="input-group">
-                                    <input type="password" class="form-control" id="signupPasswordConfirm" required>
-                                    <button class="btn btn-outline-secondary toggle-password" type="button">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </div>
-                                <div class="invalid-feedback">
-                                    Passwords do not match.
-                                </div>
-                            </div>
-                            
-                            <!-- Terms & Privacy -->
-                            <div class="col-12 mt-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="termsAgree" required>
-                                    <label class="form-check-label" for="termsAgree">
-                                        I agree to the <a href="#" class="text-primary">Terms of Service</a> and <a href="#" class="text-primary">Privacy Policy</a>
-                                    </label>
-                                    <div class="invalid-feedback">
-                                        You must agree to our terms and privacy policy.
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Submit Button -->
-                            <div class="col-12 mt-4">
-                                <div class="d-grid gap-2">
-                                    <button type="submit" class="btn btn-primary btn-lg">Register as Dealer</button>
-                                </div>
-                                <p class="text-center mt-3 mb-0">
-                                    Already registered? <a href="#" class="text-primary" data-bs-toggle="modal" data-bs-target="#dealerLoginModal" data-bs-dismiss="modal">Login</a>
-                                </p>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Page Header -->
-    <section class="py-5 bg-light page-header">
-        <div class="container py-5">
-            <div class="row">
+    <!-- Page Header with Background Image -->
+    <section class="page-header py-5 text-white position-relative" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./img/product_page_header.png') no-repeat center center; 
+           background-size: cover; 
+           min-height: 500px;
+           display: flex; 
+           align-items: center;
+           position: relative; 
+           margin-bottom: 0;">
+        <div class="container position-relative">
+            <!-- Header content -->
+            <div class="row mb-4">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="fw-bold">Our Products</h1>
+                    <h1 class="fw-bold display-4 mb-3">Our Products</h1>
+                    <div class="divider mx-auto bg-white mb-4" style="height: 3px; width: 70px;"></div>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-primary">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Products</li>
+                            <li class="breadcrumb-item"><a href="index.html"
+                                    class="text-decoration-none text-white"><i class="fas fa-home me-1"></i> Home</a></li>
+                            <li class="breadcrumb-item active text-white" aria-current="page">Products</li>
                         </ol>
                     </nav>
+                    <p class="lead text-white mt-4">Discover our premium collection of decorative films and materials</p>
                 </div>
             </div>
         </div>
@@ -525,6 +365,230 @@
     </section>
 
 
+    <!-- Dealer Login Modal -->
+    <div class="modal fade" id="dealerLoginModal" tabindex="-1" aria-labelledby="dealerLoginModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-light">
+                    <h5 class="modal-title fw-bold" id="dealerLoginModalLabel">Dealer Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="dealerLoginForm">
+                        <div class="mb-3">
+                            <label for="loginIdentifier" class="form-label">TC Kimlik No / Tax ID</label>
+                            <input type="text" class="form-control" id="loginIdentifier" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Remember me</label>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </div>
+                    </form>
+
+                    <hr>
+
+                    <div class="text-center">
+                        <p class="mb-2">Don't have a dealer account?</p>
+                        <button class="btn btn-outline-secondary" data-bs-toggle="modal"
+                            data-bs-target="#dealerSignupModal" data-bs-dismiss="modal">
+                            Register as a Dealer
+                        </button>
+                    </div>
+
+                    <div class="mt-3 text-end">
+                        <a href="#" class="small text-decoration-none" data-bs-toggle="modal"
+                            data-bs-target="#forgotPasswordModal" data-bs-dismiss="modal">Forgot password?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dealer Signup Modal -->
+    <div class="modal fade" id="dealerSignupModal" tabindex="-1" aria-labelledby="dealerSignupModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-light">
+                    <h5 class="modal-title fw-bold" id="dealerSignupModalLabel">Dealer Registration</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="dealerSignupForm" class="needs-validation" novalidate>
+                        <div class="row g-3">
+                            <!-- Personal Information -->
+                            <div class="col-md-6">
+                                <label for="signupFirstName" class="form-label">First Name*</label>
+                                <input type="text" class="form-control" id="signupFirstName" required>
+                                <div class="invalid-feedback">
+                                    Please enter your first name.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="signupLastName" class="form-label">Last Name*</label>
+                                <input type="text" class="form-control" id="signupLastName" required>
+                                <div class="invalid-feedback">
+                                    Please enter your last name.
+                                </div>
+                            </div>
+
+                            <!-- Contact Information -->
+                            <div class="col-md-6">
+                                <label for="signupEmail" class="form-label">Email Address*</label>
+                                <input type="email" class="form-control" id="signupEmail" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid email address.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="signupPhone" class="form-label">Phone Number*</label>
+                                <input type="tel" class="form-control" id="signupPhone" placeholder="+90 5XX XXX XX XX"
+                                    required>
+                                <div class="invalid-feedback">
+                                    Please enter your phone number.
+                                </div>
+                            </div>
+
+                            <!-- Company Information -->
+                            <div class="col-md-12">
+                                <label for="signupCompany" class="form-label">Company Name*</label>
+                                <input type="text" class="form-control" id="signupCompany" required>
+                                <div class="invalid-feedback">
+                                    Please enter your company name.
+                                </div>
+                            </div>
+
+                            <!-- Tax Information -->
+                            <div class="col-md-4">
+                                <label for="signupTaxId" class="form-label">TC Kimlik No / Tax ID*</label>
+                                <input type="text" class="form-control" id="signupTaxId" required>
+                                <div class="invalid-feedback">
+                                    Please enter your TC Kimlik No or Tax ID.
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <label for="signupTaxOffice" class="form-label">Tax Office*</label>
+                                <input type="text" class="form-control" id="signupTaxOffice" required>
+                                <div class="invalid-feedback">
+                                    Please enter your tax office.
+                                </div>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="col-md-6">
+                                <label for="signupPassword" class="form-label">Password*</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="signupPassword" required
+                                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+                                    <button class="btn btn-outline-secondary toggle-password" type="button">
+                                        <i class="far fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="form-text">
+                                    Password must be at least 8 characters long and include uppercase, lowercase,
+                                    numbers, and special characters.
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please enter a valid password.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="signupPasswordConfirm" class="form-label">Confirm Password*</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="signupPasswordConfirm" required>
+                                    <button class="btn btn-outline-secondary toggle-password" type="button">
+                                        <i class="far fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="invalid-feedback">
+                                    Passwords do not match.
+                                </div>
+                            </div>
+
+                            <!-- Terms & Privacy -->
+                            <div class="col-12 mt-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="termsAgree" required>
+                                    <label class="form-check-label" for="termsAgree">
+                                        I agree to the <a href="#" class="text-primary">Terms of Service</a> and <a
+                                            href="#" class="text-primary">Privacy Policy</a>
+                                    </label>
+                                    <div class="invalid-feedback">
+                                        You must agree to our terms and privacy policy.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="col-12 mt-4">
+                                <div class="d-grid gap-2">
+                                    <button type="submit" class="btn btn-primary btn-lg">Register as Dealer</button>
+                                </div>
+                                <p class="text-center mt-3 mb-0">
+                                    Already registered? <a href="#" class="text-primary" data-bs-toggle="modal"
+                                        data-bs-target="#dealerLoginModal" data-bs-dismiss="modal">Login</a>
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+<div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-light">
+                <h5 class="modal-title fw-bold" id="forgotPasswordModalLabel">Reset Password</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center mb-4">
+                    <div class="reset-icon mb-3">
+                        <i class="fas fa-key fa-2x text-primary"></i>
+                    </div>
+                    <h5>Forgot your password?</h5>
+                    <p class="text-muted">Enter your email address, and we'll send you a link to reset your password.</p>
+                </div>
+                
+                <form id="forgotPasswordForm" class="needs-validation" novalidate>
+                    <div class="mb-4">
+                        <label for="resetEmail" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="resetEmail" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid email address.
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Send Reset Link</button>
+                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" 
+                            data-bs-target="#dealerLoginModal" data-bs-dismiss="modal">
+                            Back to Login
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="mt-4 pt-3 border-top">
+                    <div class="text-center">
+                        <p class="mb-0 small">Need assistance? <a href="contact.html" class="text-primary">Contact our support team</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
     <!-- CTA Section -->
     <section class="py-5 bg-primary text-white">
@@ -567,8 +631,10 @@
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h5 class="fw-bold mb-3">Products</h5>
                     <ul class="list-unstyled">
-                        <li><a href="products.html#kitchen" class="text-light text-decoration-none">Interior Films</a></li>
-                        <li><a href="products.html#bathroom" class="text-light text-decoration-none">Exterior Films</a></li>
+                        <li><a href="products.html#interior" class="text-light">Interior Films</a></li>
+                        <li><a href="products.html#exterior" class="text-light">Exterior Films</a></li>
+                        <li><a href="products.html#doors" class="text-light">Doors by AdoKapı</a></li>
+                        <li><a href="products.html#vinylbond" class="text-light">Vinylbond</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 mb-4">

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,16 +12,20 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <span class="fw-bold text-primary">Ka</span><span class="fw-bold text-dark">Dekor</span>
+                <img src="./img/KaDekor_Logo.png" alt="KaDekor Logo" class="logo" height="40">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -38,7 +43,8 @@
                         <a class="nav-link" href="contact.html">Contact</a>
                     </li>
                     <li class="nav-item ms-lg-2">
-                        <a class="nav-link btn btn-outline-primary btn-sm px-3" href="#" data-bs-toggle="modal" data-bs-target="#dealerLoginModal">
+                        <a class="nav-link btn btn-outline-primary btn-sm px-3" href="#" data-bs-toggle="modal"
+                            data-bs-target="#dealerLoginModal">
                             <i class="fas fa-user-lock me-1"></i> Dealer Login
                         </a>
                     </li>
@@ -47,233 +53,64 @@
         </div>
     </nav>
 
-    <!-- Dealer Login Modal -->
-    <div class="modal fade" id="dealerLoginModal" tabindex="-1" aria-labelledby="dealerLoginModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header bg-light">
-                    <h5 class="modal-title fw-bold" id="dealerLoginModalLabel">Dealer Login</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="dealerLoginForm">
-                        <div class="mb-3">
-                            <label for="loginIdentifier" class="form-label">TC Kimlik No / Tax ID</label>
-                            <input type="text" class="form-control" id="loginIdentifier" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="loginPassword" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="loginPassword" required>
-                        </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="rememberMe">
-                            <label class="form-check-label" for="rememberMe">Remember me</label>
-                        </div>
-                        <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-primary">Login</button>
-                        </div>
-                    </form>
-                    
-                    <hr>
-                    
-                    <div class="text-center">
-                        <p class="mb-2">Don't have a dealer account?</p>
-                        <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#dealerSignupModal" data-bs-dismiss="modal">
-                            Register as a Dealer
-                        </button>
-                    </div>
-                    
-                    <div class="mt-3 text-end">
-                        <a href="#" class="small text-decoration-none">Forgot password?</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Dealer Signup Modal -->
-    <div class="modal fade" id="dealerSignupModal" tabindex="-1" aria-labelledby="dealerSignupModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-header bg-light">
-                    <h5 class="modal-title fw-bold" id="dealerSignupModalLabel">Dealer Registration</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="dealerSignupForm" class="needs-validation" novalidate>
-                        <div class="row g-3">
-                            <!-- Personal Information -->
-                            <div class="col-md-6">
-                                <label for="signupFirstName" class="form-label">First Name*</label>
-                                <input type="text" class="form-control" id="signupFirstName" required>
-                                <div class="invalid-feedback">
-                                    Please enter your first name.
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="signupLastName" class="form-label">Last Name*</label>
-                                <input type="text" class="form-control" id="signupLastName" required>
-                                <div class="invalid-feedback">
-                                    Please enter your last name.
-                                </div>
-                            </div>
-                            
-                            <!-- Contact Information -->
-                            <div class="col-md-6">
-                                <label for="signupEmail" class="form-label">Email Address*</label>
-                                <input type="email" class="form-control" id="signupEmail" required>
-                                <div class="invalid-feedback">
-                                    Please enter a valid email address.
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="signupPhone" class="form-label">Phone Number*</label>
-                                <input type="tel" class="form-control" id="signupPhone" placeholder="+90 5XX XXX XX XX" required>
-                                <div class="invalid-feedback">
-                                    Please enter your phone number.
-                                </div>
-                            </div>
-                            
-                            <!-- Company Information -->
-                            <div class="col-md-12">
-                                <label for="signupCompany" class="form-label">Company Name*</label>
-                                <input type="text" class="form-control" id="signupCompany" required>
-                                <div class="invalid-feedback">
-                                    Please enter your company name.
-                                </div>
-                            </div>
-                            
-                            <!-- Tax Information -->
-                            <div class="col-md-4">
-                                <label for="signupTaxId" class="form-label">TC Kimlik No / Tax ID*</label>
-                                <input type="text" class="form-control" id="signupTaxId" required>
-                                <div class="invalid-feedback">
-                                    Please enter your TC Kimlik No or Tax ID.
-                                </div>
-                            </div>
-                            <div class="col-md-8">
-                                <label for="signupTaxOffice" class="form-label">Tax Office*</label>
-                                <input type="text" class="form-control" id="signupTaxOffice" required>
-                                <div class="invalid-feedback">
-                                    Please enter your tax office.
-                                </div>
-                            </div>
-                            
-                            <!-- Password -->
-                            <div class="col-md-6">
-                                <label for="signupPassword" class="form-label">Password*</label>
-                                <div class="input-group">
-                                    <input type="password" class="form-control" id="signupPassword" required 
-                                           pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
-                                    <button class="btn btn-outline-secondary toggle-password" type="button">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </div>
-                                <div class="form-text">
-                                    Password must be at least 8 characters long and include uppercase, lowercase, numbers, and special characters.
-                                </div>
-                                <div class="invalid-feedback">
-                                    Please enter a valid password.
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="signupPasswordConfirm" class="form-label">Confirm Password*</label>
-                                <div class="input-group">
-                                    <input type="password" class="form-control" id="signupPasswordConfirm" required>
-                                    <button class="btn btn-outline-secondary toggle-password" type="button">
-                                        <i class="far fa-eye"></i>
-                                    </button>
-                                </div>
-                                <div class="invalid-feedback">
-                                    Passwords do not match.
-                                </div>
-                            </div>
-                            
-                            <!-- Terms & Privacy -->
-                            <div class="col-12 mt-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="termsAgree" required>
-                                    <label class="form-check-label" for="termsAgree">
-                                        I agree to the <a href="#" class="text-primary">Terms of Service</a> and <a href="#" class="text-primary">Privacy Policy</a>
-                                    </label>
-                                    <div class="invalid-feedback">
-                                        You must agree to our terms and privacy policy.
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Submit Button -->
-                            <div class="col-12 mt-4">
-                                <div class="d-grid gap-2">
-                                    <button type="submit" class="btn btn-primary btn-lg">Register as Dealer</button>
-                                </div>
-                                <p class="text-center mt-3 mb-0">
-                                    Already registered? <a href="#" class="text-primary" data-bs-toggle="modal" data-bs-target="#dealerLoginModal" data-bs-dismiss="modal">Login</a>
-                                </p>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Page Header -->
-    <section class="py-5 bg-light page-header">
-        <div class="container py-5">
-            <div class="row">
+    <!-- Integrated Page Header with About Us content -->
+    <section class="page-header py-5 text-white position-relative" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./img/kadekor_company.png') no-repeat center center; 
+           background-size: cover; 
+           min-height: 600px;
+           display: flex; 
+           align-items: center;
+           position: relative; 
+           margin-bottom: 0;">
+        <div class="container position-relative">
+            <!-- Header content -->
+            <div class="row mb-5">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="fw-bold">About KaDekor</h1>
+                    <h1 class="fw-bold display-4 mb-3">About KaDekor</h1>
+                    <div class="divider mx-auto bg-white mb-4" style="height: 3px; width: 70px;"></div>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-primary">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">About Us</li>
+                            <li class="breadcrumb-item"><a href="index.html"
+                                    class="text-decoration-none text-white"><i class="fas fa-home me-1"></i> Home</a></li>
+                            <li class="breadcrumb-item active text-white" aria-current="page">About Us</li>
                         </ol>
                     </nav>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- About Us Section -->
-    <section class="py-5">
-        <div class="container py-5">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <img src="./img/kadekor_company.png" class="img-fluid rounded shadow-sm">
-                </div>
-                <div class="col-lg-6">
-                    <div class="ps-lg-4">
-                        <h2 class="fw-bold mb-4">Our Story</h2>
-                        <p class="lead">Established in 2007 to be a supplier for decorative surface materials in all industrial areas, Ka Dekor company has sold PVC and PET Films imported from abroad to be used in Profile Wrapping, Vacuum and Membrane Press machines until the end of 2015.</p>
-                        <p>As of 2016, both companies have decided to cooperate together as they share the same philosophy with Ado Group of Companies, one of the leading companies in Turkey, whose mission is to "Provide Top Quality Products with a Quality Service Concept". By cooperating with Ado Film, it has expanded its product range to include interior PVC surface films suitable for Furniture, Door and PVC Window groups.</p>
-                        <p>With the latest moves of our company, in order to contribute to the economy of our country and to serve our customers much better, it has aimed to become one of the leading companies in the sector in terms of Membrane and PVC Technologies, PVC Flat Lamination, Paintable PVC and Pet Technologies.</p>
-                        <p>As Ka Dekor, we are constantly in a race with ourselves to supply all Decorative Surface Films and other surface materials that our customers need, as soon as possible and under the most suitable conditions, with our understanding of perfect service.</p>
-                        <!-- <div class="d-flex align-items-center mt-4">
-                            <div class="flex-shrink-0">
-                                <img src="./img/ceo.jpg" class="rounded-circle" width="70" height="70" alt="CEO">
-                            </div>
-                            <div class="flex-grow-1 ms-3">
-                                <h6 class="fw-bold mb-0">John Smith</h6>
-                                <p class="text-muted small mb-0">Founder & CEO</p>
-                            </div>
-                        </div> -->
+        
+        <!-- Overlapping card that contains the Our Story section -->
+        <div class="container position-relative story-container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card border-0 shadow-lg story-card">
+                        <div class="card-body p-4 p-md-5">
+                            <h2 class="fw-bold mb-4 text-center text-dark">Our Story</h2>
+                            <p class="lead text-dark">Established in 2007 to be a supplier for decorative surface materials in all
+                            industrial areas, Ka Dekor company has sold PVC and PET Films imported from abroad to be
+                            used in Profile Wrapping, Vacuum and Membrane Press machines until the end of 2015.</p>
+                            <p class="text-dark">As of 2016, both companies have decided to cooperate together as they share the same
+                                philosophy with Ado Group of Companies, one of the leading companies in Turkey, whose
+                                mission is to "Provide Top Quality Products with a Quality Service Concept". By cooperating
+                                with Ado Film, it has expanded its product range to include interior PVC surface films
+                                suitable for Furniture, Door and PVC Window groups.</p>
+                            <p class="text-dark">With the latest moves of our company, in order to contribute to the economy of our country
+                                and to serve our customers much better, it has aimed to become one of the leading companies
+                                in the sector in terms of Membrane and PVC Technologies, PVC Flat Lamination, Paintable PVC
+                                and Pet Technologies.</p>
+                            <p class="text-dark mb-0">As Ka Dekor, we are constantly in a race with ourselves to supply all Decorative Surface
+                                Films and other surface materials that our customers need, as soon as possible and under the
+                                most suitable conditions, with our understanding of perfect service.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Vision & Mission Section -->
-    <section class="py-5 bg-light">
-        <div class="container py-5">
-            <div class="row mb-5">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="fw-bold">Vision & Mission</h2>
-                    <p class="lead">Guiding principles that drive everything we do</p>
-                </div>
-            </div>
-            <div class="row g-4">
+    <!-- Vision & Mission Section positioned close to Our Story card -->
+    <section class="vision-mission-section">
+        <div class="container">
+            <div class="row mt-vision-mission g-4">
                 <div class="col-md-6">
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body p-4">
@@ -283,8 +120,12 @@
                                 </div>
                             </div>
                             <h3 class="h4 fw-bold text-center mb-3">Our Vision</h3>
-                            <p class="card-text">To be the global leader in innovative surface film solutions, transforming ordinary spaces into extraordinary environments while setting the benchmark for quality and sustainability in the industry.</p>
-                            <p class="card-text">We envision a world where beautiful, durable, and sustainable decorative films are accessible to all, empowering people to create spaces that inspire and delight.</p>
+                            <p class="card-text">To be the global leader in innovative surface film solutions,
+                                transforming ordinary spaces into extraordinary environments while setting the benchmark
+                                for quality and sustainability in the industry.</p>
+                            <p class="card-text">We envision a world where beautiful, durable, and sustainable
+                                decorative films are accessible to all, empowering people to create spaces that inspire
+                                and delight.</p>
                         </div>
                     </div>
                 </div>
@@ -297,7 +138,8 @@
                                 </div>
                             </div>
                             <h3 class="h4 fw-bold text-center mb-3">Our Mission</h3>
-                            <p class="card-text">Our mission is to provide premium quality decorative films that combine aesthetic excellence with functional performance. We are committed to:</p>
+                            <p class="card-text">Our mission is to provide premium quality decorative films that combine
+                                aesthetic excellence with functional performance. We are committed to:</p>
                             <ul class="mt-3">
                                 <li>Delivering innovative products that exceed customer expectations</li>
                                 <li>Maintaining the highest standards of quality and craftsmanship</li>
@@ -312,226 +154,12 @@
         </div>
     </section>
 
+    <!-- Add some space before the next section -->
+    <div class="py-5"></div>
+
     <!-- Values Section -->
-    <section class="py-5">
-        <div class="container py-5">
-            <div class="row mb-5">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="fw-bold">Our Core Values</h2>
-                    <p class="lead">The principles that guide our business decisions and relationships</p>
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="card border-0 shadow-sm h-100 value-card">
-                        <div class="card-body text-center p-4">
-                            <div class="value-icon mb-3">
-                                <i class="fas fa-medal fa-2x text-primary"></i>
-                            </div>
-                            <h5 class="card-title fw-bold">Excellence</h5>
-                            <p class="card-text text-muted">We strive for excellence in everything we do, from product quality to customer service.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card border-0 shadow-sm h-100 value-card">
-                        <div class="card-body text-center p-4">
-                            <div class="value-icon mb-3">
-                                <i class="fas fa-seedling fa-2x text-primary"></i>
-                            </div>
-                            <h5 class="card-title fw-bold">Sustainability</h5>
-                            <p class="card-text text-muted">We are committed to environmentally responsible practices throughout our operations.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card border-0 shadow-sm h-100 value-card">
-                        <div class="card-body text-center p-4">
-                            <div class="value-icon mb-3">
-                                <i class="fas fa-lightbulb fa-2x text-primary"></i>
-                            </div>
-                            <h5 class="card-title fw-bold">Innovation</h5>
-                            <p class="card-text text-muted">We continuously innovate to improve our products and meet evolving customer needs.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card border-0 shadow-sm h-100 value-card">
-                        <div class="card-body text-center p-4">
-                            <div class="value-icon mb-3">
-                                <i class="fas fa-handshake fa-2x text-primary"></i>
-                            </div>
-                            <h5 class="card-title fw-bold">Integrity</h5>
-                            <p class="card-text text-muted">We conduct business with honesty, transparency, and ethical standards.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card border-0 shadow-sm h-100 value-card">
-                        <div class="card-body text-center p-4">
-                            <div class="value-icon mb-3">
-                                <i class="fas fa-users fa-2x text-primary"></i>
-                            </div>
-                            <h5 class="card-title fw-bold">Collaboration</h5>
-                            <p class="card-text text-muted">We value partnerships with customers, suppliers, and colleagues to achieve mutual success.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card border-0 shadow-sm h-100 value-card">
-                        <div class="card-body text-center p-4">
-                            <div class="value-icon mb-3">
-                                <i class="fas fa-heart fa-2x text-primary"></i>
-                            </div>
-                            <h5 class="card-title fw-bold">Customer Focus</h5>
-                            <p class="card-text text-muted">We prioritize customer satisfaction and build lasting relationships based on trust.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Timeline Section -->
-    <section class="py-5 bg-light">
-        <div class="container py-5">
-            <div class="row mb-5">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="fw-bold">Our Journey</h2>
-                    <p class="lead">Key milestones in our company's history</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-content">
-                                <div class="year">2005</div>
-                                <h4>Foundation</h4>
-                                <p>KaDekor was founded with a focus on high-quality decorative films.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-content">
-                                <div class="year">2008</div>
-                                <h4>First Major Partnership</h4>
-                                <p>Secured our first major distribution partnership, expanding market reach.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-content">
-                                <div class="year">2012</div>
-                                <h4>Product Innovation</h4>
-                                <p>Launched our revolutionary eco-friendly film collection.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-content">
-                                <div class="year">2015</div>
-                                <h4>International Expansion</h4>
-                                <p>Expanded operations to international markets in Europe and Asia.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-content">
-                                <div class="year">2019</div>
-                                <h4>Industry Recognition</h4>
-                                <p>Received prestigious industry awards for quality and innovation.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-content">
-                                <div class="year">2023</div>
-                                <h4>Sustainability Initiative</h4>
-                                <p>Implemented comprehensive sustainability program across all operations.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-content">
-                                <div class="year">Today</div>
-                                <h4>Continuing Excellence</h4>
-                                <p>Continuing to innovate and lead in the decorative film industry.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <!-- <section class="py-5">
-        <div class="container py-5">
-            <div class="row mb-5">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="fw-bold">Our Leadership Team</h2>
-                    <p class="lead">Meet the people behind KadeKor's success</p>
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="card border-0 shadow-sm team-card h-100">
-                        <img src="./img/team-ceo.jpg" class="card-img-top" alt="John Smith - CEO">
-                        <div class="card-body text-center p-4">
-                            <h5 class="card-title fw-bold">John Smith</h5>
-                            <p class="text-muted mb-3">Founder & CEO</p>
-                            <p class="card-text small">With over 20 years of industry experience, John leads our company with vision and expertise.</p>
-                            <div class="social-links mt-3">
-                                <a href="#" class="text-muted me-2"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#" class="text-muted me-2"><i class="fab fa-twitter"></i></a>
-                                <a href="#" class="text-muted"><i class="fas fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="card border-0 shadow-sm team-card h-100">
-                        <img src="./img/team-coo.jpg" class="card-img-top" alt="Sarah Johnson - COO">
-                        <div class="card-body text-center p-4">
-                            <h5 class="card-title fw-bold">Sarah Johnson</h5>
-                            <p class="text-muted mb-3">Chief Operations Officer</p>
-                            <p class="card-text small">Sarah oversees our day-to-day operations, ensuring efficiency and excellence.</p>
-                            <div class="social-links mt-3">
-                                <a href="#" class="text-muted me-2"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#" class="text-muted me-2"><i class="fab fa-twitter"></i></a>
-                                <a href="#" class="text-muted"><i class="fas fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="card border-0 shadow-sm team-card h-100">
-                        <img src="./img/team-cto.jpg" class="card-img-top" alt="Michael Chen - CTO">
-                        <div class="card-body text-center p-4">
-                            <h5 class="card-title fw-bold">Michael Chen</h5>
-                            <p class="text-muted mb-3">Chief Technology Officer</p>
-                            <p class="card-text small">Michael leads our product innovation and technical development initiatives.</p>
-                            <div class="social-links mt-3">
-                                <a href="#" class="text-muted me-2"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#" class="text-muted me-2"><i class="fab fa-twitter"></i></a>
-                                <a href="#" class="text-muted"><i class="fas fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="card border-0 shadow-sm team-card h-100">
-                        <img src="./img/team-marketing.jpg" class="card-img-top" alt="Emily Rodriguez - Marketing Director">
-                        <div class="card-body text-center p-4">
-                            <h5 class="card-title fw-bold">Emily Rodriguez</h5>
-                            <p class="text-muted mb-3">Marketing Director</p>
-                            <p class="card-text small">Emily crafts our brand strategy and oversees all marketing initiatives.</p>
-                            <div class="social-links mt-3">
-                                <a href="#" class="text-muted me-2"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#" class="text-muted me-2"><i class="fab fa-twitter"></i></a>
-                                <a href="#" class="text-muted"><i class="fas fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
 
     <!-- Partners Section -->
     <section class="py-5 bg-light">
@@ -559,13 +187,241 @@
         </div>
     </section>
 
+
+    <!-- Dealer Login Modal -->
+    <div class="modal fade" id="dealerLoginModal" tabindex="-1" aria-labelledby="dealerLoginModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-light">
+                    <h5 class="modal-title fw-bold" id="dealerLoginModalLabel">Dealer Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="dealerLoginForm">
+                        <div class="mb-3">
+                            <label for="loginIdentifier" class="form-label">TC Kimlik No / Tax ID</label>
+                            <input type="text" class="form-control" id="loginIdentifier" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Remember me</label>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </div>
+                    </form>
+
+                    <hr>
+
+                    <div class="text-center">
+                        <p class="mb-2">Don't have a dealer account?</p>
+                        <button class="btn btn-outline-secondary" data-bs-toggle="modal"
+                            data-bs-target="#dealerSignupModal" data-bs-dismiss="modal">
+                            Register as a Dealer
+                        </button>
+                    </div>
+
+                    <div class="mt-3 text-end">
+                        <a href="#" class="small text-decoration-none" data-bs-toggle="modal"
+                            data-bs-target="#forgotPasswordModal" data-bs-dismiss="modal">Forgot password?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dealer Signup Modal -->
+    <div class="modal fade" id="dealerSignupModal" tabindex="-1" aria-labelledby="dealerSignupModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-light">
+                    <h5 class="modal-title fw-bold" id="dealerSignupModalLabel">Dealer Registration</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="dealerSignupForm" class="needs-validation" novalidate>
+                        <div class="row g-3">
+                            <!-- Personal Information -->
+                            <div class="col-md-6">
+                                <label for="signupFirstName" class="form-label">First Name*</label>
+                                <input type="text" class="form-control" id="signupFirstName" required>
+                                <div class="invalid-feedback">
+                                    Please enter your first name.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="signupLastName" class="form-label">Last Name*</label>
+                                <input type="text" class="form-control" id="signupLastName" required>
+                                <div class="invalid-feedback">
+                                    Please enter your last name.
+                                </div>
+                            </div>
+
+                            <!-- Contact Information -->
+                            <div class="col-md-6">
+                                <label for="signupEmail" class="form-label">Email Address*</label>
+                                <input type="email" class="form-control" id="signupEmail" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid email address.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="signupPhone" class="form-label">Phone Number*</label>
+                                <input type="tel" class="form-control" id="signupPhone" placeholder="+90 5XX XXX XX XX"
+                                    required>
+                                <div class="invalid-feedback">
+                                    Please enter your phone number.
+                                </div>
+                            </div>
+
+                            <!-- Company Information -->
+                            <div class="col-md-12">
+                                <label for="signupCompany" class="form-label">Company Name*</label>
+                                <input type="text" class="form-control" id="signupCompany" required>
+                                <div class="invalid-feedback">
+                                    Please enter your company name.
+                                </div>
+                            </div>
+
+                            <!-- Tax Information -->
+                            <div class="col-md-4">
+                                <label for="signupTaxId" class="form-label">TC Kimlik No / Tax ID*</label>
+                                <input type="text" class="form-control" id="signupTaxId" required>
+                                <div class="invalid-feedback">
+                                    Please enter your TC Kimlik No or Tax ID.
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <label for="signupTaxOffice" class="form-label">Tax Office*</label>
+                                <input type="text" class="form-control" id="signupTaxOffice" required>
+                                <div class="invalid-feedback">
+                                    Please enter your tax office.
+                                </div>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="col-md-6">
+                                <label for="signupPassword" class="form-label">Password*</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="signupPassword" required
+                                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+                                    <button class="btn btn-outline-secondary toggle-password" type="button">
+                                        <i class="far fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="form-text">
+                                    Password must be at least 8 characters long and include uppercase, lowercase,
+                                    numbers, and special characters.
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please enter a valid password.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="signupPasswordConfirm" class="form-label">Confirm Password*</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="signupPasswordConfirm" required>
+                                    <button class="btn btn-outline-secondary toggle-password" type="button">
+                                        <i class="far fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="invalid-feedback">
+                                    Passwords do not match.
+                                </div>
+                            </div>
+
+                            <!-- Terms & Privacy -->
+                            <div class="col-12 mt-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="termsAgree" required>
+                                    <label class="form-check-label" for="termsAgree">
+                                        I agree to the <a href="#" class="text-primary">Terms of Service</a> and <a
+                                            href="#" class="text-primary">Privacy Policy</a>
+                                    </label>
+                                    <div class="invalid-feedback">
+                                        You must agree to our terms and privacy policy.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="col-12 mt-4">
+                                <div class="d-grid gap-2">
+                                    <button type="submit" class="btn btn-primary btn-lg">Register as Dealer</button>
+                                </div>
+                                <p class="text-center mt-3 mb-0">
+                                    Already registered? <a href="#" class="text-primary" data-bs-toggle="modal"
+                                        data-bs-target="#dealerLoginModal" data-bs-dismiss="modal">Login</a>
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+<div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header bg-light">
+            <h5 class="modal-title fw-bold" id="forgotPasswordModalLabel">Reset Password</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="text-center mb-4">
+                <div class="reset-icon mb-3">
+                    <i class="fas fa-key fa-2x text-primary"></i>
+                </div>
+                <h5>Forgot your password?</h5>
+                <p class="text-muted">Enter your email address, and we'll send you a link to reset your password.</p>
+            </div>
+            
+            <form id="forgotPasswordForm" class="needs-validation" novalidate>
+                <div class="mb-4">
+                    <label for="resetEmail" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="resetEmail" required>
+                    <div class="invalid-feedback">
+                        Please enter a valid email address.
+                    </div>
+                </div>
+                
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary">Send Reset Link</button>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" 
+                        data-bs-target="#dealerLoginModal" data-bs-dismiss="modal">
+                        Back to Login
+                    </button>
+                </div>
+            </form>
+            
+            <div class="mt-4 pt-3 border-top">
+                <div class="text-center">
+                    <p class="mb-0 small">Need assistance? <a href="contact.html" class="text-primary">Contact our support team</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+    
+
     <!-- CTA Section -->
     <section class="py-5 bg-primary text-white">
         <div class="container py-4">
             <div class="row align-items-center">
                 <div class="col-lg-8 mb-4 mb-lg-0">
                     <h2 class="fw-bold">Ready to Transform Your Space?</h2>
-                    <p class="lead mb-0">Discover how our premium films can elevate your interior and exterior surfaces.</p>
+                    <p class="lead mb-0">Discover how our premium films can elevate your interior and exterior surfaces.
+                    </p>
                 </div>
                 <div class="col-lg-4 text-lg-end">
                     <a href="contact.html" class="btn btn-light btn-lg">Contact Us</a>
@@ -584,8 +440,10 @@
                     <p>Premium tiles for interior and exterior spaces. Quality that lasts, designs that inspire.</p>
                     <div class="d-flex gap-3 social-icons">
                         <a href="https://www.youtube.com/" class="text-light"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.instagram.com/kadekor_/" class="text-light"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/company/kadekor/?originalSubdomain=tr" class="text-light"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/kadekor_/" class="text-light"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/kadekor/?originalSubdomain=tr" class="text-light"><i
+                                class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
@@ -600,8 +458,10 @@
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h5 class="fw-bold mb-3">Products</h5>
                     <ul class="list-unstyled">
-                        <li><a href="products.html#kitchen" class="text-light text-decoration-none">Interior Films</a></li>
-                        <li><a href="products.html#bathroom" class="text-light text-decoration-none">Exterior Films</a></li>
+                        <li><a href="products.html#interior" class="text-light">Interior Films</a></li>
+                        <li><a href="products.html#exterior" class="text-light">Exterior Films</a></li>
+                        <li><a href="products.html#doors" class="text-light">Doors by AdoKapı</a></li>
+                        <li><a href="products.html#vinylbond" class="text-light">Vinylbond</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 mb-4">
@@ -634,7 +494,7 @@
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <p class="small text-muted mb-0">
-                        <a href="#" class="text-primary text-decoration-none">Privacy Policy</a> | 
+                        <a href="#" class="text-primary text-decoration-none">Privacy Policy</a> |
                         <a href="#" class="text-primary text-decoration-none">Terms of Service</a>
                     </p>
                 </div>
@@ -647,4 +507,5 @@
     <!-- Custom JS -->
     <script src="./js/main.js"></script>
 </body>
+
 </html>
