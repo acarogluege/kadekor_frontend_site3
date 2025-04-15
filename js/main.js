@@ -154,8 +154,6 @@ function initDealerForms() {
             modal.hide();
             this.reset();
             
-            // In a real application, you would redirect to a dealer dashboard or refresh the page
-            // window.location.href = 'dealer-dashboard.html';
         });
     }
 }
