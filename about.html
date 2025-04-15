@@ -42,6 +42,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="technical.html">Technical</a>
+                    </li>
                     <li class="nav-item ms-lg-2">
                         <a class="nav-link btn btn-outline-primary btn-sm px-3" href="#" data-bs-toggle="modal"
                             data-bs-target="#dealerLoginModal">
@@ -69,15 +75,15 @@
                     <div class="divider mx-auto bg-white mb-4" style="height: 3px; width: 70px;"></div>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a href="index.html"
-                                    class="text-decoration-none text-white"><i class="fas fa-home me-1"></i> Home</a></li>
+                            <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-white"><i
+                                        class="fas fa-home me-1"></i> Home</a></li>
                             <li class="breadcrumb-item active text-white" aria-current="page">About Us</li>
                         </ol>
                     </nav>
                 </div>
             </div>
         </div>
-        
+
         <!-- Overlapping card that contains the Our Story section -->
         <div class="container position-relative story-container">
             <div class="row">
@@ -85,21 +91,26 @@
                     <div class="card border-0 shadow-lg story-card">
                         <div class="card-body p-4 p-md-5">
                             <h2 class="fw-bold mb-4 text-center text-dark">Our Story</h2>
-                            <p class="lead text-dark">Established in 2007 to be a supplier for decorative surface materials in all
-                            industrial areas, Ka Dekor company has sold PVC and PET Films imported from abroad to be
-                            used in Profile Wrapping, Vacuum and Membrane Press machines until the end of 2015.</p>
-                            <p class="text-dark">As of 2016, both companies have decided to cooperate together as they share the same
-                                philosophy with Ado Group of Companies, one of the leading companies in Turkey, whose
-                                mission is to "Provide Top Quality Products with a Quality Service Concept". By cooperating
-                                with Ado Film, it has expanded its product range to include interior PVC surface films
-                                suitable for Furniture, Door and PVC Window groups.</p>
-                            <p class="text-dark">With the latest moves of our company, in order to contribute to the economy of our country
-                                and to serve our customers much better, it has aimed to become one of the leading companies
-                                in the sector in terms of Membrane and PVC Technologies, PVC Flat Lamination, Paintable PVC
-                                and Pet Technologies.</p>
-                            <p class="text-dark mb-0">As Ka Dekor, we are constantly in a race with ourselves to supply all Decorative Surface
-                                Films and other surface materials that our customers need, as soon as possible and under the
-                                most suitable conditions, with our understanding of perfect service.</p>
+                            <div class="story-text">
+                                <p class="story-paragraph">Established in 2007 to be a supplier for decorative surface
+                                    materials in all industrial areas, Ka Dekor company has sold PVC and PET Films imported from abroad to be
+                                    used in Profile Wrapping, Vacuum and Membrane Press machines until the end of 2015.</p>
+                                
+                                <p class="story-paragraph">As of 2016, both companies have decided to cooperate together as they
+                                    share the same philosophy with Ado Group of Companies, one of the leading companies in Turkey, whose
+                                    mission is to "Provide Top Quality Products with a Quality Service Concept". By cooperating
+                                    with Ado Film, it has expanded its product range to include interior PVC surface films
+                                    suitable for Furniture, Door and PVC Window groups.</p>
+                                
+                                <p class="story-paragraph">With the latest moves of our company, in order to contribute to the
+                                    economy of our country and to serve our customers much better, it has aimed to become one of the leading
+                                    companies in the sector in terms of Membrane and PVC Technologies, PVC Flat Lamination, Paintable
+                                    PVC and Pet Technologies.</p>
+                                
+                                <p class="story-paragraph mb-0">As Ka Dekor, we are constantly in a race with ourselves to supply
+                                    all Decorative Surface Films and other surface materials that our customers need, as soon as possible and under
+                                    the most suitable conditions, with our understanding of perfect service.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -154,9 +165,6 @@
         </div>
     </section>
 
-    <!-- Add some space before the next section -->
-    <div class="py-5"></div>
-
     <!-- Values Section -->
 
     <!-- Timeline Section -->
@@ -179,6 +187,9 @@
                             </div>
                             <div class="partner-logo m-4">
                                 <img src="./img/adokapı_partner.png" height="60">
+                            </div>
+                            <div class="partner-logo m-4">
+                                <img src="./img/ado_film_partner.png" height="60">
                             </div>
                         </div>
                     </div>
@@ -368,51 +379,53 @@
     </div>
 
     <!-- Forgot Password Modal -->
-<div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordModalLabel"
-aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-        <div class="modal-header bg-light">
-            <h5 class="modal-title fw-bold" id="forgotPasswordModalLabel">Reset Password</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <div class="text-center mb-4">
-                <div class="reset-icon mb-3">
-                    <i class="fas fa-key fa-2x text-primary"></i>
+    <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-light">
+                    <h5 class="modal-title fw-bold" id="forgotPasswordModalLabel">Reset Password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <h5>Forgot your password?</h5>
-                <p class="text-muted">Enter your email address, and we'll send you a link to reset your password.</p>
-            </div>
-            
-            <form id="forgotPasswordForm" class="needs-validation" novalidate>
-                <div class="mb-4">
-                    <label for="resetEmail" class="form-label">Email Address</label>
-                    <input type="email" class="form-control" id="resetEmail" required>
-                    <div class="invalid-feedback">
-                        Please enter a valid email address.
+                <div class="modal-body">
+                    <div class="text-center mb-4">
+                        <div class="reset-icon mb-3">
+                            <i class="fas fa-key fa-2x text-primary"></i>
+                        </div>
+                        <h5>Forgot your password?</h5>
+                        <p class="text-muted">Enter your email address, and we'll send you a link to reset your
+                            password.</p>
                     </div>
-                </div>
-                
-                <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-primary">Send Reset Link</button>
-                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" 
-                        data-bs-target="#dealerLoginModal" data-bs-dismiss="modal">
-                        Back to Login
-                    </button>
-                </div>
-            </form>
-            
-            <div class="mt-4 pt-3 border-top">
-                <div class="text-center">
-                    <p class="mb-0 small">Need assistance? <a href="contact.html" class="text-primary">Contact our support team</a></p>
+
+                    <form id="forgotPasswordForm" class="needs-validation" novalidate>
+                        <div class="mb-4">
+                            <label for="resetEmail" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="resetEmail" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid email address.
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Send Reset Link</button>
+                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
+                                data-bs-target="#dealerLoginModal" data-bs-dismiss="modal">
+                                Back to Login
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="mt-4 pt-3 border-top">
+                        <div class="text-center">
+                            <p class="mb-0 small">Need assistance? <a href="contact.html" class="text-primary">Contact
+                                    our support team</a></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-</div>
-    
+
 
     <!-- CTA Section -->
     <section class="py-5 bg-primary text-white">
@@ -453,6 +466,8 @@ aria-hidden="true">
                         <li><a href="about.html" class="text-light text-decoration-none">About Us</a></li>
                         <li><a href="products.html" class="text-light text-decoration-none">Products</a></li>
                         <li><a href="contact.html" class="text-light text-decoration-none">Contact</a></li>
+                        <li><a href="news.html" class="text-light text-decoration-none">News</a></li>
+                        <li><a href="technical.html" class="text-light text-decoration-none">Technical</a></li> 
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
