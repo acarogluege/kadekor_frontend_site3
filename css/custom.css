@@ -14,8 +14,19 @@ body {
     font-family: 'Montserrat', sans-serif;
     color: #333;
     overflow-x: hidden;
-    padding-top: 76px; /* For fixed navbar */
-    background-color: #F8F9FA; /* Light gray background */
+    padding-top: 76px; 
+    background-color: #F8F9FA; 
+}
+
+/* Add padding to body to prevent content from hiding behind fixed navbar */
+body {
+    padding-top: 76px;
+}
+
+@media (max-width: 992px) {
+    body {
+        padding-top: 60px;
+    }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -146,6 +157,28 @@ a:hover {
     padding-top: 15px;
     padding-bottom: 15px;
     transition: all 0.3s ease;
+    z-index: 1030; /* Ensure navbar stays above other content */
+}
+
+/* Navbar scroll behavior */
+.navbar-scroll {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    transition: transform 0.4s ease-in-out;
+}
+
+.navbar-hidden {
+    transform: translateY(-100%);
+}
+
+/* When scrolling down, you might want to make the navbar more compact */
+.navbar.scrolled {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-nav .nav-link {
@@ -165,12 +198,23 @@ a:hover {
     background-color: #259229;
 }
 
-/* Hero Section */
-.hero-section {
-    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), url('https://via.placeholder.com/1920x1080') no-repeat center center;
-    background-size: cover;
-    height: 80vh;
-    min-height: 500px;
+/* Logo styling */
+.navbar-brand img.logo {
+    height: 40px;
+    width: auto;
+    transition: all 0.3s ease;
+}
+
+/* Optional: If you want the logo to shrink slightly when scrolling down */
+.navbar-scroll.scrolled .navbar-brand img.logo {
+    height: 35px;
+}
+
+/* Adjust mobile logo size if needed */
+@media (max-width: 576px) {
+    .navbar-brand img.logo {
+        height: 35px;
+    }
 }
 
 /* Feature Cards */
@@ -291,6 +335,30 @@ footer ul li a:hover {
 .page-header {
     padding-top: 50px;
     background-color: #F8F9FA; /* Match body background */
+}
+
+/* Page header with background image */
+.page-header {
+    position: relative;
+    padding: 6rem 0;
+}
+
+.bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Style breadcrumb for dark backgrounds */
+.page-header .breadcrumb-item + .breadcrumb-item::before {
+    color: white;
+}
+
+.page-header .breadcrumb-item.active {
+    color: var(--bs-primary);
 }
 
 /* Product Cards with better contrast against light background */
@@ -476,18 +544,29 @@ footer ul li a:hover {
 .contact-icon-wrapper {
     width: 70px;
     height: 70px;
-    border-radius: 50%;
+    margin: 0 auto 1.5rem;
     background-color: rgba(37, 146, 41, 0.1);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
     transition: all 0.3s ease;
 }
 
-.card:hover .contact-icon-wrapper {
-    transform: scale(1.1);
-    background-color: rgba(37, 146, 41, 0.2);
+.contact-icon-wrapper i {
+    color: var(--primary, #259229);
+}
+
+/* Contact cards with aligned buttons */
+.card-btn-wrapper {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+/* Ensure equal height cards with aligned buttons at bottom */
+.card.h-100.d-flex.flex-column .flex-grow-1 {
+    margin-bottom: auto;
 }
 
 /* Map Container */
@@ -572,4 +651,531 @@ footer ul li a:hover {
     background-color: #259229;
     color: white;
     transform: translateY(-2px);
+}
+/* Product Slider Styles */
+.sc-slider-height {
+    height: calc(100vh - 76px); 
+    margin-top: -76px; 
+    padding-top: 76px; 
+    position: relative;
+}
+
+.swiper-slide-transform {
+    width: 100%;
+    height: calc(100vh - 76px); 
+    overflow: hidden;
+}
+
+.swiper-slide-transform img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+    transition: all 1.5s ease;
+}
+
+.swiper-slide {
+    position: relative;
+}
+
+.swiper-slide:hover .swiper-slide-transform img {
+    transform: scale(1.05);
+    filter: brightness(0.6);
+}
+
+.slider-text {
+    position: absolute;
+    bottom: 15%;
+    left: 10%;
+    z-index: 10;
+    max-width: 600px;
+}
+
+.slide-slogan {
+    color: #fff;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.sc-slider-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #259229;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.sc-slider-btn:hover {
+    background-color: #1e7a22;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    color: white;
+}
+
+/* Remove underlines from slider elements */
+.slider-text a,
+.slider-text a:hover,
+.sc-slider-btn,
+.sc-slider-btn:hover,
+.swiper-slide a,
+.swiper-slide a:hover {
+    text-decoration: none !important;
+}
+
+/* Ensure consistent styling for slider buttons without underlines */
+.sc-slider-btn:hover {
+    color: white;
+    background-color: #1e7a22;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.swiper-pagination {
+    bottom: 5% !important;
+}
+
+.swiper-pagination-bullet {
+    width: auto !important;
+    height: auto !important;
+    background: transparent !important;
+    opacity: 1 !important;
+    margin: 0 15px !important;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.dot-image {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    padding: 5px;
+    background-color: rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.slider-name {
+    color: white;
+    font-size: 12px;
+    margin-top: 8px;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet:hover .dot-image,
+.swiper-pagination-bullet-active .dot-image {
+    border-color: #259229;
+    transform: scale(1.1);
+}
+
+.swiper-pagination-bullet:hover .slider-name,
+.swiper-pagination-bullet-active .slider-name {
+    opacity: 1;
+    font-weight: 600;
+    color: #259229;
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    animation: scrollDown 2s infinite;
+    z-index: 10;
+}
+
+.scroll-down::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    margin-left: -3px;
+    background-color: #fff;
+    border-radius: 100%;
+    animation: scrollDot 2s infinite;
+}
+
+@keyframes scrollDown {
+    0% {
+        transform: translate(-50%, 0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, 20px);
+        opacity: 0;
+    }
+}
+
+@keyframes scrollDot {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(15px);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .sc-slider-height {
+        height: calc(80vh - 66px);
+        margin-top: -66px;
+        padding-top: 66px;
+    }
+    .swiper-slide-transform {
+        height: calc(80vh - 66px);
+    }
+    .slide-slogan {
+        font-size: 2.5rem;
+    }
+    .swiper-pagination-bullet {
+        margin: 0 8px !important;
+    }
+    .dot-image {
+        width: 35px;
+        height: 35px;
+    }
+    .slider-name {
+        font-size: 10px;
+    }
+    body {
+        padding-top: 66px; /* Smaller padding for mobile */
+    }
+}
+
+@media (max-width: 576px) {
+    .sc-slider-height {
+        height: 60vh;
+    }
+    .swiper-slide-transform {
+        height: 60vh;
+    }
+    .slide-slogan {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+    .slider-text {
+        bottom: 25%;
+        left: 5%;
+    }
+    .dot-image {
+        width: 25px;
+        height: 25px;
+    }
+    .slider-name {
+        display: none;
+    }
+    .swiper-pagination-bullet {
+        margin: 0 5px !important;
+    }
+}
+
+/* Left-side bubble navigation for slider */
+.swiper-pagination-vertical {
+    right: auto !important;
+    left: 20px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: auto !important;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 100;
+}
+
+/* Improved bubble navigation styling with labels inside */
+.bubble-icon {
+    width: auto;
+    min-width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.bubble-icon i {
+    color: white;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.bubble-label {
+    color: white !important;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin-left: 8px;
+    position: static !important;
+    transform: none !important;
+    white-space: nowrap;
+}
+
+.swiper-pagination-bullet-active .bubble-icon {
+    background-color: rgba(37, 146, 41, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transform: translateX(5px);
+}
+
+/* Force display for mobile view */
+@media (max-width: 576px) {
+    .swiper-pagination-vertical {
+        left: 10px !important;
+    }
+    
+    .bubble-icon {
+        min-width: 40px;
+        width: auto;
+        padding: 0 10px;
+        height: 40px;
+        border-radius: 20px;
+        justify-content: center;
+    }
+    
+    .bubble-icon i {
+        margin-right: 0;
+    }
+    
+    .bubble-label {
+        display: none !important;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .bubble-icon {
+        min-width: 100px;
+        height: 34px;
+        padding: 0 10px;
+    }
+    
+    .bubble-icon i {
+        font-size: 14px;
+    }
+    
+    .bubble-label {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .swiper-pagination-vertical {
+        left: 10px !important;
+    }
+    
+    .bubble-icon {
+        min-width: auto;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        padding: 0;
+        justify-content: center;
+    }
+    
+    .bubble-icon i {
+        margin-right: 0;
+    }
+    
+    .bubble-label {
+        display: none;
+    }
+}
+
+/* Remove underlines from navbar links and headers */
+.navbar-nav .nav-link,
+h1, h2, h3, h4, h5, h6,
+.nav-link:hover,
+.navbar-nav .nav-link.active {
+    text-decoration: none !important;
+}
+
+/* Remove underlines from all header links */
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+    text-decoration: none !important;
+}
+
+/* Remove underlines from breadcrumb links */
+.breadcrumb-item a {
+    text-decoration: none !important;
+}
+
+/* Optional: Add a subtle hover effect without underlines */
+.navbar-nav .nav-link:hover {
+    color: #259229 !important;
+    opacity: 0.9;
+}
+
+/* Optional: Style for active nav item without underline */
+.navbar-nav .nav-link.active {
+    color: #259229 !important;
+    font-weight: 500;
+}
+
+/* Global underline removal for all links */
+a,
+a:hover,
+a:focus,
+a:active,
+a:visited {
+    text-decoration: none !important;
+}
+
+/* Additional specific elements that might have underlines */
+.dropdown-item,
+.breadcrumb a,
+.nav-link,
+.navbar-brand,
+footer a,
+.card a,
+.btn,
+.swiper-slide a,
+.slider-text a,
+.bubble-label a {
+    text-decoration: none !important;
+}
+
+/* Extra specificity for hover states */
+a:hover,
+.dropdown-item:hover,
+.breadcrumb a:hover,
+.nav-link:hover,
+.navbar-brand:hover,
+footer a:hover,
+.card a:hover,
+.btn:hover,
+.sc-slider-btn:hover,
+.swiper-slide a:hover,
+.slider-text a:hover,
+bubble-label a:hover {
+    text-decoration: none !important;
+}
+
+/* Ensure buttons also have no underline */
+.btn,
+.btn:hover,
+.btn:focus,
+.btn:active {
+    text-decoration: none !important;
+}
+
+/* Ensure that text-decoration-none is applied properly */
+.text-decoration-none {
+    text-decoration: none !important;
+}
+
+/* Integrated About Us Story Card and Vision-Mission Section Styling */
+.story-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -250px; /* Controls how much the story card overlaps the header */
+    z-index: 10;
+}
+
+.story-card {
+    border-radius: 8px;
+    background-color: white;
+}
+
+/* Vision & Mission section styling */
+.vision-mission-section {
+    padding: 0;
+    margin-top: 300px; /* Position it below the story card */
+    background-color: transparent;
+}
+
+.mt-vision-mission {
+    margin-top: 30px; /* Space between story card and vision/mission cards */
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.bg-primary-light {
+    background-color: rgba(37, 146, 41, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .story-container {
+        bottom: -300px; /* Increase overlap on smaller screens */
+    }
+    
+    .vision-mission-section {
+        margin-top: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .story-container {
+        bottom: -350px;
+    }
+    
+    .vision-mission-section {
+        margin-top: 400px;
+    }
+    
+    .story-card .card-body {
+        padding: 2rem !important;
+    }
+}
+
+/* For very small screens, adjust layout */
+@media (max-width: 576px) {
+    .page-header {
+        min-height: 400px;
+    }
+    
+    .story-container {
+        position: relative;
+        bottom: -100px;
+    }
+    
+    .vision-mission-section {
+        margin-top: 200px;
+        padding: 0 15px;
+    }
+    
+    .mt-vision-mission {
+        margin-top: 15px;
+    }
 }
