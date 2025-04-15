@@ -1,47 +1,43 @@
 // Main JavaScript file for KadeKor website
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Navbar scroll effect
+    // Initialize existing functions
+    initDealerForms();
+    initProductSlider();
+    
+    // Add navbar hide/show on scroll functionality
+    initNavbarScroll();
+    
+    // Initialize forgot password form functionality
+    initForgotPasswordForm();
+});
+
+/**
+ * Hide navbar when scrolling down, show when scrolling up
+ */
+function initNavbarScroll() {
     const navbar = document.querySelector('.navbar');
+    let lastScrollTop = 0;
+    
+    // Add necessary classes and remove fixed-top if present
+    navbar.classList.remove('fixed-top');
+    navbar.classList.add('navbar-scroll');
     
     window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            navbar.classList.add('navbar-shrink', 'py-2');
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Check scroll direction
+        if (scrollTop > lastScrollTop) {
+            // Scrolling down - hide navbar
+            navbar.classList.add('navbar-hidden');
         } else {
-            navbar.classList.remove('navbar-shrink', 'py-2');
+            // Scrolling up - show navbar
+            navbar.classList.remove('navbar-hidden');
         }
+        
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For mobile or negative scrolling
     });
-
-    // Initialize tooltips
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl)
-    });
-    
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if(targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if(targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize interactive elements
-    initDealerForms();
-    
-    // Other existing initialization functions can be here...
-});
+}
 
 /**
  * Initialize dealer login and registration form functionality
@@ -159,6 +155,53 @@ function initDealerForms() {
 }
 
 /**
+ * Handle the forgot password form submission
+ */
+function initForgotPasswordForm() {
+    const forgotPasswordForm = document.getElementById('forgotPasswordForm');
+    
+    if (forgotPasswordForm) {
+        forgotPasswordForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            if (!forgotPasswordForm.checkValidity()) {
+                event.stopPropagation();
+                forgotPasswordForm.classList.add('was-validated');
+                return;
+            }
+            
+            // Get the email
+            const email = document.getElementById('resetEmail').value;
+            
+            //API call here
+            console.log('Password reset requested for email:', email);
+            
+            // Show success message - using alert if SweetAlert is not available
+            if (typeof Swal !== 'undefined') {
+                Swal.fire({
+                    title: 'Password Reset Email Sent',
+                    text: 'Check your email for instructions to reset your password.',
+                    icon: 'success',
+                    confirmButtonColor: '#259229'
+                });
+            } else {
+                alert('Password reset link sent to your email. Please check your inbox.');
+            }
+            
+            // Close the modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('forgotPasswordModal'));
+            if (modal) {
+                modal.hide();
+            }
+            
+            // Reset the form
+            forgotPasswordForm.classList.remove('was-validated');
+            forgotPasswordForm.reset();
+        });
+    }
+}
+
+/**
  * Display a notification to the user
  * @param {string} message - The message to display
  * @param {string} type - The type of notification (success, error, warning, info)
@@ -217,10 +260,9 @@ function showNotification(message, type = 'info') {
  * @param {Object} formData - The registration form data
  */
 function sendRegistrationData(formData) {
-    // This is a placeholder function for API integration
     
     console.log('Registration data:', formData);
-    // For now we just return a simulated successful result
+    
     return { success: true };
 }
 
@@ -230,11 +272,9 @@ function sendRegistrationData(formData) {
  * @param {Object} loginData - The login form data
  */
 function authenticateUser(loginData) {
-    // This is a placeholder function for API integration
-    
     
     console.log('Login data:', loginData);
-    // For now we just return a simulated successful result
+
     return { success: true };
 }
 
@@ -248,15 +288,57 @@ if (sortSelect) {
         productGrids.forEach(grid => {
             const products = Array.from(grid.querySelectorAll('.col-md-6, .col-lg-4, .col-sm-6'));
             
-            // Sort products based on selected option
+            
             products.sort((a, b) => {
-                // All this sorting code can be removed
+                
             });
             
-            // Re-append elements in the sorted order
+            
             products.forEach(product => {
                 grid.appendChild(product);
             });
         });
     });
+}
+
+/**
+ * Initialize the product slider functionality
+ */
+function initProductSlider() {
+    // Check if the product slider exists
+    if (document.querySelector('.productSwiper')) {
+        // Initialize the Swiper slider
+        const productSwiper = new Swiper(".productSwiper", {
+            effect: "fade",
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                direction: 'vertical',
+                renderBullet: function (index, className) {
+                    // Define icons and names for slides
+                    const slideIcons = [
+                        { icon: 'fa-home', name: 'Interior Films' },
+                        { icon: 'fa-paint-roller', name: 'Exterior Films' },
+                        { icon: 'fa-building', name: 'Doors By AdoKapı' },
+                        { icon: 'fa-layer-group', name: 'Vinylbond' }
+                    ];
+                    
+                    if (slideIcons[index]) {
+                        return `<span class="${className}">
+                                  <div class="bubble-icon">
+                                    <i class="fas ${slideIcons[index].icon}"></i>
+                                    <span class="bubble-label">${slideIcons[index].name}</span>
+                                  </div>
+                                </span>`;
+                    }
+                    return "";
+                }
+            },
+        });
+    }
 }
