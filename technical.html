@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KaDekor - Premium Interior & Exterior Tiles</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="./img/KaDekor_Logo.png" alt="KaDekor Logo" class="logo" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="technical.html">Technical</a>
+                    </li>
+                    <li class="nav-item ms-lg-2">
+                        <a class="nav-link btn btn-outline-primary btn-sm px-3" href="#" data-bs-toggle="modal"
+                            data-bs-target="#dealerLoginModal">
+                            <i class="fas fa-user-lock me-1"></i> Dealer Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header with Background Image -->
+    <section class="page-header py-5 text-white position-relative" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./img/technical_header.jpg') no-repeat center center; 
+           background-size: cover; 
+           min-height: 400px;
+           display: flex; 
+           align-items: center;
+           position: relative; 
+           margin-bottom: 0;">
+        <div class="container position-relative">
+            <!-- Header content -->
+            <div class="row mb-4">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="fw-bold display-4 mb-3">Technical Information</h1>
+                    <div class="divider mx-auto bg-white mb-4" style="height: 3px; width: 70px;"></div>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-white"><i
+                                        class="fas fa-home me-1"></i> Home</a></li>
+                            <li class="breadcrumb-item active text-white" aria-current="page">Technical</li>
+                        </ol>
+                    </nav>
+                    <p class="lead text-white mt-4">Detailed specifications, guides, and technical resources</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Technical Content Section -->
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="row">
+                <!-- Sidebar with Categories -->
+                <div class="col-lg-3 mb-5 mb-lg-0">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-header bg-primary text-white py-3">
+                            <h5 class="mb-0 fw-bold">Technical Categories</h5>
+                        </div>
+                        <div class="list-group list-group-flush">
+                            <a href="#" class="list-group-item list-group-item-action active" data-category="all">
+                                <i class="fas fa-layer-group me-2"></i> All Documents
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action" data-category="application">
+                                <i class="fas fa-tools me-2"></i> Application Guides
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action" data-category="datasheets">
+                                <i class="fas fa-file-alt me-2"></i> Product Datasheets
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action" data-category="maintenance">
+                                <i class="fas fa-brush me-2"></i> Care & Maintenance
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action" data-category="warranty">
+                                <i class="fas fa-shield-alt me-2"></i> Warranty Information
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action" data-category="certification">
+                                <i class="fas fa-certificate me-2"></i> Certifications
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Search Documents -->
+                    <div class="card border-0 shadow-sm mt-4">
+                        <div class="card-header bg-light py-3">
+                            <h5 class="mb-0 fw-bold">Search Documents</h5>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search technical documents..."
+                                        id="searchDocuments">
+                                    <button class="btn btn-primary" type="button" id="searchButton">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Documents List -->
+                <div class="col-lg-9">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="fw-bold h3">Technical Documents</h2>
+                        <div class="dropdown">
+                            <button class="btn btn-light dropdown-toggle" type="button" id="sortDropdown"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-sort me-1"></i> Sort By
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="sortDropdown">
+                                <li><a class="dropdown-item" href="#">Newest First</a></li>
+                                <li><a class="dropdown-item" href="#">Oldest First</a></li>
+                                <li><a class="dropdown-item" href="#">A-Z</a></li>
+                                <li><a class="dropdown-item" href="#">Most Downloaded</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Documents Grid -->
+                    <div class="row g-4" id="documentsGrid">
+                        <!-- Document 1 -->
+                        <div class="col-md-6" data-category="application">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="document-icon me-3 p-3 rounded-circle bg-primary-bg-subtle">
+                                            <i class="fas fa-file-pdf fa-2x text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="card-title mb-1 fw-bold">Interior Film Installation Guide</h5>
+                                            <span class="badge bg-success">Application Guide</span>
+                                            <small class="text-muted ms-2">PDF | 3.2 MB</small>
+                                        </div>
+                                    </div>
+                                    <p class="card-text">Comprehensive step-by-step instructions for proper installation
+                                        of KaDekor interior decorative films on various surfaces.</p>
+                                    <div class="mt-3 d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">Updated: Feb 15, 2025</small>
+                                        <a href="#" class="btn btn-outline-primary btn-sm">
+                                            <i class="fas fa-download me-1"></i> Download
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Document 2 -->
+                        <div class="col-md-6" data-category="datasheets">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="document-icon me-3 p-3 rounded-circle bg-primary-bg-subtle">
+                                            <i class="fas fa-file-pdf fa-2x text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="card-title mb-1 fw-bold">Wood Series Technical Datasheet</h5>
+                                            <span class="badge bg-info">Product Datasheet</span>
+                                            <small class="text-muted ms-2">PDF | 1.8 MB</small>
+                                        </div>
+                                    </div>
+                                    <p class="card-text">Complete product specifications, performance data, and
+                                        technical characteristics for the Wood Series decorative films.</p>
+                                    <div class="mt-3 d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">Updated: Mar 3, 2025</small>
+                                        <a href="#" class="btn btn-outline-primary btn-sm">
+                                            <i class="fas fa-download me-1"></i> Download
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Document 3 -->
+                        <div class="col-md-6" data-category="maintenance">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="document-icon me-3 p-3 rounded-circle bg-primary-bg-subtle">
+                                            <i class="fas fa-file-pdf fa-2x text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="card-title mb-1 fw-bold">Care & Cleaning Guide</h5>
+                                            <span class="badge bg-warning text-dark">Maintenance</span>
+                                            <small class="text-muted ms-2">PDF | 1.5 MB</small>
+                                        </div>
+                                    </div>
+                                    <p class="card-text">Proper maintenance procedures, recommended cleaning products,
+                                        and care instructions to maintain your KaDekor films in optimal condition.</p>
+                                    <div class="mt-3 d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">Updated: Jan 20, 2025</small>
+                                        <a href="#" class="btn btn-outline-primary btn-sm">
+                                            <i class="fas fa-download me-1"></i> Download
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Document 4 -->
+                        <div class="col-md-6" data-category="warranty">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="document-icon me-3 p-3 rounded-circle bg-primary-bg-subtle">
+                                            <i class="fas fa-file-pdf fa-2x text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="card-title mb-1 fw-bold">10-Year Warranty Information</h5>
+                                            <span class="badge bg-secondary">Warranty</span>
+                                            <small class="text-muted ms-2">PDF | 0.8 MB</small>
+                                        </div>
+                                    </div>
+                                    <p class="card-text">Detailed warranty coverage, limitations, and claim process for
+                                        all KaDekor decorative film products installed by certified professionals.</p>
+                                    <div class="mt-3 d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">Updated: Apr 5, 2025</small>
+                                        <a href="#" class="btn btn-outline-primary btn-sm">
+                                            <i class="fas fa-download me-1"></i> Download
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Document 5 -->
+                        <div class="col-md-6" data-category="certification">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="document-icon me-3 p-3 rounded-circle bg-primary-bg-subtle">
+                                            <i class="fas fa-file-pdf fa-2x text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="card-title mb-1 fw-bold">Fire Safety Certification</h5>
+                                            <span class="badge bg-danger">Certification</span>
+                                            <small class="text-muted ms-2">PDF | 2.1 MB</small>
+                                        </div>
+                                    </div>
+                                    <p class="card-text">European and international fire rating certifications and test
+                                        reports demonstrating KaDekor films' compliance with safety standards.</p>
+                                    <div class="mt-3 d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">Updated: Mar 12, 2025</small>
+                                        <a href="#" class="btn btn-outline-primary btn-sm">
+                                            <i class="fas fa-download me-1"></i> Download
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Document 6 -->
+                        <div class="col-md-6" data-category="application">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="document-icon me-3 p-3 rounded-circle bg-primary-bg-subtle">
+                                            <i class="fas fa-file-pdf fa-2x text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="card-title mb-1 fw-bold">Surface Preparation Guide</h5>
+                                            <span class="badge bg-success">Application Guide</span>
+                                            <small class="text-muted ms-2">PDF | 2.4 MB</small>
+                                        </div>
+                                    </div>
+                                    <p class="card-text">Complete guide for preparing different surfaces for optimal
+                                        film adhesion, including troubleshooting for challenging surfaces.</p>
+                                    <div class="mt-3 d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">Updated: Feb 28, 2025</small>
+                                        <a href="#" class="btn btn-outline-primary btn-sm">
+                                            <i class="fas fa-download me-1"></i> Download
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- No Results Message (initially hidden) -->
+                    <div id="noResults" class="text-center py-5 d-none">
+                        <img src="./img/no_results.svg" alt="No results found" class="img-fluid mb-4"
+                            style="max-height: 150px;">
+                        <h4>No matching documents found</h4>
+                        <p class="text-muted">Try adjusting your search criteria or browse all documents</p>
+                        <button class="btn btn-outline-primary mt-3" id="resetSearch">
+                            <i class="fas fa-redo me-2"></i> Reset Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container py-4">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mb-4 mb-lg-0">
+                    <h2 class="fw-bold">Ready to Transform Your Space?</h2>
+                    <p class="lead mb-0">Discover how our premium films can elevate your interior and exterior surfaces.
+                    </p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="contact.html" class="btn btn-light btn-lg">Contact Us</a>
+                    <a href="products.html" class="btn btn-outline-light btn-lg ms-2">Our Products</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 mb-4">
+                    <h5 class="fw-bold mb-3">KaDekor</h5>
+                    <p>Premium tiles for interior and exterior spaces. Quality that lasts, designs that inspire.</p>
+                    <div class="d-flex gap-3 social-icons">
+                        <a href="https://www.youtube.com/" class="text-light"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/kadekor_/" class="text-light"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/kadekor/?originalSubdomain=tr" class="text-light"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="fw-bold mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-light text-decoration-none">Home</a></li>
+                        <li><a href="about.html" class="text-light text-decoration-none">About Us</a></li>
+                        <li><a href="products.html" class="text-light text-decoration-none">Products</a></li>
+                        <li><a href="contact.html" class="text-light text-decoration-none">Contact</a></li>
+                        <li><a href="news.html" class="text-light text-decoration-none">News</a></li>
+                        <li><a href="technical.html" class="text-light text-decoration-none">Technical</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="fw-bold mb-3">Products</h5>
+                    <ul class="list-unstyled">
+                        <ul class="list-unstyled">
+                            <li><a href="products.html#interior" class="text-light">Interior Films</a></li>
+                            <li><a href="products.html#exterior" class="text-light">Exterior Films</a></li>
+                            <li><a href="products.html#doors" class="text-light">Doors by AdoKapı</a></li>
+                            <li><a href="products.html#vinylbond" class="text-light">Vinylbond</a></li>
+                        </ul>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5 class="fw-bold mb-3">Contact Info</h5>
+                    <ul class="list-unstyled">
+                        <li class="d-flex mb-2">
+                            <i class="fas fa-map-marker-alt me-2 mt-1"></i>
+                            <span>Ekşioğlu Mah. Saray Cad. No:3
+                                Çekmeköy / İstanbul</span>
+                        </li>
+                        <li class="d-flex mb-2">
+                            <i class="fas fa-phone-alt me-2 mt-1"></i>
+                            <span>+90 216 313 28 48</span>
+                        </li>
+                        <li class="d-flex mb-2">
+                            <i class="fas fa-fax me-2 mt-1"></i>
+                            <span>+90 216 313 55 66</span>
+                        </li>
+                        <li class="d-flex">
+                            <i class="fas fa-envelope me-2 mt-1"></i>
+                            <span>info@kadekor.com.tr</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-light opacity-25">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="small text-muted mb-0">&copy; 2025 KaDekor. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="small text-muted mb-0">
+                        <a href="#" class="text-primary text-decoration-none">Privacy Policy</a> |
+                        <a href="#" class="text-primary text-decoration-none">Terms of Service</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dealer Login Modal -->
+    <div class="modal fade" id="dealerLoginModal" tabindex="-1" aria-labelledby="dealerLoginModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-light">
+                    <h5 class="modal-title fw-bold" id="dealerLoginModalLabel">Dealer Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="dealerLoginForm">
+                        <div class="mb-3">
+                            <label for="loginIdentifier" class="form-label">TC Kimlik No / Tax ID</label>
+                            <input type="text" class="form-control" id="loginIdentifier" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Remember me</label>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </div>
+                    </form>
+
+                    <hr>
+
+                    <div class="text-center">
+                        <p class="mb-2">Don't have a dealer account?</p>
+                        <button class="btn btn-outline-secondary" data-bs-toggle="modal"
+                            data-bs-target="#dealerSignupModal" data-bs-dismiss="modal">
+                            Register as a Dealer
+                        </button>
+                    </div>
+
+                    <div class="mt-3 text-end">
+                        <a href="#" class="small text-decoration-none" data-bs-toggle="modal"
+                            data-bs-target="#forgotPasswordModal" data-bs-dismiss="modal">Forgot password?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dealer Signup Modal -->
+    <div class="modal fade" id="dealerSignupModal" tabindex="-1" aria-labelledby="dealerSignupModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-light">
+                    <h5 class="modal-title fw-bold" id="dealerSignupModalLabel">Dealer Registration</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="dealerSignupForm" class="needs-validation" novalidate>
+                        <div class="row g-3">
+                            <!-- Personal Information -->
+                            <div class="col-md-6">
+                                <label for="signupFirstName" class="form-label">First Name*</label>
+                                <input type="text" class="form-control" id="signupFirstName" required>
+                                <div class="invalid-feedback">
+                                    Please enter your first name.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="signupLastName" class="form-label">Last Name*</label>
+                                <input type="text" class="form-control" id="signupLastName" required>
+                                <div class="invalid-feedback">
+                                    Please enter your last name.
+                                </div>
+                            </div>
+
+                            <!-- Contact Information -->
+                            <div class="col-md-6">
+                                <label for="signupEmail" class="form-label">Email Address*</label>
+                                <input type="email" class="form-control" id="signupEmail" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid email address.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="signupPhone" class="form-label">Phone Number*</label>
+                                <input type="tel" class="form-control" id="signupPhone" placeholder="+90 5XX XXX XX XX"
+                                    required>
+                                <div class="invalid-feedback">
+                                    Please enter your phone number.
+                                </div>
+                            </div>
+
+                            <!-- Company Information -->
+                            <div class="col-md-12">
+                                <label for="signupCompany" class="form-label">Company Name*</label>
+                                <input type="text" class="form-control" id="signupCompany" required>
+                                <div class="invalid-feedback">
+                                    Please enter your company name.
+                                </div>
+                            </div>
+
+                            <!-- Tax Information -->
+                            <div class="col-md-4">
+                                <label for="signupTaxId" class="form-label">TC Kimlik No / Tax ID*</label>
+                                <input type="text" class="form-control" id="signupTaxId" required>
+                                <div class="invalid-feedback">
+                                    Please enter your TC Kimlik No or Tax ID.
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <label for="signupTaxOffice" class="form-label">Tax Office*</label>
+                                <input type="text" class="form-control" id="signupTaxOffice" required>
+                                <div class="invalid-feedback">
+                                    Please enter your tax office.
+                                </div>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="col-md-6">
+                                <label for="signupPassword" class="form-label">Password*</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="signupPassword" required
+                                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+                                    <button class="btn btn-outline-secondary toggle-password" type="button">
+                                        <i class="far fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="form-text">
+                                    Password must be at least 8 characters long and include uppercase, lowercase,
+                                    numbers, and special characters.
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please enter a valid password.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="signupPasswordConfirm" class="form-label">Confirm Password*</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="signupPasswordConfirm" required>
+                                    <button class="btn btn-outline-secondary toggle-password" type="button">
+                                        <i class="far fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="invalid-feedback">
+                                    Passwords do not match.
+                                </div>
+                            </div>
+
+                            <!-- Terms & Privacy -->
+                            <div class="col-12 mt-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="termsAgree" required>
+                                    <label class="form-check-label" for="termsAgree">
+                                        I agree to the <a href="#" class="text-primary">Terms of Service</a> and <a
+                                            href="#" class="text-primary">Privacy Policy</a>
+                                    </label>
+                                    <div class="invalid-feedback">
+                                        You must agree to our terms and privacy policy.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="col-12 mt-4">
+                                <div class="d-grid gap-2">
+                                    <button type="submit" class="btn btn-primary btn-lg">Register as Dealer</button>
+                                </div>
+                                <p class="text-center mt-3 mb-0">
+                                    Already registered? <a href="#" class="text-primary" data-bs-toggle="modal"
+                                        data-bs-target="#dealerLoginModal" data-bs-dismiss="modal">Login</a>
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-light">
+                    <h5 class="modal-title fw-bold" id="forgotPasswordModalLabel">Reset Password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-4">
+                        <div class="reset-icon mb-3">
+                            <i class="fas fa-key fa-2x text-primary"></i>
+                        </div>
+                        <h5>Forgot your password?</h5>
+                        <p class="text-muted">Enter your email address, and we'll send you a link to reset your
+                            password.</p>
+                    </div>
+
+                    <form id="forgotPasswordForm" class="needs-validation" novalidate>
+                        <div class="mb-4">
+                            <label for="resetEmail" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="resetEmail" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid email address.
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Send Reset Link</button>
+                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
+                                data-bs-target="#dealerLoginModal" data-bs-dismiss="modal">
+                                Back to Login
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="mt-4 pt-3 border-top">
+                        <div class="text-center">
+                            <p class="mb-0 small">Need assistance? <a href="contact.html" class="text-primary">Contact
+                                    our support team</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap 5 JS with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="./js/main.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+</body>
+
+</html>
