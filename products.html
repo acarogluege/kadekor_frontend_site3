@@ -63,7 +63,6 @@
            position: relative; 
            margin-bottom: 0;">
         <div class="container position-relative">
-            <!-- Header content -->
             <div class="row mb-4">
                 <div class="col-lg-8 mx-auto text-center">
                     <h1 class="fw-bold display-4 mb-3">Our Products</h1>
@@ -85,7 +84,6 @@
     <section class="py-5">
         <div class="container">
             <div class="row">
-                <!-- Sidebar - Product Categories with Accordion -->
                 <div class="col-lg-3">
                     <div class="card border-0 shadow-sm mb-4">
                         <div class="card-body">
@@ -174,7 +172,6 @@
 
                 <!-- Dynamic Product Container -->
                 <div class="col-lg-9">
-                    <!-- Search and Filter Bar -->
                     <div class="card border-0 shadow-sm mb-4">
                         <div class="card-body p-3">
                             <div class="row align-items-center">
@@ -198,7 +195,6 @@
                         <!-- Wooden Colors -->
                         <h3 id="wooden-interior" class="h5 fw-bold mb-3 border-start border-primary border-4 ps-3">Wooden Colors</h3>
                         <div class="row g-4 mb-5 product-grid" data-category="wooden-interior">
-                            <!-- Cards will be added dynamically with JS -->
                             <div class="col-md-6 col-lg-4">
                                 <div class="card product-card border-0 shadow-sm h-100">
                                     <img src="./img/light_oakjpg.jpg" class="card-img-top" alt="Light Oak Interior Film">
@@ -250,8 +246,6 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                            <!-- Continue with other solid & pastel products -->
                         </div>
 
                         <!-- High Gloss -->
@@ -430,7 +424,6 @@
                 <div class="modal-body">
                     <form id="dealerSignupForm" class="needs-validation" novalidate>
                         <div class="row g-3">
-                            <!-- Personal Information -->
                             <div class="col-md-6">
                                 <label for="signupFirstName" class="form-label">First Name*</label>
                                 <input type="text" class="form-control" id="signupFirstName" required>
@@ -446,7 +439,6 @@
                                 </div>
                             </div>
 
-                            <!-- Contact Information -->
                             <div class="col-md-6">
                                 <label for="signupEmail" class="form-label">Email Address*</label>
                                 <input type="email" class="form-control" id="signupEmail" required>
@@ -463,7 +455,6 @@
                                 </div>
                             </div>
 
-                            <!-- Company Information -->
                             <div class="col-md-12">
                                 <label for="signupCompany" class="form-label">Company Name*</label>
                                 <input type="text" class="form-control" id="signupCompany" required>
@@ -472,7 +463,6 @@
                                 </div>
                             </div>
 
-                            <!-- Tax Information -->
                             <div class="col-md-4">
                                 <label for="signupTaxId" class="form-label">TC Kimlik No / Tax ID*</label>
                                 <input type="text" class="form-control" id="signupTaxId" required>
@@ -488,7 +478,6 @@
                                 </div>
                             </div>
 
-                            <!-- Password -->
                             <div class="col-md-6">
                                 <label for="signupPassword" class="form-label">Password*</label>
                                 <div class="input-group">
@@ -519,7 +508,6 @@
                                 </div>
                             </div>
 
-                            <!-- Terms & Privacy -->
                             <div class="col-12 mt-3">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="termsAgree" required>
@@ -533,7 +521,6 @@
                                 </div>
                             </div>
 
-                            <!-- Submit Button -->
                             <div class="col-12 mt-4">
                                 <div class="d-grid gap-2">
                                     <button type="submit" class="btn btn-primary btn-lg">Register as Dealer</button>
@@ -744,7 +731,6 @@
                         "Surface": "Matte"
                     }
                 }
-                // Add more products as needed
             };
             
             // Handle the detail view buttons
@@ -756,30 +742,25 @@
                     const product = products[productId];
                     
                     if (product) {
-                        // Update modal with product data
                         document.getElementById('productModalLabel').textContent = product.name;
                         document.getElementById('modal-product-title').textContent = product.name;
                         
-                        // Update the single product image
                         const modalImage = document.createElement('img');
                         modalImage.src = product.mainImage;
                         modalImage.alt = product.name;
                         modalImage.className = "img-fluid rounded w-100 shadow-sm";
                         modalImage.style = "max-height: 100% ; object-fit: contain;";
                         
-                        // Clear previous image and add new one
                         const imageContainer = document.querySelector('.product-image-container');
                         imageContainer.innerHTML = ''; // Clear previous image
                         imageContainer.appendChild(modalImage);
                         
-                        // Update badges
                         const badges = document.querySelector('.modal-body .mb-3');
                         badges.innerHTML = `
                             <span class="badge bg-primary">${product.category}</span>
                             <span class="badge bg-secondary ms-1">${product.subcategory}</span>
                         `;
                         
-                        // Update features
                         const featuresList = document.getElementById('modal-product-features');
                         featuresList.innerHTML = '';
                         
@@ -793,7 +774,6 @@
                 });
             });
             
-            // Filter functionality for the search input
             const searchInput = document.getElementById('productSearchInput');
             if (searchInput) {
                 searchInput.addEventListener('input', function() {

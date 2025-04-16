@@ -1,14 +1,9 @@
-// Main JavaScript file for KadeKor website
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize existing functions
     initDealerForms();
     initProductSlider();
     
-    // Add navbar hide/show on scroll functionality
     initNavbarScroll();
     
-    // Initialize forgot password form functionality
     initForgotPasswordForm();
 });
 
@@ -19,23 +14,20 @@ function initNavbarScroll() {
     const navbar = document.querySelector('.navbar');
     let lastScrollTop = 0;
     
-    // Add necessary classes and remove fixed-top if present
     navbar.classList.remove('fixed-top');
     navbar.classList.add('navbar-scroll');
     
     window.addEventListener('scroll', function() {
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
-        // Check scroll direction
+
         if (scrollTop > lastScrollTop) {
-            // Scrolling down - hide navbar
             navbar.classList.add('navbar-hidden');
         } else {
-            // Scrolling up - show navbar
             navbar.classList.remove('navbar-hidden');
         }
         
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For mobile or negative scrolling
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     });
 }
 
@@ -43,7 +35,6 @@ function initNavbarScroll() {
  * Initialize dealer login and registration form functionality
  */
 function initDealerForms() {
-    // Handle password visibility toggle
     document.querySelectorAll('.toggle-password').forEach(button => {
         button.addEventListener('click', function() {
             const input = this.previousElementSibling;
@@ -59,14 +50,11 @@ function initDealerForms() {
         });
     });
     
-    // Validate signup form submission
     const signupForm = document.getElementById('dealerSignupForm');
     if (signupForm) {
-        // Add event listener for password confirmation field
         const passwordField = document.getElementById('signupPassword');
         const confirmField = document.getElementById('signupPasswordConfirm');
         
-        // Real-time password confirmation validation
         confirmField.addEventListener('input', function() {
             if (passwordField.value !== this.value) {
                 this.setCustomValidity('Passwords do not match');
@@ -75,7 +63,6 @@ function initDealerForms() {
             }
         });
         
-        // Also check when password field changes
         passwordField.addEventListener('input', function() {
             if (confirmField.value && confirmField.value !== this.value) {
                 confirmField.setCustomValidity('Passwords do not match');
@@ -87,7 +74,6 @@ function initDealerForms() {
         signupForm.addEventListener('submit', function(event) {
             event.preventDefault();
             
-            // Check if passwords match before form validation
             const password = passwordField.value;
             const confirmPassword = confirmField.value;
             
@@ -103,7 +89,6 @@ function initDealerForms() {
                 return;
             }
             
-            // Form data collection
             const formData = {
                 firstName: document.getElementById('signupFirstName').value,
                 lastName: document.getElementById('signupLastName').value,
@@ -115,13 +100,9 @@ function initDealerForms() {
                 password: password
             };
             
-            // In a real application, you would send this data to your server
-            console.log('Registration data:', formData);
-            
-            // For demonstration, show success message
+            //API call here
             showNotification('Registration successful! We will review your application and contact you soon.', 'success');
             
-            // Close the modal and reset form
             const modal = bootstrap.Modal.getInstance(document.getElementById('dealerSignupModal'));
             modal.hide();
             this.reset();
@@ -129,23 +110,19 @@ function initDealerForms() {
         });
     }
     
-    // Handle login form submission
     const loginForm = document.getElementById('dealerLoginForm');
     if (loginForm) {
         loginForm.addEventListener('submit', function(event) {
             event.preventDefault();
             
-            // Collect login data
             const loginData = {
                 identifier: document.getElementById('loginIdentifier').value,
                 password: document.getElementById('loginPassword').value,
                 remember: document.getElementById('rememberMe').checked
             };
             
-            // For demonstration, show success message
             showNotification('Login successful!', 'success');
             
-            // Close the modal and reset form
             const modal = bootstrap.Modal.getInstance(document.getElementById('dealerLoginModal'));
             modal.hide();
             this.reset();
@@ -170,13 +147,11 @@ function initForgotPasswordForm() {
                 return;
             }
             
-            // Get the email
             const email = document.getElementById('resetEmail').value;
             
             //API call here
             console.log('Password reset requested for email:', email);
             
-            // Show success message - using alert if SweetAlert is not available
             if (typeof Swal !== 'undefined') {
                 Swal.fire({
                     title: 'Password Reset Email Sent',
@@ -188,13 +163,11 @@ function initForgotPasswordForm() {
                 alert('Password reset link sent to your email. Please check your inbox.');
             }
             
-            // Close the modal
             const modal = bootstrap.Modal.getInstance(document.getElementById('forgotPasswordModal'));
             if (modal) {
                 modal.hide();
             }
             
-            // Reset the form
             forgotPasswordForm.classList.remove('was-validated');
             forgotPasswordForm.reset();
         });
@@ -207,7 +180,6 @@ function initForgotPasswordForm() {
  * @param {string} type - The type of notification (success, error, warning, info)
  */
 function showNotification(message, type = 'info') {
-    // Check if notification container exists, if not create it
     let container = document.getElementById('notification-container');
     if (!container) {
         container = document.createElement('div');
@@ -219,14 +191,12 @@ function showNotification(message, type = 'info') {
         document.body.appendChild(container);
     }
     
-    // Create notification element
     const notification = document.createElement('div');
     notification.className = `toast align-items-center border-0 bg-${type}`;
     notification.setAttribute('role', 'alert');
     notification.setAttribute('aria-live', 'assertive');
     notification.setAttribute('aria-atomic', 'true');
     
-    // Create notification content
     notification.innerHTML = `
         <div class="d-flex">
             <div class="toast-body text-white">
@@ -236,16 +206,13 @@ function showNotification(message, type = 'info') {
         </div>
     `;
     
-    // Add to container
     container.appendChild(notification);
     
-    // Initialize toast
     const toast = new bootstrap.Toast(notification, {
         autohide: true,
         delay: 5000
     });
     
-    // Show notification
     toast.show();
     
     // Remove from DOM after hidden
@@ -305,9 +272,7 @@ if (sortSelect) {
  * Initialize the product slider functionality
  */
 function initProductSlider() {
-    // Check if the product slider exists
     if (document.querySelector('.productSwiper')) {
-        // Initialize the Swiper slider
         const productSwiper = new Swiper(".productSwiper", {
             effect: "fade",
             loop: true,
@@ -320,7 +285,6 @@ function initProductSlider() {
                 clickable: true,
                 direction: 'vertical',
                 renderBullet: function (index, className) {
-                    // Define icons and names for slides
                     const slideIcons = [
                         { icon: 'fa-home', name: 'Interior Films' },
                         { icon: 'fa-paint-roller', name: 'Exterior Films' },

@@ -15,7 +15,6 @@ body {
     background-color: #F8F9FA; 
 }
 
-/* Add padding to body to prevent content from hiding behind fixed navbar */
 body {
     padding-top: 76px;
 }
@@ -61,7 +60,6 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
 }
 
-/* Add this specific selector to handle the dealer login button when it gets the active class */
 .nav-item .btn-outline-primary.active,
 .nav-item .btn-outline-primary:focus {
     background-color: #259229 !important;
@@ -69,16 +67,14 @@ h1, h2, h3, h4, h5, h6 {
     border-color: #259229 !important;
 }
 
-/* Ensure dealer login button maintains proper styling with .active class */
 .navbar-nav .nav-link.btn.active {
     color: white !important;
     background-color: #259229 !important;
     border-color: #259229 !important;
 }
 
-/* Fix Dealer Login Button Text Color to Match Other Navbar Items */
 .navbar-nav .nav-item .nav-link.btn.btn-outline-primary {
-    color: #333 !important; /* Match your navbar text color */
+    color: #333 !important; 
     font-weight: 600 !important;
     border-color: #259229;
     border-width: 2px;
@@ -87,21 +83,18 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.95rem !important;
 }
 
-/* Keep the hover state consistent */
 .navbar-nav .nav-item .nav-link.btn.btn-outline-primary:hover {
     color: white !important;
     background-color: #259229;
     border-color: #259229;
 }
 
-/* Override active state */
 .navbar-nav .nav-item .nav-link.btn.btn-outline-primary.active {
     color: white !important;
     background-color: #259229;
     border-color: #259229;
 }
 
-/* Override Bootstrap's default .btn:focus styling */
 .btn-outline-primary:focus,
 .btn-outline-primary.focus,
 .btn-outline-primary:active {
@@ -111,7 +104,6 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 0 0 0.25rem rgba(37, 146, 41, 0.25) !important;
 }
 
-/* Ensure Bootstrap doesn't override with blue focus styles */
 .btn:focus,
 .btn.focus {
     box-shadow: 0 0 0 0.25rem rgba(37, 146, 41, 0.25) !important;
@@ -275,7 +267,6 @@ a:hover {
     transition: all 0.2s ease;
 }
 
-/* Increase spacing between nav items on larger screens */
 @media (min-width: 992px) {
     .navbar-nav .nav-item {
         margin-left: 2px;
@@ -285,17 +276,16 @@ a:hover {
 
 /* Logo styling */
 .navbar-brand img.logo {
-    height: 50px !important; /* Increase logo height from 40px */
+    height: 50px !important; 
     width: auto;
     transition: all 0.3s ease;
     margin-right: 10px;
 }
 
 .navbar-scroll.scrolled .navbar-brand img.logo {
-    height: 40px !important; /* Maintain proportional reduction when scrolled */
+    height: 40px !important; 
 }
 
-/* Enhanced logo styling */
 .navbar-brand {
     padding: 8px 0;
     margin-right: 2rem;
@@ -332,7 +322,6 @@ a:hover {
     }
 }
 
-/* Feature Cards */
 .feature-icon {
     height: 70px;
     display: flex;
@@ -341,7 +330,6 @@ a:hover {
     margin: 0 auto;
 }
 
-/* Feature Cards Styling */
 .feature-card {
     transition: all 0.3s ease;
     border-radius: 10px;
@@ -375,7 +363,6 @@ a:hover {
     color: inherit !important;
 }
 
-/* Category Cards */
 .category-card {
     transition: all 0.3s ease;
 }
@@ -439,7 +426,6 @@ a:hover {
     color: white !important;
 }
 
-/* Footer Links Animation */
 footer ul li a {
     transition: all 0.3s ease;
     display: inline-block;
@@ -461,13 +447,11 @@ footer ul li a:hover {
 
 
 
-/* Page Header - Add some spacing to account for fixed navbar */
 .page-header {
     padding-top: 50px;
     background-color: #F8F9FA; 
 }
 
-/* Page header with background image */
 .page-header {
     position: relative;
     padding: 6rem 0;
@@ -495,7 +479,6 @@ footer ul li a:hover {
     color: var(--bs-primary);
 }
 
-/* Product Cards with better contrast against light background */
 .product-card {
     transition: all 0.3s ease;
     overflow: hidden;
@@ -516,19 +499,16 @@ footer ul li a:hover {
     transform: scale(1.05);
 }
 
-/* Modal styling for product details */
 .modal-content {
     background-color: #ffffff;
     border: none;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
-/* Section backgrounds for better separation */
 .py-5 {
     background-color: #F8F9FA; 
 }
 
-/* Add more contrast to accordion items */
 #productAccordion .accordion-item {
     border-radius: 8px;
     overflow: hidden;
@@ -575,7 +555,6 @@ footer ul li a:hover {
     padding-left: 0.25rem;
 }
 
-/* Category Headers in Sidebar */
 .category-header {
     padding-bottom: 8px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -595,14 +574,12 @@ footer ul li a:hover {
     border-radius: 5px;
 }
 
-/* Section Heading Styling */
 .border-start.border-primary {
     background-color: rgba(37, 146, 41, 0.05);
     padding: 8px 15px 8px 12px;
     border-radius: 0 5px 5px 0;
 }
 
-/* Badge styling */
 .badge.bg-primary {
     background-color: #259229 !important;
 }
@@ -620,7 +597,6 @@ footer ul li a:hover {
     text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
-/* Filter options styling */
 .form-check-input:checked {
     background-color: #259229;
     border-color: #259229;
@@ -672,13 +648,10 @@ footer ul li a:hover {
     padding-left: 0.25rem;
 }
 
-
-/* Page Header - Add padding to account for fixed navbar */
 .page-header {
     padding-top: 60px;
 }
 
-/* Contact Info Cards */
 .contact-icon-wrapper {
     width: 70px;
     height: 70px;
@@ -695,19 +668,16 @@ footer ul li a:hover {
     color: var(--primary, #259229);
 }
 
-/* Contact cards with aligned buttons */
 .card-btn-wrapper {
     margin-top: 1rem;
     display: flex;
     justify-content: center;
 }
 
-/* Ensure equal height cards with aligned buttons at bottom */
 .card.h-100.d-flex.flex-column .flex-grow-1 {
     margin-bottom: auto;
 }
 
-/* Map Container */
 .map-container {
     overflow: hidden;
     border-radius: 8px;
@@ -717,14 +687,12 @@ footer ul li a:hover {
     display: block;
 }
 
-/* Form Focus States */
 .form-control:focus,
 .form-select:focus {
     border-color: rgba(37, 146, 41, 0.5);
     box-shadow: 0 0 0 0.25rem rgba(37, 146, 41, 0.25);
 }
 
-/* Custom Checkbox Styling */
 .form-check-input:checked {
     background-color: #259229;
     border-color: #259229;
@@ -779,7 +747,7 @@ footer ul li a:hover {
     }
 }
 
-/* Dealer Login Button Styling */
+
 .nav-item .btn-outline-primary {
     transition: all 0.3s ease;
     border-radius: 20px;
@@ -790,7 +758,8 @@ footer ul li a:hover {
     color: white;
     transform: translateY(-2px);
 }
-/* Product Slider Styles */
+
+
 .sc-slider-height {
     height: calc(100vh - 76px); 
     margin-top: -76px; 
@@ -833,7 +802,6 @@ footer ul li a:hover {
     filter: brightness(0.5);
 }
 
-/* Improve slider text positioning */
 .slider-text {
     position: absolute;
     bottom: 15%;  
@@ -855,7 +823,6 @@ footer ul li a:hover {
     line-height: 1.2;
 }
 
-/* Improve the explorer button positioning and style */
 .sc-slider-btn {
     display: inline-block;
     background: var(--bs-primary);
@@ -876,7 +843,6 @@ footer ul li a:hover {
     color: white;
 }
 
-/* Remove underlines from slider elements */
 .slider-text a,
 .slider-text a:hover,
 .sc-slider-btn,
@@ -886,7 +852,6 @@ footer ul li a:hover {
     text-decoration: none !important;
 }
 
-/* Ensure consistent styling for slider buttons without underlines */
 .sc-slider-btn:hover {
     color: white;
     background-color: #1e7a22;
@@ -1212,7 +1177,6 @@ footer ul li a:hover {
     }
 }
 
-/* Remove underlines from navbar links and headers */
 .navbar-nav .nav-link,
 h1, h2, h3, h4, h5, h6,
 .nav-link:hover,
@@ -1220,31 +1184,26 @@ h1, h2, h3, h4, h5, h6,
     text-decoration: none !important;
 }
 
-/* Remove underlines from all header links */
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
 h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
     text-decoration: none !important;
 }
 
-/* Remove underlines from breadcrumb links */
 .breadcrumb-item a {
     text-decoration: none !important;
 }
 
-/* Optional: Add a subtle hover effect without underlines */
 .navbar-nav .nav-link:hover {
     color: #1e7a22 !important;
     font-weight: 500;
     opacity: 0.9;
 }
 
-/* Optional: Style for active nav item without underline */
 .navbar-nav .nav-link.active {
     color: #259229 !important;
     font-weight: 500;
 }
 
-/* Global underline removal for all links */
 a,
 a:hover,
 a:focus,
@@ -1266,7 +1225,6 @@ footer a,
     text-decoration: none !important;
 }
 
-/* Extra specificity for hover states */
 a:hover,
 .dropdown-item:hover,
 .breadcrumb a:hover,
@@ -1308,7 +1266,6 @@ bubble-label a:hover {
     color: white !important;
 }
 
-/* Integrated About Us Story Card and Vision-Mission Section Styling */
 .story-container {
     position: absolute;
     left: 0;
