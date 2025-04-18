@@ -774,19 +774,16 @@
                         document.getElementById('productModalLabel').textContent = product.name;
                         document.getElementById('modal-product-title').textContent = product.name;
 
-                        // Update the existing image directly instead of creating a new one
                         const imageContainer = document.querySelector('.product-image-container');
-                        
-                        // Clear the container first
+
                         imageContainer.innerHTML = '';
-                        
-                        // Create and add the image with proper styling
+
                         const modalImage = document.createElement('img');
                         modalImage.id = 'modal-product-image';
                         modalImage.src = product.mainImage;
                         modalImage.alt = product.name;
                         modalImage.className = "product-detail-img";
-                        
+
                         imageContainer.appendChild(modalImage);
 
                         const badges = document.querySelector('.modal-body .mb-3');
@@ -842,41 +839,40 @@
                 });
             }
 
-            // Replace your existing image magnifying code with this improved version
             const productModal = document.getElementById('productModal');
             if (productModal) {
-                productModal.addEventListener('shown.bs.modal', function() {
+                productModal.addEventListener('shown.bs.modal', function () {
                     setupImageZoom();
                 });
             }
-            
+
             function setupImageZoom() {
                 const productImgContainer = document.querySelector('.product-image-container');
                 const modalImage = document.querySelector('.product-detail-img');
-                
+
                 if (productImgContainer && modalImage) {
                     modalImage.style.transform = 'scale(1)';
-                    
+
                     productImgContainer.addEventListener('mousemove', handleImageZoom);
                     productImgContainer.addEventListener('mouseleave', resetImageZoom);
                     productImgContainer.addEventListener('click', toggleMagnification);
                 }
             }
-            
+
             function handleImageZoom(e) {
                 const img = this.querySelector('.product-detail-img');
                 if (!img) return;
-                
+
                 const rect = this.getBoundingClientRect();
                 const x = (e.clientX - rect.left) / rect.width * 100;
                 const y = (e.clientY - rect.top) / rect.height * 100;
-                
+
                 img.style.setProperty('--x', x + '%');
                 img.style.setProperty('--y', y + '%');
-                
+
                 img.style.transform = 'scale(1.5)';
             }
-            
+
             function resetImageZoom() {
                 const img = this.querySelector('.product-detail-img');
                 if (img) {
@@ -884,11 +880,11 @@
                     this.classList.remove('magnify-active');
                 }
             }
-            
+
             function toggleMagnification() {
                 this.classList.toggle('magnify-active');
             }
-            
+
             setupImageZoom();
         });
     </script>

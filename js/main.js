@@ -7,9 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initForgotPasswordForm();
 });
 
-/**
- * Hide navbar when scrolling down, show when scrolling up
- */
+
 function initNavbarScroll() {
     const navbar = document.querySelector('.navbar');
     let lastScrollTop = 0;
@@ -31,9 +29,7 @@ function initNavbarScroll() {
     });
 }
 
-/**
- * Initialize dealer login and registration form functionality
- */
+
 function initDealerForms() {
     document.querySelectorAll('.toggle-password').forEach(button => {
         button.addEventListener('click', function() {
@@ -131,9 +127,7 @@ function initDealerForms() {
     }
 }
 
-/**
- * Handle the forgot password form submission
- */
+
 function initForgotPasswordForm() {
     const forgotPasswordForm = document.getElementById('forgotPasswordForm');
     
@@ -215,7 +209,6 @@ function showNotification(message, type = 'info') {
     
     toast.show();
     
-    // Remove from DOM after hidden
     notification.addEventListener('hidden.bs.toast', function() {
         notification.remove();
     });
@@ -245,7 +238,6 @@ function authenticateUser(loginData) {
     return { success: true };
 }
 
-// Product sorting functionality
 const sortSelect = document.getElementById('productSortSelect');
 if (sortSelect) {
     sortSelect.addEventListener('change', function() {
@@ -268,9 +260,7 @@ if (sortSelect) {
     });
 }
 
-/**
- * Initialize the product slider functionality
- */
+
 function initProductSlider() {
     if (document.querySelector('.productSwiper')) {
         const productSwiper = new Swiper(".productSwiper", {
