@@ -74,7 +74,7 @@
                     <h1 class="fw-bold display-4 mb-3">Our Products</h1>
                     <div class="divider mx-auto bg-white mb-4" style="height: 3px; width: 70px;"></div>
                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center">
+                        <ol class="breadcrumb justify-center">
                             <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-white"><i
                                         class="fas fa-home me-1"></i> Home</a></li>
                             <li class="breadcrumb-item active text-white" aria-current="page">Products</li>
@@ -774,14 +774,19 @@
                         document.getElementById('productModalLabel').textContent = product.name;
                         document.getElementById('modal-product-title').textContent = product.name;
 
+                        // Update the existing image directly instead of creating a new one
+                        const imageContainer = document.querySelector('.product-image-container');
+                        
+                        // Clear the container first
+                        imageContainer.innerHTML = '';
+                        
+                        // Create and add the image with proper styling
                         const modalImage = document.createElement('img');
+                        modalImage.id = 'modal-product-image';
                         modalImage.src = product.mainImage;
                         modalImage.alt = product.name;
-                        modalImage.className = "img-fluid rounded w-100 shadow-sm";
-                        modalImage.style = "max-height: 100% ; object-fit: contain;";
-
-                        const imageContainer = document.querySelector('.product-image-container');
-                        imageContainer.innerHTML = ''; // Clear previous image
+                        modalImage.className = "product-detail-img";
+                        
                         imageContainer.appendChild(modalImage);
 
                         const badges = document.querySelector('.modal-body .mb-3');

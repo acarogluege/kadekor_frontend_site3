@@ -1454,3 +1454,87 @@ bubble-label a:hover {
     border: none !important;
     background-color: transparent !important;
 }
+
+/* Product modal image styling to fill the container space */
+.product-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 350px;
+    width: 100%;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 0;
+}
+
+.product-detail-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* Make modal more compact */
+.modal-dialog.modal-lg {
+    max-width: 700px;
+}
+
+/* Updated product modal image sizing for desktop */
+@media (min-width: 992px) {
+    /* Increase modal size for desktop */
+    .modal-dialog.modal-dialog-centered.modal-lg {
+        max-width: 850px !important; /* Increased from 700px */
+    }
+    
+    /* Make image container taller */
+    .product-image-container {
+        height: 450px !important; /* Increased from 350px */
+    }
+    
+    .product-detail-img {
+        max-height: 430px !important; /* Adjusted to fit container */
+    }
+    
+    /* Make features column a bit wider */
+    .modal-body .col-md-4 {
+        flex: 0 0 auto;
+        width: 35% !important; /* Slightly wider features column */
+    }
+    
+    .modal-body .col-md-8 {
+        flex: 0 0 auto;
+        width: 65% !important; /* Adjusted image column */
+    }
+}
+
+/* Extra large screens */
+@media (min-width: 1200px) {
+    .modal-dialog.modal-dialog-centered.modal-lg {
+        max-width: 950px !important; /* Even wider for large screens */
+    }
+    
+    .product-image-container {
+        height: 500px !important; /* Even taller for large screens */
+    }
+    
+    .product-detail-img {
+        max-height: 480px !important;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    .product-image-container {
+        height: 250px;
+    }
+    
+    .modal-body .row {
+        flex-direction: column;
+    }
+    
+    .modal-body .col-md-8,
+    .modal-body .col-md-4 {
+        width: 100%;
+    }
+}
