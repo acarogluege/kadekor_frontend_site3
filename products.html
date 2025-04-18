@@ -60,7 +60,7 @@
     </nav>
 
 
-    <!-- Page Header with Background Image -->
+    <!-- Fixed Page Header with Background Image -->
     <section class="page-header py-5 text-white position-relative" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./img/product_page_header.png') no-repeat center center; 
            background-size: cover; 
            min-height: 500px;
@@ -74,14 +74,13 @@
                     <h1 class="fw-bold display-4 mb-3">Our Products</h1>
                     <div class="divider mx-auto bg-white mb-4" style="height: 3px; width: 70px;"></div>
                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-center">
+                        <ol class="breadcrumb justify-content-center">
                             <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-white"><i
                                         class="fas fa-home me-1"></i> Home</a></li>
                             <li class="breadcrumb-item active text-white" aria-current="page">Products</li>
                         </ol>
                     </nav>
-                    <p class="lead text-white mt-4">Discover our premium collection of decorative films and materials
-                    </p>
+                    <p class="lead text-white mt-4">Discover our premium collection of decorative films and materials</p>
                 </div>
             </div>
         </div>
@@ -798,22 +797,22 @@
                         for (const [key, value] of Object.entries(product.features)) {
                             const li = document.createElement('li');
                             li.className = 'list-group-item px-0';
-
+                            
                             const row = document.createElement('div');
                             row.className = 'product-feature-row';
-
+                            
                             const labelSpan = document.createElement('span');
                             labelSpan.className = 'feature-label';
                             labelSpan.textContent = key;
-
+                            
                             const valueSpan = document.createElement('span');
                             valueSpan.className = 'feature-value';
                             valueSpan.textContent = value;
-
+                            
                             row.appendChild(labelSpan);
                             row.appendChild(valueSpan);
                             li.appendChild(row);
-
+                            
                             featuresList.appendChild(li);
                         }
                     }
