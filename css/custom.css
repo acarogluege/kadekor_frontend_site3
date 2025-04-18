@@ -1329,18 +1329,11 @@ bubble-label a:hover {
 }
 
 .story-container {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -250px; 
+    position: relative;
+    bottom: -100px;
+    width: 100%;
     z-index: 10;
 }
-
-.story-card {
-    border-radius: 8px;
-    background-color: white;
-}
-
 
 .vision-mission-section {
     padding: 0;
@@ -1399,52 +1392,69 @@ bubble-label a:hover {
 }
 
 /* Responsive adjustments */
-@media (max-width: 992px) {
+@media (max-width: 991.98px) {
     .story-container {
-        bottom: -300px; /* Increase overlap on smaller screens */
+        bottom: -80px;
     }
     
     .vision-mission-section {
-        margin-top: 350px;
-    }
-}
-
-@media (max-width: 768px) {
-    .story-container {
-        bottom: -350px;
-    }
-    
-    .vision-mission-section {
-        margin-top: 400px;
+        margin-top: 100px;
+        padding-top: 30px;
     }
     
     .story-card .card-body {
-        padding: 2rem !important;
+        padding: 1.5rem !important;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .page-header {
+        min-height: 400px !important;
+    }
+    
+    .story-container {
+        position: relative;
+        bottom: -50px;
+        padding: 0 10px;
+    }
+    
+    .vision-mission-section {
+        margin-top: 70px;
+        padding: 0 15px;
+    }
+    
+    .story-card .card-body {
+        padding: 1.25rem !important;
+    }
+    
+    .story-paragraph {
+        font-size: 0.95rem;
     }
 }
 
 /* For very small screens, adjust layout */
 @media (max-width: 576px) {
     .page-header {
-        min-height: 400px;
+        min-height: 350px !important;
     }
     
     .story-container {
-        position: relative;
-        bottom: -100px;
+        bottom: -30px;
     }
     
     .vision-mission-section {
-        margin-top: 200px;
-        padding: 0 15px;
+        margin-top: 50px;
     }
     
-    .mt-vision-mission {
-        margin-top: 15px;
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    .story-card .card-body {
+        padding: 1rem !important;
     }
 }
 
-/* Add this to your custom.css file */
 .partners-slider {
     padding: 20px 0;
 }
@@ -1518,7 +1528,6 @@ bubble-label a:hover {
     background-color: transparent !important;
 }
 
-/* Product modal image styling to fill the container space */
 .product-image-container {
     display: flex;
     align-items: center;
