@@ -374,21 +374,29 @@
 
                                         <h5 class="fw-bold mb-3">Features</h5>
                                         <ul id="modal-product-features" class="list-group list-group-flush mb-4">
-                                            <li class="list-group-item px-0 d-flex justify-content-between">
-                                                <span>Material</span>
-                                                <span class="fw-bold">Premium PVC</span>
+                                            <li class="list-group-item px-0">
+                                                <div class="product-feature-row">
+                                                    <span class="feature-label">Material</span>
+                                                    <span class="feature-value">Premium PVC</span>
+                                                </div>
                                             </li>
-                                            <li class="list-group-item px-0 d-flex justify-content-between">
-                                                <span>Size</span>
-                                                <span class="fw-bold">122 cm x 50 m</span>
+                                            <li class="list-group-item px-0">
+                                                <div class="product-feature-row">
+                                                    <span class="feature-label">Size</span>
+                                                    <span class="feature-value">122 cm x 50 m</span>
+                                                </div>
                                             </li>
-                                            <li class="list-group-item px-0 d-flex justify-content-between">
-                                                <span>Thickness</span>
-                                                <span class="fw-bold">0.17 mm</span>
+                                            <li class="list-group-item px-0">
+                                                <div class="product-feature-row">
+                                                    <span class="feature-label">Thickness</span>
+                                                    <span class="feature-value">0.17 mm</span>
+                                                </div>
                                             </li>
-                                            <li class="list-group-item px-0 d-flex justify-content-between">
-                                                <span>Surface</span>
-                                                <span class="fw-bold">Matte</span>
+                                            <li class="list-group-item px-0">
+                                                <div class="product-feature-row">
+                                                    <span class="feature-label">Surface</span>
+                                                    <span class="feature-value">Matte</span>
+                                                </div>
                                             </li>
                                         </ul>
 
@@ -810,8 +818,23 @@
 
                         for (const [key, value] of Object.entries(product.features)) {
                             const li = document.createElement('li');
-                            li.className = 'list-group-item px-0 d-flex justify-content-between';
-                            li.innerHTML = `<span>${key}</span><span class="fw-bold">${value}</span>`;
+                            li.className = 'list-group-item px-0';
+                            
+                            const row = document.createElement('div');
+                            row.className = 'product-feature-row';
+                            
+                            const labelSpan = document.createElement('span');
+                            labelSpan.className = 'feature-label';
+                            labelSpan.textContent = key;
+                            
+                            const valueSpan = document.createElement('span');
+                            valueSpan.className = 'feature-value';
+                            valueSpan.textContent = value;
+                            
+                            row.appendChild(labelSpan);
+                            row.appendChild(valueSpan);
+                            li.appendChild(row);
+                            
                             featuresList.appendChild(li);
                         }
                     }

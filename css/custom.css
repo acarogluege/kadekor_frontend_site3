@@ -1411,3 +1411,46 @@ bubble-label a:hover {
     filter: grayscale(0%);
     opacity: 1;
 }
+
+.product-feature-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    width: 100%;
+    border-bottom: none !important;
+}
+
+.feature-label {
+    font-weight: 600;
+    color: #259229;
+    flex: 0 0 40%;
+    text-align: left;
+    font-size: 1.05rem; 
+}
+
+.feature-value {
+    font-weight: 500; 
+    color: #333; 
+    flex: 0 0 60%;
+    text-align: right;
+    font-size: 1.05rem; 
+}
+
+#modal-product-features {
+    padding: 0;
+}
+
+#modal-product-features li {
+    padding: 10px 0;
+    border: none !important;
+    border-bottom: none !important;
+}
+
+#modal-product-features li:not(:last-child) {
+    margin-bottom: 4px;
+}
+
+.list-group-item {
+    border: none !important;
+    background-color: transparent !important;
+}
