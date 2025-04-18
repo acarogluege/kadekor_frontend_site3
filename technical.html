@@ -503,10 +503,11 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="signupPhone" class="form-label">Phone Number*</label>
-                                <input type="tel" class="form-control" id="signupPhone" placeholder="+90 5XX XXX XX XX"
-                                    required>
+                                <div class="iti-container">
+                                    <input type="tel" class="form-control" id="signupPhone" required>
+                                </div>
                                 <div class="invalid-feedback">
-                                    Please enter your phone number.
+                                    Please enter a valid phone number.
                                 </div>
                             </div>
 
@@ -645,6 +646,8 @@
     <script src="./js/main.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput.min.js"></script>
 </body>
 
 </html>

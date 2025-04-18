@@ -1658,3 +1658,32 @@ bubble-label a:hover {
     border: none !important;
     background-color: transparent !important;
 }
+
+
+.iti {
+    display: block;
+    width: 100%;
+}
+
+.iti__flag-container {
+    z-index: 1050; 
+}
+
+.iti--separate-dial-code .iti__selected-flag {
+    background-color: #f8f9fa;
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.form-control.is-invalid ~ .iti .iti__selected-flag {
+    border-color: #dc3545;
+}
+
+.form-control.is-valid ~ .iti .iti__selected-flag {
+    border-color: #198754;
+}
+
+/* Fix for RTL languages if needed */
+.iti--allow-dropdown input {
+    padding-right: 6px;
+    padding-left: 52px;
+}

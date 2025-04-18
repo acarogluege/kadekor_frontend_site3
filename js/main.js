@@ -5,6 +5,76 @@ document.addEventListener('DOMContentLoaded', function() {
     initNavbarScroll();
     
     initForgotPasswordForm();
+
+    // Initialize phone input
+    const phoneInputField = document.querySelector("#signupPhone");
+    if (phoneInputField) {
+        phoneInputField.addEventListener('input', function(e) {
+            this.value = this.value.replace(/\D/g, '');
+            
+            if (this.value.length > 10) {
+                this.value = this.value.slice(0, 10);
+            }
+        });
+        
+        const phoneInput = window.intlTelInput(phoneInputField, {
+            preferredCountries: ["tr", "us", "gb", "de"], 
+            initialCountry: "tr", 
+            separateDialCode: true,
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js",
+            formatOnDisplay: false, 
+            nationalMode: true, 
+            autoPlaceholder: "off" 
+        });
+        
+        window.phoneInput = phoneInput;
+        
+        const dealerSignupForm = document.getElementById('dealerSignupForm');
+        if (dealerSignupForm) {
+            dealerSignupForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const digitCount = phoneInputField.value.replace(/\D/g, '').length;
+                if (digitCount !== 10) {
+                    phoneInputField.classList.add('is-invalid');
+                    // Display a custom error message
+                    let feedbackEl = phoneInputField.nextElementSibling;
+                    if (!feedbackEl || !feedbackEl.classList.contains('invalid-feedback')) {
+                        feedbackEl = document.createElement('div');
+                        feedbackEl.className = 'invalid-feedback';
+                        phoneInputField.parentNode.appendChild(feedbackEl);
+                    }
+                    feedbackEl.textContent = 'Please enter exactly 10 digits.';
+                    return;
+                }
+                
+                const fullNumber = phoneInput.getNumber();
+                
+                phoneInputField.classList.remove('is-invalid');
+                phoneInputField.classList.add('is-valid');
+                
+                console.log("Valid phone number:", fullNumber);
+
+            });
+        }
+    }
+    
+    const dealerSignupModal = document.getElementById('dealerSignupModal');
+    if (dealerSignupModal) {
+        dealerSignupModal.addEventListener('shown.bs.modal', function() {
+            if (window.phoneInput) {
+                window.phoneInput.destroy();
+                const phoneInputField = document.querySelector("#signupPhone");
+                window.phoneInput = window.intlTelInput(phoneInputField, {
+                    preferredCountries: ["tr", "us", "gb", "de"],
+                    initialCountry: "tr",
+                    separateDialCode: true,
+                    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js",
+                    formatOnDisplay: true
+                });
+            }
+        });
+    }
 });
 
 
