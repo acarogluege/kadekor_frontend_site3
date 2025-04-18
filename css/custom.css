@@ -486,6 +486,7 @@ footer ul li a:hover {
 
 .product-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12) !important;
 }
 
 .product-card img {
@@ -496,6 +497,68 @@ footer ul li a:hover {
 
 .product-card:hover img {
     transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    z-index: 1;
+}
+
+.product-card .card-img-top {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: cover;
+    height: 220px;
+}
+
+.product-card:hover .card-img-top {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    z-index: 1;
+}
+
+.product-image-container {
+    position: relative;
+    overflow: hidden;
+    cursor: zoom-in;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-detail-img {
+    max-height: 370px;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transform-origin: center center;
+    transition: transform 0.2s ease-out;
+    will-change: transform;
+}
+
+@media (min-width: 992px) {
+    .product-detail-img:hover {
+        transform: scale(1.5);
+    }
+    
+    .product-image-container {
+        height: 450px;
+    }
+    
+    .product-detail-img {
+        max-height: 420px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .product-detail-img:hover {
+        transform: scale(1.3);
+    }
+}
+
+.magnify-active .product-detail-img {
+    transform: scale(1.5);
+    z-index: 1050;
 }
 
 .modal-content {
@@ -842,8 +905,8 @@ footer ul li a:hover {
     color: white;
 }
 
-.slider-text a,
-.slider-text a:hover,
+slider-text a,
+slider-text a:hover,
 .sc-slider-btn,
 .sc-slider-btn:hover,
 .swiper-slide a,
@@ -1218,9 +1281,9 @@ a:visited {
 footer a,
 .card a,
 .btn,
-.swiper-slide a,
-.slider-text a,
-.bubble-label a {
+swiper-slide a,
+slider-text a,
+bubble-label a {
     text-decoration: none !important;
 }
 
@@ -1233,8 +1296,8 @@ footer a:hover,
 .card a:hover,
 .btn:hover,
 .sc-slider-btn:hover,
-.swiper-slide a:hover,
-.slider-text a:hover,
+swiper-slide a:hover,
+slider-text a:hover,
 bubble-label a:hover {
     text-decoration: none !important;
 }
@@ -1466,6 +1529,8 @@ bubble-label a:hover {
     border-radius: 8px;
     overflow: hidden;
     padding: 0;
+    position: relative;
+    cursor: zoom-in;
 }
 
 .product-detail-img {
@@ -1473,49 +1538,63 @@ bubble-label a:hover {
     height: 100%;
     object-fit: contain;
     display: block;
+    transition: transform 0.4s ease-in-out;
+    transform-origin: center center;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
 }
 
-/* Make modal more compact */
+.product-image-container:hover .product-detail-img {
+    transform: scale(1.5);
+    transform-origin: var(--x) var(--y);
+}
+
+.magnify-active {
+    overflow: visible;
+}
+
+.magnify-active .product-detail-img {
+    position: relative;
+    z-index: 1000;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+    border-radius: 4px;
+}
+
 .modal-dialog.modal-lg {
     max-width: 700px;
 }
 
-/* Updated product modal image sizing for desktop */
 @media (min-width: 992px) {
-    /* Increase modal size for desktop */
     .modal-dialog.modal-dialog-centered.modal-lg {
-        max-width: 850px !important; /* Increased from 700px */
+        max-width: 850px !important; 
     }
     
-    /* Make image container taller */
     .product-image-container {
-        height: 450px !important; /* Increased from 350px */
+        height: 450px !important;
     }
     
     .product-detail-img {
-        max-height: 430px !important; /* Adjusted to fit container */
+        max-height: 430px !important; 
     }
     
-    /* Make features column a bit wider */
     .modal-body .col-md-4 {
         flex: 0 0 auto;
-        width: 35% !important; /* Slightly wider features column */
+        width: 35% !important; 
     }
     
     .modal-body .col-md-8 {
         flex: 0 0 auto;
-        width: 65% !important; /* Adjusted image column */
+        width: 65% !important;
     }
 }
 
-/* Extra large screens */
 @media (min-width: 1200px) {
     .modal-dialog.modal-dialog-centered.modal-lg {
-        max-width: 950px !important; /* Even wider for large screens */
+        max-width: 950px !important;
     }
     
     .product-image-container {
-        height: 500px !important; /* Even taller for large screens */
+        height: 500px !important;
     }
     
     .product-detail-img {
@@ -1523,7 +1602,6 @@ bubble-label a:hover {
     }
 }
 
-/* Responsive adjustments */
 @media (max-width: 767.98px) {
     .product-image-container {
         height: 250px;

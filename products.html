@@ -841,6 +841,55 @@
                     });
                 });
             }
+
+            // Replace your existing image magnifying code with this improved version
+            const productModal = document.getElementById('productModal');
+            if (productModal) {
+                productModal.addEventListener('shown.bs.modal', function() {
+                    setupImageZoom();
+                });
+            }
+            
+            function setupImageZoom() {
+                const productImgContainer = document.querySelector('.product-image-container');
+                const modalImage = document.querySelector('.product-detail-img');
+                
+                if (productImgContainer && modalImage) {
+                    modalImage.style.transform = 'scale(1)';
+                    
+                    productImgContainer.addEventListener('mousemove', handleImageZoom);
+                    productImgContainer.addEventListener('mouseleave', resetImageZoom);
+                    productImgContainer.addEventListener('click', toggleMagnification);
+                }
+            }
+            
+            function handleImageZoom(e) {
+                const img = this.querySelector('.product-detail-img');
+                if (!img) return;
+                
+                const rect = this.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width * 100;
+                const y = (e.clientY - rect.top) / rect.height * 100;
+                
+                img.style.setProperty('--x', x + '%');
+                img.style.setProperty('--y', y + '%');
+                
+                img.style.transform = 'scale(1.5)';
+            }
+            
+            function resetImageZoom() {
+                const img = this.querySelector('.product-detail-img');
+                if (img) {
+                    img.style.transform = 'scale(1)';
+                    this.classList.remove('magnify-active');
+                }
+            }
+            
+            function toggleMagnification() {
+                this.classList.toggle('magnify-active');
+            }
+            
+            setupImageZoom();
         });
     </script>
 </body>
