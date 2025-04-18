@@ -230,7 +230,6 @@ a:hover {
     transform: translateY(-100%);
 }
 
-/* When scrolling down, you might want to make the navbar more compact */
 .navbar.scrolled {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -238,13 +237,13 @@ a:hover {
 }
 
 .navbar-nav .nav-link {
-    font-weight: 600 !important; /* Increase font weight */
-    padding-left: 18px !important; /* Increase horizontal padding */
+    font-weight: 600 !important; 
+    padding-left: 18px !important;
     padding-right: 18px !important;
-    font-size: 1rem !important; /* Slightly larger font size */
-    letter-spacing: 0.02em; /* Add slight letter spacing */
+    font-size: 1rem !important;
+    letter-spacing: 0.02em; 
     position: relative;
-    color: #333 !important; /* Ensure text color has good contrast */
+    color: #333 !important;
 }
 
 .navbar-nav .nav-link.active:after {
@@ -1380,4 +1379,35 @@ bubble-label a:hover {
     .mt-vision-mission {
         margin-top: 15px;
     }
+}
+
+/* Add this to your custom.css file */
+.partners-slider {
+    padding: 20px 0;
+}
+
+.partner-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 180px;
+    padding: 15px;
+}
+
+.partner-logo img {
+    max-height: 60px;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    filter: grayscale(20%);
+    opacity: 0.9;
+}
+
+.partner-logo:hover img {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+    opacity: 1;
 }
