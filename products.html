@@ -348,7 +348,7 @@
                 <!-- Product Detail Modal -->
                 <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel"
                     aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" style="max-width: 60%; width: 60%;">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title fw-bold" id="productModalLabel">Product Details</h5>
@@ -361,33 +361,20 @@
                                     <div class="col-md-8 mb-4 mb-md-0">
                                         <!-- Single image display with larger size -->
                                         <div class="product-image-container">
-                                            <img id="modal-product-image" src="" class="img-fluid rounded w-100 shadow-sm" alt="Product Image" style="max-height: 400px; object-fit: contain;">
+                                            <img id="modal-product-image" src="" class="product-detail-img"
+                                                alt="Product Image">
                                         </div>
                                     </div>
                                     <!-- Smaller features column -->
                                     <div class="col-md-4">
                                         <h3 id="modal-product-title" class="fw-bold mb-2">Product Name</h3>
                                         <div class="mb-3">
+                                            <!-- Badges will be inserted here -->
                                         </div>
 
                                         <h5 class="fw-bold mb-3">Features</h5>
                                         <ul id="modal-product-features" class="list-group list-group-flush mb-4">
-                                            <li class="list-group-item px-0">
-                                                <div class="product-feature-row">
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item px-0">
-                                                <div class="product-feature-row">
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item px-0">
-                                                <div class="product-feature-row">
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item px-0">
-                                                <div class="product-feature-row">
-                                                </div>
-                                            </li>
+                                            <!-- Features will be populated dynamically -->
                                         </ul>
 
                                         <div class="d-grid gap-2">
@@ -809,22 +796,22 @@
                         for (const [key, value] of Object.entries(product.features)) {
                             const li = document.createElement('li');
                             li.className = 'list-group-item px-0';
-                            
+
                             const row = document.createElement('div');
                             row.className = 'product-feature-row';
-                            
+
                             const labelSpan = document.createElement('span');
                             labelSpan.className = 'feature-label';
                             labelSpan.textContent = key;
-                            
+
                             const valueSpan = document.createElement('span');
                             valueSpan.className = 'feature-value';
                             valueSpan.textContent = value;
-                            
+
                             row.appendChild(labelSpan);
                             row.appendChild(valueSpan);
                             li.appendChild(row);
-                            
+
                             featuresList.appendChild(li);
                         }
                     }
