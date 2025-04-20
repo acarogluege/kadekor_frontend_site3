@@ -512,19 +512,36 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
-                                <label for="signupTaxId" class="form-label">TC Kimlik No / Tax ID*</label>
-                                <input type="text" class="form-control" id="signupTaxId" required>
-                                <div class="invalid-feedback">
-                                    Please enter your TC Kimlik No or Tax ID.
+                            <div class="col-md-12 mb-2">
+                                <label class="form-label">ID Type*</label>
+                                <div class="btn-group w-100" role="group" aria-label="ID Type Selection">
+                                    <input type="radio" class="btn-check" name="taxIdType" id="tcOption" value="tc" required>
+                                    <label class="btn btn-outline-primary" for="tcOption">
+                                        <i class="fas fa-id-card me-1"></i> TC Kimlik No (11 digits)
+                                    </label>
+                                    
+                                    <input type="radio" class="btn-check" name="taxIdType" id="taxIdOption" value="taxid" required>
+                                    <label class="btn btn-outline-primary" for="taxIdOption">
+                                        <i class="fas fa-building me-1"></i> Tax ID (10 digits)
+                                    </label>
+                                </div>
+                                <div class="invalid-feedback d-block text-center mt-1" id="taxIdTypeError" style="display: none !important;">
+                                    Please select an ID type.
                                 </div>
                             </div>
-                            <div class="col-md-8">
-                                <label for="signupTaxOffice" class="form-label">Tax Office*</label>
-                                <input type="text" class="form-control" id="signupTaxOffice" required>
-                                <div class="invalid-feedback">
-                                    Please enter your tax office.
+
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-text id-type-prefix">ID:</span>
+                                    <input type="text" class="form-control" id="signupTaxId" placeholder="Enter your ID number" required maxlength="11" pattern="\d+">
+                                    <button class="btn btn-outline-secondary id-info-tooltip" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="TC Kimlik No is exactly 11 digits. Tax ID is exactly 10 digits.">
+                                        <i class="fas fa-info-circle"></i>
+                                    </button>
                                 </div>
+                                <div class="invalid-feedback" id="taxIdError">
+                                    Please enter a valid ID number.
+                                </div>
+                                <small id="taxIdHelpText" class="form-text text-muted">Please enter numeric digits only.</small>
                             </div>
 
                             <div class="col-md-6">

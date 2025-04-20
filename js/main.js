@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
             utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js",
             formatOnDisplay: false, 
             nationalMode: true, 
-            autoPlaceholder: "off" 
+            autoPlaceholder: "off"
         });
         
         window.phoneInput = phoneInput;
@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 const digitCount = phoneInputField.value.replace(/\D/g, '').length;
                 if (digitCount !== 10) {
                     phoneInputField.classList.add('is-invalid');
-                    // Display a custom error message
                     let feedbackEl = phoneInputField.nextElementSibling;
                     if (!feedbackEl || !feedbackEl.classList.contains('invalid-feedback')) {
                         feedbackEl = document.createElement('div');
@@ -73,8 +72,84 @@ document.addEventListener('DOMContentLoaded', function() {
                     formatOnDisplay: true
                 });
             }
+            setupFormValidation();
+        });
+        
+        dealerSignupModal.addEventListener('show.bs.modal', function() {
+            const form = this.querySelector('#dealerSignupForm');
+            if (form) {
+                form.classList.remove('was-validated');
+                
+                const inputs = form.querySelectorAll('input, select, textarea');
+                inputs.forEach(input => {
+                    input.classList.remove('is-invalid', 'is-valid');
+                    input.value = '';
+                    
+                    
+                    input.setCustomValidity('');
+                });
+                
+                const formTexts = form.querySelectorAll('.form-text');
+                formTexts.forEach(text => {
+                    if (text.classList.contains('text-success')) {
+                        text.classList.remove('text-success');
+                        text.classList.add('text-muted');
+                        text.textContent = 'Password must be at least 8 characters long and include uppercase, lowercase, numbers, and special characters.';
+                    }
+                });
+            }
         });
     }
+
+    // Set up validation only on form submission
+    const forms = document.querySelectorAll('.needs-validation');
+    
+    Array.prototype.slice.call(forms).forEach(function(form) {
+        const inputs = form.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('invalid', function(e) {
+                e.preventDefault();
+            }, true);
+            
+            input.addEventListener('input', function() {
+                if (form.classList.contains('was-validated')) {
+                    this.checkValidity();
+                }
+            });
+        });
+        
+        form.addEventListener('submit', function(event) {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            
+            form.classList.add('was-validated');
+            
+            const password = document.getElementById('signupPassword');
+            const confirmPassword = document.getElementById('signupPasswordConfirm');
+            if (password && confirmPassword) {
+                if (password.value !== confirmPassword.value) {
+                    confirmPassword.setCustomValidity("Passwords don't match");
+                } else {
+                    confirmPassword.setCustomValidity('');
+                }
+            }
+        }, false);
+        
+        const modal = form.closest('.modal');
+        if (modal) {
+            modal.addEventListener('hidden.bs.modal', function() {
+                form.classList.remove('was-validated');
+                form.reset();
+                
+                inputs.forEach(input => {
+                    input.classList.remove('is-invalid', 'is-valid');
+                    input.setCustomValidity('');
+                });
+            });
+        }
+    });
 });
 
 
@@ -363,6 +438,252 @@ function initProductSlider() {
                     return "";
                 }
             },
+        });
+    }
+}
+
+/**
+ * Sets up form validation for the dealer signup form
+ */
+function setupFormValidation() {
+    const signupForm = document.getElementById('dealerSignupForm');
+    if (!signupForm) return;
+    
+    const formInputs = signupForm.querySelectorAll('input, select, textarea');
+    
+    formInputs.forEach(input => {
+        input.addEventListener('blur', function() {
+            this.classList.remove('is-invalid', 'is-valid');
+            
+            if (!this.validity.valid) {
+                this.classList.add('is-invalid');
+            } else if (this.value) {
+                this.classList.add('is-valid');
+            }
+        });
+        
+        input.addEventListener('input', function() {
+            if (this.classList.contains('is-invalid') && this.validity.valid) {
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+            }
+        });
+    });
+    
+    // Add password validation checking
+    const passwordField = document.getElementById('signupPassword');
+    if (passwordField) {
+        passwordField.addEventListener('input', function() {
+            const password = this.value;
+            const regex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
+            
+            const helpText = this.parentNode.parentNode.querySelector('.form-text');
+            
+            if (regex.test(password)) {
+                this.setCustomValidity(''); 
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+                
+                if (helpText) {
+                    helpText.textContent = 'Password meets all requirements.';
+                    helpText.classList.add('text-success');
+                    helpText.classList.remove('text-muted');
+                }
+            } else {
+                if (password.length > 0) {
+                    this.setCustomValidity('Password must meet all requirements');
+                    this.classList.add('is-invalid');
+                    this.classList.remove('is-valid');
+                } else {
+                    this.setCustomValidity('');
+                    this.classList.remove('is-invalid');
+                    this.classList.remove('is-valid');
+                }
+                
+                if (helpText) {
+                    helpText.textContent = 'Password must be at least 8 characters long and include uppercase, lowercase, numbers, and special characters.';
+                    helpText.classList.remove('text-success');
+                    helpText.classList.add('text-muted');
+                }
+            }
+        });
+        
+        passwordField.addEventListener('blur', function() {
+            if (this.value.length > 0) {
+                const regex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
+                if (!regex.test(this.value)) {
+                    this.classList.add('is-invalid');
+                    this.setCustomValidity('Password must meet all requirements');
+                }
+            }
+        });
+    }
+    
+    const password = document.getElementById('signupPassword');
+    const confirmPassword = document.getElementById('signupPasswordConfirm');
+    
+    if (password && confirmPassword) {
+        confirmPassword.addEventListener('blur', function() {
+            if (this.value && password.value !== this.value) {
+                this.classList.add('is-invalid');
+                this.classList.remove('is-valid');
+            } else if (this.value) {
+                this.classList.add('is-valid');
+                this.classList.remove('is-invalid');
+            }
+        });
+    }
+
+    // Handle Tax ID / TC Kimlik Number field validation
+    const taxIdTypeSelect = document.getElementById('signupTaxIdType');
+    const taxIdField = document.getElementById('signupTaxId');
+    const taxIdHelpText = document.getElementById('taxIdHelpText');
+
+    if (taxIdTypeSelect && taxIdField) {
+        // Set initial state
+        taxIdField.setAttribute('disabled', true);
+        
+        // When user selects ID type
+        taxIdTypeSelect.addEventListener('change', function() {
+            const selectedType = this.value;
+            
+            // Enable field and set appropriate validation
+            taxIdField.removeAttribute('disabled');
+            taxIdField.value = '';
+            
+            if (selectedType === 'tc') {
+                taxIdField.setAttribute('maxlength', '11');
+                taxIdField.setAttribute('minlength', '11');
+                taxIdField.setAttribute('pattern', '[0-9]{11}');
+                taxIdHelpText.textContent = 'TC Kimlik No must be exactly 11 digits.';
+            } else if (selectedType === 'taxid') {
+                taxIdField.setAttribute('maxlength', '10');
+                taxIdField.setAttribute('minlength', '10');
+                taxIdField.setAttribute('pattern', '[0-9]{10}');
+                taxIdHelpText.textContent = 'Tax ID must be exactly 10 digits.';
+            }
+        });
+        
+        // Restrict input to numbers only
+        taxIdField.addEventListener('input', function(e) {
+            // Remove any non-digit characters
+            this.value = this.value.replace(/\D/g, '');
+            
+            // Check if valid based on selected type
+            const selectedType = taxIdTypeSelect.value;
+            
+            if (selectedType === 'tc' && this.value.length === 11) {
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+            } else if (selectedType === 'taxid' && this.value.length === 10) {
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+            } else if (this.value.length > 0) {
+                this.classList.add('is-invalid');
+                this.classList.remove('is-valid');
+            }
+        });
+        
+        // Additional validation on form submit
+        const form = document.getElementById('dealerSignupForm');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                const selectedType = taxIdTypeSelect.value;
+                const taxIdValue = taxIdField.value;
+                
+                if (!selectedType) {
+                    taxIdTypeSelect.classList.add('is-invalid');
+                    e.preventDefault();
+                    return;
+                }
+                
+                if (selectedType === 'tc' && taxIdValue.length !== 11) {
+                    taxIdField.classList.add('is-invalid');
+                    e.preventDefault();
+                    return;
+                }
+                
+                if (selectedType === 'taxid' && taxIdValue.length !== 10) {
+                    taxIdField.classList.add('is-invalid');
+                    e.preventDefault();
+                    return;
+                }
+            });
+        }
+    }
+
+    // Handle Tax ID Type button selection
+    const tcOption = document.getElementById('tcOption');
+    const taxIdOption = document.getElementById('taxIdOption');
+    const signupTaxId = document.getElementById('signupTaxId');
+    const idTypePrefix = document.querySelector('.id-type-prefix');
+
+    if (tcOption && taxIdOption && signupTaxId) {
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.forEach(function(tooltipTriggerEl) {
+            new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+        
+        // TC Kimlik No selected
+        tcOption.addEventListener('change', function() {
+            if (this.checked) {
+                signupTaxId.setAttribute('maxlength', '11');
+                signupTaxId.setAttribute('minlength', '11');
+                signupTaxId.setAttribute('pattern', '[0-9]{11}');
+                signupTaxId.value = '';
+                signupTaxId.placeholder = 'Enter 11-digit TC Kimlik No';
+                taxIdHelpText.textContent = 'TC Kimlik No must be exactly 11 digits.';
+                idTypePrefix.textContent = 'TC:';
+                idTypePrefix.classList.add('bg-primary', 'text-white');
+                idTypePrefix.classList.remove('bg-success');
+            }
+        });
+        
+        // Tax ID selected
+        taxIdOption.addEventListener('change', function() {
+            if (this.checked) {
+                signupTaxId.setAttribute('maxlength', '10');
+                signupTaxId.setAttribute('minlength', '10');
+                signupTaxId.setAttribute('pattern', '[0-9]{10}');
+                signupTaxId.value = '';
+                signupTaxId.placeholder = 'Enter 10-digit Tax ID';
+                taxIdHelpText.textContent = 'Tax ID must be exactly 10 digits.';
+                idTypePrefix.textContent = 'TAX:';
+                idTypePrefix.classList.add('bg-success', 'text-white');
+                idTypePrefix.classList.remove('bg-primary');
+            }
+        });
+        
+        // Restrict input to digits only and validate length
+        signupTaxId.addEventListener('input', function() {
+            this.value = this.value.replace(/\D/g, '');
+            
+
+            const isTc = tcOption.checked;
+            const isTaxId = taxIdOption.checked;
+            
+            if (!isTc && !isTaxId) {
+                document.getElementById('taxIdTypeError').style.display = 'block !important';
+                return;
+            } else {
+                document.getElementById('taxIdTypeError').style.display = 'none !important';
+            }
+            
+            const requiredLength = isTc ? 11 : 10;
+            
+
+            if (this.value.length === requiredLength) {
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+                document.getElementById('taxIdError').textContent = '';
+            } else if (this.value.length > 0) {
+                this.classList.add('is-invalid');
+                this.classList.remove('is-valid');
+                document.getElementById('taxIdError').textContent = 
+                    `Please enter exactly ${requiredLength} digits.`;
+            } else {
+                this.classList.remove('is-invalid', 'is-valid');
+            }
         });
     }
 }
