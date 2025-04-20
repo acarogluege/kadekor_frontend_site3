@@ -478,39 +478,82 @@ footer ul li a:hover {
     color: var(--bs-primary);
 }
 
+/* Improved Product Card Styling */
 .product-card {
     transition: all 0.3s ease;
     overflow: hidden;
-    background-color: #ffffff; 
+    background-color: #ffffff;
+    border-radius: 8px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05) !important;
 }
 
 .product-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.12) !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12) !important;
 }
 
-.product-card img {
+/* Fix image container for consistent sizing */
+.product-card .card-img-container {
     height: 220px;
-    object-fit: cover;
-    transition: all 0.5s ease;
-}
-
-.product-card:hover img {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    z-index: 1;
+    overflow: hidden;
+    position: relative;
 }
 
 .product-card .card-img-top {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    width: 100%;
     object-fit: cover;
-    height: 220px;
+    transition: transform 0.4s ease-out;
 }
 
 .product-card:hover .card-img-top {
     transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    z-index: 1;
+}
+
+/* Fix card body layout */
+.product-card .card-body {
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.product-card .card-title {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    line-height: 1.3;
+}
+
+.product-card .card-text {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+/* Better button positioning */
+.product-card .btn-container {
+    margin-top: auto;
+    align-self: flex-end;
+}
+
+/* Card category badge */
+.product-card .category-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(37, 146, 41, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    z-index: 3;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .product-image-container {
@@ -567,6 +610,44 @@ footer ul li a:hover {
 .magnify-active .product-detail-img {
     transform: scale(1.5);
     z-index: 1050;
+}
+
+/* Door product color options styling */
+.color-options {
+    margin-bottom: 1rem;
+}
+
+.color-option {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.color-option:hover {
+    transform: scale(1.05);
+}
+
+.color-option.selected {
+    border-color: #259229;
+    box-shadow: 0 0 0 2px rgba(37, 146, 41, 0.3);
+}
+
+.color-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Door product image in modal */
+.product-detail-img {
+    max-width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
 }
 
 .modal-content {

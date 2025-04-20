@@ -316,10 +316,52 @@
                         <h2 id="door" class="fw-bold mb-4 pt-4 mt-3">Door</h2>
 
                         <!-- Deodora Series -->
-                        <h3 id="deodora" class="h5 fw-bold mb-3 border-start border-primary border-4 ps-3">Deodora
-                            Series</h3>
+                        <h3 id="deodora" class="h5 fw-bold mb-3 border-start border-primary border-4 ps-3">Deodora Series</h3>
                         <div class="row g-4 mb-5 product-grid" data-category="deodora">
-                            <!-- Deodora series products -->
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card product-card border-0 shadow-sm h-100">
+                                    <div class="card-img-container">
+                                        <img src="./img/adokapi-100-tutun.jpeg" class="card-img-top" alt="ADO 100 Door">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title fw-bold">ADO 100</h5>
+                                        <p class="card-text text-muted small">Premium interior wooden composite door with modern design</p>
+                                        <div class="d-flex justify-content-end mt-3">
+                                            <button class="btn btn-sm btn-outline-primary view-details" data-product-id="100" data-bs-toggle="modal" data-bs-target="#productModal">View Details</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card product-card border-0 shadow-sm h-100">
+                                    <div class="card-img-container">
+                                        <img src="./img/ado-100-kceviz.jpeg" class="card-img-top" alt="ADO 101 Door">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title fw-bold">ADO 101</h5>
+                                        <p class="card-text text-muted small">Modern panel design with improved sound insulation</p>
+                                        <div class="d-flex justify-content-end mt-3">
+                                            <button class="btn btn-sm btn-outline-primary view-details" data-product-id="101" data-bs-toggle="modal" data-bs-target="#productModal">View Details</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card product-card border-0 shadow-sm h-100">
+                                    <div class="card-img-container">
+                                        <img src="./img/ado-100-gri.jpeg" class="card-img-top" alt="ADO 102 Door">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title fw-bold">ADO 102</h5>
+                                        <p class="card-text text-muted small">Contemporary door design with premium finish</p>
+                                        <div class="d-flex justify-content-end mt-3">
+                                            <button class="btn btn-sm btn-outline-primary view-details" data-product-id="102" data-bs-toggle="modal" data-bs-target="#productModal">View Details</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Fagus Series -->
@@ -779,6 +821,64 @@
                         "Dimension": "1430 mm",
                         "Thickness Option": "200 micron / 300 micron / 350 micron",
                     }
+                },
+                100: {
+                    name: "ADO 100",
+                    category: "Door",
+                    subcategory: "Deodora Series",
+                    mainImage: "./img/adokapi-100-tutun.jpeg",
+                    features: {
+                        "Door Type": "Interior Composite Door",
+                        "Wing Structure": "Wooden beam covered with 0.2 mm Adofilm PVC foil and 2mm PVC sheet",
+                        "Inner Filling": "Perforated Kraft honeycomb or channeled chipboard (okal) for fire resistance and sound insulation",
+                        "Frame & Trim": "Wood composite (CRP) material coated with Adofilm PVC foil and high PU (Polyurethane) E1 quality glue",
+                        "Trim Feature": "Adjustable for double-sided mounting to the frame"
+                    },
+                    colors: [
+                        { name: "Koyu Ceviz (Dark Walnut)", value: "koyu-ceviz", image: "./img/ado-100-kceviz.jpeg" },
+                        { name: "Tütün (Tobacco)", value: "tutun", image: "./img/ado-100-tutun.jpeg" },
+                        { name: "Sn. Gri (Anthracite Grey)", value: "sn-gri", image: "./img/ado-100-gri.jpeg" },
+                        { name: "Beyaz Teak (White Teak)", value: "beyaz-teak", image: "./img/ado-100-beyaz-teak.jpeg" }
+                    ],
+                    description: "The ADO 100 door features a wooden beam structure covered with 0.2mm Adofilm PVC foil and 2mm PVC sheet. The inner filling consists of perforated Kraft honeycomb or channeled chipboard (okal) for fire resistance and sound insulation. The frame and trim are made from wood composite (CRP) material coated with Adofilm PVC foil using high PU (Polyurethane) E1 quality glue. The trim is designed to be adjustable for double-sided mounting to the frame."
+                },
+                101: {
+                    name: "ADO 101",
+                    category: "Door",
+                    subcategory: "Deodora Series",
+                    mainImage: "./img/ado-100-kceviz.jpeg",
+                    features: {
+                        "Door Type": "Interior Composite Door",
+                        "Wing Structure": "Wooden beam covered with 0.2 mm Adofilm PVC foil and 2mm PVC sheet",
+                        "Inner Filling": "Perforated Kraft honeycomb or channeled chipboard (okal) for fire resistance and sound insulation",
+                        "Frame & Trim": "Wood composite (CRP) material coated with Adofilm PVC foil",
+                        "Trim Feature": "Adjustable for double-sided mounting to the frame"
+                    },
+                    colors: [
+                        { name: "Koyu Ceviz (Dark Walnut)", value: "koyu-ceviz", image: "./img/ado-100-kceviz.jpeg" },
+                        { name: "Tütün (Tobacco)", value: "tutun", image: "./img/ado-100-tutun.jpeg" },
+                        { name: "Sn. Gri (Anthracite Grey)", value: "sn-gri", image: "./img/ado-100-gri.jpeg" }
+                    ],
+                    description: "The ADO 101 door features a streamlined design with enhanced sound insulation properties, making it perfect for bedrooms and home offices. The modern panel design provides elegant aesthetics while maintaining durability."
+                },
+                102: {
+                    name: "ADO 102",
+                    category: "Door",
+                    subcategory: "Deodora Series",
+                    mainImage: "./img/ado-100-gri.jpeg",
+                    features: {
+                        "Door Type": "Interior Composite Door",
+                        "Wing Structure": "Wooden beam covered with 0.2 mm Adofilm PVC foil",
+                        "Inner Filling": "Perforated Kraft honeycomb for enhanced sound insulation",
+                        "Frame & Trim": "Premium wood composite material with superior finish",
+                        "Trim Feature": "Slim-profile design with adjustable mounting"
+                    },
+                    colors: [
+                        { name: "Sn. Gri (Anthracite Grey)", value: "sn-gri", image: "./img/ado-100-gri.jpeg" },
+                        { name: "Beyaz Teak (White Teak)", value: "beyaz-teak", image: "./img/ado-100-beyaz-teak.jpeg" },
+                        { name: "Tütün (Tobacco)", value: "tutun", image: "./img/ado-100-tutun.jpeg" }
+                    ],
+                    description: "The ADO 102 features a contemporary design with clean lines and a premium finish. The door offers excellent sound insulation and durability, making it an ideal choice for modern homes and apartments."
                 }
             };
 
@@ -786,35 +886,38 @@
             const detailButtons = document.querySelectorAll('.view-details');
 
             detailButtons.forEach(button => {
-                button.addEventListener('click', function () {
+                button.addEventListener('click', function() {
                     const productId = this.getAttribute('data-product-id');
                     const product = products[productId];
 
                     if (product) {
+                        // Clear existing modal content first
                         document.getElementById('productModalLabel').textContent = product.name;
                         document.getElementById('modal-product-title').textContent = product.name;
-
+                        
+                        // Clear image container
                         const imageContainer = document.querySelector('.product-image-container');
-
                         imageContainer.innerHTML = '';
-
+                        
+                        // Create the main image
                         const modalImage = document.createElement('img');
                         modalImage.id = 'modal-product-image';
                         modalImage.src = product.mainImage;
                         modalImage.alt = product.name;
                         modalImage.className = "product-detail-img";
-
                         imageContainer.appendChild(modalImage);
-
+                        
+                        // Add badges
                         const badges = document.querySelector('.modal-body .mb-3');
                         badges.innerHTML = `
                             <span class="badge bg-primary">${product.category}</span>
                             <span class="badge bg-secondary ms-1">${product.subcategory}</span>
                         `;
-
+                        
+                        // Clear features list and add new features
                         const featuresList = document.getElementById('modal-product-features');
                         featuresList.innerHTML = '';
-
+                        
                         for (const [key, value] of Object.entries(product.features)) {
                             const li = document.createElement('li');
                             li.className = 'list-group-item px-0';
@@ -833,8 +936,79 @@
                             row.appendChild(labelSpan);
                             row.appendChild(valueSpan);
                             li.appendChild(row);
-                            
                             featuresList.appendChild(li);
+                        }
+                        
+                        // Remove any existing color sections or descriptions
+                        const existingColorSection = document.querySelector('.color-section');
+                        if (existingColorSection) {
+                            existingColorSection.remove();
+                        }
+                        
+                        const existingDescriptionSection = document.querySelector('.description-section');
+                        if (existingDescriptionSection) {
+                            existingDescriptionSection.remove();
+                        }
+                        
+                        // Add color options if available
+                        if (product.colors && product.colors.length > 0) {
+                            const colorSection = document.createElement('div');
+                            colorSection.className = 'mt-4 color-section'; // Added class for easier removal
+                            colorSection.innerHTML = '<h5 class="fw-bold mb-3">Available Colors</h5>';
+                            
+                            const colorContainer = document.createElement('div');
+                            colorContainer.className = 'color-options d-flex flex-wrap gap-2';
+                            
+                            product.colors.forEach(color => {
+                                const colorOption = document.createElement('div');
+                                colorOption.className = 'color-option';
+                                colorOption.setAttribute('data-color', color.value);
+                                colorOption.setAttribute('data-image', color.image);
+                                colorOption.title = color.name;
+                                
+                                const colorImg = document.createElement('img');
+                                colorImg.src = color.image;
+                                colorImg.alt = color.name;
+                                colorImg.className = 'color-thumbnail';
+                                colorImg.width = 40;
+                                colorImg.height = 40;
+                                
+                                colorOption.appendChild(colorImg);
+                                colorContainer.appendChild(colorOption);
+                                
+                                // Click event for color selection
+                                colorOption.addEventListener('click', function() {
+                                    document.querySelectorAll('.color-option').forEach(opt => {
+                                        opt.classList.remove('selected');
+                                    });
+                                    this.classList.add('selected');
+                                    modalImage.src = this.getAttribute('data-image');
+                                });
+                            });
+                            
+                            colorSection.appendChild(colorContainer);
+                            document.getElementById('modal-product-features').parentNode.insertBefore(
+                                colorSection, 
+                                document.getElementById('modal-product-features')
+                            );
+                            
+                            // Select the first color by default
+                            colorContainer.querySelector('.color-option').classList.add('selected');
+                        }
+                        
+                        // Add description if available
+                        if (product.description) {
+                            const descriptionSection = document.createElement('div');
+                            descriptionSection.className = 'mt-4 description-section'; // Added class for easier removal
+                            descriptionSection.innerHTML = `
+                                <h5 class="fw-bold mb-2">Description</h5>
+                                <p class="text-muted small">${product.description}</p>
+                            `;
+                            
+                            document.getElementById('modal-product-features').parentNode.insertBefore(
+                                descriptionSection, 
+                                document.getElementById('modal-product-features').nextSibling
+                            );
                         }
                     }
                 });
