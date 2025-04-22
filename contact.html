@@ -493,7 +493,17 @@
                     <form id="dealerLoginForm">
                         <div class="mb-3">
                             <label for="loginIdentifier" class="form-label">TC Kimlik No / Tax ID</label>
-                            <input type="text" class="form-control" id="loginIdentifier" required>
+                            <input type="text" 
+                                   class="form-control" 
+                                   id="loginIdentifier" 
+                                   required 
+                                   pattern="\d*" 
+                                   maxlength="11" 
+                                   inputmode="numeric" 
+                                   oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                            <div class="invalid-feedback">
+                                Please enter 10 digits for Tax ID or 11 digits for TC Kimlik No
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="loginPassword" class="form-label">Password</label>

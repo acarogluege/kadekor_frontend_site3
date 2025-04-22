@@ -60,43 +60,53 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const dealerSignupModal = document.getElementById('dealerSignupModal');
     if (dealerSignupModal) {
-        dealerSignupModal.addEventListener('shown.bs.modal', function() {
-            if (window.phoneInput) {
-                window.phoneInput.destroy();
-                const phoneInputField = document.querySelector("#signupPhone");
+        // Function to initialize/reset phone input
+        function initPhoneInput(keepFormat = false) {
+            const phoneInputField = document.querySelector("#signupPhone");
+            if (phoneInputField) {
+                if (window.phoneInput) {
+                    window.phoneInput.destroy();
+                }
                 window.phoneInput = window.intlTelInput(phoneInputField, {
                     preferredCountries: ["tr", "us", "gb", "de"],
                     initialCountry: "tr",
                     separateDialCode: true,
                     utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js",
-                    formatOnDisplay: true
+                    formatOnDisplay: keepFormat,
+                    nationalMode: true,
+                    autoPlaceholder: "polite" // This ensures placeholder is shown
                 });
+
+                // Clear the input value and reset placeholder
+                phoneInputField.value = '';
+                phoneInputField.placeholder = window.phoneInput.getNumber();
             }
+        }
+
+        // When modal is shown
+        dealerSignupModal.addEventListener('shown.bs.modal', function() {
+            initPhoneInput(true);
             setupFormValidation();
         });
-        
-        dealerSignupModal.addEventListener('show.bs.modal', function() {
-            const form = this.querySelector('#dealerSignupForm');
-            if (form) {
-                form.classList.remove('was-validated');
-                
-                const inputs = form.querySelectorAll('input, select, textarea');
+
+        // When form is reset or modal is hidden
+        const form = dealerSignupModal.querySelector('#dealerSignupForm');
+        if (form) {
+            form.addEventListener('reset', function() {
+                initPhoneInput(false);
+                this.classList.remove('was-validated');
+                const inputs = this.querySelectorAll('input:not(#signupPhone), select, textarea');
                 inputs.forEach(input => {
                     input.classList.remove('is-invalid', 'is-valid');
-                    input.value = '';
-                    
-                    
                     input.setCustomValidity('');
                 });
-                
-                const formTexts = form.querySelectorAll('.form-text');
-                formTexts.forEach(text => {
-                    if (text.classList.contains('text-success')) {
-                        text.classList.remove('text-success');
-                        text.classList.add('text-muted');
-                        text.textContent = 'Password must be at least 8 characters long and include uppercase, lowercase, numbers, and special characters.';
-                    }
-                });
+            });
+        }
+
+        // When modal is hidden
+        dealerSignupModal.addEventListener('hidden.bs.modal', function() {
+            if (form) {
+                form.reset();
             }
         });
     }
@@ -183,6 +193,35 @@ document.addEventListener('DOMContentLoaded', function() {
                 btn.classList.add('active');
             } else {
                 btn.classList.remove('active');
+            }
+        });
+    }
+
+    // Handle login identifier validation
+    const loginIdentifier = document.getElementById('loginIdentifier');
+    if (loginIdentifier) {
+        loginIdentifier.addEventListener('input', function(e) {
+            // Remove any non-digit characters
+            this.value = this.value.replace(/\D/g, '');
+            
+            const length = this.value.length;
+            
+            // Validate length (10 for Tax ID or 11 for TC Kimlik No)
+            if (length === 10 || length === 11) {
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+            } else if (length > 0) {
+                this.classList.add('is-invalid');
+                this.classList.remove('is-valid');
+            } else {
+                this.classList.remove('is-invalid', 'is-valid');
+            }
+        });
+
+        // Prevent non-numeric input
+        loginIdentifier.addEventListener('keypress', function(e) {
+            if (!/^\d*$/.test(e.key)) {
+                e.preventDefault();
             }
         });
     }
@@ -292,9 +331,28 @@ function initDealerForms() {
         loginForm.addEventListener('submit', function(event) {
             event.preventDefault();
             
+            const identifier = document.getElementById('loginIdentifier');
+            const password = document.getElementById('loginPassword');
+            
+            // Check identifier length
+            const idLength = identifier.value.length;
+            if (idLength !== 10 && idLength !== 11) {
+                showNotification('Please enter valid TC Kimlik No (11 digits) or Tax ID (10 digits)', 'danger');
+                identifier.classList.add('is-invalid');
+                return;
+            }
+            
+            // Check if password is empty
+            if (!password.value) {
+                showNotification('Please enter your password', 'danger');
+                password.classList.add('is-invalid');
+                return;
+            }
+
+            // If validation passes, proceed with login
             const loginData = {
-                identifier: document.getElementById('loginIdentifier').value,
-                password: document.getElementById('loginPassword').value,
+                identifier: identifier.value,
+                password: password.value,
                 remember: document.getElementById('rememberMe').checked
             };
             
@@ -303,7 +361,6 @@ function initDealerForms() {
             const modal = bootstrap.Modal.getInstance(document.getElementById('dealerLoginModal'));
             modal.hide();
             this.reset();
-            
         });
     }
 }
@@ -506,51 +563,67 @@ function setupFormValidation() {
         });
     });
     
-    // Add password validation checking
+    // Password validation
     const passwordField = document.getElementById('signupPassword');
     if (passwordField) {
+        const regex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
+        const helpText = passwordField.parentNode.querySelector('.form-text');
+
         passwordField.addEventListener('input', function() {
             const password = this.value;
-            const regex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
             
-            const helpText = this.parentNode.parentNode.querySelector('.form-text');
+            // Clear previous validation state
+            this.setCustomValidity('');
             
-            if (regex.test(password)) {
-                this.setCustomValidity(''); 
-                this.classList.remove('is-invalid');
-                this.classList.add('is-valid');
-                
+            if (password.length === 0) {
+                // Empty password field
+                this.classList.remove('is-invalid', 'is-valid');
                 if (helpText) {
-                    helpText.textContent = 'Password meets all requirements.';
-                    helpText.classList.add('text-success');
-                    helpText.classList.remove('text-muted');
-                }
-            } else {
-                if (password.length > 0) {
-                    this.setCustomValidity('Password must meet all requirements');
-                    this.classList.add('is-invalid');
-                    this.classList.remove('is-valid');
-                } else {
-                    this.setCustomValidity('');
-                    this.classList.remove('is-invalid');
-                    this.classList.remove('is-valid');
-                }
-                
-                if (helpText) {
-                    helpText.textContent = 'Password must be at least 8 characters long and include uppercase, lowercase, numbers, and special characters.';
                     helpText.classList.remove('text-success');
                     helpText.classList.add('text-muted');
+                    helpText.textContent = 'Password must be at least 8 characters long and include uppercase, lowercase, numbers, and special characters.';
+                }
+            } else if (regex.test(password)) {
+                // Valid password
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+                if (helpText) {
+                    helpText.classList.add('text-success');
+                    helpText.classList.remove('text-muted');
+                    helpText.textContent = 'Password meets all requirements.';
+                }
+            } else {
+                // Invalid password
+                this.setCustomValidity('Password must meet all requirements');
+                this.classList.add('is-invalid');
+                this.classList.remove('is-valid');
+                if (helpText) {
+                    helpText.classList.remove('text-success');
+                    helpText.classList.add('text-muted');
+                    helpText.textContent = 'Password must be at least 8 characters long and include uppercase, lowercase, numbers, and special characters.';
+                }
+            }
+
+            // Update confirm password validation if it exists
+            const confirmField = document.getElementById('signupPasswordConfirm');
+            if (confirmField && confirmField.value) {
+                if (confirmField.value === password) {
+                    confirmField.setCustomValidity('');
+                    confirmField.classList.add('is-valid');
+                    confirmField.classList.remove('is-invalid');
+                } else {
+                    confirmField.setCustomValidity('Passwords do not match');
+                    confirmField.classList.add('is-invalid');
+                    confirmField.classList.remove('is-valid');
                 }
             }
         });
-        
+
+        // Add blur event for final validation
         passwordField.addEventListener('blur', function() {
-            if (this.value.length > 0) {
-                const regex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
-                if (!regex.test(this.value)) {
-                    this.classList.add('is-invalid');
-                    this.setCustomValidity('Password must meet all requirements');
-                }
+            if (this.value.length > 0 && !regex.test(this.value)) {
+                this.classList.add('is-invalid');
+                this.setCustomValidity('Password must meet all requirements');
             }
         });
     }
@@ -722,5 +795,56 @@ function setupFormValidation() {
             }
         });
     }
+
+    // Text-only input validation for name fields
+    const textOnlyInputs = ['signupFirstName', 'signupLastName', 'signupCompany'];
+    textOnlyInputs.forEach(inputId => {
+        const input = document.getElementById(inputId);
+        if (input) {
+            input.addEventListener('input', function(e) {
+                // Remove any non-letter characters (allowing spaces and Turkish characters)
+                this.value = this.value.replace(/[^a-zA-ZğüşıöçĞÜŞİÖÇ\s]/g, '');
+                
+                // Convert first letter of each word to uppercase
+                this.value = this.value.replace(/\b\w/g, letter => letter.toUpperCase());
+                
+                // Validate on input
+                if (this.value.trim().length > 0) {
+                    this.classList.remove('is-invalid');
+                    this.classList.add('is-valid');
+                } else {
+                    this.classList.remove('is-valid');
+                    this.classList.add('is-invalid');
+                }
+            });
+
+            input.addEventListener('blur', function() {
+                // Trim extra spaces on blur
+                this.value = this.value.trim().replace(/\s+/g, ' ');
+            });
+        }
+    });
 }
+
+// Add CSS for improved notification styling
+const style = document.createElement('style');
+style.textContent = `
+    .toast.bg-danger {
+        background-color: #dc3545 !important;
+        color: white;
+    }
+    
+    .toast {
+        min-width: 300px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .toast-body {
+        padding: 12px 16px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+`;
+document.head.appendChild(style);
 
