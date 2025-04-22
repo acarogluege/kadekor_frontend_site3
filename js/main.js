@@ -150,6 +150,42 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
+
+    // Language switcher functionality
+    const languageButtons = document.querySelectorAll('.language-switcher .btn');
+    
+    // Set initial language from localStorage or default to 'en'
+    const currentLang = localStorage.getItem('selectedLanguage') || 'en';
+    setActiveLanguage(currentLang);
+
+    languageButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const lang = this.getAttribute('data-lang');
+            
+            // Save selected language
+            localStorage.setItem('selectedLanguage', lang);
+            
+            // Update active state
+            setActiveLanguage(lang);
+            
+            // Redirect to language version
+            if (lang === 'tr') {
+                window.location.href = window.location.pathname.replace('/en/', '/tr/');
+            } else {
+                window.location.href = window.location.pathname.replace('/tr/', '/en/');
+            }
+        });
+    });
+
+    function setActiveLanguage(lang) {
+        languageButtons.forEach(btn => {
+            if (btn.getAttribute('data-lang') === lang) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    }
 });
 
 
@@ -687,3 +723,4 @@ function setupFormValidation() {
         });
     }
 }
+

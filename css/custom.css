@@ -244,6 +244,34 @@ a:hover {
     z-index: 1030; 
 }
 
+/* Navbar alignment fixes */
+.navbar-nav {
+    gap: 0.5rem;
+}
+
+.navbar .nav-link {
+    padding: 0.5rem 1rem !important;
+    line-height: 1.5;
+}
+
+.language-switcher {
+    height: 31px;
+    align-self: center;
+}
+
+.language-switcher .btn {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.navbar .btn-outline-primary {
+    height: 31px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Navbar scroll behavior */
 .navbar-scroll {
     position: fixed;
@@ -924,6 +952,16 @@ contact-icon-wrapper {
     }
 }
 
+/* Navbar alignment fixes for mobile */
+@media (max-width: 991.98px) {
+    .navbar-nav {
+        gap: 0.25rem;
+    }
+    
+    .language-switcher {
+        margin: 0.5rem 0;
+    }
+}
 
 .nav-item .btn-outline-primary {
     transition: all 0.3s ease;
@@ -2377,4 +2415,23 @@ bubble-label a:hover {
 
 #pdfFrame {
     background: #f8f9fa;
+}
+
+/* Language Switcher */
+.language-switcher .btn {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.language-switcher .btn.active {
+    background-color: var(--bs-primary);
+    color: white;
+    border-color: var(--bs-primary);
+}
+
+.language-switcher .btn:hover:not(.active) {
+    background-color: rgba(37, 146, 41, 0.1);
+    color: #259229;
+    border-color: #259229;
 }
