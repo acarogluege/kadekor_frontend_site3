@@ -805,10 +805,26 @@
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h5 class="fw-bold mb-3">Products</h5>
                     <ul class="list-unstyled">
-                        <li><a href="products.html#pvc-ic-mekan" class="text-light">Interior Films</a></li>
-                        <li><a href="products.html#pvc-dis-mekan" class="text-light">Exterior Films</a></li>
-                        <li><a href="products.html#door" class="text-light">Doors by AdoKapı</a></li>
-                        <li><a href="products.html#vinylbond" class="text-light">Vinylbond</a></li>
+                        <li class="mb-2">
+                            <a href="products.html#pvc-ic-mekan" class="text-light footer-product-link">
+                                <i class="fas fa-paint-roller me-1"></i> Interior Films
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="products.html#pvc-dis-mekan" class="text-light footer-product-link">
+                                <i class="fas fa-paint-roller me-1"></i> Exterior Films
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="products.html#door" class="text-light footer-product-link">
+                                <i class="fas fa-door-open me-1"></i> Doors by AdoKapı
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="products.html#vinylbond" class="text-light footer-product-link">
+                                <i class="fas fa-layer-group me-1"></i> Vinylbond
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div class="col-lg-3 mb-4">
@@ -859,7 +875,6 @@
     <script>
         // Product detail modal functionality
         document.addEventListener('DOMContentLoaded', function () {
-            // Sample product data - in a real application this would come from a database
             const products = {
                 1: {
                     name: "Light Oak",
@@ -983,8 +998,8 @@
                         { name: "Green Teak", value: "green-teak", image: "./img/3000-green-teak-fagus.jpg" },
                         { name: "Brown Teak", value: "brown-teak", image: "./img/3000-mese.jpg" },
                         { name: "White Teak", value: "white-teak", image: "./img/3000-koyu-mese.jpg" }
-
                     ],
+                    description: "The Fagus 3006 door combines modern aesthetics with premium functionality. Featuring a distinctive panel design and superior sound insulation, this door is perfect for contemporary interiors. The high-quality construction ensures durability while the elegant finish adds a touch of sophistication to any space. Available in multiple color options to complement various interior styles."
                 },
                 3003: {
                     name: "Fagus 3003",
@@ -1001,6 +1016,7 @@
                     colors: [
                         { name: "Wood Grain", value: "wood-grain", image: "./img/3003-mcoco-fagus.jpg" }
                     ],
+                    description: "The Fagus 3006 door combines modern aesthetics with premium functionality. Featuring a distinctive panel design and superior sound insulation, this door is perfect for contemporary interiors. The high-quality construction ensures durability while the elegant finish adds a touch of sophistication to any space. Available in multiple color options to complement various interior styles."
                 },
                 3006: {
                     name: "Fagus 3006",
@@ -1023,7 +1039,6 @@
                 }
             };
 
-            // Handle the detail view buttons
             const detailButtons = document.querySelectorAll('.view-details');
 
             detailButtons.forEach(button => {
@@ -1082,7 +1097,6 @@
                                 colorOption.appendChild(colorImg);
                                 colorContainer.appendChild(colorOption);
 
-                                // Click event for color selection
                                 colorOption.addEventListener('click', function () {
                                     document.querySelectorAll('.color-option').forEach(opt => {
                                         opt.classList.remove('selected');
@@ -1095,11 +1109,9 @@
                             colorSection.appendChild(colorContainer);
                             colorsContainer.appendChild(colorSection);
 
-                            // Select the first color by default
                             colorContainer.querySelector('.color-option').classList.add('selected');
                         }
 
-                        // Add description if available
                         const descriptionContainer = document.getElementById('product-description-container');
                         descriptionContainer.innerHTML = '';
 
@@ -1110,7 +1122,6 @@
                             `;
                         }
 
-                        // Clear features list and add new features
                         const featuresList = document.getElementById('modal-product-features');
                         featuresList.innerHTML = '';
 
@@ -1206,27 +1217,20 @@
             setupImageZoom();
         });
 
-        // Add this code to your existing script at the bottom of products.html
         document.addEventListener('DOMContentLoaded', function () {
-            // Get all category and subcategory links in the sidebar
             const categoryLinks = document.querySelectorAll('.accordion-body a');
 
-            // Add click event to each link
             categoryLinks.forEach(link => {
                 link.addEventListener('click', function (e) {
                     e.preventDefault();
 
-                    // Get the target category from the href attribute
                     const targetCategory = this.getAttribute('href').substring(1);
 
-                    // Highlight the active category in the sidebar
                     categoryLinks.forEach(lnk => lnk.classList.remove('active-category'));
                     this.classList.add('active-category');
                     
-                    // Remove active class from All Products link
                     document.querySelector('.all-products-link')?.classList.remove('active-category');
 
-                    // Show all product sections initially (to reset any previous filtering)
                     document.querySelectorAll('h2[id], h3[id]').forEach(heading => {
                         heading.style.display = 'block';
                     });
@@ -1234,7 +1238,6 @@
                         grid.style.display = 'flex';
                     });
 
-                    // If we clicked "All Products", show everything and exit
                     if (targetCategory === 'all-products') {
                         return;
                     }
@@ -1335,6 +1338,75 @@
                     document.querySelector('.all-products-link')?.classList.remove('active-category');
                     
                 });
+            });
+        });
+
+        // Handle footer product links
+        const footerProductLinks = document.querySelectorAll('.footer-product-link');
+        
+        footerProductLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (window.location.pathname.endsWith('products.html')) {
+                    e.preventDefault();
+                    
+                    const href = this.getAttribute('href');
+                    const targetCategory = href.split('#')[1];
+                    
+                    document.querySelectorAll('.accordion-body a, .all-products-link').forEach(link => {
+                        link.classList.remove('active-category');
+                    });
+                    
+                    const sidebarLink = document.querySelector(`.accordion-body a[href="#${targetCategory}"]`);
+                    if (sidebarLink) {
+                        sidebarLink.classList.add('active-category');
+                        
+                        const accordionItem = sidebarLink.closest('.accordion-collapse');
+                        if (accordionItem && !accordionItem.classList.contains('show')) {
+                            const bsCollapse = new bootstrap.Collapse(accordionItem);
+                            bsCollapse.show();
+                        }
+                    }
+                    
+                    // Show all sections initially
+                    document.querySelectorAll('h2[id], h3[id]').forEach(heading => {
+                        heading.style.display = 'block';
+                    });
+                    document.querySelectorAll('.product-grid').forEach(grid => {
+                        grid.style.display = 'flex';
+                    });
+                    
+                    if (['pvc-ic-mekan', 'pvc-dis-mekan', 'door', 'vinylbond'].includes(targetCategory)) {
+                        const targetElement = document.getElementById(targetCategory);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                        return;
+                    }
+                    
+                    const parentCategoryId = getParentCategoryId(targetCategory);
+                    
+                    document.querySelectorAll('h2[id], h3[id]').forEach(heading => {
+                        if (heading.id !== targetCategory && 
+                            heading.id !== parentCategoryId && 
+                            !isChildCategory(heading.id, targetCategory)) {
+                            
+                            heading.style.display = 'none';
+                            
+                            let nextElement = heading.nextElementSibling;
+                            while (nextElement && !nextElement.matches('h2, h3')) {
+                                if (nextElement.classList.contains('product-grid')) {
+                                    nextElement.style.display = 'none';
+                                }
+                                nextElement = nextElement.nextElementSibling;
+                            }
+                        }
+                    });
+                    
+                    const targetElement = document.getElementById(targetCategory);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
             });
         });
     </script>
