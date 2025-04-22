@@ -495,12 +495,10 @@
                                             <!-- Short description - will appear if available -->
                                             <div id="product-description-container" class="mb-3"></div>
 
-                                            <div class="product-features-container">
-                                                <h6 class="fw-bold mb-2">Features</h6>
-                                                <ul id="modal-product-features"
-                                                    class="list-group list-group-flush mb-3 features-list">
-                                                    <!-- Features will be populated dynamically -->
-                                                </ul>
+                                            <!-- Features section without container -->
+                                            <h6 class="fw-bold mb-2">Features</h6>
+                                            <div id="modal-product-features" class="mb-3">
+                                                <!-- Features will be populated dynamically -->
                                             </div>
 
                                             <div class="d-grid mt-auto">
@@ -1141,24 +1139,20 @@
                         featuresList.innerHTML = '';
 
                         for (const [key, value] of Object.entries(product.features)) {
-                            const li = document.createElement('li');
-                            li.className = 'list-group-item px-2 py-1';
-
-                            const row = document.createElement('div');
-                            row.className = 'product-feature-row';
+                            const featureItem = document.createElement('div');
+                            featureItem.className = 'product-feature-row mb-2';
 
                             const labelSpan = document.createElement('span');
                             labelSpan.className = 'feature-label';
-                            labelSpan.textContent = key;
+                            labelSpan.textContent = key + ': ';
 
                             const valueSpan = document.createElement('span');
                             valueSpan.className = 'feature-value';
                             valueSpan.textContent = value;
 
-                            row.appendChild(labelSpan);
-                            row.appendChild(valueSpan);
-                            li.appendChild(row);
-                            featuresList.appendChild(li);
+                            featureItem.appendChild(labelSpan);
+                            featureItem.appendChild(valueSpan);
+                            featuresList.appendChild(featureItem);
                         }
                     }
                 });

@@ -1772,6 +1772,47 @@ bubble-label a:hover {
     border-radius: 3px;
 }
 
+/* Product modal feature styling */
+#modal-product-features {
+    padding-left: 0;
+}
+
+.product-feature-row {
+    display: flex;
+    align-items: flex-start;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.feature-label {
+    font-weight: 600;
+    color: #495057;
+    min-width: 120px;
+    padding-right: 0.5rem;
+}
+
+.feature-value {
+    color: #212529;
+    flex: 1;
+}
+
+/* Mobile styles */
+@media (max-width: 767.98px) {
+    .product-feature-row {
+        flex-direction: column;
+    }
+    
+    .feature-label {
+        width: 100%;
+        margin-bottom: 0.25rem;
+    }
+    
+    .feature-value {
+        padding-left: 1rem;
+        width: 100%;
+    }
+}
+
 @media (min-width: 1200px) {
     .product-image-container {
         height: 500px;
