@@ -2435,3 +2435,86 @@ bubble-label a:hover {
     color: #259229;
     border-color: #259229;
 }
+
+/* Product Modal Mobile Responsive Fixes */
+@media (max-width: 767.98px) {
+    #productModal .modal-dialog {
+        margin: 0.5rem;
+        max-width: none;
+    }
+    
+    #productModal .modal-content {
+        max-height: 90vh;
+        overflow: hidden;
+    }
+    
+    #productModal .modal-body {
+        padding: 1rem;
+        overflow-y: auto; 
+        max-height: calc(90vh - 56px); 
+        -webkit-overflow-scrolling: touch; 
+    }
+    
+    #productModal .row {
+        flex-direction: column;
+    }
+    
+    #productModal .product-image-container {
+        height: 220px !important;
+        min-height: auto;
+        margin-bottom: 1rem;
+        border-radius: 6px;
+    }
+    
+    #productModal .product-detail-img {
+        max-height: 200px !important;
+    }
+    
+    #productModal .features-list {
+        max-height: 150px;
+        margin-bottom: 1rem !important;
+    }
+    
+    #productModal .features-list,
+    #productModal .modal-body {
+        scrollbar-width: thin;
+    }
+    
+    #productModal .product-details-wrapper {
+        padding-top: 0.5rem;
+    }
+    
+    #productModal #modal-product-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    #productModal .product-feature-row {
+        flex-direction: column;
+        padding: 0.5rem 0;
+    }
+    
+    #productModal .feature-label {
+        width: 100%;
+        margin-bottom: 0.25rem;
+    }
+    
+    #productModal .feature-value {
+        width: 100%;
+        padding-left: 0.5rem;
+    }
+}
+
+@media (hover: none) {
+    #productModal .modal-body {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    #productModal .product-image-container {
+        overflow: visible;
+    }
+    
+    #productModal .product-detail-img:hover {
+        transform: none !important;
+    }
+}
