@@ -1096,16 +1096,53 @@
 
                         // Add color options if available
                         const colorsContainer = document.getElementById('product-colors-container');
+                        const underImageDescriptionContainer = document.getElementById('under-image-description-container');
+                        
                         colorsContainer.innerHTML = '';
-
-                        // Setup for color options
+                        
+                        // For doors, place color options under the image
                         if (product.colors && product.colors.length > 0) {
-                            // Your existing color options code
+                            const colorOptionsHTML = `
+                                <h6 class="fw-bold mt-3 mb-2">Available Colors</h6>
+                                <div class="color-options-container">
+                                    ${product.colors.map((color, index) => `
+                                        <div class="color-option ${index === 0 ? 'selected' : ''}" data-color-value="${color.value}">
+                                            <img src="${color.image}" alt="${color.name}" class="color-thumbnail">
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            `;
+                            
+                            colorsContainer.innerHTML = colorOptionsHTML;
+                            
+                            // Add event listeners to color options without color name
+                            setTimeout(() => {
+                                const colorOptions = document.querySelectorAll('.color-option');
+                                if (colorOptions.length > 0) {
+                                    colorOptions.forEach(option => {
+                                        option.addEventListener('click', function() {
+                                            // Remove selected class from all options
+                                            colorOptions.forEach(opt => opt.classList.remove('selected'));
+                                            
+                                            // Add selected class to clicked option
+                                            this.classList.add('selected');
+                                            
+                                            // Update main image
+                                            const colorValue = this.getAttribute('data-color-value');
+                                            const selectedColor = product.colors.find(c => c.value === colorValue);
+                                            
+                                            if (selectedColor) {
+                                                // Directly set the image source
+                                                document.getElementById('modal-product-image').src = selectedColor.image;
+                                            }
+                                        });
+                                    });
+                                }
+                            }, 100);
                         }
 
                         // Description - place it under image for door products, next to features for others
                         const descriptionContainer = document.getElementById('product-description-container');
-                        const underImageDescriptionContainer = document.getElementById('under-image-description-container');
                         
                         descriptionContainer.innerHTML = '';
                         underImageDescriptionContainer.innerHTML = '';
@@ -1123,7 +1160,7 @@
                             }
                         }
 
-                        // Features
+                        // Features section remains the same
                         const featuresList = document.getElementById('modal-product-features');
                         featuresList.innerHTML = '';
 
