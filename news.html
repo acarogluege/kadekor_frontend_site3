@@ -80,7 +80,8 @@
                             <li class="breadcrumb-item active text-white" aria-current="page">News & Updates</li>
                         </ol>
                     </nav>
-                    <p class="lead text-white mt-4">Stay updated with the latest trends, product releases, and industry insights from KaDekor.</p>
+                    <p class="lead text-white mt-4">Stay updated with the latest trends, product releases, and industry
+                        insights from KaDekor.</p>
                 </div>
             </div>
         </div>
@@ -105,10 +106,12 @@
                                 <small class="text-muted">April 10, 2023</small>
                             </div>
                             <h5 class="card-title">KaDekor Opens New Distribution Center</h5>
-                            <p class="card-text">Expanding our reach with a state-of-the-art distribution facility to serve customers better.</p>
+                            <p class="card-text">Expanding our reach with a state-of-the-art distribution facility to
+                                serve customers better.</p>
                         </div>
                         <div class="card-footer bg-white border-top-0">
-                            <a href="#" class="btn btn-outline-primary btn-sm">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+                            <a href="#" class="btn btn-outline-primary btn-sm">Read More <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
                         </div>
                     </div>
                 </div>
@@ -122,10 +125,12 @@
                                 <small class="text-muted">April 5, 2023</small>
                             </div>
                             <h5 class="card-title">New Partnership with European Design House</h5>
-                            <p class="card-text">KaDekor announces exclusive partnership with leading European designers to create unique patterns.</p>
+                            <p class="card-text">KaDekor announces exclusive partnership with leading European designers
+                                to create unique patterns.</p>
                         </div>
                         <div class="card-footer bg-white border-top-0">
-                            <a href="#" class="btn btn-outline-primary btn-sm">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+                            <a href="#" class="btn btn-outline-primary btn-sm">Read More <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
                         </div>
                     </div>
                 </div>
@@ -139,10 +144,12 @@
                                 <small class="text-muted">March 28, 2023</small>
                             </div>
                             <h5 class="card-title">Industry Award for Sustainability Efforts</h5>
-                            <p class="card-text">KaDekor receives recognition for innovative approaches to sustainable manufacturing processes.</p>
+                            <p class="card-text">KaDekor receives recognition for innovative approaches to sustainable
+                                manufacturing processes.</p>
                         </div>
                         <div class="card-footer bg-white border-top-0">
-                            <a href="#" class="btn btn-outline-primary btn-sm">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+                            <a href="#" class="btn btn-outline-primary btn-sm">Read More <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
                         </div>
                     </div>
                 </div>
@@ -156,10 +163,12 @@
                                 <small class="text-muted">March 20, 2023</small>
                             </div>
                             <h5 class="card-title">KaDekor Academy Launches Online Courses</h5>
-                            <p class="card-text">Learn installation techniques and design principles with our new online educational platform.</p>
+                            <p class="card-text">Learn installation techniques and design principles with our new online
+                                educational platform.</p>
                         </div>
                         <div class="card-footer bg-white border-top-0">
-                            <a href="#" class="btn btn-outline-primary btn-sm">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+                            <a href="#" class="btn btn-outline-primary btn-sm">Read More <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
                         </div>
                     </div>
                 </div>
@@ -194,6 +203,38 @@
         </div>
     </section>
 
+    <!-- News Article Modal -->
+    <div class="modal fade" id="newsArticleModal" tabindex="-1" aria-labelledby="newsArticleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-light">
+                    <h5 class="modal-title fw-bold" id="newsArticleModalLabel">Article Title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <img src="" class="img-fluid w-100 article-featured-image" alt="Article Image">
+                    <div class="article-content p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="badge bg-primary me-2 article-category">News</span>
+                            <small class="text-muted article-date">April 10, 2023</small>
+                            <div class="ms-auto">
+                                <a href="#" class="text-decoration-none share-linkedin">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="article-text">
+                            <!-- Article content will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-dark text-light pt-5 pb-3">
@@ -408,17 +449,20 @@
                             <div class="col-md-12 mb-2">
                                 <label class="form-label">ID Type*</label>
                                 <div class="btn-group w-100" role="group" aria-label="ID Type Selection">
-                                    <input type="radio" class="btn-check" name="taxIdType" id="tcOption" value="tc" required>
+                                    <input type="radio" class="btn-check" name="taxIdType" id="tcOption" value="tc"
+                                        required>
                                     <label class="btn btn-outline-primary" for="tcOption">
                                         <i class="fas fa-id-card me-1"></i> TC Kimlik No (11 digits)
                                     </label>
-                                    
-                                    <input type="radio" class="btn-check" name="taxIdType" id="taxIdOption" value="taxid" required>
+
+                                    <input type="radio" class="btn-check" name="taxIdType" id="taxIdOption"
+                                        value="taxid" required>
                                     <label class="btn btn-outline-primary" for="taxIdOption">
                                         <i class="fas fa-building me-1"></i> Tax ID (10 digits)
                                     </label>
                                 </div>
-                                <div class="invalid-feedback d-block text-center mt-1" id="taxIdTypeError" style="display: none !important;">
+                                <div class="invalid-feedback d-block text-center mt-1" id="taxIdTypeError"
+                                    style="display: none !important;">
                                     Please select an ID type.
                                 </div>
                             </div>
@@ -426,15 +470,19 @@
                             <div class="col-md-12">
                                 <div class="input-group">
                                     <span class="input-group-text id-type-prefix">ID:</span>
-                                    <input type="text" class="form-control" id="signupTaxId" placeholder="Enter your ID number" required maxlength="11" pattern="\d+">
-                                    <button class="btn btn-outline-secondary id-info-tooltip" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="TC Kimlik No is exactly 11 digits. Tax ID is exactly 10 digits.">
+                                    <input type="text" class="form-control" id="signupTaxId"
+                                        placeholder="Enter your ID number" required maxlength="11" pattern="\d+">
+                                    <button class="btn btn-outline-secondary id-info-tooltip" type="button"
+                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="TC Kimlik No is exactly 11 digits. Tax ID is exactly 10 digits.">
                                         <i class="fas fa-info-circle"></i>
                                     </button>
                                 </div>
                                 <div class="invalid-feedback" id="taxIdError">
                                     Please enter a valid ID number.
                                 </div>
-                                <small id="taxIdHelpText" class="form-text text-muted">Please enter numeric digits only.</small>
+                                <small id="taxIdHelpText" class="form-text text-muted">Please enter numeric digits
+                                    only.</small>
                             </div>
 
                             <div class="col-md-6">
@@ -549,7 +597,157 @@
     <script src="./js/main.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // News data
+            const newsArticles = {
+                'article1': {
+                    title: 'KaDekor Opens New Distribution Center',
+                    date: 'April 10, 2023',
+                    category: 'Company News',
+                    image: './img/kadekor_company.png',
+                    content: `
+                <p class="lead">KaDekor has expanded its operations with a new state-of-the-art distribution center to better serve its growing customer base in Europe and the Middle East.</p>
+                
+                <p>Located strategically in Istanbul's industrial zone, the new 15,000 square meter facility represents a significant investment in the company's future and demonstrates KaDekor's commitment to improving delivery times and logistics efficiency.</p>
+                
+                <h5 class="mt-4 mb-3">Enhanced Capacity</h5>
+                <p>The new distribution center features automated sorting systems, climate-controlled storage areas for sensitive materials, and an expanded loading dock that can accommodate up to 20 trucks simultaneously. This investment will enable KaDekor to process orders more quickly and efficiently, reducing lead times for customers.</p>
+                
+                <p>"This new facility represents our commitment to providing exceptional service to our customers," said Ali Yilmaz, CEO of KaDekor. "With expanded storage capacity and state-of-the-art logistics systems, we can ensure faster delivery times and more reliable service."</p>
+                
+                <h5 class="mt-4 mb-3">Sustainability Features</h5>
+                <p>The new distribution center was also designed with sustainability in mind. Solar panels on the roof generate a significant portion of the facility's electricity needs, while advanced insulation and energy-efficient systems help reduce the building's carbon footprint.</p>
+                
+                <p>The facility also features rainwater collection systems for landscape irrigation and water-efficient fixtures throughout the building.</p>
+                
+                <h5 class="mt-4 mb-3">Employment Opportunities</h5>
+                <p>The expansion has created over 50 new jobs in the local community, including positions in warehouse operations, logistics coordination, and facility management.</p>
+                
+                <p>KaDekor expects the new distribution center to be operating at full capacity by the end of the month, serving customers throughout Turkey, Europe, and the Middle East.</p>
+            `,
+                    link: '#'
+                },
+                'article2': {
+                    title: 'New Partnership with European Design House',
+                    date: 'April 5, 2023',
+                    category: 'Partnerships',
+                    image: './img/kadekor_company.png',
+                    content: `
+                <p class="lead">KaDekor is proud to announce an exclusive partnership with renowned European design house Studio Bergman to create unique patterns and textures for our PVC film collections.</p>
+                
+                <p>This collaboration brings together KaDekor's manufacturing expertise with Studio Bergman's cutting-edge design sensibilities, resulting in innovative new products that push the boundaries of interior film aesthetics.</p>
+                
+                <h5 class="mt-4 mb-3">Exclusive Designs</h5>
+                <p>Studio Bergman, known for their award-winning work in interior design and architectural finishes, will develop exclusive patterns for KaDekor's premium line of interior PVC films. The first collection, set to launch in autumn 2023, will feature 15 new designs inspired by natural textures and contemporary architectural trends.</p>
+                
+                <p>"We're thrilled to partner with Studio Bergman to bring truly unique, designer-quality finishes to our customers," said Mehmet Kaya, Product Development Director at KaDekor. "Their innovative approach to pattern and texture will help our clients create truly distinctive spaces."</p>
+                
+                <h5 class="mt-4 mb-3">Design Process</h5>
+                <p>The design process includes extensive research into global interior trends, material innovation, and practical applications. Each pattern undergoes rigorous testing to ensure it meets both aesthetic standards and KaDekor's quality requirements.</p>
+                
+                <p>"Working with KaDekor gives us an opportunity to bring our designs to a wider audience," said Elsa Bergman, founder of Studio Bergman. "Their technical expertise in film production allows us to realize intricate patterns and textures that would be impossible with other manufacturing partners."</p>
+                
+                <h5 class="mt-4 mb-3">Market Impact</h5>
+                <p>This partnership is expected to strengthen KaDekor's position in the high-end interior design market and provide interior designers and architects with new options for creating unique spaces.</p>
+                
+                <p>Preview samples of the new collection will be available to select dealers starting in July 2023.</p>
+            `,
+                    link: '#'
+                },
+                'article3': {
+                    title: 'Industry Award for Sustainability Efforts',
+                    date: 'March 28, 2023',
+                    category: 'Awards',
+                    image: './img/kadekor_company.png',
+                    content: `
+                <p class="lead">KaDekor has been recognized with the prestigious Green Manufacturing Excellence Award for its innovative approaches to sustainable manufacturing processes.</p>
+                
+                <p>The award, presented annually by the International Association of Surface Materials, acknowledges companies that demonstrate exceptional commitment to reducing environmental impact while maintaining high-quality standards.</p>
+                
+                <h5 class="mt-4 mb-3">Innovative Processes</h5>
+                <p>KaDekor's award-winning initiatives include a closed-loop water recycling system that reduces water consumption by 75%, a solvent recovery program that minimizes chemical waste, and energy-efficient production lines that have cut energy use by 40% compared to industry standards.</p>
+                
+                <p>"This recognition validates our team's hard work and dedication to finding more sustainable ways to manufacture our products," said Zeynep Akin, Sustainability Director at KaDekor. "We believe that quality and environmental responsibility can go hand in hand."</p>
+                
+                <h5 class="mt-4 mb-3">Long-term Commitment</h5>
+                <p>KaDekor's sustainability program also includes ongoing research into bio-based materials, reduced packaging waste, and carbon footprint reduction across the supply chain.</p>
+                
+                <p>The company has set ambitious goals for the next five years, including becoming carbon-neutral in manufacturing operations by 2028 and eliminating single-use plastics from all packaging by 2025.</p>
+                
+                <h5 class="mt-4 mb-3">Industry Impact</h5>
+                <p>The award committee noted that KaDekor's approaches could serve as a model for other manufacturers in the industry, particularly the innovative water recycling system that could be adapted for use in similar production environments.</p>
+                
+                <p>"We hope that by sharing our knowledge and experience, we can help raise environmental standards across the industry," said Akin. "Sustainability is not just a competitive advantage—it's a collective responsibility."</p>
+            `,
+                    link: '#'
+                },
+                'article4': {
+                    title: 'KaDekor Academy Launches Online Courses',
+                    date: 'March 20, 2023',
+                    category: 'Education',
+                    image: './img/kadekor_company.png',
+                    content: `
+                <p class="lead">KaDekor has expanded its educational offerings with the launch of KaDekor Academy Online, a comprehensive digital learning platform for installers, designers, and dealers.</p>
+                
+                <p>The new platform offers on-demand video courses, technical documentation, and interactive learning modules covering everything from basic installation techniques to advanced design applications and business development strategies.</p>
+                
+                <h5 class="mt-4 mb-3">Comprehensive Curriculum</h5>
+                <p>KaDekor Academy Online launches with more than 30 courses in three specialized tracks: Installation Mastery, Design Applications, and Business Growth. Each course includes video demonstrations, downloadable resources, and knowledge assessments.</p>
+                
+                <p>"Professional education has always been central to our mission," said Deniz Ozturk, Training Director at KaDekor. "With KaDekor Academy Online, we're making our expertise accessible to professionals around the world, regardless of location or time constraints."</p>
+                
+                <h5 class="mt-4 mb-3">Certification Programs</h5>
+                <p>The platform also includes official certification programs that allow professionals to demonstrate their expertise with KaDekor products. These certifications can help installers and dealers build credibility with clients and access exclusive business opportunities.</p>
+                
+                <p>Certification requires completing a series of courses and passing practical assessments, which can be performed remotely and verified by KaDekor's training team.</p>
+                
+                <h5 class="mt-4 mb-3">Accessibility</h5>
+                <p>KaDekor Academy Online is designed to be accessible on any device, allowing users to learn at their own pace. The platform supports multiple languages, including English, Turkish, German, French, and Arabic, with more languages planned for future updates.</p>
+                
+                <p>"We've designed the platform to be as user-friendly and flexible as possible," said Ozturk. "Whether you're an experienced installer looking to refine specific techniques or a new dealer wanting to learn about our full product range, there's content tailored to your needs."</p>
+                
+                <p>KaDekor dealers and registered installers receive complimentary access to the platform, while other industry professionals can subscribe for a monthly or annual fee.</p>
+            `,
+                    link: '#'
+                }
+            };
 
+            // Add click event listeners to all Read More buttons
+            const readMoreButtons = document.querySelectorAll('.featured-news .btn-outline-primary');
+
+            readMoreButtons.forEach((button, index) => {
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    // Get the article ID based on button index
+                    const articleId = 'article' + (index + 1);
+                    const article = newsArticles[articleId];
+
+                    if (article) {
+                        // Populate the modal with article data
+                        document.getElementById('newsArticleModalLabel').textContent = article.title;
+                        document.querySelector('.article-featured-image').src = article.image;
+                        document.querySelector('.article-featured-image').alt = article.title;
+                        document.querySelector('.article-date').textContent = article.date;
+                        document.querySelector('.article-category').textContent = article.category;
+                        document.querySelector('.article-text').innerHTML = article.content;
+                        // document.querySelector('.article-link').href = article.link;
+
+                        // Set up social sharing links
+                        const shareUrl = encodeURIComponent(window.location.href);
+                        const shareTitle = encodeURIComponent(article.title);
+                        document.querySelector('.share-linkedin').href = `https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}&title=${shareTitle}`;
+
+                        // Show the modal
+                        const articleModal = new bootstrap.Modal(document.getElementById('newsArticleModal'));
+                        articleModal.show();
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -2295,3 +2295,45 @@ bubble-label a:hover {
 .all-products-link.active-category::after {
     left: -12px;
 }
+
+/* News Article Modal Styling */
+.article-featured-image {
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.article-content {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.article-content .lead {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.article-content h5 {
+    color: #259229;
+    font-weight: 600;
+}
+
+.article-date {
+    font-style: italic;
+}
+
+.badge.article-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#newsArticleModal .modal-dialog {
+    max-width: 800px;
+}
+
+@media (max-width: 767px) {
+    .article-featured-image {
+        max-height: 250px;
+    }
+}
