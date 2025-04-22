@@ -140,6 +140,34 @@ a:hover {
     border-color: #259229;
 }
 
+.list-group-item-action {
+    border-left: 3px solid transparent;
+    transition: all 0.2s ease;
+    color: #495057;
+}
+
+.list-group-item-action.active {
+    background-color: rgba(37, 146, 41, 0.1) !important;
+    color: #259229 !important;
+    border-left: 3px solid #259229;
+    font-weight: 500;
+}
+
+.list-group-item-action:hover {
+    background-color: rgba(37, 146, 41, 0.05);
+    color: #259229;
+    border-left-color: rgba(37, 146, 41, 0.5);
+}
+
+.list-group-item-action i {
+    width: 20px;
+    text-align: center;
+}
+
+.list-group-item-action span {
+    flex: 1;
+}
+
 /* Pagination */
 .page-item.active .page-link {
     background-color: #259229;
@@ -2336,4 +2364,17 @@ bubble-label a:hover {
     .article-featured-image {
         max-height: 250px;
     }
+}
+
+.document-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.document-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+#pdfFrame {
+    background: #f8f9fa;
 }
