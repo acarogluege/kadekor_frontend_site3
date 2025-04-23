@@ -1263,73 +1263,171 @@
             });
         });
 
-        // Handle footer product links
-        const footerProductLinks = document.querySelectorAll('.footer-product-link');
-        
-        footerProductLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                if (window.location.pathname.endsWith('products.html')) {
-                    e.preventDefault();
-                    
-                    const href = this.getAttribute('href');
-                    const targetCategory = href.split('#')[1];
-                    
-                    document.querySelectorAll('.accordion-body a, .all-products-link').forEach(link => {
-                        link.classList.remove('active-category');
-                    });
-                    
-                    const sidebarLink = document.querySelector(`.accordion-body a[href="#${targetCategory}"]`);
-                    if (sidebarLink) {
-                        sidebarLink.classList.add('active-category');
+        // Handle footer product links with improved scroll behavior
+        function handleFooterProductLinks() {
+            const footerProductLinks = document.querySelectorAll('.footer-product-link');
+            
+            footerProductLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (window.location.pathname.endsWith('products.html')) {
+                        e.preventDefault();
                         
-                        const accordionItem = sidebarLink.closest('.accordion-collapse');
-                        if (accordionItem && !accordionItem.classList.contains('show')) {
-                            const bsCollapse = new bootstrap.Collapse(accordionItem);
-                            bsCollapse.show();
-                        }
-                    }
-                    
-                    // Show all sections initially
-                    document.querySelectorAll('h2[id], h3[id]').forEach(heading => {
-                        heading.style.display = 'block';
-                    });
-                    document.querySelectorAll('.product-grid').forEach(grid => {
-                        grid.style.display = 'flex';
-                    });
-                    
-                    if (['pvc-ic-mekan', 'pvc-dis-mekan', 'door', 'vinylbond'].includes(targetCategory)) {
-                        const targetElement = document.getElementById(targetCategory);
-                        if (targetElement) {
-                            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
-                        return;
-                    }
-                    
-                    const parentCategoryId = getParentCategoryId(targetCategory);
-                    
-                    document.querySelectorAll('h2[id], h3[id]').forEach(heading => {
-                        if (heading.id !== targetCategory && 
-                            heading.id !== parentCategoryId && 
-                            !isChildCategory(heading.id, targetCategory)) {
+                        const href = this.getAttribute('href');
+                        const targetCategory = href.split('#')[1];
+                        
+                        // Remove active class from all category links
+                        document.querySelectorAll('.accordion-body a, .all-products-link').forEach(link => {
+                            link.classList.remove('active-category');
+                        });
+                        
+                        const subcategoryMap = {
+                            'pvc-ic-mekan': ['wooden-interior', 'solid-pastel', 'high-gloss', 'backside-lining'],
+                            'pvc-dis-mekan': ['wooden-exterior', 'solid-exterior'],
+                            'door': ['deodora', 'fagus', 'cedrus'],
+                            'vinylbond': []
+                        };
+                        
+                        let parentAccordion = null;
+                        let targetLink = null;
+                        let targetElement = null;
+                        
+                        // Determine parent accordion and target link
+                        if (Object.keys(subcategoryMap).includes(targetCategory)) {
+                            // This is a main category
+                            targetElement = document.getElementById(targetCategory);
                             
-                            heading.style.display = 'none';
+                            if (targetCategory === 'pvc-ic-mekan' || targetCategory === 'pvc-dis-mekan') {
+                                parentAccordion = document.getElementById('collapsePVC');
+                                const firstSubcategory = subcategoryMap[targetCategory][0];
+                                targetLink = document.querySelector(`.accordion-body a[href="#${firstSubcategory}"]`);
+                            } else if (targetCategory === 'door') {
+                                parentAccordion = document.getElementById('collapseDoor');
+                                targetLink = document.querySelector(`.accordion-body a[href="#deodora"]`);
+                            } else if (targetCategory === 'vinylbond') {
+                                parentAccordion = document.getElementById('collapseVinylbond');
+                            }
+                        } else {
+                            // This is a subcategory
+                            targetElement = document.getElementById(targetCategory);
                             
-                            let nextElement = heading.nextElementSibling;
-                            while (nextElement && !nextElement.matches('h2, h3')) {
-                                if (nextElement.classList.contains('product-grid')) {
-                                    nextElement.style.display = 'none';
+                            for (const [parent, subs] of Object.entries(subcategoryMap)) {
+                                if (subs.includes(targetCategory)) {
+                                    if (parent === 'pvc-ic-mekan' || parent === 'pvc-dis-mekan') {
+                                        parentAccordion = document.getElementById('collapsePVC');
+                                    } else if (parent === 'door') {
+                                        parentAccordion = document.getElementById('collapseDoor');
+                                    } else if (parent === 'vinylbond') {
+                                        parentAccordion = document.getElementById('collapseVinylbond');
+                                    }
+                                    targetLink = document.querySelector(`.accordion-body a[href="#${targetCategory}"]`);
+                                    break;
                                 }
-                                nextElement = nextElement.nextElementSibling;
                             }
                         }
-                    });
-                    
-                    const targetElement = document.getElementById(targetCategory);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        
+                        // Open the parent accordion if found and not already open
+                        if (parentAccordion && !parentAccordion.classList.contains('show')) {
+                            new bootstrap.Collapse(parentAccordion).show();
+                        }
+                        
+                        // Activate the target link if found
+                        if (targetLink) {
+                            targetLink.classList.add('active-category');
+                        }
+                        
+                        const isMainCategory = Object.keys(subcategoryMap).includes(targetCategory);
+                        
+                        // Show/hide appropriate sections
+                        if (isMainCategory) {
+                            document.querySelectorAll('h2[id], h3[id]').forEach(heading => {
+                                const headingId = heading.id;
+                                if (headingId === targetCategory || subcategoryMap[targetCategory].includes(headingId)) {
+                                    heading.style.display = 'block';
+                                    let nextElement = heading.nextElementSibling;
+                                    while (nextElement && !nextElement.matches('h2, h3')) {
+                                        if (nextElement.classList.contains('product-grid')) {
+                                            nextElement.style.display = 'flex';
+                                        }
+                                        nextElement = nextElement.nextElementSibling;
+                                    }
+                                } else {
+                                    heading.style.display = 'none';
+                                    let nextElement = heading.nextElementSibling;
+                                    while (nextElement && !nextElement.matches('h2, h3')) {
+                                        if (nextElement.classList.contains('product-grid')) {
+                                            nextElement.style.display = 'none';
+                                        }
+                                        nextElement = nextElement.nextElementSibling;
+                                    }
+                                }
+                            });
+                        } else {
+                            if (targetElement) {
+                                targetElement.style.display = 'block';
+                                // Find parent category for subcategories
+                                let parentCategory = null;
+                                for (const [parent, subs] of Object.entries(subcategoryMap)) {
+                                    if (subs.includes(targetCategory)) {
+                                        parentCategory = parent;
+                                        break;
+                                    }
+                                }
+                                
+                                // Show parent category
+                                if (parentCategory) {
+                                    const parentElement = document.getElementById(parentCategory);
+                                    if (parentElement) {
+                                        parentElement.style.display = 'block';
+                                    }
+                                }
+                                
+                                // Show product grid for this category
+                                let nextElement = targetElement.nextElementSibling;
+                                while (nextElement && !nextElement.matches('h2, h3')) {
+                                    if (nextElement.classList.contains('product-grid')) {
+                                        nextElement.style.display = 'flex';
+                                    }
+                                    nextElement = nextElement.nextElementSibling;
+                                }
+                                
+                                // Hide other sections
+                                document.querySelectorAll('h2[id], h3[id]').forEach(heading => {
+                                    if (heading.id !== targetCategory && heading.id !== parentCategory) {
+                                        heading.style.display = 'none';
+                                        let nextElement = heading.nextElementSibling;
+                                        while (nextElement && !nextElement.matches('h2, h3')) {
+                                            if (nextElement.classList.contains('product-grid')) {
+                                                nextElement.style.display = 'none';
+                                            }
+                                            nextElement = nextElement.nextElementSibling;
+                                        }
+                                    }
+                                });
+                            }
+                        }
+                        
+                        // Always wait a small time for DOM to update before scrolling
+                        setTimeout(() => {
+                            if (targetElement) {
+                                // Scroll to the header for better visibility
+                                const headerOffset = 100; // Adjust this value based on your navbar height and desired padding
+                                const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                                const offsetPosition = elementPosition - headerOffset;
+
+                                window.scrollTo({
+                                    top: offsetPosition,
+                                    behavior: "smooth"
+                                });
+                            }
+                        }, 300);
                     }
-                }
+                });
             });
+        }
+
+        // Call this function after DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            handleFooterProductLinks();
         });
     </script>
 </body>
