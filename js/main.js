@@ -129,22 +129,106 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         form.addEventListener('submit', function(event) {
-            if (!form.checkValidity()) {
-                event.preventDefault();
-                event.stopPropagation();
+            event.preventDefault();
+            event.stopPropagation(); // Stop propagation early
+
+            console.log('--- Submit Handler Start ---'); // DEBUG
+
+            let isFormValid = true; // Flag to track overall validity
+
+            // --- Get Fields ---
+            const emailField = document.getElementById('signupEmail');
+            const passwordField = document.getElementById('signupPassword');
+            const confirmField = document.getElementById('signupPasswordConfirm');
+
+            console.log('Email Value:', emailField.value); // DEBUG
+            console.log('Password Value:', passwordField.value); // DEBUG
+
+            // --- Password Regex Check ---
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s])\S{8,16}$/;
+            const isPasswordRegexValid = passwordRegex.test(passwordField.value);
+            console.log('Password Regex Test Result:', isPasswordRegexValid); // DEBUG
+            if (!isPasswordRegexValid) {
+                 console.log('Password Regex FAILED'); // DEBUG
+                 passwordField.setCustomValidity('Password must meet all requirements');
+                 passwordField.classList.add('is-invalid');
+                 passwordField.classList.remove('is-valid');
+                 isFormValid = false;
+            } else {
+                 passwordField.setCustomValidity('');
+                 passwordField.classList.remove('is-invalid');
+                 if (passwordField.value) passwordField.classList.add('is-valid');
             }
-            
-            form.classList.add('was-validated');
-            
-            const password = document.getElementById('signupPassword');
-            const confirmPassword = document.getElementById('signupPasswordConfirm');
-            if (password && confirmPassword) {
-                if (password.value !== confirmPassword.value) {
-                    confirmPassword.setCustomValidity("Passwords don't match");
-                } else {
-                    confirmPassword.setCustomValidity('');
-                }
+
+            // --- Password Match Check ---
+            const doPasswordsMatch = passwordField.value === confirmField.value;
+            console.log('Passwords Match Result:', doPasswordsMatch); // DEBUG
+            if (!doPasswordsMatch) {
+                console.log('Password Match FAILED'); // DEBUG
+                confirmField.setCustomValidity('Passwords do not match');
+                confirmField.classList.add('is-invalid');
+                confirmField.classList.remove('is-valid');
+                isFormValid = false;
+            } else {
+                confirmField.setCustomValidity('');
+                confirmField.classList.remove('is-invalid');
+                if (confirmField.value) confirmField.classList.add('is-valid');
             }
+
+            // --- Email Check ---
+            const isEmailCheckValid = emailField.checkValidity();
+            console.log('Email checkValidity() Result:', isEmailCheckValid); // DEBUG
+            if (!isEmailCheckValid) {
+                console.log('Email checkValidity FAILED'); // DEBUG
+                emailField.classList.add('is-invalid');
+                emailField.classList.remove('is-valid');
+                isFormValid = false;
+            } else {
+                 emailField.classList.remove('is-invalid');
+                 if (emailField.value) emailField.classList.add('is-valid');
+            }
+
+            console.log('Final isFormValid check:', isFormValid); // DEBUG
+            if (!isFormValid) {
+                console.log('Submit prevented due to validation errors.'); // DEBUG
+                return;
+            }
+
+            console.log('Form is valid, proceeding with submission prep.'); // DEBUG
+
+            const firstNameEl = document.getElementById('signupFirstName');
+            const lastNameEl = document.getElementById('signupLastName');
+            const phoneEl = document.getElementById('signupPhone');
+            const companyEl = document.getElementById('signupCompany');
+            const taxIdEl = document.getElementById('signupTaxId');
+            const taxOfficeEl = document.getElementById('signupTaxOffice'); // The problematic one
+
+            if (!taxOfficeEl) {
+                 console.warn('Form element with ID "signupTaxOffice" not found!'); // Warn if missing
+            }
+
+            const formData = {
+                firstName: firstNameEl ? firstNameEl.value : '',
+                lastName: lastNameEl ? lastNameEl.value : '',
+                email: emailField.value, // Already checked
+                phone: phoneEl ? phoneEl.value : '',
+                company: companyEl ? companyEl.value : '',
+                taxId: taxIdEl ? taxIdEl.value : '',
+                taxOffice: taxOfficeEl ? taxOfficeEl.value : '', // Use ternary check
+                password: passwordField.value // Already checked
+            };
+
+            console.log('Collected formData:', formData); // DEBUG formData
+
+            //API call here
+            showNotification('Registration successful! We will review your application and contact you soon.', 'success');
+
+            const modal = bootstrap.Modal.getInstance(document.getElementById('dealerSignupModal'));
+            modal.hide();
+            this.reset();
+            // We removed was-validated, but still need to clear manual classes on reset/hide
+            // (This might be handled by the modal hidden listener already)
+
         }, false);
         
         const modal = form.closest('.modal');
@@ -290,6 +374,15 @@ function initDealerForms() {
         signupForm.addEventListener('submit', function(event) {
             event.preventDefault();
             
+            // Re-validate password using the regex from setupFormValidation
+            // Ensure consistency between input validation and submit validation
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s])\S{8,16}$/;
+            if (!passwordRegex.test(passwordField.value)) {
+                 passwordField.setCustomValidity('Password must meet all requirements');
+            } else {
+                 passwordField.setCustomValidity(''); 
+            }
+
             const password = passwordField.value;
             const confirmPassword = confirmField.value;
             
@@ -545,6 +638,11 @@ function setupFormValidation() {
     const formInputs = signupForm.querySelectorAll('input, select, textarea');
     
     formInputs.forEach(input => {
+        // Skip generic listeners for the password field, as it has specific handling
+        if (input.id === 'signupPassword') {
+            return;
+        }
+
         input.addEventListener('blur', function() {
             this.classList.remove('is-invalid', 'is-valid');
             
@@ -566,7 +664,7 @@ function setupFormValidation() {
     // Password validation
     const passwordField = document.getElementById('signupPassword');
     if (passwordField) {
-        const regex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
+        const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s])\S{8,16}$/;
         const helpText = passwordField.parentNode.querySelector('.form-text');
 
         passwordField.addEventListener('input', function() {
