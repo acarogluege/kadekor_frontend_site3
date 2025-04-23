@@ -900,11 +900,47 @@ function setupFormValidation() {
         const input = document.getElementById(inputId);
         if (input) {
             input.addEventListener('input', function(e) {
-                // Remove any non-letter characters (allowing spaces and Turkish characters)
-                this.value = this.value.replace(/[^a-zA-ZğüşıöçĞÜŞİÖÇ\s]/g, '');
-                
-                // Convert first letter of each word to uppercase
-                this.value = this.value.replace(/\b\w/g, letter => letter.toUpperCase());
+                // For company name, allow numbers and some special characters
+                if (this.id === 'signupCompany') {
+                    // Allow letters, numbers, spaces, hyphen, dot, ampersand, and comma for company names
+                    const cleanedValue = this.value.replace(/[^a-zA-Z0-9ğüşıöçĞÜŞİÖÇ\s\-\.\&\,]/g, '');
+                    
+                    // Only update if different to avoid cursor jumping
+                    if (this.value !== cleanedValue) {
+                        const cursorPos = this.selectionStart;
+                        const lengthDiff = cleanedValue.length - this.value.length;
+                        this.value = cleanedValue;
+                        this.setSelectionRange(cursorPos + lengthDiff, cursorPos + lengthDiff);
+                    }
+                } else {
+                    // For names, only allow letters and spaces
+                    const cleanedValue = this.value.replace(/[^a-zA-ZğüşıöçĞÜŞİÖÇ\s]/g, '');
+                    
+                    // Don't use automatic case conversion - it breaks Turkish characters
+                    // Instead, only capitalize the first letter of each word without affecting the rest
+                    const words = cleanedValue.split(' ');
+                    const properlyCapitalized = words.map(word => {
+                        if (!word) return '';
+                        
+                        // Handle special case for Turkish dotless i - "ı" and "i"
+                        if (word.charAt(0).toLowerCase() === 'i') {
+                            return 'İ' + word.substring(1);
+                        } else if (word.charAt(0).toLowerCase() === 'ı') {
+                            return 'I' + word.substring(1);
+                        } else {
+                            // For other characters, use the normal approach
+                            return word.charAt(0).toLocaleUpperCase('tr-TR') + word.substring(1);
+                        }
+                    }).join(' ');
+                    
+                    // Only update if the value would change to avoid cursor jumping
+                    if (this.value !== properlyCapitalized) {
+                        const cursorPos = this.selectionStart;
+                        const lengthDiff = properlyCapitalized.length - this.value.length;
+                        this.value = properlyCapitalized;
+                        this.setSelectionRange(cursorPos + lengthDiff, cursorPos + lengthDiff);
+                    }
+                }
                 
                 // Validate on input
                 if (this.value.trim().length > 0) {
@@ -920,6 +956,9 @@ function setupFormValidation() {
                 // Trim extra spaces on blur
                 this.value = this.value.trim().replace(/\s+/g, ' ');
             });
+            
+            // Add explicit text-transform override
+            input.style.textTransform = 'none';
         }
     });
 }
