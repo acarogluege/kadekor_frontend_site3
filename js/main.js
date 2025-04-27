@@ -7,56 +7,56 @@ document.addEventListener('DOMContentLoaded', function() {
     initForgotPasswordForm();
 
     // Initialize phone input
-    const phoneInputField = document.querySelector("#signupPhone");
-    if (phoneInputField) {
-        phoneInputField.addEventListener('input', function(e) {
-            this.value = this.value.replace(/\D/g, '');
+    // const phoneInputField = document.querySelector("#signupPhone");
+    // if (phoneInputField) {
+    //     phoneInputField.addEventListener('input', function(e) {
+    //         this.value = this.value.replace(/\D/g, '');
             
-            if (this.value.length > 10) {
-                this.value = this.value.slice(0, 10);
-            }
-        });
+    //         if (this.value.length > 10) {
+    //             this.value = this.value.slice(0, 10);
+    //         }
+    //     });
         
-        const phoneInput = window.intlTelInput(phoneInputField, {
-            preferredCountries: ["tr", "us", "gb", "de"], 
-            initialCountry: "tr", 
-            separateDialCode: true,
-            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js",
-            formatOnDisplay: false, 
-            nationalMode: true, 
-            autoPlaceholder: "off"
-        });
+    //     const phoneInput = window.intlTelInput(phoneInputField, {
+    //         preferredCountries: ["tr", "us", "gb", "de"], 
+    //         initialCountry: "tr", 
+    //         separateDialCode: true,
+    //         utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js",
+    //         formatOnDisplay: false, 
+    //         nationalMode: true, 
+    //         autoPlaceholder: "off"
+    //     });
         
-        window.phoneInput = phoneInput;
+    //     window.phoneInput = phoneInput;
         
-        const dealerSignupForm = document.getElementById('dealerSignupForm');
-        if (dealerSignupForm) {
-            dealerSignupForm.addEventListener('submit', function(e) {
-                e.preventDefault();
+    //     const dealerSignupForm = document.getElementById('dealerSignupForm');
+    //     if (dealerSignupForm) {
+    //         dealerSignupForm.addEventListener('submit', function(e) {
+    //             e.preventDefault();
                 
-                const digitCount = phoneInputField.value.replace(/\D/g, '').length;
-                if (digitCount !== 10) {
-                    phoneInputField.classList.add('is-invalid');
-                    let feedbackEl = phoneInputField.nextElementSibling;
-                    if (!feedbackEl || !feedbackEl.classList.contains('invalid-feedback')) {
-                        feedbackEl = document.createElement('div');
-                        feedbackEl.className = 'invalid-feedback';
-                        phoneInputField.parentNode.appendChild(feedbackEl);
-                    }
-                    feedbackEl.textContent = 'Please enter exactly 10 digits.';
-                    return;
-                }
+    //             const digitCount = phoneInputField.value.replace(/\D/g, '').length;
+    //             if (digitCount !== 10) {
+    //                 phoneInputField.classList.add('is-invalid');
+    //                 let feedbackEl = phoneInputField.nextElementSibling;
+    //                 if (!feedbackEl || !feedbackEl.classList.contains('invalid-feedback')) {
+    //                     feedbackEl = document.createElement('div');
+    //                     feedbackEl.className = 'invalid-feedback';
+    //                     phoneInputField.parentNode.appendChild(feedbackEl);
+    //                 }
+    //                 feedbackEl.textContent = 'Please enter exactly 10 digits.';
+    //                 return;
+    //             }
                 
-                const fullNumber = phoneInput.getNumber();
+    //             const fullNumber = phoneInput.getNumber();
                 
-                phoneInputField.classList.remove('is-invalid');
-                phoneInputField.classList.add('is-valid');
+    //             phoneInputField.classList.remove('is-invalid');
+    //             phoneInputField.classList.add('is-valid');
                 
-                console.log("Valid phone number:", fullNumber);
+    //             console.log("Valid phone number:", fullNumber);
 
-            });
-        }
-    }
+    //         });
+    //     }
+    // }
     
     const dealerSignupModal = document.getElementById('dealerSignupModal');
     if (dealerSignupModal) {
@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (window.phoneInput) {
                     window.phoneInput.destroy();
                 }
+                
                 window.phoneInput = window.intlTelInput(phoneInputField, {
                     preferredCountries: ["tr", "us", "gb", "de"],
                     initialCountry: "tr",
@@ -74,13 +75,78 @@ document.addEventListener('DOMContentLoaded', function() {
                     utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js",
                     formatOnDisplay: keepFormat,
                     nationalMode: true,
-                    autoPlaceholder: "polite" // This ensures placeholder is shown
+                    autoPlaceholder: "aggressive" // Shows the expected format
                 });
 
                 // Clear the input value and reset placeholder
                 phoneInputField.value = '';
-                phoneInputField.placeholder = window.phoneInput.getNumber();
+                
+                // Add input validation for country-specific phone number length
+                phoneInputField.addEventListener('input', function() {
+                    // Allow only digits
+                    this.value = this.value.replace(/\D/g, '');
+                    
+                    if (window.phoneInput) {
+                        const countryData = window.phoneInput.getSelectedCountryData();
+                        const dialCode = countryData.dialCode;
+                        
+                        // Get expected length for the selected country
+                        const expectedLength = getExpectedPhoneLength(countryData.iso2);
+                        
+                        // Check if the current input (without dial code) matches the expected length
+                        const currentLength = this.value.length;
+                        
+                        if (currentLength === expectedLength) {
+                            // Valid length for country
+                            this.classList.add('is-valid');
+                            this.classList.remove('is-invalid');
+                        } else if (currentLength > 0) {
+                            // Invalid length
+                            this.classList.add('is-invalid');
+                            this.classList.remove('is-valid');
+                        } else {
+                            // Empty field
+                            this.classList.remove('is-valid', 'is-invalid');
+                        }
+                    }
+                });
+                
+                // Update validation when country changes
+                phoneInputField.addEventListener('countrychange', function() {
+                    // Reset validation classes
+                    this.classList.remove('is-valid', 'is-invalid');
+                    
+                    // Clear value when country changes
+                    this.value = '';
+                    
+                    // Update placeholder format
+                    this.placeholder = window.phoneInput.getPlaceholder();
+                });
             }
+        }
+
+        // Helper function to get expected phone number length for different countries
+        function getExpectedPhoneLength(countryCode) {
+            // Define expected lengths for common countries
+            const phoneLengths = {
+                'tr': 10,  // Turkey: 10 digits (excluding country code)
+                'us': 10,  // USA: 10 digits
+                'gb': 10,  // UK: typically 10 digits
+                'de': 11,  // Germany: typically 10-11 digits
+                'fr': 9,   // France: typically 9 digits
+                'it': 10,  // Italy: typically 9-10 digits
+                'es': 9,   // Spain: typically 9 digits
+                'nl': 9,   // Netherlands: typically 9 digits
+                'ru': 10,  // Russia: typically 10 digits
+                'cn': 11,  // China: typically 11 digits
+                'jp': 10,  // Japan: typically 10 digits
+                'in': 10,  // India: typically 10 digits
+                'br': 11,  // Brazil: typically 10-11 digits
+                'au': 9,   // Australia: typically 9 digits
+            };
+            
+            // Return the expected length for the country, default to 10 if not found
+            return phoneLengths[countryCode] || 10;
         }
 
         // When modal is shown
@@ -147,7 +213,6 @@ document.addEventListener('DOMContentLoaded', function() {
             // --- Password Regex Check ---
             const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s])\S{8,16}$/;
             const isPasswordRegexValid = passwordRegex.test(passwordField.value);
-            console.log('Password Regex Test Result:', isPasswordRegexValid); // DEBUG
             if (!isPasswordRegexValid) {
                  console.log('Password Regex FAILED'); // DEBUG
                  passwordField.setCustomValidity('Password must meet all requirements');
@@ -162,9 +227,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // --- Password Match Check ---
             const doPasswordsMatch = passwordField.value === confirmField.value;
-            console.log('Passwords Match Result:', doPasswordsMatch); // DEBUG
             if (!doPasswordsMatch) {
-                console.log('Password Match FAILED'); // DEBUG
                 confirmField.setCustomValidity('Passwords do not match');
                 confirmField.classList.add('is-invalid');
                 confirmField.classList.remove('is-valid');
@@ -177,9 +240,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // --- Email Check ---
             const isEmailCheckValid = emailField.checkValidity();
-            console.log('Email checkValidity() Result:', isEmailCheckValid); // DEBUG
             if (!isEmailCheckValid) {
-                console.log('Email checkValidity FAILED'); // DEBUG
                 emailField.classList.add('is-invalid');
                 emailField.classList.remove('is-valid');
                 isFormValid = false;
@@ -188,13 +249,58 @@ document.addEventListener('DOMContentLoaded', function() {
                  if (emailField.value) emailField.classList.add('is-valid');
             }
 
-            console.log('Final isFormValid check:', isFormValid); // DEBUG
+            // Add this inside your form submit event handler
+            const phoneInputField = document.querySelector("#signupPhone");
+            if (phoneInputField && window.phoneInput) {
+                const isPhoneValid = window.phoneInput.isValidNumber();
+                
+                if (!isPhoneValid) {
+                    phoneInputField.classList.add('is-invalid');
+                    phoneInputField.classList.remove('is-valid');
+                    isFormValid = false; // Use your existing form validation flag
+                    
+                    // Show specific error message based on the validation error
+                    const errorCode = window.phoneInput.getValidationError();
+                    let errorMsg = "Invalid phone number";
+                    
+                    switch(errorCode) {
+                        case intlTelInputUtils.validationError.TOO_SHORT:
+                            errorMsg = "Phone number is too short";
+                            break;
+                        case intlTelInputUtils.validationError.TOO_LONG:
+                            errorMsg = "Phone number is too long";
+                            break;
+                        case intlTelInputUtils.validationError.INVALID_COUNTRY_CODE:
+                            errorMsg = "Invalid country code";
+                            break;
+                        default:
+                            errorMsg = "Invalid phone number";
+                    }
+                    
+                    // Show error message
+                    const errorDiv = document.getElementById('phoneErrorFeedback');
+                    if (errorDiv) {
+                        errorDiv.textContent = errorMsg;
+                        errorDiv.style.display = 'block';
+                    }
+                    
+                    return false; // Prevent submission
+                } else {
+                    // Valid phone number - get the full international number for submission
+                    const fullNumber = window.phoneInput.getNumber();
+                    
+                    // Update the form data with the full number
+                    formData.phone = fullNumber;
+                    
+                    phoneInputField.classList.add('is-valid');
+                    phoneInputField.classList.remove('is-invalid');
+                }
+            }
+
             if (!isFormValid) {
-                console.log('Submit prevented due to validation errors.'); // DEBUG
                 return;
             }
 
-            console.log('Form is valid, proceeding with submission prep.'); // DEBUG
 
             const firstNameEl = document.getElementById('signupFirstName');
             const lastNameEl = document.getElementById('signupLastName');
@@ -218,7 +324,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 password: passwordField.value // Already checked
             };
 
-            console.log('Collected formData:', formData); // DEBUG formData
 
             //API call here
             showNotification('Registration successful! We will review your application and contact you soon.', 'success');
@@ -226,8 +331,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const modal = bootstrap.Modal.getInstance(document.getElementById('dealerSignupModal'));
             modal.hide();
             this.reset();
-            // We removed was-validated, but still need to clear manual classes on reset/hide
-            // (This might be handled by the modal hidden listener already)
 
         }, false);
         
@@ -374,8 +477,6 @@ function initDealerForms() {
         signupForm.addEventListener('submit', function(event) {
             event.preventDefault();
             
-            // Re-validate password using the regex from setupFormValidation
-            // Ensure consistency between input validation and submit validation
             const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s])\S{8,16}$/;
             if (!passwordRegex.test(passwordField.value)) {
                  passwordField.setCustomValidity('Password must meet all requirements');

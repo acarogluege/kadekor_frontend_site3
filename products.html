@@ -59,7 +59,8 @@
                             <h5 class="fw-bold mb-3">Product Categories</h5>
 
                             <div class="all-products-outer mb-3">
-                                <a href="./products.html" class="text-decoration-none d-flex align-items-center all-products-link">
+                                <a href="./products.html"
+                                    class="text-decoration-none d-flex align-items-center all-products-link">
                                     <i class="fas fa-th-large me-2"></i>
                                     <span>All Products</span>
                                 </a>
@@ -129,7 +130,7 @@
                                         <div class="accordion-body">
                                             <ul class="list-unstyled ps-2">
                                                 <li class="mb-2">
-                                                    <a href="#deodora
+                                                    <a href="#deodora"
                                                         class="text-decoration-none text-dark d-block">Deodora
                                                         Series</a>
                                                 </li>
@@ -424,11 +425,11 @@
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title fw-bold">Ribbon Wall Panel</h5>
-                                        <p class="card-text text-muted small">Premium decorative wall panel system with elegant ribbon pattern</p>
+                                        <p class="card-text text-muted small">Premium decorative wall panel system with
+                                            elegant ribbon pattern</p>
                                         <div class="d-flex justify-content-end mt-3">
-                                            <button class="btn btn-sm btn-outline-primary view-details" 
-                                                data-product-id="5000" 
-                                                data-bs-toggle="modal" 
+                                            <button class="btn btn-sm btn-outline-primary view-details"
+                                                data-product-id="5000" data-bs-toggle="modal"
                                                 data-bs-target="#productModal">View Details</button>
                                         </div>
                                     </div>
@@ -441,11 +442,11 @@
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title fw-bold">Solid Wall Panel</h5>
-                                        <p class="card-text text-muted small">Premium decorative wall panel system with elegant ribbon pattern</p>
+                                        <p class="card-text text-muted small">Premium decorative wall panel system with
+                                            elegant ribbon pattern</p>
                                         <div class="d-flex justify-content-end mt-3">
-                                            <button class="btn btn-sm btn-outline-primary view-details" 
-                                                data-product-id="5001" 
-                                                data-bs-toggle="modal" 
+                                            <button class="btn btn-sm btn-outline-primary view-details"
+                                                data-product-id="5001" data-bs-toggle="modal"
                                                 data-bs-target="#productModal">View Details</button>
                                         </div>
                                     </div>
@@ -458,11 +459,11 @@
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title fw-bold">Maxi Wall Panel</h5>
-                                        <p class="card-text text-muted small">Premium decorative wall panel system with elegant ribbon pattern</p>
+                                        <p class="card-text text-muted small">Premium decorative wall panel system with
+                                            elegant ribbon pattern</p>
                                         <div class="d-flex justify-content-end mt-3">
-                                            <button class="btn btn-sm btn-outline-primary view-details" 
-                                                data-product-id="5002" 
-                                                data-bs-toggle="modal" 
+                                            <button class="btn btn-sm btn-outline-primary view-details"
+                                                data-product-id="5002" data-bs-toggle="modal"
                                                 data-bs-target="#productModal">View Details</button>
                                         </div>
                                     </div>
@@ -472,7 +473,7 @@
                     </div>
                 </div>
 
-                <!-- Product Detail Modal -->
+                <!-- Product Detail Modal - Replace your existing modal with this updated version -->
                 <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -487,11 +488,12 @@
                                     <!-- Image column with description underneath for doors -->
                                     <div class="col-md-6 mb-md-0 image-description-container">
                                         <div class="product-image-container">
-                                            <img id="modal-product-image" src="" class="product-detail-img"
+                                            <img id="modal-product-image" src="" class="product-detail-img shadow-sm"
                                                 alt="Product Image">
                                         </div>
                                         <!-- Description will be placed here for door products -->
-                                        <div class="description-under-image" id="under-image-description-container"></div>
+                                        <div class="description-under-image" id="under-image-description-container">
+                                        </div>
                                     </div>
 
                                     <!-- Details column -->
@@ -514,7 +516,7 @@
                                                 <!-- Features will be populated dynamically -->
                                             </div>
 
-                                            <div class="d-grid mt-auto">
+                                            <div class="d-grid mt-3">
                                                 <a href="contact.html" class="btn btn-primary">
                                                     <i class="fas fa-envelope me-2"></i> Get in Touch
                                                 </a>
@@ -544,14 +546,9 @@
                     <form id="dealerLoginForm">
                         <div class="mb-3">
                             <label for="loginIdentifier" class="form-label">TC Kimlik No / Tax ID</label>
-                            <input type="text" 
-                                   class="form-control" 
-                                   id="loginIdentifier" 
-                                   required 
-                                   pattern="\d*" 
-                                   maxlength="11" 
-                                   inputmode="numeric" 
-                                   oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                            <input type="text" class="form-control" id="loginIdentifier" required pattern="\d*"
+                                maxlength="11" inputmode="numeric"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                             <div class="invalid-feedback">
                                 Please enter 10 digits for Tax ID or 11 digits for TC Kimlik No
                             </div>
@@ -587,6 +584,7 @@
             </div>
         </div>
     </div>
+
     <!-- Dealer Signup Modal -->
     <div class="modal fade" id="dealerSignupModal" tabindex="-1" aria-labelledby="dealerSignupModalLabel"
         aria-hidden="true">
@@ -804,7 +802,7 @@
 
     <!-- Footer -->
     <div id="footer-container"></div>
-    
+
     <div class="fullscreen-image-container">
         <div class="fullscreen-close">
             <i class="fas fa-times"></i>
@@ -818,12 +816,18 @@
     <script src="./components/navbar.js"></script>
     <script src="./components/footer.js"></script>
     <script src="./components/component-load.js"></script>
+
     <script src="./js/main.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intl-tel-input.min.js"></script>
 
     <script>
         // Product detail modal functionality
+        // Call this function after DOM is ready
+        document.addEventListener('DOMContentLoaded', function () {
+            handleFooterProductLinks();
+        });
+
         document.addEventListener('DOMContentLoaded', function () {
             const products = {
                 1: {
@@ -1006,6 +1010,7 @@
                         { name: "Natural Oak", value: "oak", image: "./img/ribbon-kesit.jpg" }
                     ],
                     description: `
+
                         The Ribbon Wall Panel is a modern decorative wall solution that combines style and functionality. Made from high-density composite material with a PVC coating, it offers durability and easy maintenance. The panel features a unique ribbon design that adds depth and texture to any interior space. With a fire rating of B-s2-d0, it is suitable for both residential and commercial applications. The direct wall mounting with clip system ensures quick and hassle-free installation.
                     `
                 },
@@ -1028,6 +1033,7 @@
                         { name: "Natural Oak", value: "oak", image: "./img/solid-kesit.jpg" }
                     ],
                     description: `
+
                         The Ribbon Wall Panel is a modern decorative wall solution that combines style and functionality. Made from high-density composite material with a PVC coating, it offers durability and easy maintenance. The panel features a unique ribbon design that adds depth and texture to any interior space. With a fire rating of B-s2-d0, it is suitable for both residential and commercial applications. The direct wall mounting with clip system ensures quick and hassle-free installation.
                     `
                 },
@@ -1050,6 +1056,7 @@
                         { name: "Natural Oak", value: "oak", image: "./img/maxi-kesit.jpg" }
                     ],
                     description: `
+
                         The Ribbon Wall Panel is a modern decorative wall solution that combines style and functionality. Made from high-density composite material with a PVC coating, it offers durability and easy maintenance. The panel features a unique ribbon design that adds depth and texture to any interior space. With a fire rating of B-s2-d0, it is suitable for both residential and commercial applications. The direct wall mounting with clip system ensures quick and hassle-free installation.
                     `
                 }
@@ -1057,6 +1064,7 @@
 
             const detailButtons = document.querySelectorAll('.view-details');
 
+            // Update the product modal handler to treat Vinylbond products like Door products
             detailButtons.forEach(button => {
                 button.addEventListener('click', function () {
                     const productId = this.getAttribute('data-product-id');
@@ -1065,13 +1073,13 @@
                     if (product) {
                         // Clear modal classes and reset for new product
                         const productModal = document.getElementById('productModal');
-                        productModal.classList.remove('door-product');
-                        
-                        // Add door product class if applicable
-                        if (product.category === 'Door') {
+                        productModal.classList.remove('door-product', 'vinylbond-product');
+
+                        // Add special class for Door and Vinylbond products
+                        if (product.category === 'Door' || product.category === 'Vinylbond') {
                             productModal.classList.add('door-product');
                         }
-                        
+
                         // Set title and basic info
                         document.getElementById('productModalLabel').textContent = product.name;
                         document.getElementById('modal-product-title').textContent = product.name;
@@ -1091,9 +1099,9 @@
                         // Add color options if available
                         const colorsContainer = document.getElementById('product-colors-container');
                         const underImageDescriptionContainer = document.getElementById('under-image-description-container');
-                        
+
                         colorsContainer.innerHTML = '';
-                        
+
                         // For doors, place color options under the image
                         if (product.colors && product.colors.length > 0) {
                             const colorOptionsHTML = `
@@ -1106,25 +1114,25 @@
                                     `).join('')}
                                 </div>
                             `;
-                            
+
                             colorsContainer.innerHTML = colorOptionsHTML;
-                            
+
                             // Add event listeners to color options without color name
                             setTimeout(() => {
                                 const colorOptions = document.querySelectorAll('.color-option');
                                 if (colorOptions.length > 0) {
                                     colorOptions.forEach(option => {
-                                        option.addEventListener('click', function() {
+                                        option.addEventListener('click', function () {
                                             // Remove selected class from all options
                                             colorOptions.forEach(opt => opt.classList.remove('selected'));
-                                            
+
                                             // Add selected class to clicked option
                                             this.classList.add('selected');
-                                            
+
                                             // Update main image
                                             const colorValue = this.getAttribute('data-color-value');
                                             const selectedColor = product.colors.find(c => c.value === colorValue);
-                                            
+
                                             if (selectedColor) {
                                                 // Directly set the image source
                                                 document.getElementById('modal-product-image').src = selectedColor.image;
@@ -1135,9 +1143,9 @@
                             }, 100);
                         }
 
-                        // Description - place it under image for door products, next to features for others
+                        // Description - place it under image for Door and Vinylbond products
                         const descriptionContainer = document.getElementById('product-description-container');
-                        
+
                         descriptionContainer.innerHTML = '';
                         underImageDescriptionContainer.innerHTML = '';
 
@@ -1146,7 +1154,7 @@
                                 <h6 class="fw-bold mb-1">Description</h6>
                                 <p class="text-muted small">${product.description}</p>
                             `;
-                            
+
                             if (product.category === 'Door' || product.category === 'Vinylbond') {
                                 underImageDescriptionContainer.innerHTML = descriptionHTML;
                             } else {
@@ -1181,7 +1189,7 @@
                     if (modalBody) {
                         modalBody.scrollTop = 0; // Reset scroll position when opening modal
                     }
-                    
+
                     // Ensure modal has proper height settings
                     const modalDialog = document.querySelector('#productModal .modal-dialog');
                     if (modalDialog) {
@@ -1233,13 +1241,16 @@
                 const closeButton = document.querySelector('.fullscreen-close');
 
                 if (newImgContainer && fullscreenContainer && fullscreenImage) {
+                    // Add visual indication that image is clickable
+                    newImgContainer.title = "Click to enlarge";
+
                     // Open fullscreen view when clicking on product image
-                    newImgContainer.addEventListener('click', function() {
+                    newImgContainer.addEventListener('click', function () {
                         const modalImage = this.querySelector('.product-detail-img');
                         if (modalImage) {
                             fullscreenImage.src = modalImage.src;
                             fullscreenImage.alt = modalImage.alt;
-                            
+
                             // Show fullscreen container
                             fullscreenContainer.classList.add('active');
                             document.body.style.overflow = 'hidden'; // Prevent scrolling
@@ -1247,10 +1258,10 @@
                     });
 
                     // Close fullscreen view
-                    closeButton.addEventListener('click', function() {
+                    closeButton.addEventListener('click', function () {
                         fullscreenContainer.classList.remove('active');
                         document.body.style.overflow = ''; // Restore scrolling
-                        
+
                         // Clear the image source after transition
                         setTimeout(() => {
                             fullscreenImage.src = '';
@@ -1258,18 +1269,34 @@
                     });
 
                     // Also close on clicking outside the image
-                    fullscreenContainer.addEventListener('click', function(e) {
+                    fullscreenContainer.addEventListener('click', function (e) {
                         if (e.target === this) {
                             closeButton.click();
                         }
                     });
 
                     // Close on escape key
-                    document.addEventListener('keydown', function(e) {
+                    document.addEventListener('keydown', function (e) {
                         if (e.key === 'Escape' && fullscreenContainer.classList.contains('active')) {
                             closeButton.click();
                         }
                     });
+
+                    // Add swipe support for closing on mobile
+                    let touchStartX = 0;
+                    let touchEndX = 0;
+
+                    fullscreenContainer.addEventListener('touchstart', function (e) {
+                        touchStartX = e.changedTouches[0].screenX;
+                    }, false);
+
+                    fullscreenContainer.addEventListener('touchend', function (e) {
+                        touchEndX = e.changedTouches[0].screenX;
+                        if (touchEndX - touchStartX > 100) {
+                            // Swipe right - close
+                            closeButton.click();
+                        }
+                    }, false);
                 }
             }
         });
@@ -1285,7 +1312,7 @@
 
                     categoryLinks.forEach(lnk => lnk.classList.remove('active-category'));
                     this.classList.add('active-category');
-                    
+
                     document.querySelector('.all-products-link')?.classList.remove('active-category');
 
                     document.querySelectorAll('h2[id], h3[id]').forEach(heading => {
@@ -1300,14 +1327,14 @@
                     }
 
                     const parentCategoryId = getParentCategoryId(targetCategory);
-                    
+
                     document.querySelectorAll('h2[id], h3[id]').forEach(heading => {
-                        if (heading.id !== targetCategory && 
-                            heading.id !== parentCategoryId && 
+                        if (heading.id !== targetCategory &&
+                            heading.id !== parentCategoryId &&
                             !isChildCategory(heading.id, targetCategory)) {
-                            
+
                             heading.style.display = 'none';
-                            
+
                             let nextElement = heading.nextElementSibling;
                             while (nextElement && !nextElement.matches('h2, h3')) {
                                 if (nextElement.classList.contains('product-grid')) {
@@ -1320,7 +1347,7 @@
 
                     document.querySelectorAll('.product-grid').forEach(grid => {
                         const gridCategory = grid.getAttribute('data-category');
-                        if (gridCategory !== targetCategory && 
+                        if (gridCategory !== targetCategory &&
                             !isChildCategory(gridCategory, parentCategoryId)) {
                             grid.style.display = 'none';
                         }
@@ -1339,15 +1366,15 @@
                     'solid-pastel': 'pvc-ic-mekan',
                     'high-gloss': 'pvc-ic-mekan',
                     'backside-lining': 'pvc-ic-mekan',
-                    
+
                     'wooden-exterior': 'pvc-dis-mekan',
                     'solid-exterior': 'pvc-dis-mekan',
-                    
+
                     'deodora': 'door',
                     'fagus': 'door',
                     'cedrus': 'door'
                 };
-                
+
                 return parentMap[categoryId] || categoryId;
             }
 
@@ -1358,43 +1385,43 @@
                     'door': ['deodora', 'fagus', 'cedrus'],
                     'vinylbond': []
                 };
-                
+
                 return childrenMap[parentId] && childrenMap[parentId].includes(categoryId);
             }
         });
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const allProductsLink = document.querySelector('.all-products-link');
-            
+
             if (allProductsLink) {
-                allProductsLink.addEventListener('click', function(e) {
+                allProductsLink.addEventListener('click', function (e) {
                     e.preventDefault();
-                    
+
                     document.querySelectorAll('.accordion-body a, .all-products-link').forEach(link => {
                         link.classList.remove('active-category');
                     });
-                    
+
                     this.classList.add('active-category');
-                    
+
                     document.querySelectorAll('h2[id], h3[id]').forEach(heading => {
                         heading.style.display = 'block';
                     });
                     document.querySelectorAll('.product-grid').forEach(grid => {
                         grid.style.display = 'flex';
                     });
-                    
+
                     const existingIndicator = document.querySelector('.filter-indicator');
                     if (existingIndicator) {
                         existingIndicator.remove();
                     }
                 });
             }
-            
+
             const categoryLinks = document.querySelectorAll('.accordion-body a');
             categoryLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    
+                link.addEventListener('click', function (e) {
+
                     document.querySelector('.all-products-link')?.classList.remove('active-category');
-                    
+
                 });
             });
         });
@@ -1402,36 +1429,36 @@
         // Handle footer product links with improved scroll behavior
         function handleFooterProductLinks() {
             const footerProductLinks = document.querySelectorAll('.footer-product-link');
-            
+
             footerProductLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
+                link.addEventListener('click', function (e) {
                     if (window.location.pathname.endsWith('products.html')) {
                         e.preventDefault();
-                        
+
                         const href = this.getAttribute('href');
                         const targetCategory = href.split('#')[1];
-                        
+
                         // Remove active class from all category links
                         document.querySelectorAll('.accordion-body a, .all-products-link').forEach(link => {
                             link.classList.remove('active-category');
                         });
-                        
+
                         const subcategoryMap = {
                             'pvc-ic-mekan': ['wooden-interior', 'solid-pastel', 'high-gloss', 'backside-lining'],
                             'pvc-dis-mekan': ['wooden-exterior', 'solid-exterior'],
                             'door': ['deodora', 'fagus', 'cedrus'],
                             'vinylbond': []
                         };
-                        
+
                         let parentAccordion = null;
                         let targetLink = null;
                         let targetElement = null;
-                        
+
                         // Determine parent accordion and target link
                         if (Object.keys(subcategoryMap).includes(targetCategory)) {
                             // This is a main category
                             targetElement = document.getElementById(targetCategory);
-                            
+
                             if (targetCategory === 'pvc-ic-mekan' || targetCategory === 'pvc-dis-mekan') {
                                 parentAccordion = document.getElementById('collapsePVC');
                                 const firstSubcategory = subcategoryMap[targetCategory][0];
@@ -1445,7 +1472,7 @@
                         } else {
                             // This is a subcategory
                             targetElement = document.getElementById(targetCategory);
-                            
+
                             for (const [parent, subs] of Object.entries(subcategoryMap)) {
                                 if (subs.includes(targetCategory)) {
                                     if (parent === 'pvc-ic-mekan' || parent === 'pvc-dis-mekan') {
@@ -1460,19 +1487,19 @@
                                 }
                             }
                         }
-                        
+
                         // Open the parent accordion if found and not already open
                         if (parentAccordion && !parentAccordion.classList.contains('show')) {
                             new bootstrap.Collapse(parentAccordion).show();
                         }
-                        
+
                         // Activate the target link if found
                         if (targetLink) {
                             targetLink.classList.add('active-category');
                         }
-                        
+
                         const isMainCategory = Object.keys(subcategoryMap).includes(targetCategory);
-                        
+
                         // Show/hide appropriate sections
                         if (isMainCategory) {
                             document.querySelectorAll('h2[id], h3[id]').forEach(heading => {
@@ -1508,7 +1535,7 @@
                                         break;
                                     }
                                 }
-                                
+
                                 // Show parent category
                                 if (parentCategory) {
                                     const parentElement = document.getElementById(parentCategory);
@@ -1516,7 +1543,7 @@
                                         parentElement.style.display = 'block';
                                     }
                                 }
-                                
+
                                 // Show product grid for this category
                                 let nextElement = targetElement.nextElementSibling;
                                 while (nextElement && !nextElement.matches('h2, h3')) {
@@ -1525,7 +1552,7 @@
                                     }
                                     nextElement = nextElement.nextElementSibling;
                                 }
-                                
+
                                 // Hide other sections
                                 document.querySelectorAll('h2[id], h3[id]').forEach(heading => {
                                     if (heading.id !== targetCategory && heading.id !== parentCategory) {
@@ -1541,7 +1568,7 @@
                                 });
                             }
                         }
-                        
+
                         // Always wait a small time for DOM to update before scrolling
                         setTimeout(() => {
                             if (targetElement) {
@@ -1561,10 +1588,7 @@
             });
         }
 
-        // Call this function after DOM is ready
-        document.addEventListener('DOMContentLoaded', function() {
-            handleFooterProductLinks();
-        });
+
     </script>
 </body>
 

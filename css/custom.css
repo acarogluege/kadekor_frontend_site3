@@ -2360,410 +2360,3455 @@ bubble-label a:hover {
     border-radius: 3px;
 }
 
-/* Color options styling */
-.color-section h5 {
-    font-size: 0.9rem;
-    margin-bottom: 10px;
+/* Product modal feature styling */
+#modal-product-features {
+    padding-left: 0;
 }
 
-/* Description styling */
-.description-section h5 {
-    font-size: 0.9rem;
-}
-
-.description-section p {
-    font-size: 0.85rem;
-    line-height: 1.4;
-    margin-bottom: 0.5rem;
-    max-height: 100px;
-    overflow-y: auto;
-}
-
-.product-details-wrapper {
+.product-feature-row {
     display: flex;
-    flex-direction: column;
-    height: 100%;
+    align-items: flex-start;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
-.active-category {
-    color: #259229 !important;
+.feature-label {
     font-weight: 600;
-    position: relative;
+    color: #495057;
+    min-width: 120px;
+    padding-right: 0.5rem;
 }
 
-.active-category::after {
-    content: '';
-    position: absolute;
-    left: -10px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background-color: #259229;
-}
-
-.product-grid, h2[id], h3[id] {
-    transition: opacity 0.3s ease;
-}
-
-.accordion-body a.fw-bold {
+.feature-value {
     color: #212529;
-    margin-bottom: 0.75rem;
-    display: block;
+    flex: 1;
 }
 
-.all-products-outer {
-    background-color: white;
-    border-radius: 8px;
-    padding: 15px 20px;
-    margin-bottom: 15px !important;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-    transition: all 0.3s ease;
-}
-
-.all-products-outer:hover {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-}
-
-.all-products-link {
-    color: #333;
-    font-weight: 600;
-    font-size: 1.05rem;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-}
-
-.all-products-link i {
-    color: #259229;
-    font-size: 1.1rem;
-    transition: transform 0.3s ease;
-}
-
-.all-products-link:hover {
-    color: #259229;
-}
-
-.all-products-link:hover i {
-    transform: scale(1.1);
-}
-
-.all-products-link.active-category {
-    color: #259229 !important;
-}
-
-.all-products-link.active-category::after {
-    left: -12px;
-}
-
-/* News Article Modal Styling */
-.article-featured-image {
-    max-height: 400px;
-    object-fit: cover;
-}
-
-.article-content {
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-.article-content .lead {
-    font-size: 1.15rem;
-    font-weight: 500;
-    color: #333;
-}
-
-.article-content h5 {
-    color: #259229;
-    font-weight: 600;
-}
-
-.article-date {
-    font-style: italic;
-}
-
-.badge.article-category {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-#newsArticleModal .modal-dialog {
-    max-width: 800px;
-}
-
-@media (max-width: 767px) {
-    .article-featured-image {
-        max-height: 250px;
+/* Mobile styles */
+@media (max-width: 767.98px) {
+    .product-feature-row {
+        flex-direction: column;
+    }
+    
+    .feature-label {
+        width: 100%;
+        margin-bottom: 0.25rem;
+    }
+    
+    .feature-value {
+        padding-left: 1rem;
+        width: 100%;
     }
 }
 
-.document-card {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+@media (min-width: 1200px) {
+    .product-image-container {
+        height: 500px;
+    }
+    
+    .product-detail-img {
+        max-height: 470px;
+    }
 }
 
-.document-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+@media (max-width: 991.98px) {
+    .modal-dialog.modal-lg {
+        max-width: 90%;
+    }
 }
 
-#pdfFrame {
-    background: #f8f9fa;
+@media (max-width: 767.98px) {
+    .modal-dialog.modal-lg {
+        max-width: 95%;
+        margin: 0.5rem auto;
+    }
+    
+    .modal-body .row {
+        flex-direction: column;
+    }
+    
+    .modal-body .col-md-8,
+    .modal-body .col-md-4 {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    #modal-product-title {
+        font-size: 1.4rem;
+        margin-top: 1rem;
+    }
+    
+    .feature-label, .feature-value {
+        font-size: 0.95rem;
+    }
 }
 
-/* Language Switcher */
-.language-switcher .btn {
-    padding: 0.25rem 0.75rem;
-    font-size: 0.875rem;
+/* Overriding Bootstrap's default list-group styles */
+.list-group-item {
+    border: none !important;
+    background-color: transparent !important;
+}
+
+
+.iti {
+    display: block;
+    width: 100%;
+}
+
+.iti__flag-container {
+    z-index: 1050; 
+}
+
+.iti--separate-dial-code .iti__selected-flag {
+    background-color: #f8f9fa;
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.form-control.is-invalid ~ .iti .iti__selected-flag {
+    border-color: #dc3545;
+}
+
+.form-control.is-valid ~ .iti .iti__selected-flag {
+    border-color: #198754;
+}
+
+/* Fix for RTL languages if needed */
+.iti--allow-dropdown input {
+    padding-right: 6px;
+    padding-left: 52px;
+}
+
+/* Fix for form layout with validation messages */
+.modal .form-control {
+  position: relative;
+  z-index: 2;
+}
+
+.modal .invalid-feedback,
+.modal .valid-feedback {
+  position: absolute;
+  margin-top: 2px;
+  font-size: 0.75rem;
+  z-index: 1;
+}
+
+/* Reserve space for validation messages to prevent layout shift */
+.modal .form-label {
+  margin-bottom: 0.25rem;
+}
+
+.modal .mb-3,
+.modal .col-md-6,
+.modal .col-md-4,
+.modal .col-md-8,
+.modal .col-md-12 {
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+/* Fix for the international telephone input container */
+.iti-container {
+  margin-bottom: 0;
+}
+
+.iti .form-control {
+  margin-bottom: 0;
+}
+
+/* .iti + .invalid-feedback {
+  position: static !important;
+  margin-top: 4px;
+  font-size: 0.75rem;
+} */
+
+/* Make sure modals don't jump when opening/closing */
+.modal.fade .modal-dialog {
+  transform: translate(0, -10px);
+}
+
+.modal.show .modal-dialog {
+  transform: translate(0, 0);
+}
+
+/* Ensure form rows maintain structure */
+.row.g-3 > [class*="col-"] {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Clean Form Validation Styling - Only for non-phone fields */
+.modal .form-control:not(#signupPhone),
+.modal .form-select {
+  margin-bottom: 0 !important;
+}
+
+/* Keep inputs properly aligned vertically */
+.modal .mb-3,
+.modal .col-md-6:not(:has(#signupPhone)),
+.modal .col-md-4,
+.modal .col-md-8,
+.modal .col-md-12 {
+  position: relative;
+  padding-bottom: 1.5rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+/* Only fix non-phone validation messages */
+.modal .invalid-feedback:not(.iti + .invalid-feedback),
+.modal .valid-feedback:not(.iti + .valid-feedback) {
+  position: absolute !important;
+  bottom: 0;
+  left: 0.25rem;
+  margin-top: 0 !important;
+  font-size: 0.75rem;
+}
+
+/* Password field specific fixes */
+.input-group + .invalid-feedback,
+.input-group + .valid-feedback {
+  position: absolute !important;
+  bottom: 0;
+  left: 0.25rem;
+  margin-top: 0 !important;
+  font-size: 0.75rem;
+}
+
+/* Adjust spacing for the submit button area */
+.col-12.mt-4 {
+  margin-top: 1rem !important;
+}
+
+/* Make sure text displays properly in inputs */
+.form-control {
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  line-height: 1.5;
+}
+
+/* Fix toggle button icon alignment */
+.toggle-password {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Better form label spacing */
+.form-label {
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+/* Keep validation messages properly spaced */
+.was-validated .form-control:invalid,
+.form-control.is-invalid {
+  background-position: right calc(0.375em + 0.1875rem) center !important;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem) !important;
+}
+
+/* Phone number specific styling - Only modifies phone input */
+.iti-container + .invalid-feedback {
+  position: static !important;
+  margin-top: 4px !important;
+  font-size: 0.75rem;
+  display: none;
+}
+
+/* Show phone validation error after submission */
+.was-validated #signupPhone.is-invalid ~ .invalid-feedback,
+#signupPhone.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+/* Keep the phone field container properly sized */
+.col-md-6:has(#signupPhone) {
+  padding-bottom: 2.5rem !important;
+}
+
+/* Terms of Service specific styling - Only modifies checkbox validation */
+.col-12:has(#termsAgree) {
+  padding-bottom: 1.75rem !important;
+}
+
+.col-12:has(#termsAgree) .invalid-feedback {
+  position: static !important;
+  margin-top: 4px;
+  display: none;
+}
+
+/* Show terms validation error after submission */
+.was-validated #termsAgree.is-invalid ~ .invalid-feedback,
+#termsAgree.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+/* Fix the checkbox alignment */
+.form-check-input#termsAgree {
+  margin-top: 0.3rem;
+}
+
+.form-check-label {
+  margin-left: 0.2rem;
+}
+
+/* Phone Number Alert Positioning Fix */
+
+/* Make phone input container static, not absolute positioning */
+.col-md-6:has(#signupPhone) {
+  position: relative !important;
+  padding-bottom: 2rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Position the phone validation message correctly below input */
+.iti + .invalid-feedback,
+.iti-container + .invalid-feedback,
+#signupPhone ~ .invalid-feedback {
+  position: static !important;
+  display: block !important;
+  margin-top: 4px !important;
+  font-size: 0.75rem;
+  visibility: hidden;
+}
+
+/* Make validation appear only after form submission */
+.was-validated .iti + .invalid-feedback,
+.was-validated #signupPhone.is-invalid ~ .invalid-feedback,
+#signupPhone.is-invalid ~ .invalid-feedback {
+  visibility: visible !important;
+}
+
+/* Fix the international telephone input container */
+.iti {
+  width: 100% !important;
+  margin-bottom: 0 !important;
+  display: block;
+}
+
+/* Remove conflicting styles */
+.iti-container {
+  margin-bottom: 0 !important;
+  position: static;
+}
+
+/* Phone Input Specific Fixes - Add to your custom.css */
+
+/* Fix container height and positioning */
+.iti-container,
+.col-md-6:has(#signupPhone) {
+  height: auto !important;
+  min-height: 80px !important; /* Reserve consistent space for container + validation */
+}
+
+/* Ensure the phone input field maintains consistent dimensions */
+.iti {
+  width: 100% !important;
+  margin-bottom: 0 !important;
+  display: block;
+  position: relative;
+  z-index: 3;
+}
+
+/* Position validation messages below the input without shifting layout */
+.iti + .invalid-feedback,
+#signupPhone ~ .invalid-feedback {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0.25rem !important;
+  right: 0 !important;
+  margin-top: 0 !important;
+  font-size: 0.75rem;
+  display: none;
+}
+
+/* Show validation messages when needed */
+.was-validated #signupPhone.is-invalid ~ .invalid-feedback {
+  display: block !important;
+}
+
+/* Remove any additional margins that might cause shifting */
+.iti .form-control {
+  margin: 0 !important;
+}
+
+/* Ensure proper input field display within ITI container */
+.iti__flag-container {
+  z-index: 4;
+}
+
+/* Make phone input field consistent height with other inputs */
+#signupPhone {
+  height: calc(1.5em + 0.75rem + 2px) !important;
+}
+
+/* Fix parent container padding to accommodate validation message */
+.col-md-6:has(#signupPhone) {
+  padding-bottom: 20px !important;
+  position: relative !important;
+}
+
+/* Phone Number Field Alert - Completely Hide Validation Messages */
+.iti + .invalid-feedback,
+.iti-container + .invalid-feedback,
+#signupPhone ~ .invalid-feedback,
+#signupPhone + .invalid-feedback,
+.col-md-6:has(#signupPhone) .invalid-feedback {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Always hide phone validation messages even after validation */
+.was-validated #signupPhone.is-invalid ~ .invalid-feedback,
+.was-validated .iti + .invalid-feedback,
+.was-validated .iti-container + .invalid-feedback,
+#signupPhone.is-invalid ~ .invalid-feedback {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Remove excess padding in the phone container that was reserved for messages */
+.col-md-6:has(#signupPhone) {
+  padding-bottom: 0 !important;
+  margin-bottom: 1rem !important;
+  min-height: auto !important;
+  height: auto !important;
+}
+
+/* Fix spacing for phone input to match other inputs */
+.iti-container {
+  margin-bottom: 0 !important;
+}
+
+/* Keep phone input consistent with other fields */
+.iti {
+  margin-bottom: 0 !important;
+  height: auto !important;
+  min-height: auto !important;
+}
+
+/* Email field validation message fix */
+.col-md-6:has(#signupEmail) .invalid-feedback,
+.col-md-6:has(#signupEmail) .valid-feedback {
+  position: static !important;
+  margin-top: 4px !important;
+  padding: 0 !important;
+  font-size: 0.75rem;
+  display: none;
+}
+
+/* Show validation after submission */
+.was-validated .col-md-6:has(#signupEmail) .invalid-feedback,
+.col-md-6:has(#signupEmail) .form-control.is-invalid ~ .invalid-feedback {
+  display: block !important;
+}
+
+/* Fix container spacing for email field */
+.col-md-6:has(#signupEmail) {
+  padding-bottom: 0.75rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+/* Make email field consistent with other inputs */
+#signupEmail {
+  margin-bottom: 0 !important;
+}
+
+/* Tax ID Type button styling - Updated to match site theme */
+.btn-check:checked + .btn-outline-primary {
+    background-color: #259229 !important;
+    color: white;
+    border-color: #259229 !important;
     font-weight: 500;
 }
 
-.language-switcher .btn.active {
-    background-color: var(--bs-primary);
-    color: white;
-    border-color: var(--bs-primary);
+/* Update button outline color to match theme */
+.btn-group .btn-outline-primary {
+    color: #259229;
+    border-color: #259229;
 }
 
-.language-switcher .btn:hover:not(.active) {
+.btn-group .btn-outline-primary:hover {
     background-color: rgba(37, 146, 41, 0.1);
     color: #259229;
     border-color: #259229;
 }
 
-/* Product Modal Mobile Responsive Fixes */
-@media (max-width: 767.98px) {
-    #productModal .modal-dialog {
-        margin: 0.5rem;
-        max-width: none;
-    }
-    
-    #productModal .modal-content {
-        max-height: 90vh;
-        overflow: hidden;
-    }
-    
-    #productModal .modal-body {
-        padding: 1rem;
-        overflow-y: auto; 
-        max-height: calc(90vh - 56px); 
-        -webkit-overflow-scrolling: touch; 
-    }
-    
-    #productModal .row {
-        flex-direction: column;
-    }
-    
-    #productModal .product-image-container {
-        height: 220px !important;
-        min-height: auto;
-        margin-bottom: 1rem;
-        border-radius: 6px;
-    }
-    
-    #productModal .product-detail-img {
-        max-height: 200px !important;
-    }
-    
-    #productModal .features-list {
-        max-height: 150px;
-        margin-bottom: 1rem !important;
-    }
-    
-    #productModal .features-list,
-    #productModal .modal-body {
-        scrollbar-width: thin;
-    }
-    
-    #productModal .product-details-wrapper {
-        padding-top: 0.5rem;
-    }
-    
-    #productModal #modal-product-title {
-        font-size: 1.25rem;
-        margin-bottom: 0.5rem;
-    }
-    
-    #productModal .product-feature-row {
-        flex-direction: column;
-        padding: 0.5rem 0;
-    }
-    
-    #productModal .feature-label {
-        width: 100%;
-        margin-bottom: 0.25rem;
-    }
-    
-    #productModal .feature-value {
-        width: 100%;
-        padding-left: 0.5rem;
-    }
-}
-
-@media (hover: none) {
-    #productModal .modal-body {
-        -webkit-overflow-scrolling: touch;
-    }
-    
-    #productModal .product-image-container {
-        overflow: visible;
-    }
-    
-    #productModal .product-detail-img:hover {
-        transform: none !important;
-    }
-}
-
-/* Product Modal Improvements */
-#productModal .modal-dialog {
-    max-width: 900px;
-}
-
-#productModal .modal-content {
-    border-radius: 0.5rem;
-}
-
-/* Special layout for door products */
-#productModal.door-product .modal-dialog {
-    max-width: 950px;
-}
-
-#productModal.door-product .product-image-container {
-    height: 450px;
-    margin-bottom: 0.75rem;
-}
-
-#productModal.door-product .product-detail-img {
-    max-height: 430px;
-    object-fit: contain;
-}
-
-#productModal.door-product .image-description-container {
+/* Update prefix styling to match theme */
+.id-type-prefix {
+    min-width: 60px;
     display: flex;
-    flex-direction: column;
-}
-
-#productModal.door-product .description-under-image {
-    padding: 0.75rem;
-    background-color: #f8f9fa;
-    border-radius: 0.375rem;
-    margin-bottom: 1rem;
-}
-
-#productModal.door-product .description-under-image {
-  margin-top: 1rem;
-}
-
-/* Feature styling */
-#productModal .product-feature-row {
-    display: flex;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
-#productModal .feature-label {
-    font-weight: 600;
-    color: #495057;
-    width: 35%;
-    margin-right: 0.5rem;
-}
-
-#productModal .feature-value {
-    color: #212529;
-    width: 65%;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 767.98px) {
-    #productModal .modal-body {
-        padding: 1rem;
-        max-height: 85vh;
-        overflow-y: auto;
-    }
-    
-    #productModal .row {
-        flex-direction: column;
-    }
-    
-    #productModal.door-product .product-image-container {
-        height: 300px;
-    }
-    
-    #productModal.door-product .product-detail-img {
-        max-height: 280px;
-    }
-    
-    #productModal .product-feature-row {
-        flex-direction: column;
-    }
-    
-    #productModal .feature-label {
-        width: 100%;
-        margin-bottom: 0.25rem;
-    }
-    
-    #productModal .feature-value {
-        width: 100%;
-        padding-left: 0.5rem;
-    }
-}
-
-/* Product Image Fullscreen Feature */
-.fullscreen-image-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(40, 40, 40, 0.97); /* Darker background */
-    z-index: 9999;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    opacity: 0;
-    visibility: hidden;
+    font-weight: 500;
     transition: all 0.3s ease;
 }
 
+.id-type-prefix.bg-primary {
+    background-color: #259229 !important;
+}
+
+.id-type-prefix.bg-success {
+    background-color: #259229 !important; /* Using primary color for both */
+}
+
+.id-info-tooltip {
+    color: #6c757d;
+}
+
+.id-info-tooltip:hover {
+    color: #259229;
+}
+
+.btn-group + .invalid-feedback {
+    display: block;
+    text-align: center;
+    margin-top: 0.25rem;
+}
+
+#productModal .modal-content {
+    overflow: hidden;
+}
+
+#productModal .modal-body {
+    max-height: 80vh;
+}
+
+.features-list {
+    font-size: 0.9rem;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px !important;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.features-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.features-list::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
+}
+
+/* Product modal feature styling */
+#modal-product-features {
+    padding-left: 0;
+}
+
+.product-feature-row {
+    display: flex;
+    align-items: flex-start;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.feature-label {
+    font-weight: 600;
+    color: #495057;
+    min-width: 120px;
+    padding-right: 0.5rem;
+}
+
+.feature-value {
+    color: #212529;
+    flex: 1;
+}
+
+/* Mobile styles */
+@media (max-width: 767.98px) {
+    .product-feature-row {
+        flex-direction: column;
+    }
+    
+    .feature-label {
+        width: 100%;
+        margin-bottom: 0.25rem;
+    }
+    
+    .feature-value {
+        padding-left: 1rem;
+        width: 100%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .product-image-container {
+        height: 500px;
+    }
+    
+    .product-detail-img {
+        max-height: 470px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .modal-dialog.modal-lg {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .modal-dialog.modal-lg {
+        max-width: 95%;
+        margin: 0.5rem auto;
+    }
+    
+    .modal-body .row {
+        flex-direction: column;
+    }
+    
+    .modal-body .col-md-8,
+    .modal-body .col-md-4 {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    #modal-product-title {
+        font-size: 1.4rem;
+        margin-top: 1rem;
+    }
+    
+    .feature-label, .feature-value {
+        font-size: 0.95rem;
+    }
+}
+
+/* Overriding Bootstrap's default list-group styles */
+.list-group-item {
+    border: none !important;
+    background-color: transparent !important;
+}
+
+
+.iti {
+    display: block;
+    width: 100%;
+}
+
+.iti__flag-container {
+    z-index: 1050; 
+}
+
+.iti--separate-dial-code .iti__selected-flag {
+    background-color: #f8f9fa;
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.form-control.is-invalid ~ .iti .iti__selected-flag {
+    border-color: #dc3545;
+}
+
+.form-control.is-valid ~ .iti .iti__selected-flag {
+    border-color: #198754;
+}
+
+/* Fix for RTL languages if needed */
+.iti--allow-dropdown input {
+    padding-right: 6px;
+    padding-left: 52px;
+}
+
+/* Fix for form layout with validation messages */
+.modal .form-control {
+  position: relative;
+  z-index: 2;
+}
+
+.modal .invalid-feedback,
+.modal .valid-feedback {
+  position: absolute;
+  margin-top: 2px;
+  font-size: 0.75rem;
+  z-index: 1;
+}
+
+/* Reserve space for validation messages to prevent layout shift */
+.modal .form-label {
+  margin-bottom: 0.25rem;
+}
+
+.modal .mb-3,
+.modal .col-md-6,
+.modal .col-md-4,
+.modal .col-md-8,
+.modal .col-md-12 {
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+/* Fix for the international telephone input container */
+.iti-container {
+  margin-bottom: 0;
+}
+
+.iti .form-control {
+  margin-bottom: 0;
+}
+
+/* .iti + .invalid-feedback {
+  position: static !important;
+  margin-top: 4px;
+  font-size: 0.75rem;
+} */
+
+/* Make sure modals don't jump when opening/closing */
+.modal.fade .modal-dialog {
+  transform: translate(0, -10px);
+}
+
+.modal.show .modal-dialog {
+  transform: translate(0, 0);
+}
+
+/* Ensure form rows maintain structure */
+.row.g-3 > [class*="col-"] {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Clean Form Validation Styling - Only for non-phone fields */
+.modal .form-control:not(#signupPhone),
+.modal .form-select {
+  margin-bottom: 0 !important;
+}
+
+/* Keep inputs properly aligned vertically */
+.modal .mb-3,
+.modal .col-md-6:not(:has(#signupPhone)),
+.modal .col-md-4,
+.modal .col-md-8,
+.modal .col-md-12 {
+  position: relative;
+  padding-bottom: 1.5rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+/* Only fix non-phone validation messages */
+.modal .invalid-feedback:not(.iti + .invalid-feedback),
+.modal .valid-feedback:not(.iti + .valid-feedback) {
+  position: absolute !important;
+  bottom: 0;
+  left: 0.25rem;
+  margin-top: 0 !important;
+  font-size: 0.75rem;
+}
+
+/* Password field specific fixes */
+.input-group + .invalid-feedback,
+.input-group + .valid-feedback {
+  position: absolute !important;
+  bottom: 0;
+  left: 0.25rem;
+  margin-top: 0 !important;
+  font-size: 0.75rem;
+}
+
+/* Adjust spacing for the submit button area */
+.col-12.mt-4 {
+  margin-top: 1rem !important;
+}
+
+/* Make sure text displays properly in inputs */
+.form-control {
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  line-height: 1.5;
+}
+
+/* Fix toggle button icon alignment */
+.toggle-password {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Better form label spacing */
+.form-label {
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+/* Keep validation messages properly spaced */
+.was-validated .form-control:invalid,
+.form-control.is-invalid {
+  background-position: right calc(0.375em + 0.1875rem) center !important;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem) !important;
+}
+
+/* Phone number specific styling - Only modifies phone input */
+.iti-container + .invalid-feedback {
+  position: static !important;
+  margin-top: 4px !important;
+  font-size: 0.75rem;
+  display: none;
+}
+
+/* Show phone validation error after submission */
+.was-validated #signupPhone.is-invalid ~ .invalid-feedback,
+#signupPhone.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+/* Keep the phone field container properly sized */
+.col-md-6:has(#signupPhone) {
+  padding-bottom: 2.5rem !important;
+}
+
+/* Terms of Service specific styling - Only modifies checkbox validation */
+.col-12:has(#termsAgree) {
+  padding-bottom: 1.75rem !important;
+}
+
+.col-12:has(#termsAgree) .invalid-feedback {
+  position: static !important;
+  margin-top: 4px;
+  display: none;
+}
+
+/* Show terms validation error after submission */
+.was-validated #termsAgree.is-invalid ~ .invalid-feedback,
+#termsAgree.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+/* Fix the checkbox alignment */
+.form-check-input#termsAgree {
+  margin-top: 0.3rem;
+}
+
+.form-check-label {
+  margin-left: 0.2rem;
+}
+
+/* Phone Number Alert Positioning Fix */
+
+/* Make phone input container static, not absolute positioning */
+.col-md-6:has(#signupPhone) {
+  position: relative !important;
+  padding-bottom: 2rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Position the phone validation message correctly below input */
+.iti + .invalid-feedback,
+.iti-container + .invalid-feedback,
+#signupPhone ~ .invalid-feedback {
+  position: static !important;
+  display: block !important;
+  margin-top: 4px !important;
+  font-size: 0.75rem;
+  visibility: hidden;
+}
+
+/* Make validation appear only after form submission */
+.was-validated .iti + .invalid-feedback,
+.was-validated #signupPhone.is-invalid ~ .invalid-feedback,
+#signupPhone.is-invalid ~ .invalid-feedback {
+  visibility: visible !important;
+}
+
+/* Fix the international telephone input container */
+.iti {
+  width: 100% !important;
+  margin-bottom: 0 !important;
+  display: block;
+}
+
+/* Remove conflicting styles */
+.iti-container {
+  margin-bottom: 0 !important;
+  position: static;
+}
+
+/* Phone Input Specific Fixes - Add to your custom.css */
+
+/* Fix container height and positioning */
+.iti-container,
+.col-md-6:has(#signupPhone) {
+  height: auto !important;
+  min-height: 80px !important; /* Reserve consistent space for container + validation */
+}
+
+/* Ensure the phone input field maintains consistent dimensions */
+.iti {
+  width: 100% !important;
+  margin-bottom: 0 !important;
+  display: block;
+  position: relative;
+  z-index: 3;
+}
+
+/* Position validation messages below the input without shifting layout */
+.iti + .invalid-feedback,
+#signupPhone ~ .invalid-feedback {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0.25rem !important;
+  right: 0 !important;
+  margin-top: 0 !important;
+  font-size: 0.75rem;
+  display: none;
+}
+
+/* Show validation messages when needed */
+.was-validated #signupPhone.is-invalid ~ .invalid-feedback {
+  display: block !important;
+}
+
+/* Remove any additional margins that might cause shifting */
+.iti .form-control {
+  margin: 0 !important;
+}
+
+/* Ensure proper input field display within ITI container */
+.iti__flag-container {
+  z-index: 4;
+}
+
+/* Make phone input field consistent height with other inputs */
+#signupPhone {
+  height: calc(1.5em + 0.75rem + 2px) !important;
+}
+
+/* Fix parent container padding to accommodate validation message */
+.col-md-6:has(#signupPhone) {
+  padding-bottom: 20px !important;
+  position: relative !important;
+}
+
+/* Phone Number Field Alert - Completely Hide Validation Messages */
+.iti + .invalid-feedback,
+.iti-container + .invalid-feedback,
+#signupPhone ~ .invalid-feedback,
+#signupPhone + .invalid-feedback,
+.col-md-6:has(#signupPhone) .invalid-feedback {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Always hide phone validation messages even after validation */
+.was-validated #signupPhone.is-invalid ~ .invalid-feedback,
+.was-validated .iti + .invalid-feedback,
+.was-validated .iti-container + .invalid-feedback,
+#signupPhone.is-invalid ~ .invalid-feedback {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Remove excess padding in the phone container that was reserved for messages */
+.col-md-6:has(#signupPhone) {
+  padding-bottom: 0 !important;
+  margin-bottom: 1rem !important;
+  min-height: auto !important;
+  height: auto !important;
+}
+
+/* Fix spacing for phone input to match other inputs */
+.iti-container {
+  margin-bottom: 0 !important;
+}
+
+/* Keep phone input consistent with other fields */
+.iti {
+  margin-bottom: 0 !important;
+  height: auto !important;
+  min-height: auto !important;
+}
+
+/* Email field validation message fix */
+.col-md-6:has(#signupEmail) .invalid-feedback,
+.col-md-6:has(#signupEmail) .valid-feedback {
+  position: static !important;
+  margin-top: 4px !important;
+  padding: 0 !important;
+  font-size: 0.75rem;
+  display: none;
+}
+
+/* Show validation after submission */
+.was-validated .col-md-6:has(#signupEmail) .invalid-feedback,
+.col-md-6:has(#signupEmail) .form-control.is-invalid ~ .invalid-feedback {
+  display: block !important;
+}
+
+/* Fix container spacing for email field */
+.col-md-6:has(#signupEmail) {
+  padding-bottom: 0.75rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+/* Make email field consistent with other inputs */
+#signupEmail {
+  margin-bottom: 0 !important;
+}
+
+/* Tax ID Type button styling - Updated to match site theme */
+.btn-check:checked + .btn-outline-primary {
+    background-color: #259229 !important;
+    color: white;
+    border-color: #259229 !important;
+    font-weight: 500;
+}
+
+/* Update button outline color to match theme */
+.btn-group .btn-outline-primary {
+    color: #259229;
+    border-color: #259229;
+}
+
+.btn-group .btn-outline-primary:hover {
+    background-color: rgba(37, 146, 41, 0.1);
+    color: #259229;
+    border-color: #259229;
+}
+
+/* Update prefix styling to match theme */
+.id-type-prefix {
+    min-width: 60px;
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.id-type-prefix.bg-primary {
+    background-color: #259229 !important;
+}
+
+.id-type-prefix.bg-success {
+    background-color: #259229 !important; /* Using primary color for both */
+}
+
+.id-info-tooltip {
+    color: #6c757d;
+}
+
+.id-info-tooltip:hover {
+    color: #259229;
+}
+
+.btn-group + .invalid-feedback {
+    display: block;
+    text-align: center;
+    margin-top: 0.25rem;
+}
+
+#productModal .modal-content {
+    overflow: hidden;
+}
+
+#productModal .modal-body {
+    max-height: 80vh;
+}
+
+.features-list {
+    font-size: 0.9rem;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px !important;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.features-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.features-list::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
+}
+
+/* Product modal feature styling */
+#modal-product-features {
+    padding-left: 0;
+}
+
+.product-feature-row {
+    display: flex;
+    align-items: flex-start;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.feature-label {
+    font-weight: 600;
+    color: #495057;
+    min-width: 120px;
+    padding-right: 0.5rem;
+}
+
+.feature-value {
+    color: #212529;
+    flex: 1;
+}
+
+/* Mobile styles */
+@media (max-width: 767.98px) {
+    .product-feature-row {
+        flex-direction: column;
+    }
+    
+    .feature-label {
+        width: 100%;
+        margin-bottom: 0.25rem;
+    }
+    
+    .feature-value {
+        padding-left: 1rem;
+        width: 100%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .product-image-container {
+        height: 500px;
+    }
+    
+    .product-detail-img {
+        max-height: 470px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .modal-dialog.modal-lg {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .modal-dialog.modal-lg {
+        max-width: 95%;
+        margin: 0.5rem auto;
+    }
+    
+    .modal-body .row {
+        flex-direction: column;
+    }
+    
+    .modal-body .col-md-8,
+    .modal-body .col-md-4 {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    #modal-product-title {
+        font-size: 1.4rem;
+        margin-top: 1rem;
+    }
+    
+    .feature-label, .feature-value {
+        font-size: 0.95rem;
+    }
+}
+
+/* Overriding Bootstrap's default list-group styles */
+.list-group-item {
+    border: none !important;
+    background-color: transparent !important;
+}
+
+
+.iti {
+    display: block;
+    width: 100%;
+}
+
+.iti__flag-container {
+    z-index: 1050; 
+}
+
+.iti--separate-dial-code .iti__selected-flag {
+    background-color: #f8f9fa;
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.form-control.is-invalid ~ .iti .iti__selected-flag {
+    border-color: #dc3545;
+}
+
+.form-control.is-valid ~ .iti .iti__selected-flag {
+    border-color: #198754;
+}
+
+/* Fix for RTL languages if needed */
+.iti--allow-dropdown input {
+    padding-right: 6px;
+    padding-left: 52px;
+}
+
+/* Fix for form layout with validation messages */
+.modal .form-control {
+  position: relative;
+  z-index: 2;
+}
+
+.modal .invalid-feedback,
+.modal .valid-feedback {
+  position: absolute;
+  margin-top: 2px;
+  font-size: 0.75rem;
+  z-index: 1;
+}
+
+/* Reserve space for validation messages to prevent layout shift */
+.modal .form-label {
+  margin-bottom: 0.25rem;
+}
+
+.modal .mb-3,
+.modal .col-md-6,
+.modal .col-md-4,
+.modal .col-md-8,
+.modal .col-md-12 {
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+/* Fix for the international telephone input container */
+.iti-container {
+  margin-bottom: 0;
+}
+
+.iti .form-control {
+  margin-bottom: 0;
+}
+
+/* .iti + .invalid-feedback {
+  position: static !important;
+  margin-top: 4px;
+  font-size: 0.75rem;
+} */
+
+/* Make sure modals don't jump when opening/closing */
+.modal.fade .modal-dialog {
+  transform: translate(0, -10px);
+}
+
+.modal.show .modal-dialog {
+  transform: translate(0, 0);
+}
+
+/* Ensure form rows maintain structure */
+.row.g-3 > [class*="col-"] {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Clean Form Validation Styling - Only for non-phone fields */
+.modal .form-control:not(#signupPhone),
+.modal .form-select {
+  margin-bottom: 0 !important;
+}
+
+/* Keep inputs properly aligned vertically */
+.modal .mb-3,
+.modal .col-md-6:not(:has(#signupPhone)),
+.modal .col-md-4,
+.modal .col-md-8,
+.modal .col-md-12 {
+  position: relative;
+  padding-bottom: 1.5rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+/* Only fix non-phone validation messages */
+.modal .invalid-feedback:not(.iti + .invalid-feedback),
+.modal .valid-feedback:not(.iti + .valid-feedback) {
+  position: absolute !important;
+  bottom: 0;
+  left: 0.25rem;
+  margin-top: 0 !important;
+  font-size: 0.75rem;
+}
+
+/* Password field specific fixes */
+.input-group + .invalid-feedback,
+.input-group + .valid-feedback {
+  position: absolute !important;
+  bottom: 0;
+  left: 0.25rem;
+  margin-top: 0 !important;
+  font-size: 0.75rem;
+}
+
+/* Adjust spacing for the submit button area */
+.col-12.mt-4 {
+  margin-top: 1rem !important;
+}
+
+/* Make sure text displays properly in inputs */
+.form-control {
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  line-height: 1.5;
+}
+
+/* Fix toggle button icon alignment */
+.toggle-password {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Better form label spacing */
+.form-label {
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+/* Keep validation messages properly spaced */
+.was-validated .form-control:invalid,
+.form-control.is-invalid {
+  background-position: right calc(0.375em + 0.1875rem) center !important;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem) !important;
+}
+
+/* Phone number specific styling - Only modifies phone input */
+.iti-container + .invalid-feedback {
+  position: static !important;
+  margin-top: 4px !important;
+  font-size: 0.75rem;
+  display: none;
+}
+
+/* Show phone validation error after submission */
+.was-validated #signupPhone.is-invalid ~ .invalid-feedback,
+#signupPhone.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+/* Keep the phone field container properly sized */
+.col-md-6:has(#signupPhone) {
+  padding-bottom: 2.5rem !important;
+}
+
+/* Terms of Service specific styling - Only modifies checkbox validation */
+.col-12:has(#termsAgree) {
+  padding-bottom: 1.75rem !important;
+}
+
+.col-12:has(#termsAgree) .invalid-feedback {
+  position: static !important;
+  margin-top: 4px;
+  display: none;
+}
+
+/* Show terms validation error after submission */
+.was-validated #termsAgree.is-invalid ~ .invalid-feedback,
+#termsAgree.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+/* Fix the checkbox alignment */
+.form-check-input#termsAgree {
+  margin-top: 0.3rem;
+}
+
+.form-check-label {
+  margin-left: 0.2rem;
+}
+
+/* Phone Number Alert Positioning Fix */
+
+/* Make phone input container static, not absolute positioning */
+.col-md-6:has(#signupPhone) {
+  position: relative !important;
+  padding-bottom: 2rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Position the phone validation message correctly below input */
+.iti + .invalid-feedback,
+.iti-container + .invalid-feedback,
+#signupPhone ~ .invalid-feedback {
+  position: static !important;
+  display: block !important;
+  margin-top: 4px !important;
+  font-size: 0.75rem;
+  visibility: hidden;
+}
+
+/* Make validation appear only after form submission */
+.was-validated .iti + .invalid-feedback,
+.was-validated #signupPhone.is-invalid ~ .invalid-feedback,
+#signupPhone.is-invalid ~ .invalid-feedback {
+  visibility: visible !important;
+}
+
+/* Fix the international telephone input container */
+.iti {
+  width: 100% !important;
+  margin-bottom: 0 !important;
+  display: block;
+}
+
+/* Remove conflicting styles */
+.iti-container {
+  margin-bottom: 0 !important;
+  position: static;
+}
+
+/* Phone Input Specific Fixes - Add to your custom.css */
+
+/* Fix container height and positioning */
+.iti-container,
+.col-md-6:has(#signupPhone) {
+  height: auto !important;
+  min-height: 80px !important; /* Reserve consistent space for container + validation */
+}
+
+/* Ensure the phone input field maintains consistent dimensions */
+.iti {
+  width: 100% !important;
+  margin-bottom: 0 !important;
+  display: block;
+  position: relative;
+  z-index: 3;
+}
+
+/* Position validation messages below the input without shifting layout */
+.iti + .invalid-feedback,
+#signupPhone ~ .invalid-feedback {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0.25rem !important;
+  right: 0 !important;
+  margin-top: 0 !important;
+  font-size: 0.75rem;
+  display: none;
+}
+
+/* Show validation messages when needed */
+.was-validated #signupPhone.is-invalid ~ .invalid-feedback {
+  display: block !important;
+}
+
+/* Remove any additional margins that might cause shifting */
+.iti .form-control {
+  margin: 0 !important;
+}
+
+/* Ensure proper input field display within ITI container */
+.iti__flag-container {
+  z-index: 4;
+}
+
+/* Make phone input field consistent height with other inputs */
+#signupPhone {
+  height: calc(1.5em + 0.75rem + 2px) !important;
+}
+
+/* Fix parent container padding to accommodate validation message */
+.col-md-6:has(#signupPhone) {
+  padding-bottom: 20px !important;
+  position: relative !important;
+}
+
+/* Phone Number Field Alert - Completely Hide Validation Messages */
+.iti + .invalid-feedback,
+.iti-container + .invalid-feedback,
+#signupPhone ~ .invalid-feedback,
+#signupPhone + .invalid-feedback,
+.col-md-6:has(#signupPhone) .invalid-feedback {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Always hide phone validation messages even after validation */
+.was-validated #signupPhone.is-invalid ~ .invalid-feedback,
+.was-validated .iti + .invalid-feedback,
+.was-validated .iti-container + .invalid-feedback,
+#signupPhone.is-invalid ~ .invalid-feedback {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Remove excess padding in the phone container that was reserved for messages */
+.col-md-6:has(#signupPhone) {
+  padding-bottom: 0 !important;
+  margin-bottom: 1rem !important;
+  min-height: auto !important;
+  height: auto !important;
+}
+
+/* Fix spacing for phone input to match other inputs */
+.iti-container {
+  margin-bottom: 0 !important;
+}
+
+/* Keep phone input consistent with other fields */
+.iti {
+  margin-bottom: 0 !important;
+  height: auto !important;
+  min-height: auto !important;
+}
+
+/* Email field validation message fix */
+.col-md-6:has(#signupEmail) .invalid-feedback,
+.col-md-6:has(#signupEmail) .valid-feedback {
+  position: static !important;
+  margin-top: 4px !important;
+  padding: 0 !important;
+  font-size: 0.75rem;
+  display: none;
+}
+
+/* Show validation after submission */
+.was-validated .col-md-6:has(#signupEmail) .invalid-feedback,
+.col-md-6:has(#signupEmail) .form-control.is-invalid ~ .invalid-feedback {
+  display: block !important;
+}
+
+/* Fix container spacing for email field */
+.col-md-6:has(#signupEmail) {
+  padding-bottom: 0.75rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+/* Make email field consistent with other inputs */
+#signupEmail {
+  margin-bottom: 0 !important;
+}
+
+/* Tax ID Type button styling - Updated to match site theme */
+.btn-check:checked + .btn-outline-primary {
+    background-color: #259229 !important;
+    color: white;
+    border-color: #259229 !important;
+    font-weight: 500;
+}
+
+/* Update button outline color to match theme */
+.btn-group .btn-outline-primary {
+    color: #259229;
+    border-color: #259229;
+}
+
+.btn-group .btn-outline-primary:hover {
+    background-color: rgba(37, 146, 41, 0.1);
+    color: #259229;
+    border-color: #259229;
+}
+
+/* Update prefix styling to match theme */
+.id-type-prefix {
+    min-width: 60px;
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.id-type-prefix.bg-primary {
+    background-color: #259229 !important;
+}
+
+.id-type-prefix.bg-success {
+    background-color: #259229 !important; /* Using primary color for both */
+}
+
+.id-info-tooltip {
+    color: #6c757d;
+}
+
+.id-info-tooltip:hover {
+    color: #259229;
+}
+
+.btn-group + .invalid-feedback {
+    display: block;
+    text-align: center;
+    margin-top: 0.25rem;
+}
+
+#productModal .modal-content {
+    overflow: hidden;
+}
+
+#productModal .modal-body {
+    max-height: 80vh;
+}
+
+.features-list {
+    font-size: 0.9rem;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px !important;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.features-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.features-list::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
+}
+
+/* Product modal feature styling */
+#modal-product-features {
+    padding-left: 0;
+}
+
+.product-feature-row {
+    display: flex;
+    align-items: flex-start;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.feature-label {
+    font-weight: 600;
+    color: #495057;
+    min-width: 120px;
+    padding-right: 0.5rem;
+}
+
+.feature-value {
+    color: #212529;
+    flex: 1;
+}
+
+/* Mobile styles */
+@media (max-width: 767.98px) {
+    .product-feature-row {
+        flex-direction: column;
+    }
+    
+    .feature-label {
+        width: 100%;
+        margin-bottom: 0.25rem;
+    }
+    
+    .feature-value {
+        padding-left: 1rem;
+        width: 100%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .product-image-container {
+        height: 500px;
+    }
+    
+    .product-detail-img {
+        max-height: 470px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .modal-dialog.modal-lg {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .modal-dialog.modal-lg {
+        max-width: 95%;
+        margin: 0.5rem auto;
+    }
+    
+    .modal-body .row {
+        flex-direction: column;
+    }
+    
+    .modal-body .col-md-8,
+    .modal-body .col-md-4 {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    #modal-product-title {
+        font-size: 1.4rem;
+        margin-top: 1rem;
+    }
+    
+    .feature-label, .feature-value {
+        font-size: 0.95rem;
+    }
+}
+
+/* Overriding Bootstrap's default list-group styles */
+.list-group-item {
+    border: none !important;
+    background-color: transparent !important;
+}
+
+
+.iti {
+    display: block;
+    width: 100%;
+}
+
+.iti__flag-container {
+    z-index: 1050; 
+}
+
+.iti--separate-dial-code .iti__selected-flag {
+    background-color: #f8f9fa;
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.form-control.is-invalid ~ .iti .iti__selected-flag {
+    border-color: #dc3545;
+}
+
+.form-control.is-valid ~ .iti .iti__selected-flag {
+    border-color: #198754;
+}
+
+/* Fix for RTL languages if needed */
+.iti--allow-dropdown input {
+    padding-right: 6px;
+    padding-left: 52px;
+}
+
+/* Fix for form layout with validation messages */
+.modal .form-control {
+  position: relative;
+  z-index: 2;
+}
+
+.modal .invalid-feedback,
+.modal .valid-feedback {
+  position: absolute;
+  margin-top: 2px;
+  font-size: 0.75rem;
+  z-index: 1;
+}
+
+/* Reserve space for validation messages to prevent layout shift */
+.modal .form-label {
+  margin-bottom: 0.25rem;
+}
+
+.modal .mb-3,
+.modal .col-md-6,
+.modal .col-md-4,
+.modal .col-md-8,
+.modal .col-md-12 {
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+/* Fix for the international telephone input container */
+.iti-container {
+  margin-bottom: 0;
+}
+
+.iti .form-control {
+  margin-bottom: 0;
+}
+
+/* .iti + .invalid-feedback {
+  position: static !important;
+  margin-top: 4px;
+  font-size: 0.75rem;
+} */
+
+/* Make sure modals don't jump when opening/closing */
+.modal.fade .modal-dialog {
+  transform: translate(0, -10px);
+}
+
+.modal.show .modal-dialog {
+  transform: translate(0, 0);
+}
+
+/* Ensure form rows maintain structure */
+.row.g-3 > [class*="col-"] {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Clean Form Validation Styling - Only for non-phone fields */
+.modal .form-control:not(#signupPhone),
+.modal .form-select {
+  margin-bottom: 0 !important;
+}
+
+/* Keep inputs properly aligned vertically */
+.modal .mb-3,
+.modal .col-md-6:not(:has(#signupPhone)),
+.modal .col-md-4,
+.modal .col-md-8,
+.modal .col-md-12 {
+  position: relative;
+  padding-bottom: 1.5rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+/* Only fix non-phone validation messages */
+.modal .invalid-feedback:not(.iti + .invalid-feedback),
+.modal .valid-feedback:not(.iti + .valid-feedback) {
+  position: absolute !important;
+  bottom: 0;
+  left: 0.25rem;
+  margin-top: 0 !important;
+  font-size: 0.75rem;
+}
+
+/* Password field specific fixes */
+.input-group + .invalid-feedback,
+.input-group + .valid-feedback {
+  position: absolute !important;
+  bottom: 0;
+  left: 0.25rem;
+  margin-top: 0 !important;
+  font-size: 0.75rem;
+}
+
+/* Adjust spacing for the submit button area */
+.col-12.mt-4 {
+  margin-top: 1rem !important;
+}
+
+/* Make sure text displays properly in inputs */
+.form-control {
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  line-height: 1.5;
+}
+
+/* Fix toggle button icon alignment */
+.toggle-password {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Better form label spacing */
+.form-label {
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+/* Keep validation messages properly spaced */
+.was-validated .form-control:invalid,
+.form-control.is-invalid {
+  background-position: right calc(0.375em + 0.1875rem) center !important;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem) !important;
+}
+
+/* Phone number specific styling - Only modifies phone input */
+.iti-container + .invalid-feedback {
+  position: static !important;
+  margin-top: 4px !important;
+  font-size: 0.75rem;
+  display: none;
+}
+
+/* Show phone validation error after submission */
+.was-validated #signupPhone.is-invalid ~ .invalid-feedback,
+#signupPhone.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+/* Keep the phone field container properly sized */
+.col-md-6:has(#signupPhone) {
+  padding-bottom: 2.5rem !important;
+}
+
+/* Terms of Service specific styling - Only modifies checkbox validation */
+.col-12:has(#termsAgree) {
+  padding-bottom: 1.75rem !important;
+}
+
+.col-12:has(#termsAgree) .invalid-feedback {
+  position: static !important;
+  margin-top: 4px;
+  display: none;
+}
+
+/* Show terms validation error after submission */
+.was-validated #termsAgree.is-invalid ~ .invalid-feedback,
+#termsAgree.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+/* Fix the checkbox alignment */
+.form-check-input#termsAgree {
+  margin-top: 0.3rem;
+}
+
+.form-check-label {
+  margin-left: 0.2rem;
+}
+
+/* Phone Number Alert Positioning Fix */
+
+/* Make phone input container static, not absolute positioning */
+.col-md-6:has(#signupPhone) {
+  position: relative !important;
+  padding-bottom: 2rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Position the phone validation message correctly below input */
+.iti + .invalid-feedback,
+.iti-container + .invalid-feedback,
+#signupPhone ~ .invalid-feedback {
+  position: static !important;
+  display: block !important;
+  margin-top: 4px !important;
+  font-size: 0.75rem;
+  visibility: hidden;
+}
+
+/* Make validation appear only after form submission */
+.was-validated .iti + .invalid-feedback,
+.was-validated #signupPhone.is-invalid ~ .invalid-feedback,
+#signupPhone.is-invalid ~ .invalid-feedback {
+  visibility: visible !important;
+}
+
+/* Fix the international telephone input container */
+.iti {
+  width: 100% !important;
+  margin-bottom: 0 !important;
+  display: block;
+}
+
+/* Remove conflicting styles */
+.iti-container {
+  margin-bottom: 0 !important;
+  position: static;
+}
+
+/* Phone Input Specific Fixes - Add to your custom.css */
+
+/* Fix container height and positioning */
+.iti-container,
+.col-md-6:has(#signupPhone) {
+  height: auto !important;
+  min-height: 80px !important; /* Reserve consistent space for container + validation */
+}
+
+/* Ensure the phone input field maintains consistent dimensions */
+.iti {
+  width: 100% !important;
+  margin-bottom: 0 !important;
+  display: block;
+  position: relative;
+  z-index: 3;
+}
+
+/* Position validation messages below the input without shifting layout */
+.iti + .invalid-feedback,
+#signupPhone ~ .invalid-feedback {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0.25rem !important;
+  right: 0 !important;
+  margin-top: 0 !important;
+  font-size: 0.75rem;
+  display: none;
+}
+
+/* Show validation messages when needed */
+.was-validated #signupPhone.is-invalid ~ .invalid-feedback {
+  display: block !important;
+}
+
+/* Remove any additional margins that might cause shifting */
+.iti .form-control {
+  margin: 0 !important;
+}
+
+/* Ensure proper input field display within ITI container */
+.iti__flag-container {
+  z-index: 4;
+}
+
+/* Make phone input field consistent height with other inputs */
+#signupPhone {
+  height: calc(1.5em + 0.75rem + 2px) !important;
+}
+
+/* Fix parent container padding to accommodate validation message */
+.col-md-6:has(#signupPhone) {
+  padding-bottom: 20px !important;
+  position: relative !important;
+}
+
+/* Phone Number Field Alert - Completely Hide Validation Messages */
+.iti + .invalid-feedback,
+.iti-container + .invalid-feedback,
+#signupPhone ~ .invalid-feedback,
+#signupPhone + .invalid-feedback,
+.col-md-6:has(#signupPhone) .invalid-feedback {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Always hide phone validation messages even after validation */
+.was-validated #signupPhone.is-invalid ~ .invalid-feedback,
+.was-validated .iti + .invalid-feedback,
+.was-validated .iti-container + .invalid-feedback,
+#signupPhone.is-invalid ~ .invalid-feedback {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Remove excess padding in the phone container that was reserved for messages */
+.col-md-6:has(#signupPhone) {
+  padding-bottom: 0 !important;
+  margin-bottom: 1rem !important;
+  min-height: auto !important;
+  height: auto !important;
+}
+
+/* Fix spacing for phone input to match other inputs */
+.iti-container {
+  margin-bottom: 0 !important;
+}
+
+/* Keep phone input consistent with other fields */
+.iti {
+  margin-bottom: 0 !important;
+  height: auto !important;
+  min-height: auto !important;
+}
+
+/* Email field validation message fix */
+.col-md-6:has(#signupEmail) .invalid-feedback,
+.col-md-6:has(#signupEmail) .valid-feedback {
+  position: static !important;
+  margin-top: 4px !important;
+  padding: 0 !important;
+  font-size: 0.75rem;
+  display: none;
+}
+
+/* Show validation after submission */
+.was-validated .col-md-6:has(#signupEmail) .invalid-feedback,
+.col-md-6:has(#signupEmail) .form-control.is-invalid ~ .invalid-feedback {
+  display: block !important;
+}
+
+/* Fix container spacing for email field */
+.col-md-6:has(#signupEmail) {
+  padding-bottom: 0.75rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+/* Make email field consistent with other inputs */
+#signupEmail {
+  margin-bottom: 0 !important;
+}
+
+/* Tax ID Type button styling - Updated to match site theme */
+.btn-check:checked + .btn-outline-primary {
+    background-color: #259229 !important;
+    color: white;
+    border-color: #259229 !important;
+    font-weight: 500;
+}
+
+/* Update button outline color to match theme */
+.btn-group .btn-outline-primary {
+    color: #259229;
+    border-color: #259229;
+}
+
+.btn-group .btn-outline-primary:hover {
+    background-color: rgba(37, 146, 41, 0.1);
+    color: #259229;
+    border-color: #259229;
+}
+
+/* Update prefix styling to match theme */
+.id-type-prefix {
+    min-width: 60px;
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.id-type-prefix.bg-primary {
+    background-color: #259229 !important;
+}
+
+.id-type-prefix.bg-success {
+    background-color: #259229 !important; /* Using primary color for both */
+}
+
+.id-info-tooltip {
+    color: #6c757d;
+}
+
+.id-info-tooltip:hover {
+    color: #259229;
+}
+
+.btn-group + .invalid-feedback {
+    display: block;
+    text-align: center;
+    margin-top: 0.25rem;
+}
+
+#productModal .modal-content {
+    overflow: hidden;
+}
+
+#productModal .modal-body {
+    max-height: 80vh;
+}
+
+.features-list {
+    font-size: 0.9rem;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px !important;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.features-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.features-list::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
+}
+
+/* Product modal feature styling */
+#modal-product-features {
+    padding-left: 0;
+}
+
+.product-feature-row {
+    display: flex;
+    align-items: flex-start;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.feature-label {
+    font-weight: 600;
+    color: #495057;
+    min-width: 120px;
+    padding-right: 0.5rem;
+}
+
+.feature-value {
+    color: #212529;
+    flex: 1;
+}
+
+/* Mobile styles */
+@media (max-width: 767.98px) {
+    .product-feature-row {
+        flex-direction: column;
+    }
+    
+    .feature-label {
+        width: 100%;
+        margin-bottom: 0.25rem;
+    }
+    
+    .feature-value {
+        padding-left: 1rem;
+        width: 100%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .product-image-container {
+        height: 500px;
+    }
+    
+    .product-detail-img {
+        max-height: 470px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .modal-dialog.modal-lg {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .modal-dialog.modal-lg {
+        max-width: 95%;
+        margin: 0.5rem auto;
+    }
+    
+    .modal-body .row {
+        flex-direction: column;
+    }
+    
+    .modal-body .col-md-8,
+    .modal-body .col-md-4 {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    #modal-product-title {
+        font-size: 1.4rem;
+        margin-top: 1rem;
+    }
+    
+    .feature-label, .feature-value {
+        font-size: 0.95rem;
+    }
+}
+
+/* Overriding Bootstrap's default list-group styles */
+.list-group-item {
+    border: none !important;
+    background-color: transparent !important;
+}
+
+
+.iti {
+    display: block;
+    width: 100%;
+}
+
+.iti__flag-container {
+    z-index: 1050; 
+}
+
+.iti--separate-dial-code .iti__selected-flag {
+    background-color: #f8f9fa;
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.form-control.is-invalid ~ .iti .iti__selected-flag {
+    border-color: #dc3545;
+}
+
+.form-control.is-valid ~ .iti .iti__selected-flag {
+    border-color: #198754;
+}
+
+/* Fix for RTL languages if needed */
+.iti--allow-dropdown input {
+    padding-right: 6px;
+    padding-left: 52px;
+}
+
+/* Fix for form layout with validation messages */
+.modal .form-control {
+  position: relative;
+  z-index: 2;
+}
+
+.modal .invalid-feedback,
+.modal .valid-feedback {
+  position: absolute;
+  margin-top: 2px;
+  font-size: 0.75rem;
+  z-index: 1;
+}
+
+/* Reserve space for validation messages to prevent layout shift */
+.modal .form-label {
+  margin-bottom: 0.25rem;
+}
+
+.modal .mb-3,
+.modal .col-md-6,
+.modal .col-md-4,
+.modal .col-md-8,
+.modal .col-md-12 {
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+/* Fix for the international telephone input container */
+.iti-container {
+  margin-bottom: 0;
+}
+
+.iti .form-control {
+  margin-bottom: 0;
+}
+
+/* .iti + .invalid-feedback {
+  position: static !important;
+  margin-top: 4px;
+  font-size: 0.75rem;
+} */
+
+/* Make sure modals don't jump when opening/closing */
+.modal.fade .modal-dialog {
+  transform: translate(0, -10px);
+}
+
+.modal.show .modal-dialog {
+  transform: translate(0, 0);
+}
+
+/* Ensure form rows maintain structure */
+.row.g-3 > [class*="col-"] {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Clean Form Validation Styling - Only for non-phone fields */
+.modal .form-control:not(#signupPhone),
+.modal .form-select {
+  margin-bottom: 0 !important;
+}
+
+/* Keep inputs properly aligned vertically */
+.modal .mb-3,
+.modal .col-md-6:not(:has(#signupPhone)),
+.modal .col-md-4,
+.modal .col-md-8,
+.modal .col-md-12 {
+  position: relative;
+  padding-bottom: 1.5rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+/* Only fix non-phone validation messages */
+.modal .invalid-feedback:not(.iti + .invalid-feedback),
+.modal .valid-feedback:not(.iti + .valid-feedback) {
+  position: absolute !important;
+  bottom: 0;
+  left: 0.25rem;
+  margin-top: 0 !important;
+  font-size: 0.75rem;
+}
+
+/* Password field specific fixes */
+.input-group + .invalid-feedback,
+.input-group + .valid-feedback {
+  position: absolute !important;
+  bottom: 0;
+  left: 0.25rem;
+  margin-top: 0 !important;
+  font-size: 0.75rem;
+}
+
+/* Adjust spacing for the submit button area */
+.col-12.mt-4 {
+  margin-top: 1rem !important;
+}
+
+/* Make sure text displays properly in inputs */
+.form-control {
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  line-height: 1.5;
+}
+
+/* Fix toggle button icon alignment */
+.toggle-password {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Better form label spacing */
+.form-label {
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+/* Keep validation messages properly spaced */
+.was-validated .form-control:invalid,
+.form-control.is-invalid {
+  background-position: right calc(0.375em + 0.1875rem) center !important;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem) !important;
+}
+
+/* Phone number specific styling - Only modifies phone input */
+.iti-container + .invalid-feedback {
+  position: static !important;
+  margin-top: 4px !important;
+  font-size: 0.75rem;
+  display: none;
+}
+
+/* Show phone validation error after submission */
+.was-validated #signupPhone.is-invalid ~ .invalid-feedback,
+#signupPhone.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+/* Keep the phone field container properly sized */
+.col-md-6:has(#signupPhone) {
+  padding-bottom: 2.5rem !important;
+}
+
+/* Terms of Service specific styling - Only modifies checkbox validation */
+.col-12:has(#termsAgree) {
+  padding-bottom: 1.75rem !important;
+}
+
+.col-12:has(#termsAgree) .invalid-feedback {
+  position: static !important;
+  margin-top: 4px;
+  display: none;
+}
+
+/* Show terms validation error after submission */
+.was-validated #termsAgree.is-invalid ~ .invalid-feedback,
+#termsAgree.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+/* Fix the checkbox alignment */
+.form-check-input#termsAgree {
+  margin-top: 0.3rem;
+}
+
+.form-check-label {
+  margin-left: 0.2rem;
+}
+
+/* Phone Number Alert Positioning Fix */
+
+/* Make phone input container static, not absolute positioning */
+.col-md-6:has(#signupPhone) {
+  position: relative !important;
+  padding-bottom: 2rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Position the phone validation message correctly below input */
+.iti + .invalid-feedback,
+.iti-container + .invalid-feedback,
+#signupPhone ~ .invalid-feedback {
+  position: static !important;
+  display: block !important;
+  margin-top: 4px !important;
+  font-size: 0.75rem;
+  visibility: hidden;
+}
+
+/* Make validation appear only after form submission */
+.was-validated .iti + .invalid-feedback,
+.was-validated #signupPhone.is-invalid ~ .invalid-feedback,
+#signupPhone.is-invalid ~ .invalid-feedback {
+  visibility: visible !important;
+}
+
+/* Fix the international telephone input container */
+.iti {
+  width: 100% !important;
+  margin-bottom: 0 !important;
+  display: block;
+}
+
+/* Remove conflicting styles */
+.iti-container {
+  margin-bottom: 0 !important;
+  position: static;
+}
+
+/* Phone Input Specific Fixes - Add to your custom.css */
+
+/* Fix container height and positioning */
+.iti-container,
+.col-md-6:has(#signupPhone) {
+  height: auto !important;
+  min-height: 80px !important; /* Reserve consistent space for container + validation */
+}
+
+/* Ensure the phone input field maintains consistent dimensions */
+.iti {
+  width: 100% !important;
+  margin-bottom: 0 !important;
+  display: block;
+  position: relative;
+  z-index: 3;
+}
+
+/* Position validation messages below the input without shifting layout */
+.iti + .invalid-feedback,
+#signupPhone ~ .invalid-feedback {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0.25rem !important;
+  right: 0 !important;
+  margin-top: 0 !important;
+  font-size: 0.75rem;
+  display: none;
+}
+
+/* Show validation messages when needed */
+.was-validated #signupPhone.is-invalid ~ .invalid-feedback {
+  display: block !important;
+}
+
+/* Remove any additional margins that might cause shifting */
+.iti .form-control {
+  margin: 0 !important;
+}
+
+/* Ensure proper input field display within ITI container */
+.iti__flag-container {
+  z-index: 4;
+}
+
+/* Make phone input field consistent height with other inputs */
+#signupPhone {
+  height: calc(1.5em + 0.75rem + 2px) !important;
+}
+
+/* Fix parent container padding to accommodate validation message */
+.col-md-6:has(#signupPhone) {
+  padding-bottom: 20px !important;
+  position: relative !important;
+}
+
+/* Phone Number Field Alert - Completely Hide Validation Messages */
+.iti + .invalid-feedback,
+.iti-container + .invalid-feedback,
+#signupPhone ~ .invalid-feedback,
+#signupPhone + .invalid-feedback,
+.col-md-6:has(#signupPhone) .invalid-feedback {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Always hide phone validation messages even after validation */
+.was-validated #signupPhone.is-invalid ~ .invalid-feedback,
+.was-validated .iti + .invalid-feedback,
+.was-validated .iti-container + .invalid-feedback,
+#signupPhone.is-invalid ~ .invalid-feedback {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Remove excess padding in the phone container that was reserved for messages */
+.col-md-6:has(#signupPhone) {
+  padding-bottom: 0 !important;
+  margin-bottom: 1rem !important;
+  min-height: auto !important;
+  height: auto !important;
+}
+
+/* Fix spacing for phone input to match other inputs */
+.iti-container {
+  margin-bottom: 0 !important;
+}
+
+/* Keep phone input consistent with other fields */
+.iti {
+  margin-bottom: 0 !important;
+  height: auto !important;
+  min-height: auto !important;
+}
+
+/* Email field validation message fix */
+.col-md-6:has(#signupEmail) .invalid-feedback,
+.col-md-6:has(#signupEmail) .valid-feedback {
+  position: static !important;
+  margin-top: 4px !important;
+  padding: 0 !important;
+  font-size: 0.75rem;
+  display: none;
+}
+
+/* Show validation after submission */
+.was-validated .col-md-6:has(#signupEmail) .invalid-feedback,
+.col-md-6:has(#signupEmail) .form-control.is-invalid ~ .invalid-feedback {
+  display: block !important;
+}
+
+/* Fix container spacing for email field */
+.col-md-6:has(#signupEmail) {
+  padding-bottom: 0.75rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+/* Make email field consistent with other inputs */
+#signupEmail {
+  margin-bottom: 0 !important;
+}
+
+/* Tax ID Type button styling - Updated to match site theme */
+.btn-check:checked + .btn-outline-primary {
+    background-color: #259229 !important;
+    color: white;
+    border-color: #259229 !important;
+    font-weight: 500;
+}
+
+/* Update button outline color to match theme */
+.btn-group .btn-outline-primary {
+    color: #259229;
+    border-color: #259229;
+}
+
+.btn-group .btn-outline-primary:hover {
+    background-color: rgba(37, 146, 41, 0.1);
+    color: #259229;
+    border-color: #259229;
+}
+
+/* Update prefix styling to match theme */
+.id-type-prefix {
+    min-width: 60px;
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.id-type-prefix.bg-primary {
+    background-color: #259229 !important;
+}
+
+.id-type-prefix.bg-success {
+    background-color: #259229 !important; /* Using primary color for both */
+}
+
+.id-info-tooltip {
+    color: #6c757d;
+}
+
+.id-info-tooltip:hover {
+    color: #259229;
+}
+
+.btn-group + .invalid-feedback {
+    display: block;
+    text-align: center;
+    margin-top: 0.25rem;
+}
+
+#productModal .modal-content {
+    overflow: hidden;
+}
+
+#productModal .modal-body {
+    max-height: 80vh;
+}
+
+.features-list {
+    font-size: 0.9rem;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px !important;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.features-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.features-list::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
+}
+
+/* Product modal feature styling */
+#modal-product-features {
+    padding-left: 0;
+}
+
+.product-feature-row {
+    display: flex;
+    align-items: flex-start;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.feature-label {
+    font-weight: 600;
+    color: #495057;
+    min-width: 120px;
+    padding-right: 0.5rem;
+}
+
+.feature-value {
+    color: #212529;
+    flex: 1;
+}
+
+/* Mobile styles */
+@media (max-width: 767.98px) {
+    .product-feature-row {
+        flex-direction: column;
+    }
+    
+    .feature-label {
+        width: 100%;
+        margin-bottom: 0.25rem;
+    }
+    
+    .feature-value {
+        padding-left: 1rem;
+        width: 100%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .product-image-container {
+        height: 500px;
+    }
+    
+    .product-detail-img {
+        max-height: 470px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .modal-dialog.modal-lg {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .modal-dialog.modal-lg {
+        max-width: 95%;
+        margin: 0.5rem auto;
+    }
+    
+    .modal-body .row {
+        flex-direction: column;
+    }
+    
+    .modal-body .col-md-8,
+    .modal-body .col-md-4 {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    #modal-product-title {
+        font-size: 1.4rem;
+        margin-top: 1rem;
+    }
+    
+    .feature-label, .feature-value {
+        font-size: 0.95rem;
+    }
+}
+
+/* Overriding Bootstrap's default list-group styles */
+.list-group-item {
+    border: none !important;
+    background-color: transparent !important;
+}
+
+
+.iti {
+    display: block;
+    width: 100%;
+}
+
+.iti__flag-container {
+    z-index: 1050; 
+}
+
+.iti--separate-dial-code .iti__selected-flag {
+    background-color: #f8f9fa;
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.form-control.is-invalid ~ .iti .iti__selected-flag {
+    border-color: #dc3545;
+}
+
+.form-control.is-valid ~ .iti .iti__selected-flag {
+    border-color: #198754;
+}
+
+/* Fix for RTL languages if needed */
+.iti--allow-dropdown input {
+    padding-right: 6px;
+    padding-left: 52px;
+}
+
+/* Fix for form layout with validation messages */
+.modal .form-control {
+  position: relative;
+  z-index: 2;
+}
+
+.modal .invalid-feedback,
+.modal .valid-feedback {
+  position: absolute;
+  margin-top: 2px;
+  font-size: 0.75rem;
+  z-index: 1;
+}
+
+/* Reserve space for validation messages to prevent layout shift */
+.modal .form-label {
+  margin-bottom: 0.25rem;
+}
+
+.modal .mb-3,
+.modal .col-md-6,
+.modal .col-md-4,
+.modal .col-md-8,
+.modal .col-md-12 {
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+/* Fix for the international telephone input container */
+.iti-container {
+  margin-bottom: 0;
+}
+
+.iti .form-control {
+  margin-bottom: 0;
+}
+
+/* .iti + .invalid-feedback {
+  position: static !important;
+  margin-top: 4px;
+  font-size: 0.75rem;
+} */
+
+/* Make sure modals don't jump when opening/closing */
+.modal.fade .modal-dialog {
+  transform: translate(0, -10px);
+}
+
+.modal.show .modal-dialog {
+  transform: translate(0, 0);
+}
+
+/* Ensure form rows maintain structure */
+.row.g-3 > [class*="col-"] {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Clean Form Validation Styling - Only for non-phone fields */
+.modal .form-control:not(#signupPhone),
+.modal .form-select {
+  margin-bottom: 0 !important;
+}
+
+/* Keep inputs properly aligned vertically */
+.modal .mb-3,
+.modal .col-md-6:not(:has(#signupPhone)),
+.modal .col-md-4,
+.modal .col-md-8,
+.modal .col-md-12 {
+  position: relative;
+  padding-bottom: 1.5rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+/* Only fix non-phone validation messages */
+.modal .invalid-feedback:not(.iti + .invalid-feedback),
+.modal .valid-feedback:not(.iti + .valid-feedback) {
+  position: absolute !important;
+  bottom: 0;
+  left: 0.25rem;
+  margin-top: 0 !important;
+  font-size: 0.75rem;
+}
+
+/* Password field specific fixes */
+.input-group + .invalid-feedback,
+.input-group + .valid-feedback {
+  position: absolute !important;
+  bottom: 0;
+  left: 0.25rem;
+  margin-top: 0 !important;
+  font-size: 0.75rem;
+}
+
+/* Adjust spacing for the submit button area */
+.col-12.mt-4 {
+  margin-top: 1rem !important;
+}
+
+/* Make sure text displays properly in inputs */
+.form-control {
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  line-height: 1.5;
+}
+
+/* Fix toggle button icon alignment */
+.toggle-password {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Better form label spacing */
+.form-label {
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+/* Keep validation messages properly spaced */
+.was-validated .form-control:invalid,
+.form-control.is-invalid {
+  background-position: right calc(0.375em + 0.1875rem) center !important;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem) !important;
+}
+
+/* Phone number specific styling - Only modifies phone input */
+.iti-container + .invalid-feedback {
+  position: static !important;
+  margin-top: 4px !important;
+  font-size: 0.75rem;
+  display: none;
+}
+
+/* Show phone validation error after submission */
+.was-validated #signupPhone.is-invalid ~ .invalid-feedback,
+#signupPhone.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+/* Keep the phone field container properly sized */
+.col-md-6:has(#signupPhone) {
+  padding-bottom: 2.5rem !important;
+}
+
+/* Terms of Service specific styling - Only modifies checkbox validation */
+.col-12:has(#termsAgree) {
+  padding-bottom: 1.75rem !important;
+}
+
+.col-12:has(#termsAgree) .invalid-feedback {
+  position: static !important;
+  margin-top: 4px;
+  display: none;
+}
+
+/* Show terms validation error after submission */
+.was-validated #termsAgree.is-invalid ~ .invalid-feedback,
+#termsAgree.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+/* Fix the checkbox alignment */
+.form-check-input#termsAgree {
+  margin-top: 0.3rem;
+}
+
+.form-check-label {
+  margin-left: 0.2rem;
+}
+
+/* Phone Number Alert Positioning Fix */
+
+/* Make phone input container static, not absolute positioning */
+.col-md-6:has(#signupPhone) {
+  position: relative !important;
+  padding-bottom: 2rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Position the phone validation message correctly below input */
+.iti + .invalid-feedback,
+.iti-container + .invalid-feedback,
+#signupPhone ~ .invalid-feedback {
+  position: static !important;
+  display: block !important;
+  margin-top: 4px !important;
+  font-size: 0.75rem;
+  visibility: hidden;
+}
+
+/* Make validation appear only after form submission */
+.was-validated .iti + .invalid-feedback,
+.was-validated #signupPhone.is-invalid ~ .invalid-feedback,
+#signupPhone.is-invalid ~ .invalid-feedback {
+  visibility: visible !important;
+}
+
+/* Fix the international telephone input container */
+.iti {
+  width: 100% !important;
+  margin-bottom: 0 !important;
+  display: block;
+}
+
+/* Remove conflicting styles */
+.iti-container {
+  margin-bottom: 0 !important;
+  position: static;
+}
+
+/* Phone Input Specific Fixes - Add to your custom.css */
+
+/* Fix container height and positioning */
+.iti-container,
+.col-md-6:has(#signupPhone) {
+  height: auto !important;
+  min-height: 80px !important; /* Reserve consistent space for container + validation */
+}
+
+/* Ensure the phone input field maintains consistent dimensions */
+.iti {
+  width: 100% !important;
+  margin-bottom: 0 !important;
+  display: block;
+  position: relative;
+  z-index: 3;
+}
+
+/* Position validation messages below the input without shifting layout */
+.iti + .invalid-feedback,
+#signupPhone ~ .invalid-feedback {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0.25rem !important;
+  right: 0 !important;
+  margin-top: 0 !important;
+  font-size: 0.75rem;
+  display: none;
+}
+
+/* Show validation messages when needed */
+.was-validated #signupPhone.is-invalid ~ .invalid-feedback {
+  display: block !important;
+}
+
+/* Remove any additional margins that might cause shifting */
+.iti .form-control {
+  margin: 0 !important;
+}
+
+/* Ensure proper input field display within ITI container */
+.iti__flag-container {
+  z-index: 4;
+}
+
+/* Make phone input field consistent height with other inputs */
+#signupPhone {
+  height: calc(1.5em + 0.75rem + 2px) !important;
+}
+
+/* Fix parent container padding to accommodate validation message */
+.col-md-6:has(#signupPhone) {
+  padding-bottom: 20px !important;
+  position: relative !important;
+}
+
+/* Phone Number Field Alert - Completely Hide Validation Messages */
+.iti + .invalid-feedback,
+.iti-container + .invalid-feedback,
+#signupPhone ~ .invalid-feedback,
+#signupPhone + .invalid-feedback,
+.col-md-6:has(#signupPhone) .invalid-feedback {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Always hide phone validation messages even after validation */
+.was-validated #signupPhone.is-invalid ~ .invalid-feedback,
+.was-validated .iti + .invalid-feedback,
+.was-validated .iti-container + .invalid-feedback,
+#signupPhone.is-invalid ~ .invalid-feedback {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Remove excess padding in the phone container that was reserved for messages */
+.col-md-6:has(#signupPhone) {
+  padding-bottom: 0 !important;
+  margin-bottom: 1rem !important;
+  min-height: auto !important;
+  height: auto !important;
+}
+
+/* Fix spacing for phone input to match other inputs */
+.iti-container {
+  margin-bottom: 0 !important;
+}
+
+/* Keep phone input consistent with other fields */
+.iti {
+  margin-bottom: 0 !important;
+  height: auto !important;
+  min-height: auto !important;
+}
+
+/* Email field validation message fix */
+.col-md-6:has(#signupEmail) .invalid-feedback,
+.col-md-6:has(#signupEmail) .valid-feedback {
+  position: static !important;
+  margin-top: 4px !important;
+  padding: 0 !important;
+  font-size: 0.75rem;
+  display: none;
+}
+
+/* Show validation after submission */
+.was-validated .col-md-6:has(#signupEmail) .invalid-feedback,
+.col-md-6:has(#signupEmail) .form-control.is-invalid ~ .invalid-feedback {
+  display: block !important;
+}
+
+/* Fix container spacing for email field */
+.col-md-6:has(#signupEmail) {
+  padding-bottom: 0.75rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+/* Make email field consistent with other inputs */
+#signupEmail {
+  margin-bottom: 0 !important;
+}
+
+/* Tax ID Type button styling - Updated to match site theme */
+.btn-check:checked + .btn-outline-primary {
+    background-color: #259229 !important;
+    color: white;
+    border-color: #259229 !important;
+    font-weight: 500;
+}
+
+/* Update button outline color to match theme */
+.btn-group .btn-outline-primary {
+    color: #259229;
+    border-color: #259229;
+}
+
+.btn-group .btn-outline-primary:hover {
+    background-color: rgba(37, 146, 41, 0.1);
+    color: #259229;
+    border-color: #259229;
+}
+
+/* Update prefix styling to match theme */
+.id-type-prefix {
+    min-width: 60px;
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.id-type-prefix.bg-primary {
+    background-color: #259229 !important;
+}
+
+.id-type-prefix.bg-success {
+    background-color: #259229 !important; /* Using primary color for both */
+}
+
+.id-info-tooltip {
+    color: #6c757d;
+}
+
+.id-info-tooltip:hover {
+    color: #259229;
+}
+
+.btn-group + .invalid-feedback {
+    display: block;
+    text-align: center;
+    margin-top: 0.25rem;
+}
+
+#productModal .modal-content {
+    overflow: hidden;
+}
+
+#productModal .modal-body {
+    max-height: 80vh;
+}
+
+.features-list {
+    font-size: 0.9rem;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px !important;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.features-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.features-list::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
+}
+
+/* Product modal feature styling */
+#modal-product-features {
+    padding-left: 0;
+}
+
+.product-feature-row {
+    display: flex;
+    align-items: flex-start;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.feature-label {
+    font-weight: 600;
+    color: #495057;
+    min-width: 120px;
+    padding-right: 0.5rem;
+}
+
+.feature-value {
+    color: #212529;
+    flex: 1;
+}
+
+/* Mobile styles */
+@media (max-width: 767.98px) {
+    .product-feature-row {
+        flex-direction: column;
+    }
+    
+    .feature-label {
+        width: 100%;
+        margin-bottom: 0.25rem;
+    }
+    
+    .feature-value {
+        padding-left: 1rem;
+        width: 100%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .product-image-container {
+        height: 500px;
+    }
+    
+    .product-detail-img {
+        max-height: 470px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .modal-dialog.modal-lg {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .modal-dialog.modalcss-lg {
+        max-width: 95%;
+        margin: 0.5rem auto;
+    }
+    
+    .modal-body .row {
+        flex-direction: column;
+    }
+    
+    .modal-body .col-md-8,
+    .modal-body .col-md-4 {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    #modal-product-title {
+        font-size: 1.4rem;
+        margin-top: 1rem;
+    }
+    
+    .feature-label, .feature-value {
+        font-size: 0.95rem;
+    }
+}
+
+/* Modal Responsiveness Improvements */
+.modal-body {
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+/* Better display of features */
+.product-feature-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.feature-label {
+  font-weight: 600;
+  min-width: 120px;
+}
+
+.feature-value {
+  flex: 1;
+}
+
+/* Image container styling */
+.product-image-container {
+  cursor: pointer;
+  position: relative;
+}
+
+.product-image-container::after {
+  content: "\f00e";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-color: rgba(255,255,255,0.7);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.product-image-container:hover::after {
+  opacity: 1;
+}
+
+.product-detail-img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  .image-description-container {
+    order: -1;
+    margin-bottom: 1rem;
+  }
+  
+  .modal-body .row {
+    flex-direction: column;
+  }
+  
+  .modal-dialog {
+    margin: 0.5rem;
+    max-width: calc(100% - 1rem);
+  }
+  
+  .product-detail-img {
+    max-height: 300px;
+  }
+  
+  .feature-label {
+    min-width: 100px;
+  }
+}
+
+/* Color options styling */
+.color-options-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.color-option {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #dee2e6;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.color-option.selected {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.color-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Description styling */
+.description-under-image {
+  margin-top: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+/* Fullscreen image improvements */
+.fullscreen-image-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
 .fullscreen-image-container.active {
-    opacity: 1;
-    visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .fullscreen-image {
-    max-width: 85%;
-    max-height: 85vh;
-    object-fit: contain;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    transform: scale(0.9);
-    transition: transform 0.3s ease;
-}
-
-.fullscreen-image-container.active .fullscreen-image {
-    transform: scale(1);
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
 }
 
 .fullscreen-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.2); /* Lighter close button */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.2s ease;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: all 0.2s;
 }
 
 .fullscreen-close:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .fullscreen-close i {
-    color: #ffffff; /* White icon for better visibility */
+  color: #ffffff; /* White icon for better visibility */
     font-size: 20px;
 }
 
