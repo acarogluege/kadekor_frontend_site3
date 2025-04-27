@@ -129,7 +129,7 @@
                                         <div class="accordion-body">
                                             <ul class="list-unstyled ps-2">
                                                 <li class="mb-2">
-                                                    <a href="#deodora"
+                                                    <a href="#deodora
                                                         class="text-decoration-none text-dark d-block">Deodora
                                                         Series</a>
                                                 </li>
@@ -158,8 +158,13 @@
                                     <div id="collapseVinylbond" class="accordion-collapse collapse"
                                         aria-labelledby="headingVinylbond" data-bs-parent="#productAccordion">
                                         <div class="accordion-body">
-                                            <p class="text-muted mb-0">Vinylbond product information will be displayed
-                                                here.</p>
+                                            <ul class="list-unstyled ps-2">
+                                                <li class="mb-2">
+                                                    <a href="#vinylbond" class="text-decoration-none text-dark d-block">
+                                                        <i class="fas fa-layer-group me-2"></i>Vinylbond Products
+                                                    </a>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -412,7 +417,57 @@
                         <!-- Vinylbond -->
                         <h2 id="vinylbond" class="fw-bold mb-4 pt-4 mt-3">Vinylbond</h2>
                         <div class="row g-4 mb-5 product-grid" data-category="vinylbond">
-                            <!-- Vinylbond products -->
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card product-card border-0 shadow-sm h-100">
+                                    <div class="card-img-container">
+                                        <img src="./img/ribbon-kesit.jpg" class="card-img-top" alt="Ribbon Wall Panel">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title fw-bold">Ribbon Wall Panel</h5>
+                                        <p class="card-text text-muted small">Premium decorative wall panel system with elegant ribbon pattern</p>
+                                        <div class="d-flex justify-content-end mt-3">
+                                            <button class="btn btn-sm btn-outline-primary view-details" 
+                                                data-product-id="5000" 
+                                                data-bs-toggle="modal" 
+                                                data-bs-target="#productModal">View Details</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card product-card border-0 shadow-sm h-100">
+                                    <div class="card-img-container">
+                                        <img src="./img/solid-kesit.jpg" class="card-img-top" alt="Ribbon Wall Panel">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title fw-bold">Solid Wall Panel</h5>
+                                        <p class="card-text text-muted small">Premium decorative wall panel system with elegant ribbon pattern</p>
+                                        <div class="d-flex justify-content-end mt-3">
+                                            <button class="btn btn-sm btn-outline-primary view-details" 
+                                                data-product-id="5001" 
+                                                data-bs-toggle="modal" 
+                                                data-bs-target="#productModal">View Details</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card product-card border-0 shadow-sm h-100">
+                                    <div class="card-img-container">
+                                        <img src="./img/maxi-kesit.jpg" class="card-img-top" alt="Ribbon Wall Panel">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title fw-bold">Maxi Wall Panel</h5>
+                                        <p class="card-text text-muted small">Premium decorative wall panel system with elegant ribbon pattern</p>
+                                        <div class="d-flex justify-content-end mt-3">
+                                            <button class="btn btn-sm btn-outline-primary view-details" 
+                                                data-product-id="5002" 
+                                                data-bs-toggle="modal" 
+                                                data-bs-target="#productModal">View Details</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -931,6 +986,72 @@
                         { name: "Black", value: "black", image: "./img/3006-mlbeyaz.jpg" }
                     ],
                     description: "The Fagus 3006 door combines modern aesthetics with premium functionality. Featuring a distinctive panel design and superior sound insulation, this door is perfect for contemporary interiors. The high-quality construction ensures durability while the elegant finish adds a touch of sophistication to any space. Available in multiple color options to complement various interior styles."
+                },
+                5000: {
+                    name: "Ribbon Wall Panel",
+                    category: "Vinylbond",
+                    subcategory: "Decorative Wall Panel",
+                    mainImage: "./img/ribbon-kesit.jpg",
+                    features: {
+                        "Product Code": "VB-RBN-01",
+                        "Panel Size": "2800 × 600 × 8 mm",
+                        "Coverage Area": "1.68 m²/panel",
+                        "Panel Weight": "4.5 kg/m²",
+                        "Material": "High-density composite with PVC coating",
+                        "Installation": "Direct wall mounting with clip system",
+                        "Fire Rating": "B-s2-d0",
+                        "Application": "Interior walls, feature walls, commercial spaces"
+                    },
+                    colors: [
+                        { name: "Natural Oak", value: "oak", image: "./img/ribbon-kesit.jpg" }
+                    ],
+                    description: `
+                        The Ribbon Wall Panel is a modern decorative wall solution that combines style and functionality. Made from high-density composite material with a PVC coating, it offers durability and easy maintenance. The panel features a unique ribbon design that adds depth and texture to any interior space. With a fire rating of B-s2-d0, it is suitable for both residential and commercial applications. The direct wall mounting with clip system ensures quick and hassle-free installation.
+                    `
+                },
+                5001: {
+                    name: "Solid Wall Panel",
+                    category: "Vinylbond",
+                    subcategory: "Decorative Wall Panel",
+                    mainImage: "./img/solid-kesit.jpg",
+                    features: {
+                        "Product Code": "VB-RBN-01",
+                        "Panel Size": "2800 × 600 × 8 mm",
+                        "Coverage Area": "1.68 m²/panel",
+                        "Panel Weight": "4.5 kg/m²",
+                        "Material": "High-density composite with PVC coating",
+                        "Installation": "Direct wall mounting with clip system",
+                        "Fire Rating": "B-s2-d0",
+                        "Application": "Interior walls, feature walls, commercial spaces"
+                    },
+                    colors: [
+                        { name: "Natural Oak", value: "oak", image: "./img/solid-kesit.jpg" }
+                    ],
+                    description: `
+                        The Ribbon Wall Panel is a modern decorative wall solution that combines style and functionality. Made from high-density composite material with a PVC coating, it offers durability and easy maintenance. The panel features a unique ribbon design that adds depth and texture to any interior space. With a fire rating of B-s2-d0, it is suitable for both residential and commercial applications. The direct wall mounting with clip system ensures quick and hassle-free installation.
+                    `
+                },
+                5002: {
+                    name: "Maxi Wall Panel",
+                    category: "Vinylbond",
+                    subcategory: "Decorative Wall Panel",
+                    mainImage: "./img/maxi-kesit.jpg",
+                    features: {
+                        "Product Code": "VB-WG-01",
+                        "Panel Size": "2800 × 600 × 8 mm",
+                        "Coverage Area": "1.68 m²/panel",
+                        "Panel Weight": "4.5 kg/m²",
+                        "Material": "High-density composite with PVC coating",
+                        "Installation": "Direct wall mounting with clip system",
+                        "Fire Rating": "B-s2-d0",
+                        "Application": "Interior walls, feature walls, commercial spaces"
+                    },
+                    colors: [
+                        { name: "Natural Oak", value: "oak", image: "./img/maxi-kesit.jpg" }
+                    ],
+                    description: `
+                        The Ribbon Wall Panel is a modern decorative wall solution that combines style and functionality. Made from high-density composite material with a PVC coating, it offers durability and easy maintenance. The panel features a unique ribbon design that adds depth and texture to any interior space. With a fire rating of B-s2-d0, it is suitable for both residential and commercial applications. The direct wall mounting with clip system ensures quick and hassle-free installation.
+                    `
                 }
             };
 
@@ -1026,7 +1147,7 @@
                                 <p class="text-muted small">${product.description}</p>
                             `;
                             
-                            if (product.category === 'Door') {
+                            if (product.category === 'Door' || product.category === 'Vinylbond') {
                                 underImageDescriptionContainer.innerHTML = descriptionHTML;
                             } else {
                                 descriptionContainer.innerHTML = descriptionHTML;
@@ -1053,6 +1174,20 @@
                             featureItem.appendChild(valueSpan);
                             featuresList.appendChild(featureItem);
                         }
+                    }
+
+                    // Make sure modal body has proper scrolling
+                    const modalBody = document.querySelector('#productModal .modal-body');
+                    if (modalBody) {
+                        modalBody.scrollTop = 0; // Reset scroll position when opening modal
+                    }
+                    
+                    // Ensure modal has proper height settings
+                    const modalDialog = document.querySelector('#productModal .modal-dialog');
+                    if (modalDialog) {
+                        modalDialog.style.maxHeight = '95vh';
+                        modalDialog.style.display = 'flex';
+                        modalDialog.style.flexDirection = 'column';
                     }
                 });
             });
@@ -1220,7 +1355,8 @@
                 const childrenMap = {
                     'pvc-ic-mekan': ['wooden-interior', 'solid-pastel', 'high-gloss', 'backside-lining'],
                     'pvc-dis-mekan': ['wooden-exterior', 'solid-exterior'],
-                    'door': ['deodora', 'fagus', 'cedrus']
+                    'door': ['deodora', 'fagus', 'cedrus'],
+                    'vinylbond': []
                 };
                 
                 return childrenMap[parentId] && childrenMap[parentId].includes(categoryId);
