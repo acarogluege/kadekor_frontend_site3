@@ -5850,3 +5850,157 @@ bubble-label a:hover {
     object-fit: contain;
     transition: transform 0.3s ease;
 }
+
+/* Card image container to prevent layout shift */
+.card-img-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 66.67%; /* 3:2 aspect ratio */
+  overflow: hidden;
+  background-color: #f8f9fa;
+}
+
+.card-img-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #f1f1f1, #e9e9e9);
+}
+
+.card-img-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.lazy-load {
+  opacity: 0;
+}
+
+/* Fix for swiper initialization */
+.newsSwiper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.newsSwiper .swiper-wrapper {
+  display: flex;
+  transition-property: transform;
+  box-sizing: content-box;
+}
+
+/* Give the slides a minimum height before loading */
+.newsSwiper .swiper-slide {
+  height: auto;
+  min-height: 350px; /* Fixed minimum height */
+}
+
+.newsSwiper .card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.newsSwiper .card-body {
+  flex: 1;
+}
+
+/* News Swiper specific styles */
+.newsSwiper {
+  padding: 20px 5px 40px 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.newsSwiper .swiper-button-next,
+.newsSwiper .swiper-button-prev {
+  color: #259229; /* Match your primary color */
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.newsSwiper .swiper-button-next:after,
+.newsSwiper .swiper-button-prev:after {
+  font-size: 18px;
+}
+
+.newsSwiper .swiper-button-next {
+  right: 5px;
+}
+
+.newsSwiper .swiper-button-prev {
+  left: 5px;
+}
+
+.newsSwiper .swiper-pagination {
+  bottom: 5px !important;
+}
+
+.newsSwiper .swiper-pagination-bullet {
+  background: rgba(37, 146, 41, 0.5);
+  opacity: 0.5;
+}
+
+.newsSwiper .swiper-pagination-bullet-active {
+  background: #259229;
+  opacity: 1;
+}
+
+/* Make sure cards in slides are full height */
+.newsSwiper .swiper-slide {
+  height: auto;
+}
+
+@media (max-width: 767.98px) {
+  .newsSwiper .swiper-button-next,
+  .newsSwiper .swiper-button-prev {
+    display: none;
+  }
+}
+/* Improve Read More button accessibility */
+.card-footer .btn-link {
+  text-decoration: none;
+  position: relative;
+  transition: all 0.2s ease;
+  padding: 8px 0;
+  margin: -8px 0;
+  width: fit-content;
+}
+
+.card-footer .btn-link:hover {
+  text-decoration: underline;
+}
+
+.card-footer .btn-link:focus {
+  outline: 2px solid #259229;
+  border-radius: 3px;
+}
+
+.card-footer .btn-link:hover .fa-arrow-right {
+  transform: translateX(4px);
+}
+
+.card-footer .btn-link .fa-arrow-right {
+  transition: transform 0.2s ease;
+}
+
+/* High contrast mode visibility improvements */
+@media (forced-colors: active) {
+  .card-footer .btn-link:focus {
+    outline: 2px solid CanvasText;
+  }
+}
