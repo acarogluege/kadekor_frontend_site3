@@ -6004,3 +6004,42 @@ bubble-label a:hover {
     outline: 2px solid CanvasText;
   }
 }
+
+.legal-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.legal-content h1 {
+  color: #259229;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.legal-content h2 {
+  color: #259229;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.legal-content p {
+  margin-bottom: 1.2rem;
+  text-align: justify;
+}
+
+.legal-content ul, .legal-content ol {
+  margin-bottom: 1.5rem;
+}
+
+.legal-content li {
+  margin-bottom: 0.5rem;
+}
+
+.legal-content .last-updated {
+  font-style: italic;
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
